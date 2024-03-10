@@ -1,0 +1,49 @@
+<mxfile host="app.diagrams.net" modified="2024-03-02T11:20:59.758Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0" etag="xc-VS6DAFSgoyDrlrcKM" version="24.0.0" type="device">
+  <diagram name="InstructorItemPuckUp" id="4jgPU7i3_wvB3pA2sX_O">
+    <mxGraphModel dx="880" dy="442" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="x9MJhG8bKUskiO-uLM30-0" />
+        <mxCell id="x9MJhG8bKUskiO-uLM30-1" parent="x9MJhG8bKUskiO-uLM30-0" />
+        <mxCell id="x9MJhG8bKUskiO-uLM30-2" value="in: Instructor" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="x9MJhG8bKUskiO-uLM30-1" vertex="1">
+          <mxGeometry x="120" y="50" width="100" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="x9MJhG8bKUskiO-uLM30-4" value="r: Room" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="x9MJhG8bKUskiO-uLM30-1" vertex="1">
+          <mxGeometry x="290" y="50" width="100" height="270" as="geometry" />
+        </mxCell>
+        <mxCell id="x9MJhG8bKUskiO-uLM30-3" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="x9MJhG8bKUskiO-uLM30-4" vertex="1">
+          <mxGeometry x="-125" y="130" width="10" height="110" as="geometry" />
+        </mxCell>
+        <mxCell id="x9MJhG8bKUskiO-uLM30-5" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="x9MJhG8bKUskiO-uLM30-4" vertex="1">
+          <mxGeometry x="45" y="160" width="10" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="x9MJhG8bKUskiO-uLM30-8" value="removeItem(i)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="x9MJhG8bKUskiO-uLM30-4" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="-120" y="160" as="sourcePoint" />
+            <mxPoint x="49.50000000000023" y="160" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="-80" y="160" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x9MJhG8bKUskiO-uLM30-9" value="" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=-5;exitPerimeter=0;" parent="x9MJhG8bKUskiO-uLM30-4" source="x9MJhG8bKUskiO-uLM30-5" target="x9MJhG8bKUskiO-uLM30-3" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint y="180" as="sourcePoint" />
+            <mxPoint x="-80" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="x9MJhG8bKUskiO-uLM30-10" value="pickUpItem(i)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=5;entryPerimeter=0;" parent="x9MJhG8bKUskiO-uLM30-1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="70" y="180" as="sourcePoint" />
+            <mxPoint x="165.0000000000001" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="R8AOpOuXjhogss8tk9qc-0" value="opt" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;" vertex="1" parent="x9MJhG8bKUskiO-uLM30-1">
+          <mxGeometry x="20" y="100" width="430" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="R8AOpOuXjhogss8tk9qc-1" value="[i is not logarléc]" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="x9MJhG8bKUskiO-uLM30-1">
+          <mxGeometry x="20" y="130" width="110" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,66 @@
+<mxfile host="app.diagrams.net" modified="2024-03-02T00:35:25.981Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:123.0) Gecko/20100101 Firefox/123.0" etag="e2ZXwUWwHgszNRqPt1N-" version="24.0.0" type="device">
+  <diagram id="oP12XMrVPe4MuxAEgVs0" name="StudentItemPickUp">
+    <mxGraphModel dx="880" dy="442" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="v0VW3kEOeEPae2AhgNna-1" value="s: Student" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+          <mxGeometry x="60" y="50" width="100" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="v0VW3kEOeEPae2AhgNna-4" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="v0VW3kEOeEPae2AhgNna-1" vertex="1">
+          <mxGeometry x="45" y="50" width="10" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="v0VW3kEOeEPae2AhgNna-2" value="r: Room" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+          <mxGeometry x="230" y="50" width="100" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="v0VW3kEOeEPae2AhgNna-6" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="v0VW3kEOeEPae2AhgNna-2" vertex="1">
+          <mxGeometry x="45" y="80" width="10" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="v0VW3kEOeEPae2AhgNna-3" value="i :Item" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
+          <mxGeometry x="440" y="50" width="100" height="300" as="geometry" />
+        </mxCell>
+        <mxCell id="v0VW3kEOeEPae2AhgNna-10" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="v0VW3kEOeEPae2AhgNna-3" vertex="1">
+          <mxGeometry x="45" y="140" width="10" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="v0VW3kEOeEPae2AhgNna-5" value="removeItem(i)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="110" y="130" as="sourcePoint" />
+            <mxPoint x="279.5000000000002" y="130" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="150" y="130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="v0VW3kEOeEPae2AhgNna-7" value="" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=-5;exitPerimeter=0;" parent="1" source="v0VW3kEOeEPae2AhgNna-6" target="v0VW3kEOeEPae2AhgNna-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="230" y="150" as="sourcePoint" />
+            <mxPoint x="150" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="v0VW3kEOeEPae2AhgNna-8" value="pickUpItem(i)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=5;entryPerimeter=0;" parent="1" edge="1">
+          <mxGeometry width="80" relative="1" as="geometry">
+            <mxPoint x="10" y="120" as="sourcePoint" />
+            <mxPoint x="105.00000000000011" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="v0VW3kEOeEPae2AhgNna-9" value="onPickedUp()" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" parent="1" edge="1">
+          <mxGeometry x="0.0959" width="80" relative="1" as="geometry">
+            <mxPoint x="120.00000000000011" y="190" as="sourcePoint" />
+            <mxPoint x="485" y="190" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="280" y="190" />
+              <mxPoint x="430" y="190" />
+            </Array>
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="q2mQUFH5u7X6DuZXXs0P-1" value="" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;curved=0;rounded=0;" parent="1" target="v0VW3kEOeEPae2AhgNna-4" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="490" y="270" as="sourcePoint" />
+            <mxPoint x="120.00000000000011" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

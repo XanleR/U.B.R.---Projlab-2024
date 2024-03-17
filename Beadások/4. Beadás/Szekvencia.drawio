@@ -1,16 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 <mxfile host="Electron" modified="2024-03-17T21:37:01.242Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="qLFXnJiFX-zcxYpy4K9w" version="24.0.4" type="device" pages="35">
-=======
-<mxfile host="Electron" modified="2024-03-17T20:46:47.856Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="VwOfsgvhpGj5MFbRz2Gw" version="23.1.5" type="device" pages="30">
->>>>>>> c9d01e1dbef08b82815b01ec3b47d56d2b20367a
-=======
-<mxfile host="Electron" modified="2024-03-17T20:46:47.856Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="VwOfsgvhpGj5MFbRz2Gw" version="23.1.5" type="device" pages="30">
->>>>>>> c9d01e1dbef08b82815b01ec3b47d56d2b20367a
-=======
-<mxfile host="Electron" modified="2024-03-17T20:46:47.856Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/23.1.5 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="VwOfsgvhpGj5MFbRz2Gw" version="23.1.5" type="device" pages="30">
->>>>>>> c9d01e1dbef08b82815b01ec3b47d56d2b20367a
   <diagram name="SimpleMove" id="SQszq0q4NGzhNuZuHwGa">
     <mxGraphModel dx="1152" dy="901" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -480,19 +468,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="q9sYYLnjESRC8t9VvrVC" name="Use Transistor">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     <mxGraphModel dx="716" dy="601" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
-=======
-    <mxGraphModel dx="880" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
->>>>>>> c9d01e1dbef08b82815b01ec3b47d56d2b20367a
-=======
-    <mxGraphModel dx="880" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
->>>>>>> c9d01e1dbef08b82815b01ec3b47d56d2b20367a
-=======
-    <mxGraphModel dx="880" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
->>>>>>> c9d01e1dbef08b82815b01ec3b47d56d2b20367a
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -578,19 +554,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="OF1X45QZrV2f0yHe9kJ4" name="Use Camambert">
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     <mxGraphModel dx="1152" dy="901" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
-=======
-    <mxGraphModel dx="880" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
->>>>>>> c9d01e1dbef08b82815b01ec3b47d56d2b20367a
-=======
-    <mxGraphModel dx="880" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
->>>>>>> c9d01e1dbef08b82815b01ec3b47d56d2b20367a
-=======
-    <mxGraphModel dx="880" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
->>>>>>> c9d01e1dbef08b82815b01ec3b47d56d2b20367a
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -690,19 +654,7 @@
         <mxCell id="TH8tsN16BNuSsZC2YSB5-9" value="" style="html=1;points=[[0,0,0,0,5],[0,1,0,0,-5],[1,0,0,0,5],[1,1,0,0,-5]];perimeter=orthogonalPerimeter;outlineConnect=0;targetShapes=umlLifeline;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="TH8tsN16BNuSsZC2YSB5-5" vertex="1">
           <mxGeometry x="50" y="200" width="10" height="20" as="geometry" />
         </mxCell>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         <mxCell id="TH8tsN16BNuSsZC2YSB5-7" value="addRoom(gc)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=5;" parent="1" source="hPaXpXn_2FXSuq_3yjFY-4" target="TH8tsN16BNuSsZC2YSB5-6" edge="1">
-=======
-        <mxCell id="TH8tsN16BNuSsZC2YSB5-7" value="addRoom(g)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=5;" parent="1" source="hPaXpXn_2FXSuq_3yjFY-4" target="TH8tsN16BNuSsZC2YSB5-6" edge="1">
->>>>>>> c9d01e1dbef08b82815b01ec3b47d56d2b20367a
-=======
-        <mxCell id="TH8tsN16BNuSsZC2YSB5-7" value="addRoom(g)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=5;" parent="1" source="hPaXpXn_2FXSuq_3yjFY-4" target="TH8tsN16BNuSsZC2YSB5-6" edge="1">
->>>>>>> c9d01e1dbef08b82815b01ec3b47d56d2b20367a
-=======
-        <mxCell id="TH8tsN16BNuSsZC2YSB5-7" value="addRoom(g)" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;entryX=0;entryY=0;entryDx=0;entryDy=5;" parent="1" source="hPaXpXn_2FXSuq_3yjFY-4" target="TH8tsN16BNuSsZC2YSB5-6" edge="1">
->>>>>>> c9d01e1dbef08b82815b01ec3b47d56d2b20367a
           <mxGeometry x="0.0811" relative="1" as="geometry">
             <mxPoint x="600" y="335" as="sourcePoint" />
             <mxPoint as="offset" />

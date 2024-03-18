@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2024-03-18T03:02:14.685Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="EOA9z2NX1ca0_RRpnMms" version="24.0.4" type="device" pages="3">
+<mxfile host="Electron" modified="2024-03-18T10:00:02.080Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="jeE7N8pDvblf8O_nVN6c" version="24.0.4" type="device" pages="3">
   <diagram name="Attack WetRag Effect" id="nPsDS_A6axtzXALNAuT4">
-    <mxGraphModel dx="1434" dy="854" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1290" dy="621" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -84,7 +84,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="Xn3M_0BOEY3UbDwNUt2p" name="Attack GlassOfBeer Effect">
-    <mxGraphModel dx="1434" dy="854" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="860" dy="414" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -128,7 +128,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="zxKfu_uZKBlF80Zoo22S-12" value="2:&amp;nbsp;&lt;span style=&quot;font-size: 11px; text-align: left; background-color: rgb(24, 20, 29);&quot;&gt;getActivated&lt;/span&gt;()" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
+        <mxCell id="zxKfu_uZKBlF80Zoo22S-12" value="&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;2:&amp;nbsp;&lt;/span&gt;&lt;span style=&quot;font-size: 11px; text-align: left;&quot;&gt;getActivated&lt;/span&gt;&lt;span style=&quot;background-color: rgb(255, 255, 255);&quot;&gt;()&lt;/span&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="1" vertex="1">
           <mxGeometry x="440" y="810" width="110" height="30" as="geometry" />
         </mxCell>
         <mxCell id="zxKfu_uZKBlF80Zoo22S-13" value="" style="endArrow=classic;html=1;rounded=0;" parent="1" edge="1">
@@ -153,7 +153,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="rCSESKLrBALXlpppG-cJ" name="Attack TVSZ Effect">
-    <mxGraphModel dx="1434" dy="854" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1290" dy="621" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />

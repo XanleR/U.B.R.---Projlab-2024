@@ -1,6 +1,6 @@
-<mxfile host="Electron" modified="2024-03-17T21:37:01.242Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="qLFXnJiFX-zcxYpy4K9w" version="24.0.4" type="device" pages="35">
+<mxfile host="Electron" modified="2024-03-18T11:55:04.794Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.0.4 Chrome/120.0.6099.109 Electron/28.1.0 Safari/537.36" etag="0422n8834Y0kaLDBL9Qh" version="24.0.4" type="device" pages="35">
   <diagram name="SimpleMove" id="SQszq0q4NGzhNuZuHwGa">
-    <mxGraphModel dx="1152" dy="901" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1290" dy="621" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1557,7 +1557,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="clAq-wIx5WJQDfJydDY-" name="PickUpSlideRule">
-    <mxGraphModel dx="859" dy="721" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1802" dy="909" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1662,7 +1662,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="f832l-MyLrgAt2mcokG_" name="Drop Dice">
-    <mxGraphModel dx="1152" dy="901" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="693" dy="350" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1674,7 +1674,7 @@
         </mxCell>
         <mxCell id="bdadx4s-XERdXvL1NMSm-3" value="dropItem(d)" style="html=1;verticalAlign=bottom;startArrow=none;endArrow=block;startSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;startFill=0;" parent="bdadx4s-XERdXvL1NMSm-1" target="bdadx4s-XERdXvL1NMSm-2" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-60" y="70" as="sourcePoint" />
+            <mxPoint x="-80" y="70" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="10" y="70" />
             </Array>
@@ -1719,11 +1719,21 @@
         <mxCell id="bdadx4s-XERdXvL1NMSm-11" value="d: Dice" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
           <mxGeometry x="470" y="160" width="100" height="180" as="geometry" />
         </mxCell>
+        <mxCell id="GaeIz954OeGa6wqQFVZK-1" value="" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="235" y="310" />
+              <mxPoint x="175" y="430" />
+            </Array>
+            <mxPoint x="250" y="310" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="DWCJWyRFSphTznfEXN5o" name="Drop FFP2">
-    <mxGraphModel dx="1074" dy="901" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="331" dy="167" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1735,7 +1745,7 @@
         </mxCell>
         <mxCell id="rMofJqfG_qjGFm-KbeMt-3" value="dropItem(f)" style="html=1;verticalAlign=bottom;startArrow=none;endArrow=block;startSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;startFill=0;" parent="rMofJqfG_qjGFm-KbeMt-1" target="rMofJqfG_qjGFm-KbeMt-2" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-60" y="70" as="sourcePoint" />
+            <mxPoint x="-80" y="70" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="10" y="70" />
             </Array>
@@ -1780,11 +1790,21 @@
         <mxCell id="rMofJqfG_qjGFm-KbeMt-11" value="f: FFP2" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
           <mxGeometry x="470" y="160" width="100" height="180" as="geometry" />
         </mxCell>
+        <mxCell id="TjRfOcJ8YpEcdLh3SsW6-1" value="" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="235" y="310" />
+              <mxPoint x="175" y="430" />
+            </Array>
+            <mxPoint x="250" y="310" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="nQ9I9-pyc0jOTu-FHxVq" name="Drop TVSZ">
-    <mxGraphModel dx="796" dy="667" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="693" dy="350" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1796,7 +1816,7 @@
         </mxCell>
         <mxCell id="dSQaQV01DTDP4GXFhIX1-3" value="dropItem(t)" style="html=1;verticalAlign=bottom;startArrow=none;endArrow=block;startSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;startFill=0;" parent="dSQaQV01DTDP4GXFhIX1-1" target="dSQaQV01DTDP4GXFhIX1-2" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-60" y="70" as="sourcePoint" />
+            <mxPoint x="-80" y="70" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="10" y="70" />
             </Array>
@@ -1841,11 +1861,21 @@
         <mxCell id="dSQaQV01DTDP4GXFhIX1-11" value="t: TVSZ" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
           <mxGeometry x="470" y="160" width="100" height="180" as="geometry" />
         </mxCell>
+        <mxCell id="ijThSgVUJLCmdaV5Emti-1" value="" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="235" y="310" />
+              <mxPoint x="175" y="430" />
+            </Array>
+            <mxPoint x="250" y="310" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="ZtlDlibp9SLgd13xRksP" name="Drop Transistor">
-    <mxGraphModel dx="794" dy="621" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="440" dy="222" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1857,7 +1887,7 @@
         </mxCell>
         <mxCell id="HhFAhj0PjVB3kilXhnnW-3" value="dropItem(t)" style="html=1;verticalAlign=bottom;startArrow=none;endArrow=block;startSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;startFill=0;" parent="HhFAhj0PjVB3kilXhnnW-1" target="HhFAhj0PjVB3kilXhnnW-2" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-60" y="70" as="sourcePoint" />
+            <mxPoint x="-80" y="70" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="10" y="70" />
             </Array>
@@ -1902,11 +1932,21 @@
         <mxCell id="HhFAhj0PjVB3kilXhnnW-11" value="t: transistor" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
           <mxGeometry x="470" y="160" width="100" height="180" as="geometry" />
         </mxCell>
+        <mxCell id="PJ54GHlo6mMR7kjUtW1i-1" value="" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="235" y="310" />
+              <mxPoint x="175" y="430" />
+            </Array>
+            <mxPoint x="250" y="310" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="EWfdrK8a2lOLhF8S3-N-" name="Drop WetRag">
-    <mxGraphModel dx="651" dy="546" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="515" dy="260" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1918,7 +1958,7 @@
         </mxCell>
         <mxCell id="U1VagtXP3YTc0aVVNs6S-3" value="dropItem(w)" style="html=1;verticalAlign=bottom;startArrow=none;endArrow=block;startSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;startFill=0;" parent="U1VagtXP3YTc0aVVNs6S-1" target="U1VagtXP3YTc0aVVNs6S-2" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-60" y="70" as="sourcePoint" />
+            <mxPoint x="-80" y="70" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="10" y="70" />
             </Array>
@@ -1963,11 +2003,21 @@
         <mxCell id="U1VagtXP3YTc0aVVNs6S-11" value="w: WetRag" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
           <mxGeometry x="470" y="160" width="100" height="180" as="geometry" />
         </mxCell>
+        <mxCell id="tZ0ZjJN1y8Kvpla8leys-1" value="" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="235" y="310" />
+              <mxPoint x="175" y="430" />
+            </Array>
+            <mxPoint x="250" y="310" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="IpV7UoRv6bt0TBmJDSgn" name="Drop Camambert">
-    <mxGraphModel dx="1074" dy="901" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="644" dy="325" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -1979,7 +2029,7 @@
         </mxCell>
         <mxCell id="Syfck0HUXjJvv1hlBv66-3" value="dropItem(c)" style="html=1;verticalAlign=bottom;startArrow=none;endArrow=block;startSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;startFill=0;" parent="Syfck0HUXjJvv1hlBv66-1" target="Syfck0HUXjJvv1hlBv66-2" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-60" y="70" as="sourcePoint" />
+            <mxPoint x="-80" y="70" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="10" y="70" />
             </Array>
@@ -2024,11 +2074,21 @@
         <mxCell id="Syfck0HUXjJvv1hlBv66-11" value="c: camambert" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
           <mxGeometry x="470" y="160" width="100" height="180" as="geometry" />
         </mxCell>
+        <mxCell id="EuZCVJi23jPRE0BjqauV-1" value="" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="235" y="310" />
+              <mxPoint x="175" y="430" />
+            </Array>
+            <mxPoint x="250" y="310" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="pLTQmV_b4QWcsL4AaVe3" name="Drop GlassOfBeer">
-    <mxGraphModel dx="1074" dy="901" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="434" dy="219" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -2040,7 +2100,7 @@
         </mxCell>
         <mxCell id="35A8YogccAq5K-S2JkU1-3" value="dropItem(g)" style="html=1;verticalAlign=bottom;startArrow=none;endArrow=block;startSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;startFill=0;" parent="35A8YogccAq5K-S2JkU1-1" target="35A8YogccAq5K-S2JkU1-2" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="-60" y="70" as="sourcePoint" />
+            <mxPoint x="-80" y="70" as="sourcePoint" />
             <Array as="points">
               <mxPoint x="10" y="70" />
             </Array>
@@ -2085,11 +2145,21 @@
         <mxCell id="35A8YogccAq5K-S2JkU1-11" value="g: GlassOfBeer" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;html=1;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;curved&quot;:0,&quot;rounded&quot;:0};" parent="1" vertex="1">
           <mxGeometry x="470" y="160" width="100" height="180" as="geometry" />
         </mxCell>
+        <mxCell id="IoMOCu3Lat0hev1MDr-D-1" value="" style="html=1;verticalAlign=bottom;endArrow=open;dashed=1;endSize=8;edgeStyle=elbowEdgeStyle;elbow=horizontal;curved=0;rounded=0;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="120" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="235" y="310" />
+              <mxPoint x="175" y="430" />
+            </Array>
+            <mxPoint x="250" y="310" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
   <diagram id="j1SHYNk_F-dNeAkPcbLp" name="Split Room">
-    <mxGraphModel dx="1152" dy="901" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1802" dy="909" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />

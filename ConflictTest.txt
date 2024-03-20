@@ -1,1 +1,2 @@
 Character character = new Room();
+Item fasz = new Item();

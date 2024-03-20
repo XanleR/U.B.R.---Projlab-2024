@@ -1,2 +1,1 @@
-Character character = new Room();
-Item fasz = new Item();
+Dual monitor a draw.io-hoz

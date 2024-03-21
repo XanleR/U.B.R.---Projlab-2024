@@ -20,4 +20,10 @@ public abstract class Room {
     public List<Room> getNeighbours() {return new ArrayList<>();}
     public void addNeighbours(List<Room> l1) {}
     public void removeNeighbours(List<Room> l1) {}
+    public Transistor geTransistor(){return null;}
+    public void splitTo(Room other){}
+    public void mergeTo(Room other){}
+    public void copyToRoom(){}
+    public void addTransistor(Transistor added){}
+    public void addWetRag(WetRag added){}
 }

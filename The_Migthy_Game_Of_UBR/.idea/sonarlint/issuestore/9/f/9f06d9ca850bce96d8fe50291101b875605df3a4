@@ -1,10 +1,13 @@
 
-{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ãÀâëûÿÿÿÿ8ıÍÁ’æ1
+Ö
+java:S1598"³This file "Room.java" should be located in "game\rooms" directory, not in "D:\Dokumentumok\Asztal\Targyak\IV.felev\Projlab\project\projectt\The_Migthy_Game_Of_UBR\src\game\Rooms".(êÖÂ­şÿÿÿÿ8Ìğ¶’æ1
 F
-java:S1172")Remove this unused method parameter "r1".(¢‚ˆ8”ÎÁ’æ1
+java:S1172")Remove this unused method parameter "r1".(¢‚ˆ8Şğ¶’æ1
 O
-java:S1135"2Complete the task associated to this TODO comment.(…ïœ†8—ÎÁ’æ1
+java:S1135"2Complete the task associated to this TODO comment.(…ïœ†8ßğ¶’æ1
+M
+java:S1068"+Remove this unused "wetRags" private field.(°èÔ¾ùÿÿÿÿ8ïğ¶’æ1
 K
-java:S1068".Remove this unused "transistor" private field.(½¯½…8§ÎÁ’æ1
+java:S1068".Remove this unused "transistor" private field.(½¯½…8ğğ¶’æ1
 R
-java:S1068"0Remove this unused "maxCharacter" private field.(¨Ùˆùÿÿÿÿ8§ÎÁ’æ1
+java:S1068"0Remove this unused "maxCharacter" private field.(¨Ùˆùÿÿÿÿ8ğğ¶’æ1

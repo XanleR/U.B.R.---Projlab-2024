@@ -1,8 +1,6 @@
-package Characters;
+package game.characters;
 
-public class Student extends Character {
-
-
+public class Instructor extends Character {
     //input: Room from, Room to
     //method: A karaktert athelyezi az egyik bemenetkent adott szobabol a masikba
     //return: void

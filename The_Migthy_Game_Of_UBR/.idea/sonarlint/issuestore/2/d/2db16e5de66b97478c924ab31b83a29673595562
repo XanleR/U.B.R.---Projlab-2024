@@ -1,0 +1,15 @@
+
+
+java:S1450"\Remove the "stunnedRounds" field and declare it as a local variable in the relevant methods.(ƒ¼ÅûÿÿÿÿÿJ$880f2d87-25cb-41be-b6a1-2fc704a74106
+‰	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«¤Ë¸J$9914a82b-b2b2-4c70-bc74-80a526eb8c86
+	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(òøå‚ûÿÿÿÿJ$3b833c1a-0fca-45bb-a977-baee1470a596
+‰	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯¯±ÃJ$331f897f-9bfb-40fc-a859-f4b1fc3f6626
+‰	java:S100#"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸´¸îJ$8c369233-8a40-47b1-b1b1-67f2c004cb1a
+‰	java:S100("NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ü£ı¨J$6047dcd1-c7db-4c46-921d-871035c6253b
+	java:S100-"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ó©“ÁûÿÿÿÿJ$fe8e70ee-ad52-4b14-9211-f5f4a47b7d2e
+	java:S1002"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(©‰ÿÕûÿÿÿÿJ$80fe8d9a-fb0d-4c9b-a090-c26124898bbb
+‰	java:S1007"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Á†¼»J$92e55314-793e-4eee-a14e-11c605406fe9
+u
+java:S1068"4Remove this unused "remainingactions" private field.(İ…•üøÿÿÿÿJ$de735457-5b40-427c-88c5-66ceb0c43705
+r
+java:S1068"1Remove this unused "stunnedRounds" private field.(ƒ¼ÅûÿÿÿÿÿJ$9da34c03-1fc8-4b76-9a8a-dde6a6b9b77c

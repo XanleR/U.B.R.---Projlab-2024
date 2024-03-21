@@ -11,3 +11,7 @@ K
 src/game/rooms/GasRoom.java,a\b\ab402dd1b000f9258483e4dcc69198537d11941e
 P
  src/game/characters/Student.java,0\d\0d84fe6464473d117898341b38ae3d49a210f296
+O
+src/game/Rooms/RegularRoom.java,5\3\53fb513a2e87dc77dbc65a0fe24da085a9c0c4da
+K
+src/game/Rooms/GasRoom.java,7\2\7266e5638caf0fa23fe6c9ee928ee5aa9b6061b7

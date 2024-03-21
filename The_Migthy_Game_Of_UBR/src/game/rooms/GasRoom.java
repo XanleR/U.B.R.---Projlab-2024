@@ -1,6 +1,6 @@
 package game.rooms;
 
-public class GasRoom extends Room{
+public class GasRoom extends game.rooms.Room {
 
     //input: Character c1
     //method: Azt az esemenyt kezeli, amikor egy karakter a szobaba lep

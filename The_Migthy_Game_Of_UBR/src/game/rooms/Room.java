@@ -1,4 +1,8 @@
-package game.Rooms;
+package game.rooms;
+
+import game.items.Item;
+import game.items.Transistor;
+import game.items.WetRag;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +10,8 @@ import java.util.List;
 public abstract class Room {
     private Transistor transistor;
     private int maxCharacter;
+
+    private List<Item> inventory;
 
     public abstract void onEntered(Character c1);
     public void addCharacter(Character c1) {}

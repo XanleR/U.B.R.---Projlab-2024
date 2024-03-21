@@ -1,30 +1,12 @@
 package game.items;
 
-import game.rooms.Room;
 import game.characters.Instructor;
 import game.characters.Student;
 
-public class Transistor extends Item{
+public class FFP2 extends Item{
 
-    //Megadja, hogy a Transistor be van-e kapcsolva
-    private boolean isOn;
-
-    //Megajda, hogy a Transistor ossze van-e kapcsolva egy masik Transistorral
-    private boolean isPaired;
-
-    //Eltarolja azt a Transistort, amellyel oarban vannak
-    private Transistor pair;
-
-    //input: Transistor fPair
-    //method: A kapott Transistort eltarolja a sajat parjakent,
-    //        es sajat magat eltarolja a kapott Transistor parjkakent
-    //return: void
-    public void pairing(Transistor fPair){}
-
-    //input: -
-    //method: Visszaadja azt a Room-ot, ahol a parja van
-    //return: Room
-    public Room getPairsRoom(){ return null;}
+    //Megadja, hogy hanyszor ved meg meg az FFP2
+    private int durability;
 
     //input: Student user
     //method: Megvalositja a targyak felhasznalasat
@@ -54,5 +36,5 @@ public class Transistor extends Item{
     //method: Azt az esemenyt kezeli, amikor egy hallgato talalkozik egy oktatoval, tehat egy mezore kerulnek
     //return: boolean
     @Override
-    public boolean onAttacked(Student attacked, Instructor attacker){ return false; }
+    public boolean onAttacked(Student attacked, Instructor attacker){ return false;}
 }

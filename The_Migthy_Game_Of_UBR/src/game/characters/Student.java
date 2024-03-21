@@ -1,6 +1,13 @@
 package game.characters;
 
-public class Student extends java.lang.Character {
+import game.items.Item;
+import game.items.TVSZ;
+import game.items.Transistor;
+import game.rooms.Room;
+
+import java.util.List;
+
+public class Student extends Character{
 
     //Megadja, hogy a peldany vedelem alatt all-e
     private boolean isProtected;
@@ -24,7 +31,7 @@ public class Student extends java.lang.Character {
     //method: A karaktert athelyezi az egyik bemenetkent adott szobabol a masikba
     //return: void
     @Override
-    public void move(Room from, Room to) {}
+    public void move(Room from, Room to){}
 
     //input: Item newI
     //method: A parameterkent megadott Item-et Student eseten berkaja a Student List<item>-ebe, Instructor eseten kitorli

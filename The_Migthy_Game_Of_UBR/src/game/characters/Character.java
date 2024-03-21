@@ -1,5 +1,8 @@
 package game.characters;
 
+import game.items.Item;
+import game.rooms.Room;
+
 // A karaktereket megvalosito abstarct ososztaly.
 // A Student es az Instructor ebbol szarmazik le.
 public abstract class Character {

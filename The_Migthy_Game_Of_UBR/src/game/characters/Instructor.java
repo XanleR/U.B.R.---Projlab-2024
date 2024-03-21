@@ -1,5 +1,8 @@
 package game.characters;
 
+import game.items.Item;
+import game.rooms.Room;
+
 public class Instructor extends Character{
     //input: Room from, Room to
     //method: A karaktert athelyezi az egyik bemenetkent adott szobabol a masikba

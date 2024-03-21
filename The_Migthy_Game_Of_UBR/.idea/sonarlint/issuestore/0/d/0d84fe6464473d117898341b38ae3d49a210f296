@@ -1,0 +1,54 @@
+
+—
+java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(šĞšü
+—
+java:S1186""€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(®Îãô
+œ
+java:S1186("€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.( ¼èÕıÿÿÿÿ
+œ
+java:S1186."€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(áû¢¤ùÿÿÿÿ
+–
+java:S11864"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¾‚¹^
+—
+java:S1186:"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(àæı
+œ
+java:S1186?"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÊÚéÉùÿÿÿÿ
+œ
+java:S1186D"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(”ê±‡ûÿÿÿÿ
+—
+java:S1186N"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ø•¹Ñ
+—
+java:S1186S"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(é ¼º
+œ
+java:S1186_"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ÿğüüÿÿÿÿ
+œ
+java:S1186l"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(›’äéıÿÿÿÿ
+œ
+java:S1186q"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(°Ÿûúÿÿÿÿ
+A
+java:S2160"+Override the "equals" method in this class.(ÅœæÈ
+Q	java:S125"<This block of commented-out lines of code should be removed.(ŸƒüÄ
+M
+java:S1135"2Complete the task associated to this TODO comment.(åíğñşÿÿÿÿ
+B
+java:S1172X",Remove this unused method parameter "index".(ÍÄ¾Û
+H
+java:S1135]"2Complete the task associated to this TODO comment.(Œ„¥ø
+M
+java:S1135h"2Complete the task associated to this TODO comment.(û„—ıÿÿÿÿ
+M
+java:S1135k"2Complete the task associated to this TODO comment.(û„—ıÿÿÿÿ
+H
+java:S1135o"2Complete the task associated to this TODO comment.(Ëñ»º
+E
+java:S1068"/Remove this unused "isProtected" private field.(Ä€‡ƒ
+F
+java:S1068	"0Remove this unused "maskedRounds" private field.(¨¤éŞ
+H
+java:S1068"-Remove this unused "inventory" private field.(¿ÏÒ‡ıÿÿÿÿ
+M
+java:S1068"2Remove this unused "transistorList" private field.(Š’€üûÿÿÿÿ
+D
+java:S1068".Remove this unused "transistor" private field.(½¯½…
+G
+java:S1068"1Remove this unused "inventorySize" private field.(Ã‘ÒÔ

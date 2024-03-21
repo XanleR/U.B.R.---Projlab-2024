@@ -1,6 +1,6 @@
 package game;
 
-import game.Rooms.Room;
+import game.rooms.Room;
 
 import java.util.List;
 

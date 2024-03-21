@@ -1,6 +1,6 @@
 package game.items;
 
-import game.Rooms.Room;
+import game.rooms.Room;
 import game.characters.Instructor;
 import game.characters.Student;
 

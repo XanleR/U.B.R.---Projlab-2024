@@ -1,4 +1,4 @@
-package Characters;
+package game.characters;
 
 // A karaktereket megvalosito abstarct ososztaly.
 // A Student es az Instructor ebbol szarmazik le.

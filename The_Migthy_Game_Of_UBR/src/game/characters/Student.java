@@ -1,6 +1,6 @@
-package Characters;
+package game.characters;
 
-public class Student extends Character {
+public class Student extends java.lang.Character {
 
     //Megadja, hogy a peldany vedelem alatt all-e
     private boolean isProtected;

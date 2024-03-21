@@ -103,6 +103,5 @@ public abstract class Room {
     //input: WetRag added
     //method: Hozzaadja a parameterkent kapott rongyot a szobahoz.
     //return: void
->>>>>>> 8144e881bd05fc0da7f21951d0d902b6cfb92b53
     public void addWetRag(WetRag added){}
 }

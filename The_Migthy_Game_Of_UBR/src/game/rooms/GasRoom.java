@@ -1,5 +1,5 @@
 package game.rooms;
-
+import game.characters.Character;
 public class GasRoom extends Room {
 
     //input: Character c1

@@ -1,5 +1,6 @@
 package game.rooms;
 
+import game.characters.Character;
 import game.items.Item;
 import game.items.Transistor;
 import game.items.WetRag;
@@ -17,6 +18,9 @@ public abstract class Room {
     //Megadja, hogy maximum hany db karakter lehet a szobaban egyszerre
     private int maxCharacter;
 
+    //A szobaban levo jatekosok listaja
+    private List<Character> listOfCharacters = new ArrayList<>();
+
     //input: Character c1
     //method: Azt az esemenyt kezeli, amikor egy karakter a szobaba lep
     //return: void
@@ -25,10 +29,40 @@ public abstract class Room {
     //input: Character c1
     //method: Hozzaadja az parameterkent kapott karaktert a szobahoz
     //return: void
-    public void addCharacter(Character c1) {}
+    public void addCharacter(Character c1) {
+        System.out.println("\t\t--> (testI1: Character).getRoom()");
+        Room from = c1.getRoom();
+        from = new RegularRoom();
+        System.out.println("\t\t<-- from: Room");
+
+        if (isAccessible(this)){
+            System.out.println("\t\t--> (testR2: Room).addCharacter(testI1: Character)");
+            this.listOfCharacters.add(c1);
+            System.out.println("\t\t<--");
+
+            System.out.println("\t\t--> (testR1: Room).removeCharacter(testI1: Character)");
+            from.removeCharacter(c1);
+            System.out.println("\t\t<--");
+
+            System.out.println("\t\t--> (testR2: Room).onEntered(testI1: Character)");
+            this.onEntered(c1);
+            System.out.println("\t\t<--");
+
+
+            //TODO NEM IS LETEZIK SIMA MEET METODUSUNK CSAK A SZEKVENCIAN
+
+            System.out.println("\t\t--> (testI1: Character).meetStudent()");
+            c1.meetStudent();
+            System.out.println("\t\t<--");
+
+            System.out.println("\t\t--> (testI1: Character).meetInstructor()");
+            c1.meetInstructor();
+            System.out.println("\t\t<--");
+        }
+    }
 
     //TODO
-    public boolean isAccessible(Room r1) {return false;}
+    public boolean isAccessible(Room r1) {return true;}
 
     //input: -
     //method: Visszaadja a szobaban talalhato karaktereket

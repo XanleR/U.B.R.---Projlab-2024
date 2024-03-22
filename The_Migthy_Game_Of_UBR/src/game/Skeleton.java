@@ -97,11 +97,15 @@ public class Skeleton {
 
                                 //Transistor Jump
                                 case 1:{
+                                    //TODO
+                                    testS1.transistorJump();
                                     break;
                                 }
 
                                 //Simple move
                                 case 2:{
+                                    System.out.println("--> (testS1: Student).move(testR1: Room, testR2: Room)");
+                                    testS1.move(testR1, testR2);
                                     break;
                                 }
                             }
@@ -110,6 +114,8 @@ public class Skeleton {
 
                         //Instructor move
                         case 2:{
+                            System.out.println("--> (testI1: Instructor).move(testR1: Room, testR2: Room)");
+                            testI1.move(testR1, testR2);
                             break;
                         }
                     }
@@ -280,16 +286,25 @@ public class Skeleton {
 
                         //GlassOfBeer
                         case 1: {
+                            System.out.println("--> (testS1: Student).pickUpItem(testGOB: GlassOfBeer)");
+                            testS1.pickUpItem(testGOB);
+                            System.out.println("<--");
                             break;
                         }
 
                         //Dice
                         case 2: {
+                            System.out.println("--> (testS1: Student).pickUpItem(testDice: Dice)");
+                            testS1.pickUpItem(testDice);
+                            System.out.println("<--");
                             break;
                         }
 
                         //FFP2
                         case 3: {
+                            System.out.println("--> (testS1: Student).pickUpItem(testFFP: FFP2)");
+                            testS1.pickUpItem(testFFP);
+                            System.out.println("<--");
                             break;
                         }
 
@@ -310,11 +325,17 @@ public class Skeleton {
 
                         //WetRag
                         case 7: {
+                            System.out.println("--> (testS1: Student).pickUpItem(testWR: WetRag)");
+                            testS1.pickUpItem(testWR);
+                            System.out.println("<--");
                             break;
                         }
 
                         //Camambert
                         case 8:{
+                            System.out.println("--> (testS1: Student).pickUpItem(testCam: Camambert)");
+                            testS1.pickUpItem(testCam);
+                            System.out.println("<--");
                             break;
                         }
                     }

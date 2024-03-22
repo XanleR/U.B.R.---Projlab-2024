@@ -31,14 +31,25 @@ public class Student extends Character{
     //method: A karaktert athelyezi az egyik bemenetkent adott szobabol a masikba
     //return: void
     @Override
-    public void move(Room from, Room to){}
+    public void move(Room from, Room to){
+        System.out.println("\t--> (testR2: Room).addCharacter(testS1: Student)");
+        to.addCharacter(this);
+    }
 
     //input: Item newI
     //method: A parameterkent megadott Item-et Student eseten berkaja a Student List<item>-ebe, Instructor eseten kitorli
     //        az Item-et a jatekbol
     //return: void
     @Override
-    public void pickUpItem(Item newI){}
+    public void pickUpItem(Item newI){
+        System.out.println("\t--> (this.currentRoom: Room).removeItem(newI: Item)");
+        this.currentRoom.removeItem(newI);
+        System.out.println("\t<--");
+
+        System.out.println("\t--> (newI: Item).onPickedUp()");
+        newI.onPickedUp();
+        System.out.println("\t<--");
+    }
 
     //input: -
     //method: vegrehajtja a felhasznalo altal kivalasztott action-t
@@ -84,8 +95,9 @@ public class Student extends Character{
     public int rollDice(){ return 0;}
 
     //input: -
-    //method: A tranzisztorral valo utazast megvalosíto fuggven
+    //method: A tranzisztorral valo utazast megvalosíto fuggveny
     //return: void
+    //TODO ez honnan tudja hogy hova ugrik stb, igy kb hasznalhatatlan ez a fgv.
     public void transistorJump(){}
 
     //intput: Transistor newT

@@ -8,7 +8,10 @@ public class Instructor extends Character{
     //method: A karaktert athelyezi az egyik bemenetkent adott szobabol a masikba
     //return: void
     @Override
-    public void move(Room from, Room to) {}
+    public void move(Room from, Room to) {
+        System.out.println("\t--> (testR2: Room).addCharacter(testI1: Instructor)");
+        to.addCharacter(this);
+    }
 
     //input: Item newI
     //method: A parameterkent megadott Item-et Student eseten berkaja a Student List<item>-ebe, Instructor eseten kitorli

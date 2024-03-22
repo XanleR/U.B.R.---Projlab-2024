@@ -1,6 +1,7 @@
 package game.characters;
 
 import game.items.Item;
+import game.rooms.RegularRoom;
 import game.rooms.Room;
 
 //Git test
@@ -13,7 +14,7 @@ public abstract class Character {
     private int remainingactions;
 
     //Megajda azt a szobat, ahol a peldany jelenleg all
-    private Room currentRoom;
+    protected Room currentRoom = new RegularRoom();
 
     //Megadja, hogy hany korbol marad ki a peldany
     private int stunnedRounds;

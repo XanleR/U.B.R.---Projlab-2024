@@ -21,11 +21,11 @@ public class Student extends Character{
     //Eltarolja a Student-nel levo Transistorokat
     private List<Transistor> transistorList;
 
-    //TODO comment here
-    private Transistor transistor;
-
     //Megadja, hogy a Student, hany Item-et vehet-fel
     private int inventorySize;
+
+    //A hallgatonal csak 1 db tvsz lehet, ez a valtozo eppen ezt tarolja el
+    private TVSZ tvsz;
 
     //input: Room from, Room to
     //method: A karaktert athelyezi az egyik bemenetkent adott szobabol a masikba
@@ -97,7 +97,7 @@ public class Student extends Character{
     }
 
     //input: int plus
-    //method: TODO here, method
+    //method: A hallgato koreihez ad meg a parameterben kapott értéknyit
     //return: void
     public void addRounds(int plus){}
 
@@ -108,14 +108,13 @@ public class Student extends Character{
         maskedRounds += plusMask;
     }
 
-    //TODO here method comments
-    public TVSZ getTVSZ(){ return null;}
-
-    //TODO here method comments
-    public void setTVSZ(){}
+    //input_ TVSZ _tvsz
+    //method: Beallitja a hallgatonal levo TVSZ-t a parameterkent megadottra
+    //return: void
+    public void setTVSZ(TVSZ _tvsz){}
 
     //input: Item removed
-    //method: TODO here
+    //method: Kiveszi a parameterkent kapott targyat a hallgato inventory-jából
     //return: void
     public void removeItem(Item removed){}
 }

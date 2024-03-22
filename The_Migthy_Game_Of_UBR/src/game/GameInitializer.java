@@ -2,7 +2,7 @@ package game;
 
 public class GameInitializer {
 
-    //TODO fogalmam sincs ez mire van
+    //A palyak inicializalasa file-bol
     public void initMaps(String from){}
 
     //input: int count
@@ -10,3 +10,4 @@ public class GameInitializer {
     //return: void
     public void initCharacters(int count){}
 }
+

@@ -2,9 +2,11 @@ package game;
 
 import game.rooms.Room;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GameController {
+
 
     //Megadja, hogy hany kor van meg hatra
     private int remainingRounds;
@@ -17,6 +19,12 @@ public class GameController {
 
     //Eltarolja a jatekban letezo szobakat
     private List<Room> rooms;
+
+    public GameController(){
+        listOfCharacters = new ArrayList<>();
+        rooms = new ArrayList<>();
+        studentCount = 0;
+    }
 
     //input: List<Character> characetrs, List<Room> rooms
     //method: Letrehoz egy jatekot a megadott szobakkal es tanulokkal
@@ -52,7 +60,9 @@ public class GameController {
     //return: void
     public void removeRoom(Room remove){}
 
-    //TODO ez mit csinal?
+    //input: -
+    //method: Elindit egy uj kort
+    //return: void
     public void newRound(){}
 
     //input: -
@@ -62,11 +72,16 @@ public class GameController {
 
     //input: Character remove
     //method: A kapott Character-t kitorli a jatekban levo Characterek kozul
+    //return: void
     public void removeCharacter(Character remove){}
 
-    //TODO ez mit csinal?
+    //input: -
+    //method: Elinditja a jatekmenetet
+    //return: void
     public void play(){}
 
-    //TODO ez minek?? ha a Student-nek van ide minek?
+    //input: -
+    //method: Egy veletlenszeru egesz szamot general az 1-től 6-ig terjedo zart intervallumon.
+    //return: int
     public int rollDice(){ return 0;}
 }

@@ -70,17 +70,17 @@ public class Student extends Character{
     public void dropItem(Item dropped){}
 
     //input: Item used
-    //method: Egy tárgy alkalmazását megvalósító metódus
+    //method: Egy targy alkalmazasat megvalosito metodus
     //return: void
     public void useItem(Item used){}
 
     //input: -
-    //method: Egy véletlenszerű egész számot generál az 1-től 6-ig terjedő zárt intervallumon.
+    //method: Egy veletlenszeru egesz szamot generál az 1-től 6-ig terjedo zart intervallumon.
     //return: int
     public int rollDice(){ return 0;}
 
     //input: -
-    //method: A tranzisztorral való utazást megvalósító függvén
+    //method: A tranzisztorral valo utazast megvalosíto fuggven
     //return: void
     public void transistorJump(){}
 
@@ -90,14 +90,14 @@ public class Student extends Character{
     public void addTransistor(Transistor newT){}
 
     //input: int index
-    //method:  Visszaadja a tranzisztorok listájából az indexedik tranzisztort
+    //method:  Visszaadja a tranzisztorok listajabol az indexedik tranzisztort
     //return: Transistor
     public Transistor getTransistor(int index){
         return null;
     }
 
     //input: int plus
-    //method: A hallgato koreihez ad meg a parameterben kapott értéknyit
+    //method: A hallgato koreihez ad meg a parameterben kapott erteknyit
     //return: void
     public void addRounds(int plus){}
 

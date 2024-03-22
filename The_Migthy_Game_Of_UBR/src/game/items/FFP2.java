@@ -12,7 +12,11 @@ public class FFP2 extends Item{
     //method: Megvalositja a targyak felhasznalasat
     //return: void
     @Override
-    public void use(Student user){}
+    public void use(Student user){
+        System.out.println("\t\t -->(user: Student).addMaskedRounds(2)");
+        user.addMaskedRounds(2);
+        System.out.println("\t\t <--");
+    }
 
     //input: -
     //Megadja, hogy az Intructor felveheti-e a targyat

@@ -222,11 +222,17 @@ public class Skeleton {
 
                         //Dice
                         case 2:{
+                            System.out.println("--> (testS1: Student).useItem(testDice: Dice)");
+                            testS1.useItem(testDice);
+                            System.out.println("<--");
                             break;
                         }
 
                         //FFP2
                         case 3:{
+                            System.out.println("--> (testS1: Student).useItem(testFFP: FFP2)");
+                            testS1.useItem(testFFP);
+                            System.out.println("<--");
                             break;
                         }
 

@@ -72,7 +72,11 @@ public class Student extends Character{
     //input: Item used
     //method: Egy targy alkalmazasat megvalosito metodus
     //return: void
-    public void useItem(Item used){}
+    public void useItem(Item used){
+        System.out.println("\t --> (used: Item).use(this: Student)");
+        used.use(this);
+        System.out.println("\t <--");
+    }
 
     //input: -
     //method: Egy veletlenszeru egesz szamot generál az 1-től 6-ig terjedo zart intervallumon.

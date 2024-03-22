@@ -17,7 +17,14 @@ public class Dice extends Item{
     //method: Megvalositja a targyak felhasznalasat
     //return: void
     @Override
-    public void use(Student user){}
+    public void use(Student user){
+        System.out.println("\t\t -->(this: Dice).throw()");
+        this.throwDice();
+        System.out.println("\t\t <--");
+        System.out.println("\t\t -->(user: Student).addRounds(currentvalue: int)");
+        user.addRounds(currentValue);
+        System.out.println("\t\t <--");
+    }
 
     //input: -
     //Megadja, hogy az Intructor felveheti-e a targyat

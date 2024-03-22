@@ -21,7 +21,11 @@ public class GlassOfBeer extends Item {
     //method: Megvalositja a targyak felhasznalasat
     //return: void
     @Override
-    public void use(Student user){}
+    public void use(Student user){
+        System.out.println("\t\t -->(this: GlassOfBeer).activate()");
+        this.activate();
+        System.out.println("\t\t <--");
+    }
 
     //input: -
     //Megadja, hogy az Intructor felveheti-e a targyat

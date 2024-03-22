@@ -13,7 +13,7 @@ public abstract class Character {
     private int remainingactions;
 
     //Megajda azt a szobat, ahol a peldany jelenleg all
-    private Room currentRoom;
+    protected Room currentRoom;
 
     //Megadja, hogy hany korbol marad ki a peldany
     private int stunnedRounds;

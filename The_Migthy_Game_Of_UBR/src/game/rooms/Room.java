@@ -93,7 +93,7 @@ public abstract class Room {
     //input: -
     //method: Atmasolja az r2-vel jelolt szobaba az adott szoba szomszedjait, targyait, es jatekosait
     //return: void
-    public void copyToRoom(){}
+    public void copyToRoom(Room r2){}
 
     //input: Transistor added
     //method: Hozzaadja a parameterkent kapott tranzisztort a szobahoz

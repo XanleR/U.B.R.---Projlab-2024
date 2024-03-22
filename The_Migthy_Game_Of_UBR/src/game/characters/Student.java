@@ -3,6 +3,7 @@ package game.characters;
 import game.items.Item;
 import game.items.TVSZ;
 import game.items.Transistor;
+import game.rooms.RegularRoom;
 import game.rooms.Room;
 
 import java.util.List;
@@ -67,7 +68,12 @@ public class Student extends Character{
     //input: Item dropped
     //method: Kitorli a targyat a Student inventory-jabol es hozzaadja a szoba targyakat tarolo attributumahoz
     //return: void
-    public void dropItem(Item dropped){}
+    public void dropItem(Item dropped){
+        System.out.println("\t -->(currentRoom: Room).addItem(dropped)");
+        this.currentRoom = new RegularRoom();
+        this.currentRoom.addItem(dropped);
+        System.out.println("\t <--");
+    }
 
     //input: Item used
     //method: Egy targy alkalmazasat megvalosito metodus

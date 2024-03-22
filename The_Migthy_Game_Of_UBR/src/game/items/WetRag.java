@@ -2,6 +2,8 @@ package game.items;
 
 import game.characters.Instructor;
 import game.characters.Student;
+import game.rooms.RegularRoom;
+import game.rooms.Room;
 
 public class WetRag extends Item{
 
@@ -18,7 +20,15 @@ public class WetRag extends Item{
     //method: Megvalositja a targyak felhasznalasat
     //return: void
     @Override
-    public void use(Student user){}
+    public void use(Student user){
+        System.out.println("\t\t -->(user: Student).getRoom()");
+        Room userRoom = user.getRoom();
+        userRoom = new RegularRoom();
+        System.out.println("\t\t <--userRoom: Room");
+        System.out.println("\t\t -->(userRoom: Room).addWetRag(this)");
+        userRoom.addWetRag(this);
+        System.out.println("\t\t <--");
+    }
 
     //input: -
     //Megadja, hogy az Intructor felveheti-e a targyat

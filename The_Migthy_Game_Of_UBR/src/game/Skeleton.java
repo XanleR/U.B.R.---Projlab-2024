@@ -11,7 +11,7 @@ import java.util.Scanner;
 
 public class Skeleton {
 
-    static GameController gameController;
+    public static GameController gameController;
 
     public static void main(String[] args) {
 
@@ -161,36 +161,57 @@ public class Skeleton {
 
                         //GlassOfBeer
                         case 1:{
+                            System.out.println("-->(testS1: Student).dropItem(testGOB)");
+                            testS1.dropItem(testGOB);
+                            System.out.println("<--");
                             break;
                         }
 
                         //Dice
                         case 2:{
+                            System.out.println("-->(testS1: Student).dropItem(testDice)");
+                            testS1.dropItem(testDice);
+                            System.out.println("<--");
                             break;
                         }
 
                         //FFP2
                         case 3:{
+                            System.out.println("-->(testS1: Student).dropItem(testFFP)");
+                            testS1.dropItem(testFFP);
+                            System.out.println("<--");
                             break;
                         }
 
                         //TVSZ
                         case 4:{
+                            System.out.println("-->(testS1: Student).dropItem(testFFP)");
+                            testS1.dropItem(testGOB);
+                            System.out.println("<--");
                             break;
                         }
 
                         //Transistor
                         case 5:{
+                            System.out.println("-->(testS1: Student).dropItem(testT)");
+                            testS1.dropItem(testT1);
+                            System.out.println("<--");
                             break;
                         }
 
                         //WetRag
                         case 6:{
+                            System.out.println("-->(testS1: Student).dropItem(testWR)");
+                            testS1.dropItem(testWR);
+                            System.out.println("<--");
                             break;
                         }
 
                         //Camambert
                         case 7:{
+                            System.out.println("-->(testS1: Student).dropItem(testCam)");
+                            testS1.dropItem(testCam);
+                            System.out.println("<--");
                             break;
                         }
 
@@ -217,6 +238,9 @@ public class Skeleton {
 
                         //GlassOfBeer
                         case 1:{
+                            System.out.println("--> (testS1: Student).useItem(testGOB: GlassOfBeer)");
+                            testS1.useItem(testGOB);
+                            System.out.println("<--");
                             break;
                         }
 
@@ -238,21 +262,31 @@ public class Skeleton {
 
                         //TVSZ
                         case 4:{
+                            //TODO nincs meg a szekvencia
                             break;
                         }
 
                         //Transistor
                         case 5:{
+                            System.out.println("--> (testS1: Student).useItem(testT1: Transistor)");
+                            testS1.useItem(testT1);
+                            System.out.println("<--");
                             break;
                         }
 
                         //WetRag
                         case 6:{
+                            System.out.println("--> (testS1: Student).useItem(testWR: WetRag)");
+                            testS1.useItem(testWR);
+                            System.out.println("<--");
                             break;
                         }
 
                         //Camambert
                         case 7:{
+                            System.out.println("--> (testS1: Student).useItem(testCam: Camambert)");
+                            testS1.useItem(testCam);
+                            System.out.println("<--");
                             break;
                         }
 

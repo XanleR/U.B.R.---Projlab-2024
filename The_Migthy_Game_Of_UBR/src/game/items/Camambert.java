@@ -1,7 +1,14 @@
 package game.items;
 
+import game.GameController;
+import game.Skeleton;
 import game.characters.Instructor;
 import game.characters.Student;
+import game.rooms.GasRoom;
+import game.rooms.RegularRoom;
+import game.rooms.Room;
+
+import static game.Skeleton.gameController;
 
 public class Camambert extends Item{
 
@@ -9,7 +16,24 @@ public class Camambert extends Item{
     //method: Megvalositja a targyak felhasznalasat
     //return: void
     @Override
-    public void use(Student user){}
+    public void use(Student user){
+        System.out.println("\t\t -->(user: Student).getRoom()");
+        Room userRoom = user.getRoom();
+        userRoom = new RegularRoom();
+        System.out.println("\t\t <--userRoom: Room");
+        System.out.println("\t\t -->(newGas: GasRoom).new()");
+        GasRoom newGas = new GasRoom();
+        System.out.println("\t\t <--");
+        System.out.println("\t\t -->(userRoom: Room).copyToRoom(newGas: GasRoom)");
+        userRoom.copyToRoom(newGas);
+        System.out.println("\t\t <--");
+        System.out.println("\t\t -->(gameController: GameController).addRoom(newGas)");
+        gameController.addRoom(newGas);
+        System.out.println("\t\t <--");
+        System.out.println("\t\t -->(gameController: GameController).removeRoom(userRoom)");
+        gameController.removeRoom(userRoom);
+        System.out.println("\t\t <--");
+    }
 
     //input: -
     //Megadja, hogy az Intructor felveheti-e a targyat

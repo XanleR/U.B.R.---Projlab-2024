@@ -4,6 +4,7 @@ import game.rooms.Room;
 
 import java.util.ArrayList;
 import java.util.List;
+import game.characters.Character;
 
 public class GameController {
 

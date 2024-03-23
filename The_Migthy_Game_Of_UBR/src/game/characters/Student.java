@@ -1,14 +1,14 @@
 package game.characters;
 
-import game.items.Item;
-import game.items.TVSZ;
-import game.items.Transistor;
+import game.GameController;
+import game.items.*;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
 
 import java.util.List;
+import java.util.Scanner;
 
-public class Student extends Character{
+public class Student extends Character {
 
     //Megadja, hogy a peldany vedelem alatt all-e
     private boolean isProtected;
@@ -58,17 +58,28 @@ public class Student extends Character{
     @Override
     public void action() {}
 
-    //input: -
+    //input: Character character
+    //method: Vegrehajtja azt az esemenyt, amikor a peldany egy másik Character-el kerul egy mezore
+    //return: void
+    @Override
+    public void meet(Character character){
+        System.out.println("--> (testS1: Student).meet(testI1: Instructor)");
+        character.meetStudent(this);
+
+        System.out.println("<--");
+    }
+
+    //input: Student student
     //method: Vegrehajtja azt az esemenyt, amikor a peldany egy Student-el kerul egy mezore
     //return: void
     @Override
-    public void meetStudent() {}
+    public void meetStudent(Student student) {}
 
-    //input: -
+    //input: Instructor instuctor
     //method: Vegrehajtja azt az esemenyt, amikor a pedany egy Instructor-el kerul egy mezore
     //return: void
     @Override
-    public void meetInstructor() {}
+    public void meetInstructor(Instructor instructor) {}
 
     //input: -
     //method: Elindítja a játékos körét, és meghívja a paraméterként kapott számmal az ‘action’ függvényt
@@ -138,5 +149,35 @@ public class Student extends Character{
     //input: Item removed
     //method: Kiveszi a parameterkent kapott targyat a hallgato inventory-jából
     //return: void
-    public void removeItem(Item removed){}
+    public void removeItem(Item removed){
+        System.out.println("\t\t\t\t--> (testS1: Stuednt).removeItem(removed: Item)");
+
+        System.out.println("\t\t\t\t<--");
+    }
+
+    //input: Instructor instructor
+    //method: A hallgatot megtamadtak, amennyiben a nincs vedelme, a hallgato meghal
+    //return void
+    public void die(Instructor instructor){
+        System.out.printf("\t\t--> (testS1: Student).die(testI1: Instructor)");
+        TVSZ tvsz1 = new TVSZ();
+        GlassOfBeer glassOfBeer = new GlassOfBeer();
+        WetRag wetRag = new WetRag();
+
+        tvsz1.onAttacked(this, instructor);
+        glassOfBeer.onAttacked(this, instructor);
+        wetRag.onAttacked(this, instructor);
+
+        System.out.println("\t\t-?- Sikerult-e megvedeni a hallgatot? (y/n): ");
+        Scanner dieScanner = new Scanner(System.in);
+        String dieAnswer = dieScanner.next();
+        if(dieAnswer.equals("n")){
+            GameController gameController = new GameController();
+            gameController.removeCharacter(this);
+        }
+
+
+
+        System.out.println("\t\t<--");
+    }
 }

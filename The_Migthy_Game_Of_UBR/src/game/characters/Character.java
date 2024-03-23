@@ -45,15 +45,20 @@ public abstract class Character {
     //return: void
     public abstract void action();
 
-    //input: -
+    //input: Character character
+    //method: Vegrehajtja azt az esemenyt, amikor a peldany egy másik Character-el kerul egy mezore
+    //return: void
+    public abstract void meet(Character character);
+
+    //input: Student student
     //method: Vegrehajtja azt az esemenyt, amikor a peldany egy Student-el kerul egy mezore
     //return: void
-    public abstract void meetStudent();
+    public abstract void meetStudent(Student student);
 
-    //input: -
+    //input: Instructor instructor
     //method: Vegrehajtja azt az esemenyt, amikor a pedany egy Instructor-el kerul egy mezore
     //return: void
-    public abstract void meetInstructor();
+    public abstract void meetInstructor(Instructor instructor);
 
     //input: -
     //method: Elindítja a játékos körét, és meghívja a paraméterként kapott számmal az ‘action’ függvényt

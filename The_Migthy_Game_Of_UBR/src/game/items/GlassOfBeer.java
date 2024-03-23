@@ -3,9 +3,11 @@ package game.items;
 import game.characters.Instructor;
 import game.characters.Student;
 
+import java.util.Scanner;
+
 public class GlassOfBeer extends Item {
 
-    private boolean activated;
+    private boolean activated = false;
 
     //input: -
     //method: Aktivalja a GlassOfBeer-t
@@ -15,7 +17,13 @@ public class GlassOfBeer extends Item {
     //input: -
     //method: Visszaadja, hogy aktivalva van-e a GlassOfBeer
     //return: boolean
-    public boolean getActivated(){ return this.activated;}
+    public boolean getActivated(){
+        System.out.println("\t\t\t\t--> (glassOfBeer: GlassOfBeer).getActivated()");
+
+        System.out.println("\t\t\t\t<-- activated: boolean");
+
+        return this.activated;
+    }
 
     //input: Student user
     //method: Megvalositja a targyak felhasznalasat
@@ -49,7 +57,26 @@ public class GlassOfBeer extends Item {
     //method: Azt az esemenyt kezeli, amikor egy hallgato talalkozik egy oktatoval, tehat egy mezore kerulnek
     //return: boolean
     @Override
-    public boolean onAttacked(Student attacked, Instructor attacker){ return false;}
+    public boolean onAttacked(Student attacked, Instructor attacker){
+        System.out.println("\t\t\t--> (glassOfBeer: GlassOfBeer).onAttacked(testS1: Student, testI1: Instructor)");
+
+        boolean r = getActivated();
+        System.out.println("\t\t\t-?- Aktivalva van? (y/n): ");
+
+        Scanner scanner = new Scanner(System.in);
+        String activatedAnswer = scanner.next();
+
+        if(activatedAnswer.equals("y")){
+            attacked.removeItem(this);
+
+            System.out.println("\t\t\t<-- true: boolean");
+            return true;
+        }
+
+
+        System.out.println("<-- false: boolean");
+        return false;
+    }
 
 
 

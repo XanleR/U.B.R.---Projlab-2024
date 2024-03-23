@@ -136,11 +136,15 @@ public class Skeleton {
 
                         //Instructor Goes To Student
                         case 1:{
+                            //BOGÁR TODO
+
+                            testS1.meet(testI1);
                             break;
                         }
 
                         //Student Goes To Student
                         case 2:{
+                            //BOGÁR TODO
                             break;
                         }
 

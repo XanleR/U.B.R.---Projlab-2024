@@ -74,7 +74,7 @@ public class GlassOfBeer extends Item {
         }
 
 
-        System.out.println("<-- false: boolean");
+        System.out.println("\t\t\t<-- false: boolean");
         return false;
     }
 

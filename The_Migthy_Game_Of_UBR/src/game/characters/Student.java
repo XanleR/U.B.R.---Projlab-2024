@@ -63,7 +63,7 @@ public class Student extends Character {
     //return: void
     @Override
     public void meet(Character character){
-        System.out.println("--> (testS1: Student).meet(testI1: Instructor)");
+        System.out.println("--> (testS1: Student).meet(testI1: Character)");
         character.meetStudent(this);
 
         System.out.println("<--");
@@ -79,7 +79,13 @@ public class Student extends Character {
     //method: Vegrehajtja azt az esemenyt, amikor a pedany egy Instructor-el kerul egy mezore
     //return: void
     @Override
-    public void meetInstructor(Instructor instructor) {}
+    public void meetInstructor(Instructor instructor) {
+        System.out.println("\t--> (testS1: Student).meetInstructor(testI1: Instructor)");
+
+        this.die(instructor);
+
+        System.out.println("\t<--");
+    }
 
     //input: -
     //method: Elindítja a játékos körét, és meghívja a paraméterként kapott számmal az ‘action’ függvényt
@@ -159,7 +165,7 @@ public class Student extends Character {
     //method: A hallgatot megtamadtak, amennyiben a nincs vedelme, a hallgato meghal
     //return void
     public void die(Instructor instructor){
-        System.out.printf("\t\t--> (testS1: Student).die(testI1: Instructor)");
+        System.out.println("\t\t--> (testS1: Student).die(testI1: Instructor)");
         TVSZ tvsz1 = new TVSZ();
         GlassOfBeer glassOfBeer = new GlassOfBeer();
         WetRag wetRag = new WetRag();

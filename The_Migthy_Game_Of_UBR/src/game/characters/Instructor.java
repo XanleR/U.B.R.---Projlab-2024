@@ -3,7 +3,6 @@ package game.characters;
 import game.items.Item;
 import game.rooms.Room;
 
-import java.util.Scanner;
 
 public class Instructor extends Character{
     //input: Room from, Room to
@@ -32,14 +31,19 @@ public class Instructor extends Character{
     //method: Vegrehajtja azt az esemenyt, amikor a peldany egy másik Character-el kerul egy mezore
     //return: void
     @Override
-    public void meet(Character character){}
+    public void meet(Character character){
+        System.out.println("--> (testI1: Instructor).meet(testS1: Character)");
+        character.meetInstructor(this);
+
+        System.out.println("<--");
+    }
 
     //input: Student student
     //method: Vegrehajtja azt az esemenyt, amikor a peldany egy Student-el kerul egy mezore
     //return: void
     @Override
     public void meetStudent(Student student) {
-        System.out.printf("\t--> (testI1: Instructor).meetStudent(testS1: Student)");
+        System.out.println("\t--> (testI1: Instructor).meetStudent(testS1: Student)");
 
         student.die(this);
 

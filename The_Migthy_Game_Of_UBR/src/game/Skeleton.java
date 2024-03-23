@@ -6,7 +6,6 @@ import game.items.*;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 public class Skeleton {
@@ -136,15 +135,13 @@ public class Skeleton {
 
                         //Instructor Goes To Student
                         case 1:{
-                            //BOGÁR TODO
-
                             testS1.meet(testI1);
                             break;
                         }
 
                         //Student Goes To Student
                         case 2:{
-                            //BOGÁR TODO
+                            testI1.meet(testS1);
                             break;
                         }
 
@@ -404,6 +401,18 @@ public class Skeleton {
                     int selectedAttack;
                     Scanner sc8 = new Scanner(System.in);
                     selectedAttack = Integer.parseInt(sc8.next());
+
+                    switch (selectedAttack){
+                        case 1:
+                            testTVSZ.onAttacked(testS1, testI1);
+                            break;
+                        case 2:
+                            testWR.onAttacked(testS1, testI2);
+                            break;
+                        case 3:
+                            testGOB.onAttacked(testS1, testI1);
+                            break;
+                    }
 
                     break;
                 }

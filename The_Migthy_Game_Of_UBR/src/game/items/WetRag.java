@@ -76,13 +76,13 @@ public class WetRag extends Item{
 
             attacker.stun(1);
 
-            System.out.println("<-- true: boolean");
+            System.out.println("\t\t\t<-- true: boolean");
             return true;
 
         }
 
 
-        System.out.println("<-- false: boolean");
+        System.out.println("\t\t\t<-- false: boolean");
         return false;
     }
 }

@@ -71,10 +71,14 @@ public class GameController {
     //return: void
     public void endGame(){}
 
-    //input: Character remove
+    //input: Character removeable
     //method: A kapott Character-t kitorli a jatekban levo Characterek kozul
     //return: void
-    public void removeCharacter(Character remove){}
+    public void removeCharacter(Character removeable){
+        System.out.println("\t\t\t--> (gameController: GameController).removeCharacter(removeable: Character)");
+
+        System.out.println("\t\t\t<--");
+    }
 
     //input: -
     //method: Elinditja a jatekmenetet

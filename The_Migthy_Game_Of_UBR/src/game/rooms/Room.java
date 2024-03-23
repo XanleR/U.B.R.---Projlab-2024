@@ -51,12 +51,14 @@ public abstract class Room {
 
             //TODO NEM IS LETEZIK SIMA MEET METODUSUNK CSAK A SZEKVENCIAN
 
+
+
             System.out.println("\t\t--> (testI1: Character).meetStudent()");
-            c1.meetStudent();
+            //c1.meetStudent(); //Készítettem meet függvényt meghívni c1 paraméterrel
             System.out.println("\t\t<--");
 
             System.out.println("\t\t--> (testI1: Character).meetInstructor()");
-            c1.meetInstructor();
+            //c1.meetInstructor(); //Készítettem meet függvényt meghívni c1 paraméterrel
             System.out.println("\t\t<--");
         }
     }

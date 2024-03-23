@@ -26,6 +26,11 @@ public abstract class Character {
 
     //Setter: A parameterkent kapott int-re beallitja a stunnedRounds
     public void stun(int stun){
+        System.out.println("\t\t\t\t--> (character: Character).stun("+stun+": int)");
+
+        System.out.println("\t\t\t\t<-- activated: boolean");
+
+
         this.stunnedRounds = stun;
     }
 

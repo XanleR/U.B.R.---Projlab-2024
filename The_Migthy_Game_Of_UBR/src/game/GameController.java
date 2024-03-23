@@ -1,9 +1,13 @@
 package game;
 
+import game.characters.Student;
+import game.rooms.RegularRoom;
 import game.rooms.Room;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+
 import game.characters.Character;
 
 public class GameController {
@@ -44,12 +48,48 @@ public class GameController {
     //input: Room slipt
     //method: A kapott szobat 2 masik szobara osztja
     //return: void
-    public void slpitRoom(Room split){}
+    public void slpitRoom(Room split){
+        System.out.println("--> (gameController: GameController).splitRoom(testR1)");
+        Room splittable = new RegularRoom();
+        split.splitTo(splittable);
+
+        Student s1 = new Student();
+        Student s2 = new Student();
+
+        List<Student> studentList = new ArrayList<Student>();
+        studentList.add(s1);
+        studentList.add(s2);
+
+        Scanner scanner = new Scanner(System.in);
+        for(int i=0;i<studentList.size();i++){
+            System.out.println("\t-?- Szeretned, hogy az s" + (i+1) +" hallgato atkeruljon az uj szobaba? (y/n):");
+            String answer = scanner.next();
+
+            if(answer.equals("y")){
+                System.out.println("\t~t--> (testR2: Room).addCharacter(testS1: Student)");
+                splittable.addCharacter(studentList.get(i));
+                //System.out.println("\t\t<--");
+
+                System.out.println("\t\t--> (testR1: Room).removeCharacter(s"+(i+1)+": Character)");
+                split.removeCharacter(studentList.get(i));
+                System.out.println("\t\t<--");
+
+
+            }
+        }
+
+        System.out.println("<--");
+    }
 
     //input: Room m1, Room m2
     //method: A kapott 2 szobabol 1 uj szobat hoz letre
     //return: void
-    public void mergeRooms(Room m1, Room m2){}
+    public void mergeRooms(Room m1, Room m2){
+        System.out.println("--> (gameController: GameController).mergeRooms(testR1: Room, testR2: Room)");
+        m1.mergeTo(m2);
+
+        System.out.println("<--");
+    }
 
     //input: Room newR
     //method: A kapott Room-ot felveszi a jatek szobai koze

@@ -35,6 +35,7 @@ public class Student extends Character {
     public void move(Room from, Room to){
         System.out.println("\t--> (testR2: Room).addCharacter(testS1: Student)");
         to.addCharacter(this);
+        System.out.println("\t<--");
     }
 
     //input: Item newI
@@ -57,6 +58,11 @@ public class Student extends Character {
     //return: void
     @Override
     public void action() {}
+
+    public void idle(){
+        System.out.println("--> (testS1: Student).idle()");
+        System.out.println("<--");
+    }
 
     //input: Character character
     //method: Vegrehajtja azt az esemenyt, amikor a peldany egy másik Character-el kerul egy mezore

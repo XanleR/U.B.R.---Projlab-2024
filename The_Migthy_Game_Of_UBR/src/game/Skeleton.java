@@ -379,16 +379,19 @@ public class Skeleton {
 
                 //Idle Action
                 case 6:{
+                    testS1.idle();
                     break;
                 }
 
                 //Merge Rooms
                 case 7:{
+                    gameController.mergeRooms(testR1, testR2);
                     break;
                 }
 
                 //Split Room
                 case 8:{
+                    gameController.slpitRoom(testR1);
                     break;
                 }
 

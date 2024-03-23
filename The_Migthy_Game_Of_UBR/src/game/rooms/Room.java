@@ -1,11 +1,13 @@
 package game.rooms;
 
 import game.characters.Character;
+import game.characters.Student;
 import game.items.Item;
 import game.items.Transistor;
 import game.items.WetRag;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public abstract class Room {
 
@@ -119,12 +121,19 @@ public abstract class Room {
     //input: Room other
     //method: Atadja az r2-vel jelolt szobanak az adott szoba targyainak, es a szomszedos szobainak a felet. Igy valosul meg az osztodas
     //return: void
-    public void splitTo(Room other){}
+    public void splitTo(Room other){
+        System.out.println("\t--> (testR1: Room).splitTo(splittable: Room)");
+        System.out.println("\t<--");
+    }
 
     //input: Room other
     //method: Atadja az r2-vel jelolt szobanak az adott szoba osszes szomszedjat, es targyat. Igy valosul meg a szobak osszevonasa
     //return: void
-    public void mergeTo(Room other){}
+    public void mergeTo(Room other){
+        System.out.println("\t--> (testR1: Room).mergeTo(testR2: Room)");
+
+        System.out.println("\t<--");
+    }
 
     //input: -
     //method: Atmasolja az r2-vel jelolt szobaba az adott szoba szomszedjait, targyait, es jatekosait

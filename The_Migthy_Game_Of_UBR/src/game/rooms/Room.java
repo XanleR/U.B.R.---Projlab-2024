@@ -38,10 +38,13 @@ public abstract class Room {
         from = new RegularRoom();
         System.out.println("\t\t<-- from: Room");
 
-        if (isAccessible(this)){
-            System.out.println("\t\t--> (testR2: Room).addCharacter(testI1: Character)");
-            this.listOfCharacters.add(c1);
-            System.out.println("\t\t<--");
+        this.isAccessible(from);
+
+        Scanner scanner2 = new Scanner(System.in);
+        System.out.println("\t\t-?- At lehet menni az uj szobaba? (y/n): ");
+        String answer2 = scanner2.next();
+
+        if (answer2.equals("y")){
 
             System.out.println("\t\t--> (testR1: Room).removeCharacter(testI1: Character)");
             from.removeCharacter(c1);
@@ -72,8 +75,13 @@ public abstract class Room {
         }
     }
 
-    //TODO
-    public boolean isAccessible(Room r1) {return true;}
+
+    public boolean isAccessible(Room r1) {
+        System.out.println("\t\t--> (TestR2: Room).isAccessible(TestR1: Room)");
+
+        System.out.println("\t\t<-- accessible: boolean");
+        return true;
+    }
 
     //input: -
     //method: Visszaadja a szobaban talalhato karaktereket

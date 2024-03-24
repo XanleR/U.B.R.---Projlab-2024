@@ -109,7 +109,7 @@ public class Student extends Character {
     //method: Kitorli a targyat a Student inventory-jabol es hozzaadja a szoba targyakat tarolo attributumahoz
     //return: void
     public void dropItem(Item dropped){
-        System.out.println("\t -->(currentRoom: Room).addItem(dropped)");
+        System.out.println("\t -->(currentRoom: Room).addItem(dropped: item)");
         this.currentRoom = new RegularRoom();
         this.currentRoom.addItem(dropped);
         System.out.println("\t <--");

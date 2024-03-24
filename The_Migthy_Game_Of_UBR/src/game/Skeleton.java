@@ -197,7 +197,7 @@ public class Skeleton {
 
                         //TVSZ
                         case 4:{
-                            System.out.println("-->(testS1: Student).dropItem(testFFP)");
+                            System.out.println("-->(testS1: Student).dropItem(testTVSZ)");
                             testS1.dropItem(testGOB);
                             System.out.println("<--");
                             break;
@@ -413,7 +413,7 @@ public class Skeleton {
                 case 9:{
                     System.out.println("1-Attack TVSZ Effect");
                     System.out.println("2-Attack WetRag Effect");
-                    System.out.println("2-Attack GlassOfBeer Effect\n");
+                    System.out.println("3-Attack GlassOfBeer Effect\n");
                     System.out.println("Valassz egy menupontot: ");
                     int selectedAttack;
                     Scanner sc8 = new Scanner(System.in);

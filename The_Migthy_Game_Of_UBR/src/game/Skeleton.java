@@ -6,13 +6,14 @@ import game.items.*;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Skeleton {
 
     public static GameController gameController;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         boolean end = false;
 
@@ -98,14 +99,22 @@ public class Skeleton {
                                 case 1:{
                                     //TODO
                                     testS1.transistorJump();
-                                    break;
+                                    Scanner b1 = new Scanner(System.in);
+                                    boolean b1i = b1.hasNextLine();
+                                    if(b1i){
+                                        break;
+                                    }
                                 }
 
                                 //Simple move
                                 case 2:{
                                     System.out.println("--> (testS1: Student).move(testR1: Room, testR2: Room)");
                                     testS1.move(testR1, testR2);
-                                    break;
+                                    Scanner b1 = new Scanner(System.in);
+                                    boolean b1i = b1.hasNextLine();
+                                    if(b1i){
+                                        break;
+                                    }
                                 }
                             }
                             break;
@@ -115,7 +124,11 @@ public class Skeleton {
                         case 2:{
                             System.out.println("--> (testI1: Instructor).move(testR1: Room, testR2: Room)");
                             testI1.move(testR1, testR2);
-                            break;
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
                     }
                     break;
@@ -136,12 +149,23 @@ public class Skeleton {
                         //Instructor Goes To Student
                         case 1:{
                             testS1.meet(testI1);
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                         //Student Goes To Student
                         case 2:{
                             testI1.meet(testS1);
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                             break;
                         }
 
@@ -171,7 +195,12 @@ public class Skeleton {
                             System.out.println("-->(testS1: Student).dropItem(testGOB)");
                             testS1.dropItem(testGOB);
                             System.out.println("<--");
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i) {
+                                break;
+                            }
                         }
 
                         //Dice
@@ -179,7 +208,12 @@ public class Skeleton {
                             System.out.println("-->(testS1: Student).dropItem(testDice)");
                             testS1.dropItem(testDice);
                             System.out.println("<--");
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                         //FFP2
@@ -187,7 +221,12 @@ public class Skeleton {
                             System.out.println("-->(testS1: Student).dropItem(testFFP)");
                             testS1.dropItem(testFFP);
                             System.out.println("<--");
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                         //TVSZ
@@ -195,7 +234,12 @@ public class Skeleton {
                             System.out.println("-->(testS1: Student).dropItem(testFFP)");
                             testS1.dropItem(testGOB);
                             System.out.println("<--");
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                         //Transistor
@@ -203,7 +247,12 @@ public class Skeleton {
                             System.out.println("-->(testS1: Student).dropItem(testT)");
                             testS1.dropItem(testT1);
                             System.out.println("<--");
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                         //WetRag
@@ -211,7 +260,12 @@ public class Skeleton {
                             System.out.println("-->(testS1: Student).dropItem(testWR)");
                             testS1.dropItem(testWR);
                             System.out.println("<--");
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                         //Camambert
@@ -219,7 +273,12 @@ public class Skeleton {
                             System.out.println("-->(testS1: Student).dropItem(testCam)");
                             testS1.dropItem(testCam);
                             System.out.println("<--");
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                     }
@@ -231,10 +290,9 @@ public class Skeleton {
                     System.out.println("1-Use GlassOfBeer");
                     System.out.println("2-Use Dice");
                     System.out.println("3-Use FFP2");
-                    System.out.println("4-Use TVSZ");
-                    System.out.println("5-Use Transistor");
-                    System.out.println("6-Use WetRag");
-                    System.out.println("7-Use Camambert\n");
+                    System.out.println("4-Use Transistor");
+                    System.out.println("5-Use WetRag");
+                    System.out.println("6-Use Camambert\n");
                     System.out.println("Valassz egy menupontot: ");
                     int selectedItemToUse;
                     Scanner sc6 = new Scanner(System.in);
@@ -248,7 +306,12 @@ public class Skeleton {
                             System.out.println("--> (testS1: Student).useItem(testGOB: GlassOfBeer)");
                             testS1.useItem(testGOB);
                             System.out.println("<--");
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                         //Dice
@@ -256,7 +319,12 @@ public class Skeleton {
                             System.out.println("--> (testS1: Student).useItem(testDice: Dice)");
                             testS1.useItem(testDice);
                             System.out.println("<--");
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                         //FFP2
@@ -264,37 +332,51 @@ public class Skeleton {
                             System.out.println("--> (testS1: Student).useItem(testFFP: FFP2)");
                             testS1.useItem(testFFP);
                             System.out.println("<--");
-                            break;
-                        }
-
-                        //TVSZ
-                        case 4:{
-                            //TODO nincs meg a szekvencia
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                         //Transistor
-                        case 5:{
+                        case 4:{
                             System.out.println("--> (testS1: Student).useItem(testT1: Transistor)");
                             testS1.useItem(testT1);
                             System.out.println("<--");
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                         //WetRag
-                        case 6:{
+                        case 5:{
                             System.out.println("--> (testS1: Student).useItem(testWR: WetRag)");
                             testS1.useItem(testWR);
                             System.out.println("<--");
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                         //Camambert
-                        case 7:{
+                        case 6:{
                             System.out.println("--> (testS1: Student).useItem(testCam: Camambert)");
                             testS1.useItem(testCam);
                             System.out.println("<--");
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                     }
@@ -324,7 +406,12 @@ public class Skeleton {
                             System.out.println("--> (testS1: Student).pickUpItem(testGOB: GlassOfBeer)");
                             testS1.pickUpItem(testGOB);
                             System.out.println("<--");
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                         //Dice
@@ -332,7 +419,12 @@ public class Skeleton {
                             System.out.println("--> (testS1: Student).pickUpItem(testDice: Dice)");
                             testS1.pickUpItem(testDice);
                             System.out.println("<--");
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                         //FFP2
@@ -340,22 +432,42 @@ public class Skeleton {
                             System.out.println("--> (testS1: Student).pickUpItem(testFFP: FFP2)");
                             testS1.pickUpItem(testFFP);
                             System.out.println("<--");
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                         //TVSZ
                         case 4: {
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                         //SlideRule
                         case 5: {
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                         //Transistor
                         case 6: {
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                         //WetRag
@@ -363,7 +475,12 @@ public class Skeleton {
                             System.out.println("--> (testS1: Student).pickUpItem(testWR: WetRag)");
                             testS1.pickUpItem(testWR);
                             System.out.println("<--");
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
 
                         //Camambert
@@ -371,7 +488,12 @@ public class Skeleton {
                             System.out.println("--> (testS1: Student).pickUpItem(testCam: Camambert)");
                             testS1.pickUpItem(testCam);
                             System.out.println("<--");
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if(b1i){
+                                break;
+                            }
                         }
                     }
                     break;
@@ -380,19 +502,34 @@ public class Skeleton {
                 //Idle Action
                 case 6:{
                     testS1.idle();
-                    break;
+                    System.out.println("Irj be valamit a visszatereshez: ");
+                    Scanner b1 = new Scanner(System.in);
+                    boolean b1i = b1.hasNextLine();
+                    if(b1i){
+                        break;
+                    }
                 }
 
                 //Merge Rooms
                 case 7:{
                     gameController.mergeRooms(testR1, testR2);
-                    break;
+                    System.out.println("Irj be valamit a visszatereshez: ");
+                    Scanner b1 = new Scanner(System.in);
+                    boolean b1i = b1.hasNextLine();
+                    if(b1i){
+                        break;
+                    }
                 }
 
                 //Split Room
                 case 8:{
                     gameController.slpitRoom(testR1);
-                    break;
+                    System.out.println("Irj be valamit a visszatereshez: ");
+                    Scanner b1 = new Scanner(System.in);
+                    boolean b1i = b1.hasNextLine();
+                    if(b1i){
+                        break;
+                    }
                 }
 
                 //AttackItem
@@ -405,16 +542,41 @@ public class Skeleton {
                     Scanner sc8 = new Scanner(System.in);
                     selectedAttack = Integer.parseInt(sc8.next());
 
+                    //Pick Item
                     switch (selectedAttack){
-                        case 1:
+
+                        //TVSZ Attack Effect
+                        case 1: {
                             testTVSZ.onAttacked(testS1, testI1);
-                            break;
-                        case 2:
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if (b1i) {
+                                break;
+                            }
+                        }
+
+                        //WetRag Attack Effect
+                        case 2: {
                             testWR.onAttacked(testS1, testI2);
-                            break;
-                        case 3:
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if (b1i) {
+                                break;
+                            }
+                        }
+
+                        //GlassOfBeer Attack Effect
+                        case 3: {
                             testGOB.onAttacked(testS1, testI1);
-                            break;
+                            System.out.println("Irj be valamit a visszatereshez: ");
+                            Scanner b1 = new Scanner(System.in);
+                            boolean b1i = b1.hasNextLine();
+                            if (b1i) {
+                                break;
+                            }
+                        }
                     }
 
                     break;

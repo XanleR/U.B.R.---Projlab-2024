@@ -25,7 +25,12 @@ public class Transistor extends Item{
     //input: -
     //method: Visszaadja azt a Room-ot, ahol a parja van
     //return: Room
-    public Room getPairsRoom(){ return null;}
+    public Room getPairsRoom(){
+        System.out.println("\t-->(t1: Transistor).getPairsRoom()");
+
+        System.out.printf("\t<-- r2: Room");
+        return null;
+    }
 
     //input: Student user
     //method: Megvalositja a targyak felhasznalasat

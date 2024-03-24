@@ -54,7 +54,11 @@ public class Instructor extends Character{
     //method: Vegrehajtja azt az esemenyt, amikor a pedany egy Instructor-el kerul egy mezore
     //return: void
     @Override
-    public void meetInstructor(Instructor instructor) {}
+    public void meetInstructor(Instructor instructor) {
+        System.out.println("\t\t\t--> (i1: Instructor).meetInstructor(testI1)");
+
+        System.out.println("\t\t\t<--");
+    }
 
     //input: -
     //method: Elindítja a játékos körét, és meghívja a paraméterként kapott számmal az ‘action’ függvényt

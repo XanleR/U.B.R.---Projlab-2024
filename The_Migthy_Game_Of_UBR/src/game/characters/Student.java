@@ -5,6 +5,7 @@ import game.items.*;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
 
+import java.awt.font.TransformAttribute;
 import java.util.List;
 import java.util.Scanner;
 
@@ -79,7 +80,11 @@ public class Student extends Character {
     //method: Vegrehajtja azt az esemenyt, amikor a peldany egy Student-el kerul egy mezore
     //return: void
     @Override
-    public void meetStudent(Student student) {}
+    public void meetStudent(Student student) {
+        System.out.println("\t\t\t--> (s1: Student).meetStudent(testS1: Student)");
+
+        System.out.println("\t\t\t<--");
+    }
 
     //input: Instructor instuctor
     //method: Vegrehajtja azt az esemenyt, amikor a pedany egy Instructor-el kerul egy mezore
@@ -127,7 +132,22 @@ public class Student extends Character {
     //method: A tranzisztorral valo utazast megvalosíto fuggveny
     //return: void
     //TODO ez honnan tudja hogy hova ugrik stb, igy kb hasznalhatatlan ez a fgv.
-    public void transistorJump(){}
+    public void transistorJump(){
+        System.out.println("-->(testS1: Student).transistorJump()");
+        Room r1 = new RegularRoom();
+        r1.geTransistor();
+
+        Transistor t1 = new Transistor();
+        t1.getPairsRoom();
+
+        r1.removeCharacter(this);
+
+        Room r2 = new RegularRoom();
+        System.out.println("\t--> (testR2: Room).addCharacter(testS1: Student)");
+        r2.addCharacter(this);
+
+        System.out.println("<--");
+    }
 
     //intput: Transistor newT
     //method: A tranzisztorok listájába beleteszi a paraméterként kapott tranzisztort

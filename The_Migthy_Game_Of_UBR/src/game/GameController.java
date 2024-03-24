@@ -66,7 +66,7 @@ public class GameController {
             String answer = scanner.next();
 
             if(answer.equals("y")){
-                System.out.println("\t~t--> (testR2: Room).addCharacter(testS1: Student)");
+                System.out.println("\t--> (testR2: Room).addCharacter(testS1: Student)");
                 splittable.addCharacter(studentList.get(i));
                 //System.out.println("\t\t<--");
 

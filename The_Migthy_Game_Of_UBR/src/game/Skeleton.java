@@ -47,6 +47,9 @@ public class Skeleton {
         WetRag testWR = new WetRag();
 
         while(!end){
+            //System.out.print("\033c");
+            //System.out.flush();
+
             System.out.println("1-Move");
             System.out.println("2-Character Goes To Character");
             System.out.println("3-Drop Item");
@@ -75,7 +78,7 @@ public class Skeleton {
                 case 1:{
                     System.out.println("1-Student Move");
                     System.out.println("2-Instructor Move\n");
-                    System.out.println("Valassz egy menupontot: ");
+                    System.out.println("Valassz egy al-menupontot: ");
                     int selectedMove1;
                     Scanner sc2 = new Scanner(System.in);
                     selectedMove1 = Integer.parseInt(sc2.next());
@@ -87,7 +90,7 @@ public class Skeleton {
                         case 1:{
                             System.out.println("1-Transistor Jump");
                             System.out.println("2-Simple Move\n");
-                            System.out.println("Valassz egy menupontot: ");
+                            System.out.println("Valassz egy al-al-menupontot: ");
                             int selectedMove2;
                             Scanner sc3 = new Scanner(System.in);
                             selectedMove2 = Integer.parseInt(sc3.next());
@@ -97,24 +100,29 @@ public class Skeleton {
 
                                 //Transistor Jump
                                 case 1:{
-                                    //TODO
                                     testS1.transistorJump();
+                                    System.out.println("Irj be valamit a visszatereshez: ");
                                     Scanner b1 = new Scanner(System.in);
                                     boolean b1i = b1.hasNextLine();
                                     if(b1i){
                                         break;
                                     }
+
+                                    break;
                                 }
 
                                 //Simple move
                                 case 2:{
                                     System.out.println("--> (testS1: Student).move(testR1: Room, testR2: Room)");
                                     testS1.move(testR1, testR2);
+                                    System.out.println("<--");
+                                    System.out.println("Irj be valamit a visszatereshez: ");
                                     Scanner b1 = new Scanner(System.in);
                                     boolean b1i = b1.hasNextLine();
                                     if(b1i){
                                         break;
                                     }
+                                    break;
                                 }
                             }
                             break;
@@ -124,6 +132,8 @@ public class Skeleton {
                         case 2:{
                             System.out.println("--> (testI1: Instructor).move(testR1: Room, testR2: Room)");
                             testI1.move(testR1, testR2);
+                            System.out.println("<--");
+                            System.out.println("Irj be valamit a visszatereshez: ");
                             Scanner b1 = new Scanner(System.in);
                             boolean b1i = b1.hasNextLine();
                             if(b1i){
@@ -138,7 +148,7 @@ public class Skeleton {
                 case 2:{
                     System.out.println("1-Instructor Goes To Student");
                     System.out.println("2-Student Goes To Instructor\n");
-                    System.out.println("Valassz egy menupontot: ");
+                    System.out.println("Valassz egy al-menupontot: ");
                     int selectedCGTC;
                     Scanner sc4 = new Scanner(System.in);
                     selectedCGTC = Integer.parseInt(sc4.next());

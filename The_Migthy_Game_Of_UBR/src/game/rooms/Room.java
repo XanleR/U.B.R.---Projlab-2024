@@ -1,6 +1,7 @@
 package game.rooms;
 
 import game.characters.Character;
+import game.characters.Instructor;
 import game.characters.Student;
 import game.items.Item;
 import game.items.Transistor;
@@ -51,17 +52,23 @@ public abstract class Room {
             System.out.println("\t\t<--");
 
 
-            //TODO NEM IS LETEZIK SIMA MEET METODUSUNK CSAK A SZEKVENCIAN
+            Scanner scanner = new Scanner(System.in);
 
+            System.out.println("\t\t-?- Talalkozott az uj szobaba lepett karakter hallgatoval? (y/n): ");
+            String answer = scanner.next();
 
+            if(answer.equals("y")){
+                Student s1 = new Student();
+                s1.meet(c1);
+            }
 
-            System.out.println("\t\t--> (testI1: Character).meetStudent()");
-            //c1.meetStudent(); //Készítettem meet függvényt meghívni c1 paraméterrel
-            System.out.println("\t\t<--");
+            System.out.println("\t\t-?- Talalkozott az uj szobaba lepett karakter tanarral? (y/n): ");
+            answer = scanner.next();
 
-            System.out.println("\t\t--> (testI1: Character).meetInstructor()");
-            //c1.meetInstructor(); //Készítettem meet függvényt meghívni c1 paraméterrel
-            System.out.println("\t\t<--");
+            if(answer.equals("y")){
+                Instructor i1 = new Instructor();
+                i1.meet(c1);
+            }
         }
     }
 
@@ -76,7 +83,11 @@ public abstract class Room {
     //input: Character c1
     //method: Kitorli a parameterkent kapott karaktert a szobabol
     //return: void
-    public void removeCharacter(Character c1) {}
+    public void removeCharacter(Character c1) {
+        System.out.println("\t--> (r1: Room).removeCharacter(testS1: Character)");
+
+        System.out.println("\t<--");
+    }
 
     //input: Item i1
     //method: Kitörli a parameterkent kapott Itemet a szobabol
@@ -116,7 +127,12 @@ public abstract class Room {
     //input: -
     //method: Visszaadja a szobaban elhelyezett tranzisztort
     //return: Transistor
-    public Transistor geTransistor(){return null;}
+    public Transistor geTransistor(){
+        System.out.println("\t-->(r1: Room).getTransistor()");
+
+        System.out.println("\t<-- t1: Transistor");
+        return null;
+    }
 
     //input: Room other
     //method: Atadja az r2-vel jelolt szobanak az adott szoba targyainak, es a szomszedos szobainak a felet. Igy valosul meg az osztodas

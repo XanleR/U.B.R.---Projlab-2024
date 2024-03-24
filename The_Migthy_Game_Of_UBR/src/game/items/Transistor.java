@@ -5,6 +5,8 @@ import game.rooms.Room;
 import game.characters.Instructor;
 import game.characters.Student;
 
+import java.util.Scanner;
+
 public class Transistor extends Item{
 
     //Megadja, hogy a Transistor be van-e kapcsolva
@@ -20,7 +22,11 @@ public class Transistor extends Item{
     //method: A kapott Transistort eltarolja a sajat parjakent,
     //        es sajat magat eltarolja a kapott Transistor parjkakent
     //return: void
-    public void pairing(Transistor fPair){}
+    public void pairing(Transistor fPair){
+        System.out.println("\t\t\t\t--> (transistor: Transistor).pairing(transistor2: Transistor)");
+
+        System.out.println("\t\t\t\t<--");
+    }
 
     //input: -
     //method: Visszaadja azt a Room-ot, ahol a parja van
@@ -28,7 +34,7 @@ public class Transistor extends Item{
     public Room getPairsRoom(){
         System.out.println("\t-->(t1: Transistor).getPairsRoom()");
 
-        System.out.printf("\t<-- r2: Room");
+        System.out.println("\t<-- r2: Room");
         return null;
     }
 
@@ -52,11 +58,23 @@ public class Transistor extends Item{
     @Override
     public boolean canInstructorPickUp(){ return false; }
 
-    //input: -
+    //input: Student student
     //method: Azt az esemenyt kezeli, amikor egy tanulo felveszi a targyat
     //return: void
     @Override
-    public void onPickedUp(){}
+    public void onPickedUp(Student student){
+        student.addTransistor(this);
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("\t\t\tParos szamu transistor van a hallgatonal? (y/n): ");
+        String answer = scanner.next();
+
+        if(answer.equals("y")){
+            student.pairLastTwoTransistor();
+        }
+
+    }
 
     //input: -
     //method: Elvegzi a kor elejen szukseges modositasokat a palyan

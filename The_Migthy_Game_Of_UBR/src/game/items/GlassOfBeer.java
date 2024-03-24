@@ -41,11 +41,11 @@ public class GlassOfBeer extends Item {
     @Override
     public boolean canInstructorPickUp(){ return false; }
 
-    //input: -
+    //input: Stduent student
     //method: Azt az esemenyt kezeli, amikor egy tanulo felveszi a targyat
     //return: void
     @Override
-    public void onPickedUp(){}
+    public void onPickedUp(Student student){}
 
     //input: -
     //method: Elvegzi a kor elejen szukseges modositasokat a palyan

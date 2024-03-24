@@ -41,11 +41,32 @@ public class TVSZ extends Item{
     @Override
     public boolean canInstructorPickUp(){ return false;}
 
-    //input: -
+    //input: Student student
     //method: Azt az esemenyt kezeli, amikor egy tanulo felveszi a targyat
     //return: void
     @Override
-    public void onPickedUp(){}
+    public void onPickedUp(Student student){
+        student.getTVSZ();
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("\t\t-?- A hallgatonal mar van tvsz? (y/n): ");
+        String answer = scanner.next();
+
+        if(answer.equals("y")) {
+            this.getRemainingProtection();
+
+            System.out.println("\t\t-?- Mennyi a felvett TVSZ vedelmi erteke? (1-3): ");
+            int selected = Integer.parseInt(scanner.next());
+
+            TVSZ t1 = new TVSZ();
+            t1.addProtection(selected);
+        }
+        if(answer.equals("n")){
+            student.setTVSZ(this);
+        }
+    }
+
 
     //input: -
     //method: Elvegzi a kor elejen szukseges modositasokat a palyan

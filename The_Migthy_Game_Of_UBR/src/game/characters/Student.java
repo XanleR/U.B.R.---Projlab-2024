@@ -6,6 +6,7 @@ import game.rooms.RegularRoom;
 import game.rooms.Room;
 
 import java.awt.font.TransformAttribute;
+import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Scanner;
 
@@ -50,7 +51,7 @@ public class Student extends Character {
         System.out.println("\t<--");
 
         System.out.println("\t--> (newI: Item).onPickedUp()");
-        newI.onPickedUp();
+        newI.onPickedUp(this);
         System.out.println("\t<--");
     }
 
@@ -131,7 +132,6 @@ public class Student extends Character {
     //input: -
     //method: A tranzisztorral valo utazast megvalosíto fuggveny
     //return: void
-    //TODO ez honnan tudja hogy hova ugrik stb, igy kb hasznalhatatlan ez a fgv.
     public void transistorJump(){
         System.out.println("-->(testS1: Student).transistorJump()");
         Room r1 = new RegularRoom();
@@ -149,15 +149,40 @@ public class Student extends Character {
         System.out.println("<--");
     }
 
-    //intput: Transistor newT
+    //input: Transistor newT
     //method: A tranzisztorok listájába beleteszi a paraméterként kapott tranzisztort
     //return: void
-    public void addTransistor(Transistor newT){}
+    public void addTransistor(Transistor newT){
+        System.out.println("\t\t\t--> (testS1: Student).addTransistor(testT1: Transistor)");
+
+        System.out.println("\t\t\t<--");
+    }
+
+    //input: -
+    //method: A hallgatonal levo legutolso 2-nek felvett tranzisztort parositja
+    //return: void
+    public void pairLastTwoTransistor(){
+        System.out.println("\t\t\t--> (testS1: Student).pairLastTwoTransistor()");
+        Transistor t1 = new Transistor();
+        Transistor t2 = new Transistor();
+
+        this.getTransistor(0);
+        this.getTransistor(0);
+
+        t1.pairing(t2);
+        t2.pairing(t1);
+
+
+        System.out.println("\t\t\t<--");
+    }
 
     //input: int index
     //method:  Visszaadja a tranzisztorok listajabol az indexedik tranzisztort
     //return: Transistor
     public Transistor getTransistor(int index){
+        System.out.println("\t\t\t\t--> (testS1: Student).getTransistor(index: int)");
+
+        System.out.println("\t\t\t\t<-- transistor: Transistor");
         return null;
     }
 
@@ -173,10 +198,24 @@ public class Student extends Character {
         maskedRounds += plusMask;
     }
 
-    //input_ TVSZ _tvsz
+    //input: TVSZ _tvsz
     //method: Beallitja a hallgatonal levo TVSZ-t a parameterkent megadottra
     //return: void
-    public void setTVSZ(TVSZ _tvsz){}
+    public void setTVSZ(TVSZ _tvsz){
+        System.out.println("\t\t\t--> (testS1: Student).setTVSZ(testTVSZ: TVSZ)");
+
+        System.out.println("\t\t\t<--");
+    }
+
+    //input: -
+    //method: visszaadja a hallgatonal levo tvsz-t
+    //return: TVSZ
+    public TVSZ getTVSZ(){
+        System.out.println("\t\t--> (testS1: Student).getTVSZ()");
+
+        System.out.println("\t\t<-- t1: TVSZ");
+        return null;
+    }
 
     //input: Item removed
     //method: Kiveszi a parameterkent kapott targyat a hallgato inventory-jából

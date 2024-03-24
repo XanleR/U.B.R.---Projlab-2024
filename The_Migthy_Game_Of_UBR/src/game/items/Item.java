@@ -18,10 +18,10 @@ public abstract class Item {
     //return: boolean
     public abstract boolean canInstructorPickUp();
 
-    //input: -
+    //input: Student student
     //method: Azt az esemenyt kezeli, amikor egy tanulo felveszi a targyat
     //return: void
-    public abstract void onPickedUp();
+    public abstract void onPickedUp(Student student);
 
     //input: -
     //method: Elvegzi a kor elejen szukseges modositasokat a palyan

@@ -399,7 +399,7 @@ public class Skeleton {
                     System.out.println("2-Pick Up Dice");
                     System.out.println("3-Pick Up FFP2");
                     System.out.println("4-Pick Up TVSZ");
-                    System.out.println("5-Pick Up SlideRule\n");
+                    System.out.println("5-Pick Up SlideRule");
                     System.out.println("6-Pick Up Transistor");
                     System.out.println("7-Pick Up WetRag");
                     System.out.println("8-Pick Up Camambert");
@@ -452,6 +452,12 @@ public class Skeleton {
 
                         //TVSZ
                         case 4: {
+
+
+                            System.out.println("--> (testS1: Student).pickUpItem(testTVSZ: TVSZ)");
+                            testS1.pickUpItem(testTVSZ);
+                            System.out.println("<--");
+
                             System.out.println("Irj be valamit a visszatereshez: ");
                             Scanner b1 = new Scanner(System.in);
                             boolean b1i = b1.hasNextLine();
@@ -462,6 +468,11 @@ public class Skeleton {
 
                         //SlideRule
                         case 5: {
+
+                            System.out.println("--> (testS1: Student).pickUpItem(testSR: SlideRule)");
+                            testS1.pickUpItem(testSR);
+                            System.out.println("<--");
+
                             System.out.println("Irj be valamit a visszatereshez: ");
                             Scanner b1 = new Scanner(System.in);
                             boolean b1i = b1.hasNextLine();
@@ -472,6 +483,10 @@ public class Skeleton {
 
                         //Transistor
                         case 6: {
+                            System.out.println("--> (testS1: Student).pickUpItem(testT1: Transistor)");
+                            testS1.pickUpItem(testT1);
+                            System.out.println("<--");
+
                             System.out.println("Irj be valamit a visszatereshez: ");
                             Scanner b1 = new Scanner(System.in);
                             boolean b1i = b1.hasNextLine();

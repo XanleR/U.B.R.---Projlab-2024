@@ -47,9 +47,6 @@ public class Skeleton {
         WetRag testWR = new WetRag();
 
         while(!end){
-            System.out.print("\033c");
-            System.out.flush();
-
             System.out.println("1-Move");
             System.out.println("2-Character Goes To Character");
             System.out.println("3-Drop Item");
@@ -376,7 +373,6 @@ public class Skeleton {
                             System.out.println("--> (testS1: Student).pickUpItem(testWR: WetRag)");
                             testS1.pickUpItem(testWR);
                             System.out.println("<--");
-                            System.out.println("Irj be valamit a visszatereshez: ");
                             break;
                         }
 
@@ -444,7 +440,7 @@ public class Skeleton {
                     break;
                 }
             }
-            System.out.println("Press any key to continue..");
+            System.out.println("Press enter to continue..");
             Scanner con = new Scanner(System.in);
             if(con.hasNextLine()){
                 continue;

@@ -1,0 +1,4 @@
+Character character = new Room();
+Item fasz = new Item();
+Goldschmidt csocs Balage;
+Dual monitor a draw.io-hoz

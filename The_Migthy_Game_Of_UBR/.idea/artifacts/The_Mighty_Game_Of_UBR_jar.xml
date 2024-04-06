@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="The_Mighty_Game_Of_UBR:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/The_Mighty_Game_Of_UBR_jar</output-path>
+    <root id="archive" name="The_Mighty_Game_Of_UBR.jar">
+      <element id="module-output" name="The_Mighty_Game_Of_UBR" />
+    </root>
+  </artifact>
+</component>

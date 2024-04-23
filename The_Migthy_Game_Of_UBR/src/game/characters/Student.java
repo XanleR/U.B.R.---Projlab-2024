@@ -35,9 +35,7 @@ public class Student extends Character {
     //return: void
     @Override
     public void move(Room from, Room to){
-        System.out.println("\t--> (testR2: Room).addCharacter(testS1: Student)");
         to.addCharacter(this);
-        System.out.println("\t<--");
     }
 
     //input: Item newI
@@ -46,13 +44,7 @@ public class Student extends Character {
     //return: void
     @Override
     public void pickUpItem(Item newI){
-        System.out.println("\t--> (this.currentRoom: Room).removeItem(newI: Item)");
-        this.currentRoom.removeItem(newI);
-        System.out.println("\t<--");
-
-        System.out.println("\t--> (newI: Item).onPickedUp()");
-        newI.onPickedUp(this);
-        System.out.println("\t<--");
+        
     }
 
     //input: -
@@ -250,5 +242,9 @@ public class Student extends Character {
 
 
         System.out.println("\t\t<--");
+    }
+
+    public void stun(int stun){
+
     }
 }

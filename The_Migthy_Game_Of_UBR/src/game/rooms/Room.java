@@ -39,54 +39,12 @@ public abstract class Room {
     //method: Hozzaadja az parameterkent kapott karaktert a szobahoz
     //return: void
     public void addCharacter(Character c1) {
-        System.out.println("\t\t--> (testI1: Character).getRoom()");
-        Room from = c1.getRoom();
-        from = new RegularRoom();
-        System.out.println("\t\t<-- from: Room");
-
-        this.isAccessible(from);
-
-        Scanner scanner2 = new Scanner(System.in);
-        System.out.println("\t\t-?- At lehet menni az uj szobaba? (y/n): ");
-        String answer2 = scanner2.next();
-
-        if (answer2.equals("y")){
-
-            System.out.println("\t\t--> (testR1: Room).removeCharacter(testI1: Character)");
-            from.removeCharacter(c1);
-            System.out.println("\t\t<--");
-
-            System.out.println("\t\t--> (testR2: Room).onEntered(testI1: Character)");
-            this.onEntered(c1);
-            System.out.println("\t\t<--");
-
-
-            Scanner scanner = new Scanner(System.in);
-
-            System.out.println("\t\t-?- Talalkozott az uj szobaba lepett karakter hallgatoval? (y/n): ");
-            String answer = scanner.next();
-
-            if(answer.equals("y")){
-                Student s1 = new Student();
-                s1.meet(c1);
-            }
-
-            System.out.println("\t\t-?- Talalkozott az uj szobaba lepett karakter tanarral? (y/n): ");
-            answer = scanner.next();
-
-            if(answer.equals("y")){
-                Instructor i1 = new Instructor();
-                i1.meet(c1);
-            }
-        }
+        this.onEntered(c1);
     }
 
 
     public boolean isAccessible(Room r1) {
-        System.out.println("\t\t--> (TestR2: Room).isAccessible(TestR1: Room)");
-
-        System.out.println("\t\t<-- accessible: boolean");
-        return true;
+        for(int i = 0; i < this.)
     }
 
     //input: -

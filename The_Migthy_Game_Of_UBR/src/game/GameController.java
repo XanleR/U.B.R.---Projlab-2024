@@ -12,6 +12,14 @@ import game.characters.Character;
 
 public class GameController {
 
+    private static GameController instance;
+
+    public static GameController getInstance(){
+        if(instance == null){
+            instance = new GameController();
+        }
+        return instance;
+    }
 
     //Megadja, hogy hany kor van meg hatra
     private int remainingRounds;
@@ -25,7 +33,7 @@ public class GameController {
     //Eltarolja a jatekban letezo szobakat
     private List<Room> rooms;
 
-    public GameController(){
+    private GameController(){
         listOfCharacters = new ArrayList<>();
         rooms = new ArrayList<>();
         studentCount = 0;

@@ -8,6 +8,14 @@ public abstract class Item {
     //Megadja a targy leirasat
     private String desc;
 
+    private String uniqueName;
+
+
+
+    public String getUniqueName() {
+        return uniqueName;
+    }
+
     //input: Student user
     //method: Megvalositja a targyak felhasznalasat
     //return: void

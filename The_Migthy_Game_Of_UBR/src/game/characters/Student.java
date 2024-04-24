@@ -201,6 +201,11 @@ public class Student extends Character {
         this.die(instructor);
     }
 
+    @Override
+    public void droppAllItems() {
+
+    }
+
     //input: -
     //method: Elindítja a játékos körét, és meghívja a paraméterként kapott számmal az ‘action’ függvényt
     //return: void
@@ -218,9 +223,10 @@ public class Student extends Character {
     //method: Kitorli a targyat a Student inventory-jabol es hozzaadja a szoba targyakat tarolo attributumahoz
     //return: void
     public void dropItem(Item dropped){
-        this.currentRoom.addItem(dropped);
-        removeItem(dropped);
-
+        boolean success = this.currentRoom.addItem(dropped);
+        if(success) {
+            removeItem(dropped);
+        }
     }
 
     //input: Item used

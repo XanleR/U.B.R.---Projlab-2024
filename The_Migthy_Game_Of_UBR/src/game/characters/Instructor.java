@@ -60,6 +60,11 @@ public class Instructor extends Character{
         System.out.println("\t\t\t<--");
     }
 
+    @Override
+    public void droppAllItems() {
+
+    }
+
     //input: -
     //method: Elindítja a játékos körét, és meghívja a paraméterként kapott számmal az ‘action’ függvényt
     //return: void

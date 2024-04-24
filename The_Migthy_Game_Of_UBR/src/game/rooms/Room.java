@@ -24,6 +24,12 @@ public abstract class Room {
     //A szobaban levo jatekosok listaja
     private List<Character> listOfCharacters = new ArrayList<>();
 
+    private String uniqueName;
+
+    public String getUniqueName() {
+        return uniqueName;
+    }
+
     //input: Character c1
     //method: Azt az esemenyt kezeli, amikor egy karakter a szobaba lep
     //return: void
@@ -131,4 +137,9 @@ public abstract class Room {
     //method: Hozzaadja a parameterkent kapott rongyot a szobahoz.
     //return: void
     public void addWetRag(WetRag added){}
+
+    //input: Item i, Character ch
+    //method: Megvalósítja azt az eseményt, amikor a fel szeretnének venni egy itemet a szobából. (StickyRoom leszármazott pl nem engedi)
+    //return: void
+    public void pickUp(Item i, Character ch){}
 }

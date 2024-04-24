@@ -14,7 +14,7 @@ public abstract class Character {
     private int remainingactions;
 
     //Megajda azt a szobat, ahol a peldany jelenleg all
-    protected Room currentRoom = new RegularRoom();
+    protected Room currentRoom;
 
     //Megadja, hogy hany korbol marad ki a peldany
     private int stunnedRounds;
@@ -25,14 +25,7 @@ public abstract class Character {
     }
 
     //Setter: A parameterkent kapott int-re beallitja a stunnedRounds
-    public void stun(int stun){
-        System.out.println("\t\t\t\t--> (character: Character).stun("+stun+": int)");
-
-        System.out.println("\t\t\t\t<-- activated: boolean");
-
-
-        this.stunnedRounds = stun;
-    }
+    public abstract void stun(int stun);
 
     //input: Room from, Room to
     //method: A karaktert athelyezi az egyik bemenetkent adott szobabol a masikba

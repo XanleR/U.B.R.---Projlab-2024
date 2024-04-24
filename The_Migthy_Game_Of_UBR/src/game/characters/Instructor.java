@@ -65,4 +65,9 @@ public class Instructor extends Character{
     //return: void
     @Override
     public void startRound(int in) {}
+
+    //input: int stunned
+    //method: Az adott tanár elkábul a paraméterként kapott körre
+    //return: void
+    public void stun(int stunned){}
 }

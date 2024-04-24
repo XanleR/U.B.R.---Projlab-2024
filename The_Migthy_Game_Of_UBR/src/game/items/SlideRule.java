@@ -23,9 +23,9 @@ public class SlideRule extends Item{
     //return: void
     @Override
     public void onPickedUp(Student student){
-        GameController gameController = new GameController();
+        //GameController gameController = new GameController();
 
-        gameController.slideRulePickedUp();
+        //gameController.slideRulePickedUp();
 
     }
 

@@ -379,6 +379,9 @@ public class Student extends Character {
         }
     }
 
+    //input: int stunnedFor
+    //method: A hallgatót elkábítja a paraméterként kapott kör idejére
+    //return: void
     public void stun(int stunnedFor){
         stunnedRounds += stunnedFor;
         for(Item item : inventory){
@@ -386,6 +389,10 @@ public class Student extends Character {
         }
     }
 
+
+    //input: -
+    //method: A hallgató eldob egy véletlenszerűen választott tárgyat a szobába
+    //return: void
     public void dropRandomItem(){
         Random random = new Random();
         int index = random.nextInt(inventory.size());

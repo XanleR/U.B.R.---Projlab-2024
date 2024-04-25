@@ -7,11 +7,18 @@ import game.rooms.Room;
 import java.util.Random;
 
 public class Cleaner extends Character{
+
+    //input: int stunned
+    //method: Az adott takarító elkábul a paraméterként kapott körre
+    //return: void
     @Override
     public void stun(int stunned) {
         stunnedRounds += stunned;
     }
 
+    //input: Room from, Room to
+    //method: A karaktert athelyezi az egyik bemenetkent adott szobabol a masikba
+    //return: void
     @Override
     public void move(Room from, Room to) {
         if(stunnedRounds <= 0){
@@ -22,11 +29,17 @@ public class Cleaner extends Character{
         }
     }
 
+    //input: Item newI
+    //method: A paraméterként megadott Item-et, mikor a takarító felveszi, kitörli a játékból.
+    //return: void
     @Override
     public void pickUpItem(Item newI) {
         this.currentRoom.removeItem(newI);
     }
 
+    //input: void
+    //Végrehajtja a tanár egyik akcióját
+    //return: void
     @Override
     public void action() {
         Random random = new Random();
@@ -34,26 +47,41 @@ public class Cleaner extends Character{
         move(currentRoom, currentRoom.getNeighbours().get(index));
     }
 
+    //input: Character character
+    //method: Vegrehajtja azt az esemenyt, amikor a peldany egy másik Character-el kerul egy mezore
+    //return: void
     @Override
     public void meet(Character character) {
         character.meetCleaner(this);
     }
 
+    //input: Student student
+    //method: Vegrehajtja azt az esemenyt, amikor a peldany egy Student-el kerul egy mezore
+    //return: void
     @Override
     public void meetStudent(Student student) {
         student.forceMove();
     }
 
+    //input: Instructor instructor
+    //method: Vegrehajtja azt az esemenyt, amikor a peldany egy Instructor-el kerul egy mezore
+    //return: void
     @Override
     public void meetInstructor(Instructor instructor) {
         instructor.forceMove();
     }
 
+    //input: Cleaner cleaner
+    //method: Végrehajtja azt az esemlnyt, amikor a példány egy Cleaner-el kerül egy mezőre
+    //return: void
     @Override
     public void meetCleaner(Cleaner cleaner) {
 
     }
 
+    //input: -
+    //method: Elindítja a játékos körét, és meghívja a paraméterként kapott számmal az ‘action’ függvényt
+    //return: void
     @Override
     public void startRound(int in) {
         if(stunnedRounds != 0){
@@ -70,6 +98,9 @@ public class Cleaner extends Character{
         remainingactions = 0;
     }
 
+    //input: -
+    //method: Az adott tanár mozgásra kényszerült, ez a függvény átteszi őt egy szomszédos szobába
+    //return: void
     @Override
     public void forceMove() {
         for(Room room: currentRoom.getNeighbours()){

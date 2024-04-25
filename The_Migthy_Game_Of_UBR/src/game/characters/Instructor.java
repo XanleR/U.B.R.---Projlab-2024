@@ -21,8 +21,7 @@ public class Instructor extends Character{
     }
 
     //input: Item newI
-    //method: A parameterkent megadott Item-et Student eseten berkaja a Student List<item>-ebe, Instructor eseten kitorli
-    //        az Item-et a jatekbol
+    //method: A parameterként megadott Item-et, mikor a tanár felveszi, kitörli a játékból
     //return: void
     @Override
     public void pickUpItem(Item newI){
@@ -56,13 +55,16 @@ public class Instructor extends Character{
     }
 
     //input: Instructor instructor
-    //method: Vegrehajtja azt az esemenyt, amikor a pedany egy Instructor-el kerul egy mezore
+    //method: Vegrehajtja azt az esemenyt, amikor a peldany egy Instructor-el kerul egy mezore
     //return: void
     @Override
     public void meetInstructor(Instructor instructor) {
 
     }
 
+    //input: Cleaner cleaner
+    //method: Végrehajtja azt az esemlnyt, amikor a példány egy Cleaner-el kerül egy mezőre
+    //return: void
     @Override
     public void meetCleaner(Cleaner cleaner) {
         this.forceMove();
@@ -87,6 +89,9 @@ public class Instructor extends Character{
         remainingactions = 0;
     }
 
+    //input: -
+    //method: Az adott tanár mozgásra kényszerült, ez a függvény átteszi őt egy szomszédos szobába
+    //return: void
     @Override
     public void forceMove() {
         for(Room room : currentRoom.getNeighbours()){

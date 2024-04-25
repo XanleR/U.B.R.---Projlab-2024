@@ -1,13 +1,9 @@
 package game.characters;
 
 import game.GameController;
-import game.Skeleton;
 import game.items.*;
-import game.rooms.RegularRoom;
 import game.rooms.Room;
 
-import java.awt.font.TransformAttribute;
-import java.sql.SQLOutput;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -29,14 +25,20 @@ public class Student extends Character {
     //A hallgatonal csak 1 db tvsz lehet, ez a valtozo eppen ezt tarolja el
     private TVSZ tvsz;
 
-    private int rounds;
-
     //input: Room from, Room to
     //method: A karaktert athelyezi az egyik bemenetkent adott szobabol a masikba
     //return: void
     @Override
     public void move(Room from, Room to){
-        to.addCharacter(this);
+        if(stunnedRounds <= 0){
+            //TODO az addCharacter állítsa be a Studentnek a szobáját az új szobára
+            to.addCharacter(this);
+        }
+        else{
+            System.out.println("The Student could not move to the "+to.getUniqueName());
+        }
+
+
     }
 
     //input: Item newI
@@ -52,8 +54,9 @@ public class Student extends Character {
     //method: Kiírja az összes lehetséges szobának, meg itemnek a nevét, amivel a hallgató interaktálhat
     //return: void
     private void printVariables(){
+        System.out.println("The player is stunned for " + stunnedRounds + " rounds!");
         // A szomszédos szobák, ahova mozoghat
-        System.out.println("Neighbouring Rooms:");
+        System.out.println("\nNeighbouring Rooms:");
         for(Room room : currentRoom.getNeighbours()){
             System.out.println(room.getUniqueName());
         }
@@ -175,6 +178,7 @@ public class Student extends Character {
     //method: A hallgató tétlen akciója
     //return: void
     public void idle(){
+        System.out.println("The student did nothing in the action!");
     }
 
     //input: Character character
@@ -194,23 +198,51 @@ public class Student extends Character {
     }
 
     //input: Instructor instuctor
-    //method: Vegrehajtja azt az esemenyt, amikor a pedany egy Instructor-el kerul egy mezore
+    //method: Vegrehajtja azt az esemenyt, amikor a peldany egy Instructor-el kerul egy mezore
     //return: void
     @Override
     public void meetInstructor(Instructor instructor) {
         this.die(instructor);
     }
 
+    //input: Cleaner cleaner
+    //method: Végrehajtja azt az eseményt, amikor a példány egy Cleaner-el kerül egy mezőre
+    //return: void
+    @Override
+    public void meetCleaner(Cleaner cleaner) {
+        this.forceMove();
+    }
+
+
     //input: -
     //method: Elindítja a játékos körét, és meghívja a paraméterként kapott számmal az ‘action’ függvényt
     //return: void
     @Override
     public void startRound(int in) {
-        rounds = rollDice();
+        if(stunnedRounds != 0){
+            System.out.println("The Student is stunned, no actions for this round...");
+            stunnedRounds--;
+        }
+        else{
+            remainingactions = rollDice();
 
-        while (rounds > 0){
-            action();
-            rounds--;
+            while (remainingactions > 0 && stunnedRounds == 0){
+                action();
+                remainingactions--;
+            }
+        }
+        remainingactions = 0;
+    }
+
+    //input: -
+    //method: Az adott hallgató mozgásra kényszerült, ez a függvény átteszi őt egy szomszédos szobába
+    //return: void
+    @Override
+    public void forceMove() {
+        for(Room room: currentRoom.getNeighbours()) {
+            if (room.isAccessible(currentRoom)) {
+                room.addCharacter(this);
+            }
         }
     }
 
@@ -218,8 +250,16 @@ public class Student extends Character {
     //method: Kitorli a targyat a Student inventory-jabol es hozzaadja a szoba targyakat tarolo attributumahoz
     //return: void
     public void dropItem(Item dropped){
+
         this.currentRoom.addItem(dropped);
         removeItem(dropped);
+        System.out.println("The Item drop was successful!");
+
+        //TODO merge után a currentRoom bool-al tér vissza
+//        if(this.currentRoom.addItem(dropped)){
+//            removeItem(dropped);
+//            System.out.println("The Item drop was successful!");
+//        }
 
     }
 
@@ -228,6 +268,7 @@ public class Student extends Character {
     //return: void
     public void useItem(Item used){
         used.use(this);
+        System.out.println("The item was used!");
     }
 
     //input: -
@@ -286,7 +327,7 @@ public class Student extends Character {
     //method: A hallgato koreihez ad meg a parameterben kapott erteknyit
     //return: void
     public void addRounds(int plus){
-        rounds += plus;
+        remainingactions += plus;
     }
 
     //input: int plusMask
@@ -335,17 +376,19 @@ public class Student extends Character {
         }
         if(!studentSaved){
             GameController.getInstance().removeCharacter(this);
-            Skeleton.gameController.removeCharacter(this);
-            //gamecontroller //??
-
-
-            //gameController.removeCharacter(this);
         }
-
-        System.out.println("\t\t<--");
     }
 
-    public void stun(int stun){
+    public void stun(int stunnedFor){
+        stunnedRounds += stunnedFor;
+        for(Item item : inventory){
+            dropItem(item);
+        }
+    }
 
+    public void dropRandomItem(){
+        Random random = new Random();
+        int index = random.nextInt(inventory.size());
+        dropItem(inventory.get(index));
     }
 }

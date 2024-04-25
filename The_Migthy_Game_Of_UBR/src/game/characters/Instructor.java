@@ -3,6 +3,8 @@ package game.characters;
 import game.items.Item;
 import game.rooms.Room;
 
+import java.util.Random;
+
 
 public class Instructor extends Character{
     //input: Room from, Room to
@@ -10,8 +12,12 @@ public class Instructor extends Character{
     //return: void
     @Override
     public void move(Room from, Room to) {
-        System.out.println("\t--> (testR2: Room).addCharacter(testI1: Instructor)");
-        to.addCharacter(this);
+        if(stunnedRounds <= 0){
+            to.addCharacter(this);
+        }
+        else{
+            System.out.println("The Instructor could not move to the "+to.getUniqueName());
+        }
     }
 
     //input: Item newI
@@ -19,23 +25,26 @@ public class Instructor extends Character{
     //        az Item-et a jatekbol
     //return: void
     @Override
-    public void pickUpItem(Item newI){}
+    public void pickUpItem(Item newI){
+        this.currentRoom.removeItem(newI);
+    }
 
     //input: -
     //method: vegrehajtja a felhasznalo altal kivalasztott action-t
     //return: void
     @Override
-    public void action() {}
+    public void action() {
+        Random random = new Random();
+        int index = random.nextInt(currentRoom.getNeighbours().size());
+        move(currentRoom, currentRoom.getNeighbours().get(index));
+    }
 
     //input: Character character
     //method: Vegrehajtja azt az esemenyt, amikor a peldany egy másik Character-el kerul egy mezore
     //return: void
     @Override
     public void meet(Character character){
-        System.out.println("--> (testI1: Instructor).meet(testS1: Character)");
         character.meetInstructor(this);
-
-        System.out.println("<--");
     }
 
     //input: Student student
@@ -43,11 +52,7 @@ public class Instructor extends Character{
     //return: void
     @Override
     public void meetStudent(Student student) {
-        System.out.println("\t--> (testI1: Instructor).meetStudent(testS1: Student)");
-
         student.die(this);
-
-        System.out.println("\t<--");
     }
 
     //input: Instructor instructor
@@ -55,19 +60,46 @@ public class Instructor extends Character{
     //return: void
     @Override
     public void meetInstructor(Instructor instructor) {
-        System.out.println("\t\t\t--> (i1: Instructor).meetInstructor(testI1)");
 
-        System.out.println("\t\t\t<--");
+    }
+
+    @Override
+    public void meetCleaner(Cleaner cleaner) {
+        this.forceMove();
     }
 
     //input: -
     //method: Elindítja a játékos körét, és meghívja a paraméterként kapott számmal az ‘action’ függvényt
     //return: void
     @Override
-    public void startRound(int in) {}
+    public void startRound(int in) {
+        if(stunnedRounds != 0){
+            System.out.println("The cleaner is stunned, no actions for this round...");
+            stunnedRounds--;
+            return;
+        }
+        Random random = new Random();
+        remainingactions = random.nextInt(6)+1;
+        while(remainingactions > 0 && stunnedRounds == 0){
+            action();
+            remainingactions--;
+        }
+        remainingactions = 0;
+    }
+
+    @Override
+    public void forceMove() {
+        for(Room room : currentRoom.getNeighbours()){
+            if(room.isAccessible(currentRoom)){
+                room.addCharacter(this);
+            }
+        }
+    }
 
     //input: int stunned
     //method: Az adott tanár elkábul a paraméterként kapott körre
     //return: void
-    public void stun(int stunned){}
+    public void stun(int stunned){
+        stunnedRounds += stunned;
+    }
 }

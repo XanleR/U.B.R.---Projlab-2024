@@ -1,12 +1,21 @@
 package game.characters;
 
-import game.items.Item;
+import game.GameController;
+import game.items.*;
 import game.rooms.Room;
 
 import java.util.Random;
 
+public class Cleaner extends Character{
 
-public class Instructor extends Character{
+    //input: int stunned
+    //method: Az adott takarító elkábul a paraméterként kapott körre
+    //return: void
+    @Override
+    public void stun(int stunned) {
+        stunnedRounds += stunned;
+    }
+
     //input: Room from, Room to
     //method: A karaktert athelyezi az egyik bemenetkent adott szobabol a masikba
     //return: void
@@ -16,20 +25,20 @@ public class Instructor extends Character{
             to.addCharacter(this);
         }
         else{
-            System.out.println("The Instructor could not move to the "+to.getUniqueName());
+            System.out.println("The Student could not move to the "+to.getUniqueName());
         }
     }
 
     //input: Item newI
-    //method: A parameterként megadott Item-et, mikor a tanár felveszi, kitörli a játékból
+    //method: A paraméterként megadott Item-et, mikor a takarító felveszi, kitörli a játékból.
     //return: void
     @Override
-    public void pickUpItem(Item newI){
+    public void pickUpItem(Item newI) {
         this.currentRoom.removeItem(newI);
     }
 
-    //input: -
-    //method: vegrehajtja a felhasznalo altal kivalasztott action-t
+    //input: void
+    //Végrehajtja a tanár egyik akcióját
     //return: void
     @Override
     public void action() {
@@ -42,8 +51,8 @@ public class Instructor extends Character{
     //method: Vegrehajtja azt az esemenyt, amikor a peldany egy másik Character-el kerul egy mezore
     //return: void
     @Override
-    public void meet(Character character){
-        character.meetInstructor(this);
+    public void meet(Character character) {
+        character.meetCleaner(this);
     }
 
     //input: Student student
@@ -51,7 +60,7 @@ public class Instructor extends Character{
     //return: void
     @Override
     public void meetStudent(Student student) {
-        student.die(this);
+        student.forceMove();
     }
 
     //input: Instructor instructor
@@ -59,7 +68,7 @@ public class Instructor extends Character{
     //return: void
     @Override
     public void meetInstructor(Instructor instructor) {
-
+        instructor.forceMove();
     }
 
     //input: Cleaner cleaner
@@ -67,7 +76,7 @@ public class Instructor extends Character{
     //return: void
     @Override
     public void meetCleaner(Cleaner cleaner) {
-        this.forceMove();
+
     }
 
     //input: -
@@ -94,17 +103,10 @@ public class Instructor extends Character{
     //return: void
     @Override
     public void forceMove() {
-        for(Room room : currentRoom.getNeighbours()){
+        for(Room room: currentRoom.getNeighbours()){
             if(room.isAccessible(currentRoom)){
                 room.addCharacter(this);
             }
         }
-    }
-
-    //input: int stunned
-    //method: Az adott tanár elkábul a paraméterként kapott körre
-    //return: void
-    public void stun(int stunned){
-        stunnedRounds += stunned;
     }
 }

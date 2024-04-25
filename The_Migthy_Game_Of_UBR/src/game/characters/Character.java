@@ -11,13 +11,13 @@ import game.rooms.Room;
 public abstract class Character {
 
     //Megadja, hogy hany action-je van hatra a peldanynak
-    private int remainingactions;
+    protected int remainingactions;
 
     //Megajda azt a szobat, ahol a peldany jelenleg all
     protected Room currentRoom;
 
     //Megadja, hogy hany korbol marad ki a peldany
-    private int stunnedRounds;
+    protected int stunnedRounds;
 
     //Getter: Visszaadja a szobat, amelyben a karakter all
     public Room getRoom(){
@@ -54,14 +54,24 @@ public abstract class Character {
     public abstract void meetStudent(Student student);
 
     //input: Instructor instructor
-    //method: Vegrehajtja azt az esemenyt, amikor a pedany egy Instructor-el kerul egy mezore
+    //method: Vegrehajtja azt az esemenyt, amikor a peldany egy Instructor-el kerul egy mezore
     //return: void
     public abstract void meetInstructor(Instructor instructor);
+
+    //input: Cleaner cleaner
+    //method: Végrehajtja azt az eseményt, amikor a példány egy Cleaner-el kerül egy mezőre
+    //return: void
+    public abstract void meetCleaner(Cleaner cleaner);
 
     //input: -
     //method: Elindítja a játékos körét, és meghívja a paraméterként kapott számmal az ‘action’ függvényt
     //return: void
     public abstract void startRound(int in);
+
+    //input: -
+    //method: A karaktert átmozgatja erőszakosan egy szomszédos szobába
+    //return: void
+    public abstract void forceMove();
 }
 
 

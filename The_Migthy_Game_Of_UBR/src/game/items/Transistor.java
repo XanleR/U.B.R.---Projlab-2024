@@ -10,32 +10,49 @@ import java.util.Scanner;
 public class Transistor extends Item{
 
     //Megadja, hogy a Transistor be van-e kapcsolva
-    private boolean isOn;
+    private boolean isOn = false;
 
     //Megajda, hogy a Transistor ossze van-e kapcsolva egy masik Transistorral
-    private boolean isPaired;
+    private boolean isPaired = false;
 
     //Eltarolja azt a Transistort, amellyel oarban vannak
     private Transistor pair;
+
+    private Room currentRoom;
 
     //input: Transistor fPair
     //method: A kapott Transistort eltarolja a sajat parjakent,
     //        es sajat magat eltarolja a kapott Transistor parjkakent
     //return: void
     public void pairing(Transistor fPair){
-        System.out.println("\t\t\t\t--> (transistor: Transistor).pairing(transistor2: Transistor)");
+        this.pair = fPair;
+        this.isPaired = true;
+        this.pair.isPaired = true;
+    }
 
-        System.out.println("\t\t\t\t<--");
+    public void powerOn(){
+        if(this.isPaired) {
+            this.isOn = true;
+            this.pair.isOn = true;
+        }
+    }
+
+    public void powerOf(){
+        if(this.isPaired){
+            this.isOn =false;
+            this.pair.isOn = false;
+        }
     }
 
     //input: -
     //method: Visszaadja azt a Room-ot, ahol a parja van
     //return: Room
     public Room getPairsRoom(){
-        System.out.println("\t-->(t1: Transistor).getPairsRoom()");
+        return this.pair.getRoom();
+    }
 
-        System.out.println("\t<-- r2: Room");
-        return null;
+    public Room getRoom(){
+        return this.currentRoom;
     }
 
     //input: Student user
@@ -43,20 +60,20 @@ public class Transistor extends Item{
     //return: void
     @Override
     public void use(Student user){
-        System.out.println("\t\t -->(user: Student).getRoom()");
-        Room userRoom = user.getRoom();
-        userRoom = new RegularRoom();
-        System.out.println("\t\t <--userRoom: Room");
-        System.out.println("\t\t -->(userRoom: Room).addTransistor(this)");
-        userRoom.addTransistor(this);
-        System.out.println("\t\t <--");
+       if(this.isPaired) {
+           user.removeItem(this);
+           user.removeTransistor(this);
+           user.getRoom().addTransistor(this);
+           this.currentRoom = user.getRoom();
+
+       }
     }
 
     //input: -
     //Megadja, hogy az Intructor felveheti-e a targyat
     //return: boolean
     @Override
-    public boolean canInstructorPickUp(){ return false; }
+    public boolean canInstructorPickUp(){ return true; }
 
     //input: Student student
     //method: Azt az esemenyt kezeli, amikor egy tanulo felveszi a targyat
@@ -64,16 +81,7 @@ public class Transistor extends Item{
     @Override
     public void onPickedUp(Student student){
         student.addTransistor(this);
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("\t\t\tParos szamu transistor van a hallgatonal? (y/n): ");
-        String answer = scanner.next();
-
-        if(answer.equals("y")){
-            student.pairLastTwoTransistor();
-        }
-
+        student.addItem(this);
     }
 
     //input: -

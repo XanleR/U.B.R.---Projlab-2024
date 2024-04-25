@@ -41,6 +41,11 @@ public class Student extends Character {
 
     }
 
+    //Hozzaad egy Item-et az inventory-hoz
+    public void addItem(Item newItem){
+        this.inventory.add(newItem);
+    }
+
     //input: Item newI
     //method: A parameterkent megadott Item-et Student eseten berkaja a Student List<item>-ebe, Instructor eseten kitorli
     //        az Item-et a jatekbol
@@ -48,6 +53,10 @@ public class Student extends Character {
     @Override
     public void pickUpItem(Item newI){
         this.currentRoom.pickUp(newI, this);
+    }
+
+    public void removeTransistor(Transistor in){
+        this.transistorList.remove(in);
     }
 
     //input: -
@@ -181,6 +190,14 @@ public class Student extends Character {
         System.out.println("The student did nothing in the action!");
     }
 
+    //Megadja, hogy tele van-e az ineventory
+    public boolean canPickUp(){
+        if(this.inventorySize == this.inventory.size()){
+            return false;
+        }
+        return false;
+    }
+
     //input: Character character
     //method: Vegrehajtja azt az esemenyt, amikor a peldany egy másik Character-el kerul egy mezore
     //return: void
@@ -250,6 +267,10 @@ public class Student extends Character {
     //method: Kitorli a targyat a Student inventory-jabol es hozzaadja a szoba targyakat tarolo attributumahoz
     //return: void
     public void dropItem(Item dropped){
+        boolean success = this.currentRoom.addItem(dropped);
+        if(success) {
+            removeItem(dropped);
+        }
 
         this.currentRoom.addItem(dropped);
         removeItem(dropped);
@@ -388,7 +409,6 @@ public class Student extends Character {
             dropItem(item);
         }
     }
-
 
     //input: -
     //method: A hallgató eldob egy véletlenszerűen választott tárgyat a szobába

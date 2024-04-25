@@ -4,6 +4,8 @@ import game.GameController;
 import game.characters.Instructor;
 import game.characters.Student;
 
+import static game.Skeleton.gameController;
+
 public class SlideRule extends Item{
 
     //input: Student user
@@ -23,10 +25,8 @@ public class SlideRule extends Item{
     //return: void
     @Override
     public void onPickedUp(Student student){
-        //GameController gameController = new GameController();
-
-        //gameController.slideRulePickedUp();
-
+        student.addItem(this);
+        gameController.slideRulePickedUp();
     }
 
     //input: -

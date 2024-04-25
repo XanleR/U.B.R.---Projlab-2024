@@ -14,18 +14,13 @@ public class TVSZ extends Item{
     //method: Hozzaadja a kapott int-et a vedelmek szamahoz
     //return: void
     public void addProtection(int plus){
-        System.out.println("\t\t\t\t--> (tvsz1: TVSZ).addProtection("+plus+": int)");
-
-        System.out.println("\t\t\t\t<--");
+        this.remainingProtection += plus;
     }
 
     //input: -
     //method: Visszaadja a vedelmek szamat
     //return: int
     public int getRemainingProtection(){
-        System.out.println("\t\t\t\t--> (tvsz1: TVSZ).getRemainingProtection()");
-
-        System.out.println("\t\t\t\t<-- remainingProtection: int");
         return this.remainingProtection;
     }
 
@@ -39,31 +34,21 @@ public class TVSZ extends Item{
     //Megadja, hogy az Intructor felveheti-e a targyat
     //return: boolean
     @Override
-    public boolean canInstructorPickUp(){ return false;}
+    public boolean canInstructorPickUp(){ return true;}
 
     //input: Student student
     //method: Azt az esemenyt kezeli, amikor egy tanulo felveszi a targyat
     //return: void
     @Override
     public void onPickedUp(Student student){
-        student.getTVSZ();
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("\t\t-?- A hallgatonal mar van tvsz? (y/n): ");
-        String answer = scanner.next();
-
-        if(answer.equals("y")) {
-            this.getRemainingProtection();
-
-            System.out.println("\t\t-?- Mennyi a felvett TVSZ vedelmi erteke? (1-3): ");
-            int selected = Integer.parseInt(scanner.next());
-
-            TVSZ t1 = new TVSZ();
-            t1.addProtection(selected);
-        }
-        if(answer.equals("n")){
+        if(student.getTVSZ() == null){
             student.setTVSZ(this);
+        }else{
+            if(student.getTVSZ().getRemainingProtection() == 2){
+                student.getTVSZ().addProtection(1);
+            }else if(student.getTVSZ().getRemainingProtection() == 1){
+                student.getTVSZ().addProtection(2);
+            }
         }
     }
 
@@ -72,34 +57,16 @@ public class TVSZ extends Item{
     //method: Elvegzi a kor elejen szukseges modositasokat a palyan
     //return: void
     @Override
-    public void onRoundStart(){}
+    public void onRoundStart(){
+        this.remainingProtection--;
+    }
 
     //input: Student attacked, Instructor attacker
     //method: Azt az esemenyt kezeli, amikor egy hallgato talalkozik egy oktatoval, tehat egy mezore kerulnek
     //return: boolean
     @Override
     public boolean onAttacked(Student attacked, Instructor attacker){
-        System.out.println("\t\t\t--> (tvsz1: TVSZ).onAttacked(testS1: Student, testI1: Instructor)");
-
-        int r = this.getRemainingProtection();
-        System.out.println("\t\t\t-?- Nagyobb-e, mint 0 a maradek vedelem? (y/n): ");
-        Scanner attackedScanner = new Scanner(System.in);
-        String attackedAnswer = attackedScanner.next();
-        if(attackedAnswer.equals("y")){
-            this.addProtection(-1);
-            r = this.getRemainingProtection();
-            System.out.println("\t\t\t-?- Elfogyott a vedelem? (y/n): ");
-            attackedAnswer = attackedScanner.next();
-            if(attackedAnswer.equals("y")){
-                attacked.removeItem(this);
-            }
-            System.out.println("\t\t\t<-- true: boolean");
-            return true;
-        }
-
-
-        System.out.println("\t\t\t<-- false: boolean");
-        return false;
+        return this.remainingProtection > 0;
     }
 
 }

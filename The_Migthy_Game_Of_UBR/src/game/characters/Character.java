@@ -58,8 +58,6 @@ public abstract class Character {
     //return: void
     public abstract void meetInstructor(Instructor instructor);
 
-    public abstract void droppAllItems();
-
     //input: -
     //method: Elindítja a játékos körét, és meghívja a paraméterként kapott számmal az ‘action’ függvényt
     //return: void

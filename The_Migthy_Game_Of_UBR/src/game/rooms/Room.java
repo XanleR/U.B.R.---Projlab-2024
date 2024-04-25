@@ -91,7 +91,7 @@ public abstract class Room {
     //input: -
     //method: Visszaadja a szobaban talalhato karaktereket
     //return: List<Character>
-    public List<Character> getCharacters() {return new ArrayList<>();}
+    public List<Character> getCharacters(){return this.listOfCharacters;}
 
     //input: Character c1
     //method: Kitorli a parameterkent kapott karaktert a szobabol
@@ -270,7 +270,9 @@ public abstract class Room {
     //method: Megvalósítja azt az eseményt, amikor a fel szeretnének venni egy itemet a szobából. (StickyRoom leszármazott pl nem engedi)
     //return: void
     public void pickUp(Item i, Student ch){
-        i.onPickedUp(ch);
-        this.removeItem(i);
+        if(ch.canPickUp()) {
+            i.onPickedUp(ch);
+            this.removeItem(i);
+        }
     }
 }

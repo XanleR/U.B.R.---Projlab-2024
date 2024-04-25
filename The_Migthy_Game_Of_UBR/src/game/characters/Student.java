@@ -39,6 +39,11 @@ public class Student extends Character {
         to.addCharacter(this);
     }
 
+    //Hozzaad egy Item-et az inventory-hoz
+    public void addItem(Item newItem){
+        this.inventory.add(newItem);
+    }
+
     //input: Item newI
     //method: A parameterkent megadott Item-et Student eseten berkaja a Student List<item>-ebe, Instructor eseten kitorli
     //        az Item-et a jatekbol
@@ -46,6 +51,10 @@ public class Student extends Character {
     @Override
     public void pickUpItem(Item newI){
         this.currentRoom.pickUp(newI, this);
+    }
+
+    public void removeTransistor(Transistor in){
+        this.transistorList.remove(in);
     }
 
     //input: -
@@ -177,6 +186,14 @@ public class Student extends Character {
     public void idle(){
     }
 
+    //Megadja, hogy tele van-e az ineventory
+    public boolean canPickUp(){
+        if(this.inventorySize == this.inventory.size()){
+            return false;
+        }
+        return false;
+    }
+
     //input: Character character
     //method: Vegrehajtja azt az esemenyt, amikor a peldany egy másik Character-el kerul egy mezore
     //return: void
@@ -199,11 +216,6 @@ public class Student extends Character {
     @Override
     public void meetInstructor(Instructor instructor) {
         this.die(instructor);
-    }
-
-    @Override
-    public void droppAllItems() {
-
     }
 
     //input: -
@@ -352,6 +364,8 @@ public class Student extends Character {
     }
 
     public void stun(int stun){
-
     }
+
+    //TODO
+    public void dropRandomItem(){}
 }

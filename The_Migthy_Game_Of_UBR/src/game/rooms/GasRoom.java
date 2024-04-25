@@ -8,7 +8,6 @@ public class GasRoom extends Room {
     @Override
     public void onEntered(Character c1) {
         c1.stun(2);
-        c1.droppAllItems();
         for(Character ch : this.getCharacters()){
             ch.meet(c1);
         }

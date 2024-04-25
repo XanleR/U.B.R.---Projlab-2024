@@ -18,7 +18,7 @@ public class Skeleton {
         boolean end = false;
 
         gameController = GameController.getInstance();
-        GameController gameController2 = GameController.getInstance();
+        //GameController gameController2 = GameController.getInstance();
 
         //Students
         Student testS1 = new Student();

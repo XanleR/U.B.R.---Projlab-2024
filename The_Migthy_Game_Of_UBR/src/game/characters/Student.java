@@ -226,7 +226,7 @@ public class Student extends Character {
         else{
             remainingactions = rollDice();
 
-            while (remainingactions > 0 && stunnedRounds != 0){
+            while (remainingactions > 0 && stunnedRounds == 0){
                 action();
                 remainingactions--;
             }

@@ -35,7 +35,7 @@ public class Student extends Character {
             to.addCharacter(this);
         }
         else{
-            System.out.println("The Student could not move to the "+to.getUniqueName());
+            System.out.println("The Student could not move to the "+to.getUniqueName()+"...");
         }
 
 
@@ -267,20 +267,10 @@ public class Student extends Character {
     //method: Kitorli a targyat a Student inventory-jabol es hozzaadja a szoba targyakat tarolo attributumahoz
     //return: void
     public void dropItem(Item dropped){
-        boolean success = this.currentRoom.addItem(dropped);
-        if(success) {
+        if(this.currentRoom.addItem(dropped)){
             removeItem(dropped);
+            System.out.println("The Item drop was successful!");
         }
-
-        this.currentRoom.addItem(dropped);
-        removeItem(dropped);
-        System.out.println("The Item drop was successful!");
-
-        //TODO merge után a currentRoom bool-al tér vissza
-//        if(this.currentRoom.addItem(dropped)){
-//            removeItem(dropped);
-//            System.out.println("The Item drop was successful!");
-//        }
 
     }
 

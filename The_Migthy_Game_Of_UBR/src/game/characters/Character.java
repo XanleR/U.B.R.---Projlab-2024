@@ -24,6 +24,10 @@ public abstract class Character {
         return this.currentRoom;
     }
 
+    public void setCurrentRoom(Room newRoom){
+        currentRoom = newRoom;
+    }
+
     //Setter: A parameterkent kapott int-re beallitja a stunnedRounds
     public abstract void stun(int stun);
 

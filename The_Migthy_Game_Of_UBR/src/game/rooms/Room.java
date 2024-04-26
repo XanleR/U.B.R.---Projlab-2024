@@ -47,7 +47,14 @@ public abstract class Room {
     //method: Hozzaadja az parameterkent kapott karaktert a szobahoz
     //return: void
     public void addCharacter(Character c1) {
-        this.onEntered(c1);
+        if(isAccessible(c1.getRoom())){
+            c1.getRoom().removeCharacter(c1);
+            c1.setCurrentRoom(this);
+            this.onEntered(c1);
+        }
+        else{
+            System.out.println("The Student could not move to the "+this.getUniqueName()+"...");
+        }
     }
 
     public void setCharacters(List<Character> newCharacters){

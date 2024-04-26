@@ -42,6 +42,11 @@ public class Cleaner extends Character{
     //return: void
     @Override
     public void action() {
+        if(!currentRoom.getItems().isEmpty()){
+            pickUpItem(currentRoom.getItems().get(0));
+            return;
+        }
+
         Random random = new Random();
         int index = random.nextInt(currentRoom.getNeighbours().size());
         move(currentRoom, currentRoom.getNeighbours().get(index));

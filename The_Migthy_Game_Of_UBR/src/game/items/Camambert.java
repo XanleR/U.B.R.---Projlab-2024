@@ -1,14 +1,11 @@
 package game.items;
 
-import game.GameController;
-import game.Skeleton;
 import game.characters.Instructor;
 import game.characters.Student;
 import game.rooms.GasRoom;
-import game.rooms.RegularRoom;
 import game.rooms.Room;
 
-import static game.Skeleton.gameController;
+import static game.Prototype.gameController;
 
 public class Camambert extends Item{
 

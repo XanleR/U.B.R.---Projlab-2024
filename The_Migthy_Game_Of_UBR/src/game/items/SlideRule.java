@@ -1,10 +1,9 @@
 package game.items;
 
-import game.GameController;
 import game.characters.Instructor;
 import game.characters.Student;
 
-import static game.Skeleton.gameController;
+import static game.Prototype.gameController;
 
 public class SlideRule extends Item{
 

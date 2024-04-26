@@ -47,14 +47,12 @@ public abstract class Room {
     //method: Hozzaadja az parameterkent kapott karaktert a szobahoz
     //return: void
     public void addCharacter(Character c1) {
-        if(isAccessible(c1.getRoom())){
-            c1.getRoom().removeCharacter(c1);
-            c1.setCurrentRoom(this);
-            this.onEntered(c1);
-        }
-        else{
-            System.out.println("The Student could not move to the "+this.getUniqueName()+"...");
-        }
+
+        c1.getRoom().removeCharacter(c1);
+        c1.setCurrentRoom(this);
+        this.onEntered(c1);
+
+
     }
 
     public void setCharacters(List<Character> newCharacters){
@@ -253,6 +251,9 @@ public abstract class Room {
     public void copyToRoom(Room r2){
         r2.setMaxCharacter(this.maxCharacter);
         r2.setCharacters(this.listOfCharacters);
+        for(Character character : this.listOfCharacters){
+            character.setCurrentRoom(r2);
+        }
         r2.setListOfItems(this.listOfItems);
         r2.setWetRags(this.wetRags);
         r2.setListOfNeighbours(this.listOfNeighbours);

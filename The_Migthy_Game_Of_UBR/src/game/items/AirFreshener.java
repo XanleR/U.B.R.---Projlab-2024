@@ -6,7 +6,7 @@ import game.characters.Student;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
 
-import static game.Skeleton.gameController;
+import static game.Prototype.gameController;
 
 public class AirFreshener extends Item{
     @Override

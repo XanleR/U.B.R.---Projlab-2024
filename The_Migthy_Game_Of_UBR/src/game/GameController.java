@@ -33,6 +33,16 @@ public class GameController {
     //Eltarolja a jatekban letezo szobakat
     private List<Room> rooms;
 
+    // Setter
+    public void setRemainingRounds(int remainingRounds) {
+        this.remainingRounds = remainingRounds;
+    }
+
+    // Setter
+    public void setStudentCount(int studentCount) {
+        this.studentCount = studentCount;
+    }
+
     private GameController(){
         listOfCharacters = new ArrayList<>();
         rooms = new ArrayList<>();
@@ -136,6 +146,13 @@ public class GameController {
         System.out.println("\t\t\t--> (gameController: GameController).removeCharacter(removeable: Character)");
 
         System.out.println("\t\t\t<--");
+    }
+
+    //input: Character
+    //method: hozzáad egy játékost
+    //return: void
+    public void addCharacter(Character c) {
+
     }
 
     //input: -

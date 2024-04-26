@@ -1,12 +1,18 @@
 package game;
 
+import game.characters.Character;
+import game.characters.Cleaner;
 import game.characters.Instructor;
 import game.characters.Student;
 import game.items.*;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Skeleton {
@@ -15,10 +21,103 @@ public class Skeleton {
 
     public static void main(String[] args) throws IOException {
 
-        boolean end = false;
-
         gameController = GameController.getInstance();
-        //GameController gameController2 = GameController.getInstance();
+
+
+
+    }
+
+    // 10. beadáshoz test map
+    // leírás: 2 játékos, 1 teacher, 1 cleaner, 7 szoba
+    // Kiírja a mapot a TESTMAP_rooms.dat és TESTMAP_players.dat állományba
+    public static void testMapBuilder() throws IOException {
+
+        // játékosok:
+        Student s1 = new Student();
+        Student s2 = new Student();
+
+        // NPC-k:
+        Character npc1 = new Instructor();
+        Character npc2 = new Cleaner();
+
+        // startRoom:
+        Room rs = new RegularRoom(); rs.setMaxCharacter(2);
+        rs.addCharacter(s1);
+        rs.addCharacter(s2);
+        s1.setRoom(rs);
+        s2.setRoom(rs);
+
+        // Room1
+        Room r1 = new RegularRoom(); r1.setMaxCharacter(4);
+        TVSZ r1i1 = new TVSZ();  r1.addItem(r1i1);
+        WetRag r1i2 = new WetRag(); r1i2.setWetness(3); r1.addItem(r1i2);
+
+        // Room2
+        Room r2 = new RegularRoom(); r2.setMaxCharacter(3);
+        r2.addCharacter(npc1);
+        npc1.setRoom(r2);
+
+        // Room3
+        Room r3 = new RegularRoom(); r3.setMaxCharacter(3);
+        Camambert r3i1 = new Camambert(); r3.addItem(r3i1);
+        GlassOfBeer r3i2 = new GlassOfBeer(); r3.addItem(r3i2);
+
+        // Room4
+        Room r4 = new RegularRoom(); r4.setMaxCharacter(3);
+        r4.addCharacter(npc2);
+        npc2.setRoom(r4);
+
+        // Room5
+        Room r5 = new RegularRoom(); r5.setMaxCharacter(3);
+        FFP2 r5i1 = new FFP2(); r5i1.setDurability(3); r5.addItem(r5i1);
+
+        // Room6
+        Room r6 = new RegularRoom(); r6.setMaxCharacter(3);
+        SlideRule r6i1 = new SlideRule(); r6.addItem(r6i1);
+
+        // Mapping
+        rs.addNeighbour(r1);
+        r1.addNeighbour(r2);
+        r1.addNeighbour(r3);
+        r1.addNeighbour(r4);
+        r2.addNeighbour(r1);
+        r2.addNeighbour(r3);
+        r4.addNeighbour(r1);
+        r4.addNeighbour(r5);
+        r5.addNeighbour(r4);
+        r5.addNeighbour(r6);
+
+        // generate finals
+        ArrayList<Room> finalRooms = new ArrayList<>();
+        ArrayList<Character> finalCharacters = new ArrayList<>();
+        finalRooms.add(rs);
+        finalRooms.add(r1);
+        finalRooms.add(r2);
+        finalRooms.add(r3);
+        finalRooms.add(r4);
+        finalRooms.add(r5);
+        finalRooms.add(r6);
+        finalCharacters.add(s1);
+        finalCharacters.add(s2);
+        finalCharacters.add(npc1);
+        finalCharacters.add(npc2);
+
+        // generate files
+        FileOutputStream mapFile = new FileOutputStream("TESTMAP_rooms.dat");
+        FileOutputStream charFile = new FileOutputStream("TESTMAP_players.dat");
+        ObjectOutputStream map = new ObjectOutputStream(mapFile);
+        ObjectOutputStream chars = new ObjectOutputStream(charFile);
+        map.writeObject(finalRooms);
+        map.flush();
+        map.close();
+        chars.writeObject(finalCharacters);
+        chars.flush();
+        chars.close();
+    }
+
+    // előző beadásokhoz test esetek kiírása
+    public static void tests() {
+        boolean end = false;
 
         //Students
         Student testS1 = new Student();

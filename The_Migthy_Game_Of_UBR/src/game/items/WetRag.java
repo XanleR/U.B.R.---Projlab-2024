@@ -5,9 +5,10 @@ import game.characters.Student;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class WetRag extends Item{
+public class WetRag extends Item  implements Serializable {
 
     //Megadja, hogy hany korig lehet meg felhasznalni a WetRag-et
     private int wetness;
@@ -18,6 +19,7 @@ public class WetRag extends Item{
     public int getWetness(){
         return this.wetness;
     }
+    public void setWetness(int wetness) {this.wetness = wetness;}
 
 
     //input: Student user

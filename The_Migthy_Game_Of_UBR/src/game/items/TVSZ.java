@@ -3,9 +3,10 @@ package game.items;
 import game.characters.Instructor;
 import game.characters.Student;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class TVSZ extends Item{
+public class TVSZ extends Item  implements Serializable {
 
     //Megadja, hogy hanyszor ved meg meg a TVSZ
     private int remainingProtection = 3;

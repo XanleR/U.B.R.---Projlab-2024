@@ -5,9 +5,10 @@ import game.rooms.Room;
 import game.characters.Instructor;
 import game.characters.Student;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class Transistor extends Item{
+public class Transistor extends Item  implements Serializable {
 
     //Megadja, hogy a Transistor be van-e kapcsolva
     private boolean isOn = false;

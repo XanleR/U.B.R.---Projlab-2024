@@ -3,9 +3,10 @@ package game.items;
 import game.characters.Instructor;
 import game.characters.Student;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Dice extends Item{
+public class Dice extends Item implements Serializable {
 
     //Megadja a legutobbi dobott erteket
     private int currentValue;

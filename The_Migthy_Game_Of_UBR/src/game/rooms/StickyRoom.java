@@ -4,7 +4,9 @@ import game.characters.Character;
 import game.characters.Student;
 import game.items.Item;
 
-public class StickyRoom extends Room{
+import java.io.Serializable;
+
+public class StickyRoom extends Room  implements Serializable {
     @Override
     public void onEntered(Character c1) {
         for(Character ch : this.getCharacters()){

@@ -4,9 +4,11 @@ import game.GameController;
 import game.characters.Instructor;
 import game.characters.Student;
 
+import java.io.Serializable;
+
 import static game.Skeleton.gameController;
 
-public class SlideRule extends Item{
+public class SlideRule extends Item  implements Serializable {
 
     //input: Student user
     //method: Megvalositja a targyak felhasznalasat

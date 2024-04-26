@@ -4,11 +4,12 @@ import game.GameController;
 import game.items.*;
 import game.rooms.Room;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
-public class Student extends Character {
+public class Student extends Character implements Serializable {
 
     //Megadja, hogy hany kor van meg hatra az FFP2 targy felhasznalasabol
     private int maskedRounds;

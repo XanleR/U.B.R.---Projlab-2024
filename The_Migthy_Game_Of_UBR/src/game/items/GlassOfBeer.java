@@ -3,9 +3,10 @@ package game.items;
 import game.characters.Instructor;
 import game.characters.Student;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class GlassOfBeer extends Item {
+public class GlassOfBeer extends Item  implements Serializable {
 
     private boolean activated = false;
     private int activeRounds;

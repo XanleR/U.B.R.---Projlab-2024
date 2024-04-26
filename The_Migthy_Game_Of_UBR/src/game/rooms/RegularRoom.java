@@ -2,7 +2,9 @@ package game.rooms;
 
 import game.characters.Character;
 
-public class RegularRoom extends Room {
+import java.io.Serializable;
+
+public class RegularRoom extends Room  implements Serializable {
 
     //input: Character c1
     //method: Azt az esemenyt kezeli, amikor egy karakter a szobaba lep

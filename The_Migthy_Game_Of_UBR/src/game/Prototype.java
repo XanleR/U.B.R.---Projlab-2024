@@ -35,6 +35,8 @@ public class Prototype {
             //TODO Tesztek
 
             printTestOptions();
+            //nagy switch case, ami a teszteket kiválasztja
+
         }
         else{
             try {

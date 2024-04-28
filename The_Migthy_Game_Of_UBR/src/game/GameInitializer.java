@@ -47,7 +47,7 @@ public class GameInitializer {
 
         // tanulók
         for (int i = 0; i < count ; i++) {
-            Character tmp = new Student();
+            Student tmp = new Student(); tmp.setInventorySize(5);
             GameController.getInstance().addCharacter(tmp);
             int tmpRoom;
             tmpRoom = 0;
@@ -57,7 +57,7 @@ public class GameInitializer {
 
         //tanárok
         for (int i = 0; i < 3; i++) {
-            Character tmp = new Instructor();
+            Instructor tmp = new Instructor();
             GameController.getInstance().addCharacter(tmp);
             Random r = new Random();
             int tmpRoom;

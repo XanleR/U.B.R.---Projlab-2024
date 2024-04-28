@@ -1,6 +1,9 @@
 package game;
 
 import game.characters.Character;
+import game.characters.Cleaner;
+import game.characters.Instructor;
+import game.characters.Student;
 import game.rooms.Room;
 
 import java.io.FileInputStream;
@@ -8,6 +11,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class GameInitializer {
 
@@ -34,21 +38,46 @@ public class GameInitializer {
             GameController.getInstance().addRoom(i);
         }
 
-        //////////// players
-
-        for (Room i : rooms) {
-            for (Character j : i.getCharacters()) {
-                GameController.getInstance().addCharacter(j);
-            }
-        }
-
     }
 
     //input: int count
     //method: Letrehoz, annyi Character-t, amennyi int erteke
     //return: void
     public static void initCharacters(int count) throws IOException, ClassNotFoundException{
-        // TODO: Normálisan megcsinálni a Studentek hozzáadását, mert most a playersben van az összes npc és student is...
+
+        // tanulók
+        for (int i = 0; i < count ; i++) {
+            Character tmp = new Student();
+            GameController.getInstance().addCharacter(tmp);
+            int tmpRoom;
+            tmpRoom = 0;
+            tmp.setCurrentRoom( GameController.getInstance().getRooms().get(tmpRoom) );
+            GameController.getInstance().getRooms().get(tmpRoom).putCharacter(tmp);
+        }
+
+        //tanárok
+        for (int i = 0; i < 3; i++) {
+            Character tmp = new Instructor();
+            GameController.getInstance().addCharacter(tmp);
+            Random r = new Random();
+            int tmpRoom;
+            tmpRoom = r.nextInt(1, GameController.getInstance().getRooms().size());
+            tmp.setCurrentRoom( GameController.getInstance().getRooms().get(tmpRoom) );
+            GameController.getInstance().getRooms().get(tmpRoom).putCharacter(tmp);
+        }
+
+        //takarítók
+        for (int i = 0; i < 1; i++) {
+            Character tmp = new Cleaner();
+            GameController.getInstance().addCharacter(tmp);
+            Random r = new Random();
+            int tmpRoom;
+            tmpRoom = r.nextInt(2, GameController.getInstance().getRooms().size());
+            tmp.setCurrentRoom( GameController.getInstance().getRooms().get(tmpRoom) );
+            GameController.getInstance().getRooms().get(tmpRoom).putCharacter(tmp);
+        }
+
+
     }
 }
 

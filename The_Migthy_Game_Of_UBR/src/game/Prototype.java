@@ -9,9 +9,11 @@ import game.rooms.GasRoom;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.security.DigestException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -428,24 +430,24 @@ public class Prototype {
             try {
                 playerNumber = Integer.parseInt(args[0]);
 
-                //TODO Karakterek normális megcsinálása
-                try {
-                    GameInitializer.initMaps("TESTMAP");
-                } catch (IOException e) {
-                    System.out.println(e);
-                } catch (ClassNotFoundException e) {
-                    System.out.println("Hibás fileok...");
-                }
+                GameInitializer.initMaps("NEWMAP");
+                System.out.println("Fileok Betöltve");
 
-                // gameController.play();
+                GameInitializer.initCharacters(playerNumber);
+                System.out.println("karakterek létrehozva");
 
-                testPlay(69);
+                testPrint();
 
+                gameController.play();
 
             }
             catch (NumberFormatException nfe){
                 System.out.println("Invalid parameters...");
                 return;
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
             }
         }
     }
@@ -480,6 +482,27 @@ public class Prototype {
 
     }
 
+
+    public static void testPrint() {
+        for (Room i : gameController.getRooms()) {
+            System.out.println(i.toString());
+            for (Room j : i.getNeighbours()) {
+                System.out.println("\t" + j.toString());
+            }
+            for (Item k : i.getItems()) {
+                System.out.println("\t\t" + k.toString());
+            }
+            for (Character l : i.getCharacters()) {
+                System.out.println("--- \t" + l.toString());
+            }
+        }
+        System.out.println("\n\n");
+        for (Character i : gameController.getListOfCharacters()) {
+            System.out.println("+++");
+            System.out.println(i.toString());
+            System.out.println(i.getRoom().toString());
+        }
+    }
 
     public static void testPlay(int asd) {
 
@@ -527,6 +550,184 @@ public class Prototype {
             System.out.println("Play");
             gameController.play();
         }
+    }
+
+    public static void newMapBuilder(int mode) throws IOException {
+
+        ////////// ROOMS INIT
+
+        // Room1
+        Room r1 = new RegularRoom();
+        r1.setMaxCharacter(3);
+        r1.setUniqueName("Room1");
+        Item r1i1 = new TVSZ();
+        r1i1.setUniqueName("tvsz1");
+        r1i1.setDesc("TVSZ");
+        r1.addItem(r1i1);
+
+        // Room2
+        Room r2 = new RegularRoom();
+        r2.setUniqueName("Room2");
+
+        // Room3
+        Room r3 = new RegularRoom();
+        r3.setUniqueName("Room3");
+        Item r3i1 = new FakeFFP2();
+        r3i1.setUniqueName("FakeTVSZ1");
+        r3.addItem(r3i1);
+
+        // Room4
+        Room r4 = new RegularRoom();
+        r4.setUniqueName("Room4");
+        Item r4i1 = new FFP2();
+        Item r4i2 = new Dice();
+        r4i1.setUniqueName("FFP2_1");
+        r4i2.setUniqueName("Dice1");
+        r4.addItem(r4i1);
+        r4.addItem(r4i2);
+
+        // Room5
+        Room r5 = new RegularRoom();
+        r5.setUniqueName("Room5");
+        Item r5i1 = new FakeSlideRule();
+        r5i1.setUniqueName("FakeSideRuler1");
+        r5.addItem(r5i1);
+
+        // Room6
+        Room r6 = new RegularRoom();
+        r6.setUniqueName("Room6");
+        Item r6i1 = new TVSZ();
+        Item r6i2 = new FakeTVSZ();
+        r6i1.setUniqueName("FakeTVSZ2");
+        r6i2.setUniqueName("TVSZ2");
+        r6.addItem(r6i1);
+        r6.addItem(r6i2);
+
+        // Room7
+        Room r7 = new RegularRoom();
+        r7.setUniqueName("Room7");
+        Item r7i1 = new WetRag();
+        Item r7i2 = new Camambert();
+        r7i1.setUniqueName("WetRag1");
+        r7i2.setUniqueName("Camambert1");
+        r7.addItem(r7i1);
+        r7.addItem(r7i2);
+
+        // Room8
+        Room r8 = new RegularRoom();
+        r8.setUniqueName("Room8");
+        Item r8i1 = new SlideRule();
+        r8i1.setUniqueName("SideRuler");
+        r8.addItem(r8i1);
+        
+        // Room9
+        Room r9 = new RegularRoom();
+        r9.setUniqueName("Room9");
+
+
+        // Room10
+        Room r10 = new RegularRoom();
+        r10.setUniqueName("Room10");
+        Item r10i1 = new GlassOfBeer();
+        r10i1.setUniqueName("GlassOfBeer1");
+        r10.addItem(r10i1);
+
+        // Room11
+        Room r11 = new RegularRoom();
+        r11.setUniqueName("Room11");
+        Item r11i1 = new AirFreshener();
+        r11i1.setUniqueName("AirFreshener1");
+        r11.addItem(r11i1);
+
+        // Room12
+        Room r12 = new RegularRoom();
+        r12.setUniqueName("Room12");
+        Item r12i1 = new Transistor();
+        r12i1.setUniqueName("Transistor1");
+        r12.addItem(r12i1);
+
+        // Room13
+        Room r13 = new RegularRoom();
+        r13.setUniqueName("Room13");
+        Item r13i1 = new Camambert();
+        r13i1.setUniqueName("Camambert2");
+        r13.addItem(r13i1);
+
+        // Room14
+        Room r14 = new RegularRoom();
+        r14.setUniqueName("Room14");
+        Item r14i1 = new Dice();
+        r14i1.setUniqueName("Dice2");
+        r14.addItem(r14i1);
+
+        // Room15
+        Room r15 = new RegularRoom();
+        r15.setUniqueName("Room15");
+        Item r15i1 = new Transistor();
+        r15i1.setUniqueName("Transistor2");
+        r15.addItem(r15i1);
+
+        ////////// mapping
+        r1.addNeighbour(r3);
+        r1.addNeighbour(r9);
+        r2.addNeighbour(r1);
+        r2.addNeighbour(r6);
+        r3.addNeighbour(r4);
+        r3.addNeighbour(r6);
+        r3.addNeighbour(r7);
+        r4.addNeighbour(r3);
+        r4.addNeighbour(r5);
+        r5.addNeighbour(r4);
+        r6.addNeighbour(r2);
+        r7.addNeighbour(r11);
+        r7.addNeighbour(r12);
+        r8.addNeighbour(r15);
+        r9.addNeighbour(r6);
+        r9.addNeighbour(r10);
+        r9.addNeighbour(r13);
+        r10.addNeighbour(r6);
+        r10.addNeighbour(r13);
+        r10.addNeighbour(r11);
+        r11.addNeighbour(r7);
+        r11.addNeighbour(r12);
+        r12.addNeighbour(r7);
+        r12.addNeighbour(r8);
+        r12.addNeighbour(r11);
+        r12.addNeighbour(r14);
+        r13.addNeighbour(r9);
+        r14.addNeighbour(r11);
+        r14.addNeighbour(r12);
+        r15.addNeighbour(r8);
+        r15.addNeighbour(r12);
+
+        /////// Final list
+
+        ArrayList<Room> finalList = new ArrayList<>();
+        finalList.add(r1);
+        finalList.add(r2);
+        finalList.add(r3);
+        finalList.add(r4);
+        finalList.add(r5);
+        finalList.add(r6);
+        finalList.add(r7);
+        finalList.add(r8);
+        finalList.add(r9);
+        finalList.add(r10);
+        finalList.add(r11);
+        finalList.add(r12);
+        finalList.add(r13);
+        finalList.add(r14);
+        finalList.add(r15);
+
+
+        /// Fileba írás
+        System.out.println("Fileok");
+        // generate files
+        FileOutputStream mapFile = new FileOutputStream("NEWMAP_rooms.dat");
+        ObjectOutputStream map = new ObjectOutputStream(mapFile);
+        map.writeObject(finalList);
+        map.flush();
+        map.close();
     }
 
     // 10. beadáshoz test map

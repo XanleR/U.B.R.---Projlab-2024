@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -27,10 +28,52 @@ public class Skeleton {
 
     }
 
+    public static void testPlay(int asd) {
+
+        if (asd == 1 || asd == 69) {
+            try {
+                GameInitializer.initMaps("TESTMAP");
+            } catch (IOException e) {
+                System.out.println("Valami probléma van a fileokkal...");
+            } catch (ClassNotFoundException e) {
+                System.out.println("Hibás fileok...");
+            }
+            System.out.println("Beolvasás vége");
+        } else if (asd == 0) {
+            try {
+                testMapBuilder(0);
+            } catch (IOException e) {
+                System.out.println("Hibás valami...");
+            }
+        }
+
+
+        if (asd == 1 || asd == 69) {
+            for (Room i : gameController.getInstance().getRooms()) {
+                System.out.println(i.toString());
+                for (Room j : i.getNeighbours()) {
+                    System.out.println("\t" + j.toString());
+                }
+                for (Item k : i.getItems()) {
+                    System.out.println("\t\t" + k.toString());
+                }
+                for (Character l : i.getCharacters()) {
+                    System.out.println("--- \t" + l.toString());
+                }
+            }
+        }
+
+
+        if (asd == 69) {
+            System.out.println("Play");
+            gameController.play();
+        }
+    }
+
     // 10. beadáshoz test map
     // leírás: 2 játékos, 1 teacher, 1 cleaner, 7 szoba
     // Kiírja a mapot a TESTMAP_rooms.dat és TESTMAP_players.dat állományba
-    public static void testMapBuilder() throws IOException {
+    public static void testMapBuilder(int mode) throws IOException {
 
         // játékosok:
         Student s1 = new Student();
@@ -42,8 +85,8 @@ public class Skeleton {
 
         // startRoom:
         Room rs = new RegularRoom(); rs.setMaxCharacter(2);
-        rs.addCharacter(s1);
-        rs.addCharacter(s2);
+        rs.putCharacter(s1);
+        rs.putCharacter(s2);
         s1.setRoom(rs);
         s2.setRoom(rs);
 
@@ -54,7 +97,7 @@ public class Skeleton {
 
         // Room2
         Room r2 = new RegularRoom(); r2.setMaxCharacter(3);
-        r2.addCharacter(npc1);
+        r2.putCharacter(npc1);
         npc1.setRoom(r2);
 
         // Room3
@@ -64,7 +107,7 @@ public class Skeleton {
 
         // Room4
         Room r4 = new RegularRoom(); r4.setMaxCharacter(3);
-        r4.addCharacter(npc2);
+        r4.putCharacter(npc2);
         npc2.setRoom(r4);
 
         // Room5
@@ -102,17 +145,28 @@ public class Skeleton {
         finalCharacters.add(npc1);
         finalCharacters.add(npc2);
 
-        // generate files
-        FileOutputStream mapFile = new FileOutputStream("TESTMAP_rooms.dat");
-        FileOutputStream charFile = new FileOutputStream("TESTMAP_players.dat");
-        ObjectOutputStream map = new ObjectOutputStream(mapFile);
-        ObjectOutputStream chars = new ObjectOutputStream(charFile);
-        map.writeObject(finalRooms);
-        map.flush();
-        map.close();
-        chars.writeObject(finalCharacters);
-        chars.flush();
-        chars.close();
+        if (mode == 1) {
+            // generate files
+            FileOutputStream mapFile = new FileOutputStream("TESTMAP_rooms.dat");
+            FileOutputStream charFile = new FileOutputStream("TESTMAP_players.dat");
+            ObjectOutputStream map = new ObjectOutputStream(mapFile);
+            ObjectOutputStream chars = new ObjectOutputStream(charFile);
+            map.writeObject(finalRooms);
+            map.flush();
+            map.close();
+            chars.writeObject(finalCharacters);
+            chars.flush();
+            chars.close();
+        } else if (mode == 0) {
+            for (Room i : finalRooms) {
+                gameController.addRoom(i);
+            }
+            for (Character i : finalCharacters) {
+                gameController.addCharacter(i);
+            }
+        }
+
+
     }
 
     // előző beadásokhoz test esetek kiírása

@@ -52,6 +52,8 @@ public abstract class Room  implements Serializable {
         this.onEntered(c1);
     }
 
+    public void putCharacter(Character c) { listOfCharacters.add(c); }
+
     public void setCharacters(List<Character> newCharacters){
         this.listOfCharacters = newCharacters;
     }

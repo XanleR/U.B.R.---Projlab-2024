@@ -1,16 +1,22 @@
 package game;
 
 import game.characters.Student;
+import game.items.Item;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 import game.characters.Character;
 
 public class GameController {
+
+    private final Random random = new Random();
+
+    private boolean active = true;
 
     private static GameController instance;
 
@@ -47,6 +53,7 @@ public class GameController {
         listOfCharacters = new ArrayList<>();
         rooms = new ArrayList<>();
         studentCount = 0;
+        remainingRounds = 0;
     }
 
     //input: List<Character> characetrs, List<Room> rooms
@@ -118,23 +125,36 @@ public class GameController {
     //input: Room newR
     //method: A kapott Room-ot felveszi a jatek szobai koze
     //return: void
-    public void addRoom(Room newR){}
+    public void addRoom(Room newR){
+        rooms.add(newR);
+    }
 
     //input: Room remove
     //method: A kapott szobat kitorli a jatek szobai kozul
     //return: void
-    public void removeRoom(Room remove){}
+    public void removeRoom(Room remove){
+        for (Room i : rooms) {
+            i.getNeighbours().remove(remove);
+        }
+        rooms.remove(remove);
+    }
 
     //input: -
     //method: Elindit egy uj kort
     //return: void
-    public void newRound(){}
+    public void newRound(){
+        for (Character i : listOfCharacters) {
+            i.startRound(rollDice());
+        }
+    }
 
     //input: -
     //method: Kezeli azt az esemnyt, amikor a jateknak vege van
     //return: void
     public void endGame(){
         System.out.println("\t\t\t\t--> (gameController: GameController).endGame()");
+
+        active = false;
 
         System.out.println("\t\t\t\t<--");
     }
@@ -143,25 +163,38 @@ public class GameController {
     //method: A kapott Character-t kitorli a jatekban levo Characterek kozul
     //return: void
     public void removeCharacter(Character removeable){
-        System.out.println("\t\t\t--> (gameController: GameController).removeCharacter(removeable: Character)");
+        for (Room i : rooms) {
+            i.getCharacters().remove(removeable);
 
-        System.out.println("\t\t\t<--");
+        }
+
+        listOfCharacters.remove(removeable);
     }
 
     //input: Character
     //method: hozzáad egy játékost
     //return: void
     public void addCharacter(Character c) {
-
+        listOfCharacters.add(c);
     }
 
     //input: -
     //method: Elinditja a jatekmenetet
     //return: void
-    public void play(){}
+    public void play(){
+        while (active) {
+            newRound();
+        }
+    }
 
     //input: -
     //method: Egy veletlenszeru egesz szamot general az 1-től 6-ig terjedo zart intervallumon.
     //return: int
-    public int rollDice(){ return 0;}
+    public int rollDice(){
+        return random.nextInt(1, 7);
+    }
+
+    public List<Room> getRooms() {
+        return rooms;
+    }
 }

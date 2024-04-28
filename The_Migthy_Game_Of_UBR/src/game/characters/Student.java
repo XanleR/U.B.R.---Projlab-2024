@@ -94,6 +94,8 @@ public class Student extends Character implements Serializable {
     @Override
     public void action() {
 
+        System.out.println("Student action");
+
         // Azért, hogy addig kérdezze a játékost, ameddig nem ad egy valid akciót
         // Egy while loop feltétele
         boolean succes = false;

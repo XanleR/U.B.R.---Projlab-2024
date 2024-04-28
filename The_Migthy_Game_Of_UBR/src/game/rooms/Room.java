@@ -312,4 +312,8 @@ public abstract class Room  implements Serializable {
             System.out.println("The student picked the item up!");
         }
     }
+
+    public void setTransistor(Transistor transistor) {
+        this.transistor = transistor;
+    }
 }

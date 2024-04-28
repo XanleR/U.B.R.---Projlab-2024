@@ -5,7 +5,6 @@ import game.characters.Student;
 
 import java.io.Serializable;
 
-import static game.Skeleton.gameController;
 
 public class FakeSlideRule extends SlideRule  implements Serializable {
 

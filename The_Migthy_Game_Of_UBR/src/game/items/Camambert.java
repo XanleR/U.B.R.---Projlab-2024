@@ -7,7 +7,6 @@ import game.rooms.Room;
 
 import java.io.Serializable;
 
-import static game.Skeleton.gameController;
 import static game.Prototype.gameController;
 
 public class Camambert extends Item implements Serializable {

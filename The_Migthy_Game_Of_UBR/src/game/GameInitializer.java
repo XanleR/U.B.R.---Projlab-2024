@@ -19,9 +19,15 @@ public class GameInitializer {
 
         // beolvasás
         FileInputStream mapStream = new FileInputStream(from + "_rooms.dat");
+        System.out.println("1 beolvasás ok");
         ObjectInputStream map = new ObjectInputStream(mapStream);
-        List<Room> rooms = (ArrayList<Room>) map.readObject();
+        System.out.println("2 beolvasás ok");
+        List<Room> rooms = ( ArrayList<Room> ) map.readObject();
+        System.out.println("3 beolvasás ok");
         map.close();
+        System.out.println("4 beolvasás ok");
+
+        System.out.println("beolvasás ok");
 
         // feltöltés
         for (Room i : rooms) {
@@ -30,15 +36,10 @@ public class GameInitializer {
 
         //////////// players
 
-        // beolvasás
-        FileInputStream playersStream = new FileInputStream(from + "_players.dat");
-        ObjectInputStream players = new ObjectInputStream(playersStream);
-        List<Character> characters = (ArrayList<Character>) players.readObject();
-        map.close();
-
-        // feltöltés
-        for (Character i : characters) {
-            GameController.getInstance().addCharacter(i);
+        for (Room i : rooms) {
+            for (Character j : i.getCharacters()) {
+                GameController.getInstance().addCharacter(j);
+            }
         }
 
     }

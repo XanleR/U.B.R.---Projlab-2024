@@ -4,7 +4,6 @@ import game.characters.Instructor;
 import game.characters.Student;
 
 import java.io.Serializable;
-import static game.Skeleton.gameController;
 import static game.Prototype.gameController;
 
 public class SlideRule extends Item  implements Serializable {

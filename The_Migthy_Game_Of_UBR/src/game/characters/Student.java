@@ -377,9 +377,11 @@ public class Student extends Character {
     //return: void
     public void setTVSZ(TVSZ _tvsz){
         if(tvsz == null){
+            System.out.println("The student's TVSZ was set!");
             this.tvsz = _tvsz;
             return;
         }
+        System.out.println("The student's TVSZ was updated!");
         tvsz.addProtection(_tvsz.getRemainingProtection());
     }
 
@@ -388,6 +390,13 @@ public class Student extends Character {
     //return: TVSZ
     public TVSZ getTVSZ(){
         return tvsz;
+    }
+
+    //input: -
+    //method: eltávolítja a hallgató tvsz-ét
+    //return: -
+    public void removeTVSZ(){
+        tvsz = null;
     }
 
     //input: Item removed
@@ -403,14 +412,22 @@ public class Student extends Character {
     public void die(Instructor instructor){
         boolean studentSaved = false;
 
-        for(Item item : inventory){
-            if(item.onAttacked(this, instructor)){
-                studentSaved = true;
-                break;
+        if(this.tvsz != null && this.tvsz.onAttacked(this, instructor)){
+            studentSaved = true;
+        }
+        else{
+            for(Item item : inventory){
+                if(item.onAttacked(this, instructor)){
+                    studentSaved = true;
+                    break;
+                }
             }
         }
+
+
         if(!studentSaved){
             GameController.getInstance().removeCharacter(this);
+            System.out.println("The student died...");
         }
     }
 

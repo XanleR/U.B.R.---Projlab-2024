@@ -275,7 +275,149 @@ public class Prototype {
 
                     case 17:
                         //SlideRulePickUp
+                        //TODO
                         break;
+
+                    case 18:
+                        //Student Enters a Room that has a Teacher in it, and does not have Items
+                        System.out.println("Input: studentMove simpleMove room1");
+                        instructor.setCurrentRoom(regularRoom2);
+                        characterList.add(instructor);
+                        regularRoom2.setCharacters(characterList);
+
+                        regularRoomList.add(regularRoom2);
+                        regularRoom1.addNeighbours(regularRoomList);
+
+                        student.setCurrentRoom(regularRoom1);
+                        student.move(regularRoom1, regularRoom2);
+
+                        System.out.println("Input studentMove transistorJump room1");
+                        regularRoom1.addTransistor(transistor1);
+                        regularRoom2.addTransistor(transistor1);
+                        student.setCurrentRoom(regularRoom1);
+                        transistor1.setCurrentRoom(regularRoom1);
+                        transistor2.setCurrentRoom(regularRoom2);
+                        student.transistorJump();
+                        break;
+
+                    case 19:
+                        //Student Enters a Room that has a Teacher in it, and the TVSZ protects him
+                        System.out.println("Input: studentMove simpleMove room1");
+                        instructor.setCurrentRoom(regularRoom2);
+                        characterList.add(instructor);
+                        regularRoom2.setCharacters(characterList);
+
+                        regularRoomList.add(regularRoom2);
+                        regularRoom1.addNeighbours(regularRoomList);
+
+                        student.setTVSZ(tvsz1);
+
+                        student.setCurrentRoom(regularRoom1);
+                        student.move(regularRoom1, regularRoom2);
+
+                        System.out.println("Input studentMove transistorJump room1");
+                        regularRoom1.addTransistor(transistor1);
+                        regularRoom2.addTransistor(transistor1);
+                        student.setCurrentRoom(regularRoom1);
+                        transistor1.setCurrentRoom(regularRoom1);
+                        transistor2.setCurrentRoom(regularRoom2);
+                        student.transistorJump();
+                        break;
+
+                    case 20:
+                        //Student Enters a Room that has a Teacher in it, and the GlassOfBeer protects him
+                        System.out.println("Input: studentMove simpleMove room1");
+                        instructor.setCurrentRoom(regularRoom2);
+                        characterList.add(instructor);
+                        regularRoom2.setCharacters(characterList);
+
+                        regularRoomList.add(regularRoom2);
+                        regularRoom1.addNeighbours(regularRoomList);
+
+                        student.addItem(glassOfBeer);
+                        glassOfBeer.activate();
+
+                        student.setCurrentRoom(regularRoom1);
+                        student.move(regularRoom1, regularRoom2);
+
+                        System.out.println("Input studentMove transistorJump room1");
+                        regularRoom1.addTransistor(transistor1);
+                        regularRoom2.addTransistor(transistor1);
+                        student.setCurrentRoom(regularRoom1);
+                        transistor1.setCurrentRoom(regularRoom1);
+                        transistor2.setCurrentRoom(regularRoom2);
+                        student.transistorJump();
+                        break;
+
+                    case 21:
+                        //Student Enters a Room that has a Teacher in it, and the WetRag protects him
+                        System.out.println("Input: studentMove simpleMove room1");
+                        instructor.setCurrentRoom(regularRoom2);
+                        characterList.add(instructor);
+                        regularRoom2.setCharacters(characterList);
+
+                        regularRoomList.add(regularRoom2);
+                        regularRoom1.addNeighbours(regularRoomList);
+
+                        student.addItem(wetRag);
+
+                        student.setCurrentRoom(regularRoom1);
+                        student.move(regularRoom1, regularRoom2);
+
+                        System.out.println("Input studentMove transistorJump room1");
+
+                        student.addItem(wetRag);
+
+                        regularRoom1.addTransistor(transistor1);
+                        regularRoom2.addTransistor(transistor1);
+                        student.setCurrentRoom(regularRoom1);
+                        transistor1.setCurrentRoom(regularRoom1);
+                        transistor2.setCurrentRoom(regularRoom2);
+                        student.transistorJump();
+                        break;
+
+                    case 22:
+                        //Load Map
+                        //TODO
+
+                        break;
+
+                    case 23:
+                        //Student's idle action
+
+                        System.out.println("Input: idle");
+
+                        student.idle();
+
+                        break;
+
+                    case 24:
+                        //Pick Up TVSZ
+
+                        System.out.println("Input: pickUpItem tvsz1");
+                        regularRoom1.setMaxCharacter(5);
+                        regularRoom1.addItem(tvsz1);
+                        student.setCurrentRoom(regularRoom1);
+                        student.setInventorySize(5);
+                        student.pickUpItem(tvsz1);
+
+                        break;
+
+                    case 25:
+                        //Pick Up TVSZ, but the Student already has a TVSZ
+
+                        System.out.println("Input: pickUpItem tvsz1");
+                        regularRoom1.setMaxCharacter(5);
+                        regularRoom1.addItem(tvsz1);
+                        student.setCurrentRoom(regularRoom1);
+                        student.setInventorySize(5);
+
+                        System.out.println("(For testing you have to add a TVSZ first, resulting in an extra line of output...)");
+                        student.setTVSZ(tvsz2);
+
+                        student.pickUpItem(tvsz1);
+
+
                 }
 
             }

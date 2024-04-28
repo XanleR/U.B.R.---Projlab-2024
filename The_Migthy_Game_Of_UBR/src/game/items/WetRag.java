@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class WetRag extends Item{
 
     //Megadja, hogy hany korig lehet meg felhasznalni a WetRag-et
-    private int wetness;
+    private int wetness = 3;
 
     //input: -
     //method: Visszaadja a Wetness erteket
@@ -57,6 +57,7 @@ public class WetRag extends Item{
     public boolean onAttacked(Student attacked, Instructor attacker){
         if(this.wetness > 0){
             this.use(attacked);
+            System.out.println("The student was protected by the Wet Rag!");
             return true;
         }
         return false;

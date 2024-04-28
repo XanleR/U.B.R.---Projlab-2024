@@ -15,6 +15,9 @@ public class TVSZ extends Item{
     //return: void
     public void addProtection(int plus){
         this.remainingProtection += plus;
+        if(this.remainingProtection > 3){
+            this.remainingProtection = 3;
+        }
     }
 
     //input: -
@@ -41,15 +44,7 @@ public class TVSZ extends Item{
     //return: void
     @Override
     public void onPickedUp(Student student){
-        if(student.getTVSZ() == null){
-            student.setTVSZ(this);
-        }else{
-            if(student.getTVSZ().getRemainingProtection() == 2){
-                student.getTVSZ().addProtection(1);
-            }else if(student.getTVSZ().getRemainingProtection() == 1){
-                student.getTVSZ().addProtection(2);
-            }
-        }
+        student.setTVSZ(this);
     }
 
 
@@ -66,7 +61,15 @@ public class TVSZ extends Item{
     //return: boolean
     @Override
     public boolean onAttacked(Student attacked, Instructor attacker){
-        return this.remainingProtection > 0;
+        if(this.remainingProtection > 0){
+            remainingProtection--;
+            System.out.println("The student was protected by the TVSZ!");
+            if(remainingProtection == 0){
+                attacked.removeTVSZ();
+            }
+            return true;
+        }
+        return false;
     }
 
 }

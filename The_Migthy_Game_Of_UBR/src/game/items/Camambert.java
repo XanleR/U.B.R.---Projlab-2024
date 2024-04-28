@@ -18,6 +18,7 @@ public class Camambert extends Item{
         user.getRoom().copyToRoom(newGasRoom);
         gameController.removeRoom(user.getRoom());
         gameController.addRoom(newGasRoom);
+        System.out.println("The room became a gas room!");
     }
 
     //input: -

@@ -4,6 +4,7 @@ import game.GameController;
 import game.items.*;
 import game.rooms.Room;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -25,13 +26,28 @@ public class Student extends Character {
     //A hallgatonal csak 1 db tvsz lehet, ez a valtozo eppen ezt tarolja el
     private TVSZ tvsz;
 
+    //input: -
+    //method: Konstruktora a Student classnak, mely inicializálja a listákat
+    //return: -
+    public Student(){
+        inventory = new ArrayList<>();
+        transistorList = new ArrayList<>();
+    }
+
+
+    //input: int iSize
+    //method: beállítja a karakter inventoryának méretét
+    //return: void
+    public void setInventorySize(int iSize){
+        inventorySize = iSize;
+    }
+
     //input: Room from, Room to
     //method: A karaktert athelyezi az egyik bemenetkent adott szobabol a masikba
     //return: void
     @Override
     public void move(Room from, Room to){
         if(stunnedRounds <= 0){
-            //TODO az addCharacter állítsa be a Studentnek a szobáját az új szobára
             to.addCharacter(this);
         }
         else{
@@ -153,7 +169,7 @@ public class Student extends Character {
                         for(Item item : this.inventory){
                             if(item.getUniqueName().equals(command[1])){
                                 succes = true;
-                                item.use(this);
+                                this.useItem(item);
                                 break;
                             }
                         }
@@ -192,10 +208,10 @@ public class Student extends Character {
 
     //Megadja, hogy tele van-e az ineventory
     public boolean canPickUp(){
-        if(this.inventorySize == this.inventory.size()){
+        if(this.inventorySize <= this.inventory.size()){
             return false;
         }
-        return false;
+        return true;
     }
 
     //input: Character character
@@ -399,10 +415,15 @@ public class Student extends Character {
     //method: A hallgatót elkábítja a paraméterként kapott kör idejére
     //return: void
     public void stun(int stunnedFor){
+        if(maskedRounds > 0){
+            System.out.println("The student was protected by the FFP2 mask!");
+            return;
+        }
         stunnedRounds += stunnedFor;
         for(Item item : inventory){
             dropItem(item);
         }
+        System.out.println("The student is stunned!");
     }
 
     //input: -

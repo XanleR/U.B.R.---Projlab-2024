@@ -15,7 +15,7 @@ import java.util.Random;
 public abstract class Room {
 
     //A szobaban levo rongyok listaja
-    private List<WetRag> wetRags;
+    private List<WetRag> wetRags = new ArrayList<>();
 
     //A szobaban levo tranzisztor
     private Transistor transistor;
@@ -52,7 +52,7 @@ public abstract class Room {
         c1.setCurrentRoom(this);
         this.onEntered(c1);
 
-
+        System.out.println("Character moved to the room!");
     }
 
     public void setCharacters(List<Character> newCharacters){
@@ -173,64 +173,78 @@ public abstract class Room {
         other.addCharacterCapacity(this.maxCharacter);
 
         //Ez a szomszedok elosztasa
-        if((this.listOfNeighbours.size()%2) == 0){
-            while(other.getNeighbours().size() <= this.listOfNeighbours.size()/2){
-                int j = rd.nextInt(0 , this.listOfNeighbours.size()-1);
-                other.getNeighbours().add(this.listOfNeighbours.get(j));
-                this.listOfNeighbours.remove(this.listOfNeighbours.get(j));
-            }
-        }else{
-            while(other.getNeighbours().size() <= (this.listOfNeighbours.size()-1)/2){
-                int j = rd.nextInt(0 , this.listOfNeighbours.size()-1);
-                other.getNeighbours().add(this.listOfNeighbours.get(j));
-                this.listOfNeighbours.remove(this.listOfNeighbours.get(j));
+        if(!this.listOfNeighbours.isEmpty()){
+            if((this.listOfNeighbours.size()%2) == 0){
+                while(other.getNeighbours().size() <= this.listOfNeighbours.size()/2){
+                    int j = rd.nextInt(0 , this.listOfNeighbours.size()-1);
+                    other.getNeighbours().add(this.listOfNeighbours.get(j));
+                    this.listOfNeighbours.remove(this.listOfNeighbours.get(j));
+                }
+            }else{
+
+                while(other.getNeighbours().size() <= (this.listOfNeighbours.size()-1)/2){
+                    int j = rd.nextInt(0 , this.listOfNeighbours.size()-1);
+                    other.getNeighbours().add(this.listOfNeighbours.get(j));
+                    this.listOfNeighbours.remove(this.listOfNeighbours.get(j));
+                }
             }
         }
+
 
         //Ez az itemek elosztasa
-        if((this.listOfItems.size()%2) == 0){
-            while(other.getItems().size() <= this.listOfItems.size()/2){
-                int j = rd.nextInt(0 , this.listOfItems.size()-1);
-                other.getItems().add(this.listOfItems.get(j));
-                this.removeItem(this.listOfItems.get(j));
-            }
-        }else{
-            while(other.getItems().size() <= (this.listOfItems.size()-1)/2){
-                int j = rd.nextInt(0 , this.listOfItems.size()-1);
-                other.getItems().add(this.listOfItems.get(j));
-                this.removeItem(this.listOfItems.get(j));
+        if(!this.listOfItems.isEmpty()){
+            if((this.listOfItems.size()%2) == 0){
+                while(other.getItems().size() <= this.listOfItems.size()/2){
+                    int j = rd.nextInt(0 , this.listOfItems.size()-1);
+                    other.getItems().add(this.listOfItems.get(j));
+                    this.removeItem(this.listOfItems.get(j));
+                }
+            }else{
+                while(other.getItems().size() <= (this.listOfItems.size()-1)/2){
+                    int j = rd.nextInt(0 , this.listOfItems.size()-1);
+                    other.getItems().add(this.listOfItems.get(j));
+                    this.removeItem(this.listOfItems.get(j));
+                }
             }
         }
+
 
         //Karakterek elosztasa
-        if((this.listOfCharacters.size()%2) == 0){
-            while(other.getCharacters().size() <= this.listOfCharacters.size()/2){
-                int j = rd.nextInt(0 , this.listOfCharacters.size()-1);
-                other.addCharacter(this.listOfCharacters.get(j));
-                this.listOfCharacters.remove(this.listOfCharacters.get(j));
-            }
-        }else{
-            while(other.getCharacters().size() <= (this.listOfCharacters.size()-1)/2){
-                int j = rd.nextInt(0 , this.listOfCharacters.size()-1);
-                other.addCharacter(this.listOfCharacters.get(j));
-                this.listOfCharacters.remove(this.listOfCharacters.get(j));
+        if(!listOfCharacters.isEmpty()){
+            if((this.listOfCharacters.size()%2) == 0){
+                while(other.getCharacters().size() <= this.listOfCharacters.size()/2){
+                    int j = rd.nextInt(0 , this.listOfCharacters.size()-1);
+                    other.addCharacter(this.listOfCharacters.get(j));
+                    this.listOfCharacters.remove(this.listOfCharacters.get(j));
+                }
+            }else{
+                while(other.getCharacters().size() <= (this.listOfCharacters.size()-1)/2){
+                    int j = rd.nextInt(0 , this.listOfCharacters.size()-1);
+                    other.addCharacter(this.listOfCharacters.get(j));
+                    this.listOfCharacters.remove(this.listOfCharacters.get(j));
+                }
             }
         }
 
+
         //WetRag-ek kette osztasa
-        if((this.wetRags.size()%2)==0){
-            while(other.getWetRags().size() <= this.wetRags.size()/2){
-                int j = rd.nextInt(0, this.wetRags.size()-1);
-                other.addWetRag(this.wetRags.get(j));
-                this.wetRags.remove(this.wetRags.get(j));
-            }
-        }else{
-            while(other.getWetRags().size() <= (this.wetRags.size()-1)/2){
-                int j = rd.nextInt(0, this.wetRags.size()-1);
-                other.addWetRag(this.wetRags.get(j));
-                this.wetRags.remove(this.wetRags.get(j));
+        if(!this.wetRags.isEmpty()){
+            if((this.wetRags.size()%2)==0){
+                while(other.getWetRags().size() <= this.wetRags.size()/2){
+                    int j = rd.nextInt(0, this.wetRags.size()-1);
+                    other.addWetRag(this.wetRags.get(j));
+                    this.wetRags.remove(this.wetRags.get(j));
+                }
+            }else{
+                while(other.getWetRags().size() <= (this.wetRags.size()-1)/2){
+                    int j = rd.nextInt(0, this.wetRags.size()-1);
+                    other.addWetRag(this.wetRags.get(j));
+                    this.wetRags.remove(this.wetRags.get(j));
+                }
             }
         }
+
+        System.out.println("The splitting of the room was successful!");
     }
 
     //input: Room other
@@ -243,6 +257,8 @@ public abstract class Room {
         other.getCharacters().addAll(this.listOfCharacters);
         other.addTransistor(this.transistor);
         other.getWetRags().addAll(this.wetRags);
+
+        System.out.println("The merging of the room was successful!");
     }
 
     //input: -
@@ -281,6 +297,7 @@ public abstract class Room {
         if(ch.canPickUp()) {
             i.onPickedUp(ch);
             this.removeItem(i);
+            System.out.println("The student picked the item up!");
         }
     }
 }

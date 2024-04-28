@@ -27,6 +27,7 @@ public class WetRag extends Item{
     public void use(Student user){
         user.getRoom().addWetRag(this);
         user.removeItem(this);
+        System.out.println("The student placed a wet rag in the room!");
     }
 
     //input: -

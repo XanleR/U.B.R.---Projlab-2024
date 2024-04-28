@@ -65,7 +65,7 @@ public class Transistor extends Item{
            user.removeTransistor(this);
            user.getRoom().addTransistor(this);
            this.currentRoom = user.getRoom();
-
+           System.out.println("The student placed the transistor in the room!");
        }
     }
 
@@ -95,4 +95,8 @@ public class Transistor extends Item{
     //return: boolean
     @Override
     public boolean onAttacked(Student attacked, Instructor attacker){ return false; }
+
+    public void setCurrentRoom(Room cRoom){
+        this.currentRoom = cRoom;
+    }
 }

@@ -41,7 +41,7 @@ public class Prototype {
 
             boolean exit = false;
             while(!exit){
-                //printTestOptions();
+                printTestOptions();
                 System.out.print("\nPick a Test: ");
 
                 Scanner scanner = new Scanner(System.in);

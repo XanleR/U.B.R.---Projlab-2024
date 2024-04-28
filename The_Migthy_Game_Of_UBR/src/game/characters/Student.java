@@ -260,7 +260,7 @@ public class Student extends Character {
             stunnedRounds--;
         }
         else{
-            remainingactions = rollDice();
+            remainingactions = in;
 
             while (remainingactions > 0 && stunnedRounds == 0){
                 action();

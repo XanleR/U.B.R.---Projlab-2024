@@ -119,6 +119,7 @@ public class Prototype {
                         break;
 
                     case 4:
+                        //Drop Item
                         System.out.println("Input: dropItem item1");
                         //Drop Item
                         student.addItem(dice);
@@ -215,10 +216,13 @@ public class Prototype {
                         break;
 
                     case 14:
+                        //Cleaner Enters a Room with a Student and Stunned Instructor
+                        System.out.println("Input: cleanerMove room1");
                         characterList.add(student);
                         characterList.add(instructor);
                         student.setCurrentRoom(regularRoom1);
                         instructor.setCurrentRoom(regularRoom1);
+                        instructor.stun(2);
                         regularRoom1.setCharacters(characterList);
 
                         cleaner.setCurrentRoom(regularRoom2);
@@ -228,8 +232,50 @@ public class Prototype {
                         regularRoomList.add(regularRoom2);
                         regularRoom1.setListOfNeighbours(regularRoomList);
 
+                        regularRoom1.setMaxCharacter(5);
+                        regularRoom1.setUniqueName("regularRoom1");
+                        regularRoom2.setUniqueName("regularRoom2");
+                        regularRoom2.setMaxCharacter(5);
+
                         cleaner.move(regularRoom2, regularRoom1);
 
+                        break;
+
+                    case 15:
+                        //Cleaner Move
+                        System.out.println("Input: cleanerMove gasRoom1");
+                        regularRoomList.add(gasRoom);
+                        regularRoom1.addNeighbours(regularRoomList);
+
+                        cleaner.setCurrentRoom(regularRoom1);
+                        cleaner.move(regularRoom1, gasRoom);
+                        break;
+
+                    case 16:
+                        //Student Enters a Room that Becomes Sticky
+                        System.out.println("Input: studentMove simpleMove room1");
+                        regularRoom2.setStepCount(9);
+                        //Student Move
+                        regularRoomList.add(regularRoom2);
+                        regularRoom1.addNeighbours(regularRoomList);
+
+                        student.setCurrentRoom(regularRoom1);
+                        student.move(regularRoom1, regularRoom2);
+
+                        System.out.println("Input studentMove transistorJump room1");
+                        regularRoom2.setStepCount(9);
+                        regularRoom1.addTransistor(transistor1);
+                        regularRoom2.addTransistor(transistor1);
+                        student.setCurrentRoom(regularRoom1);
+                        transistor1.setCurrentRoom(regularRoom1);
+                        transistor2.setCurrentRoom(regularRoom2);
+                        student.transistorJump();
+
+                        break;
+
+                    case 17:
+                        //SlideRulePickUp
+                        break;
                 }
 
             }

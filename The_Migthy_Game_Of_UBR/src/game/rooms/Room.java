@@ -30,6 +30,9 @@ public abstract class Room {
     private List<Room> listOfNeighbours = new ArrayList<>();
     private String uniqueName;
 
+    public void setUniqueName(String name){
+        uniqueName = name;
+    }
     public String getUniqueName() {
         return uniqueName;
     }

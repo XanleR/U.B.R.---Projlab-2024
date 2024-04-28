@@ -3,6 +3,9 @@ package game.rooms;
 import game.GameController;
 import game.characters.Character;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class RegularRoom extends Room {
 
     private int stepCount=0;
@@ -21,12 +24,21 @@ public class RegularRoom extends Room {
             this.copyToRoom(stickyRoom);
             GameController.getInstance().removeRoom(this);
             GameController.getInstance().addRoom(stickyRoom);
+            System.out.println("The room became sticky!");
         }
         else{
-            for(Character ch : this.getCharacters()){
+            List<Character> chList = new ArrayList<>(this.getCharacters());
+            for(Character ch : chList){
+
                 ch.meet(c1);
             }
         }
+    }
 
+    //input: int stepCount
+    //method: Beállítja a szoba stepCount változóját
+    //return: void
+    public void setStepCount(int stepCount) {
+        this.stepCount = stepCount;
     }
 }

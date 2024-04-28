@@ -252,6 +252,9 @@ public class Student extends Character {
     //return: void
     @Override
     public void startRound(int in) {
+        if(maskedRounds > 0){
+            maskedRounds--;
+        }
         if(stunnedRounds != 0){
             System.out.println("The Student is stunned, no actions for this round...");
             stunnedRounds--;

@@ -28,9 +28,10 @@ public class Cleaner extends Character{
             GameController.getInstance().removeRoom(currentRoom);
             GameController.getInstance().addRoom(regularRoom);
             to.addCharacter(this);
+            System.out.println("The room was cleaned");
         }
         else{
-            System.out.println("The Student could not move to the "+to.getUniqueName());
+            System.out.println("The Cleaner could not move to the "+to.getUniqueName());
         }
     }
 

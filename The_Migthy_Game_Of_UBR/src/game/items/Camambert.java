@@ -8,9 +8,11 @@ import game.rooms.GasRoom;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
 
+import java.io.Serializable;
+
 import static game.Skeleton.gameController;
 
-public class Camambert extends Item{
+public class Camambert extends Item implements Serializable {
 
     //input: Student user
     //method: Megvalositja a targyak felhasznalasat

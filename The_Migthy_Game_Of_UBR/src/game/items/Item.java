@@ -3,14 +3,23 @@ package game.items;
 import game.characters.Instructor;
 import game.characters.Student;
 
-public abstract class Item {
+import java.io.Serializable;
+
+public abstract class Item  implements Serializable {
 
     //Megadja a targy leirasat
     private String desc;
 
     private String uniqueName;
 
+    // Getter
+    public String getDesc() { return desc;}
 
+    // Setter
+    public void setDesc(String desc) {this.desc = desc;}
+
+    // Setter
+    public void setUniqueName(String uniqueName) {this.uniqueName = uniqueName;}
 
     public String getUniqueName() {
         return uniqueName;

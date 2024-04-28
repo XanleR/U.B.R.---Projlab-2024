@@ -6,9 +6,11 @@ import game.characters.Student;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
 
+import java.io.Serializable;
+
 import static game.Skeleton.gameController;
 
-public class AirFreshener extends Item{
+public class AirFreshener extends Item  implements Serializable {
     @Override
     public void use(Student user) {
         Room from = user.getRoom();

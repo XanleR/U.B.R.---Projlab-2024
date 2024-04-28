@@ -4,9 +4,10 @@ import game.GameController;
 import game.items.*;
 import game.rooms.Room;
 
+import java.io.Serializable;
 import java.util.Random;
 
-public class Cleaner extends Character{
+public class Cleaner extends Character implements Serializable {
 
     //input: int stunned
     //method: Az adott takarító elkábul a paraméterként kapott körre

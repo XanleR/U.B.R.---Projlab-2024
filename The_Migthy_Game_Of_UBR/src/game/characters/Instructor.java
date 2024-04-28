@@ -3,10 +3,11 @@ package game.characters;
 import game.items.Item;
 import game.rooms.Room;
 
+import java.io.Serializable;
 import java.util.Random;
 
 
-public class Instructor extends Character{
+public class Instructor extends Character implements Serializable {
     //input: Room from, Room to
     //method: A karaktert athelyezi az egyik bemenetkent adott szobabol a masikba
     //return: void

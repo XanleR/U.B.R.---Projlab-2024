@@ -5,6 +5,8 @@ import game.characters.Student;
 import game.items.Item;
 import game.items.Transistor;
 import game.items.WetRag;
+
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -12,7 +14,7 @@ import java.util.Random;
 /*
 *Class Done
 */
-public abstract class Room {
+public abstract class Room  implements Serializable {
 
     //A szobaban levo rongyok listaja
     private List<WetRag> wetRags;
@@ -56,6 +58,8 @@ public abstract class Room {
             System.out.println("The Student could not move to the "+this.getUniqueName()+"...");
         }
     }
+
+    public void putCharacter(Character c) { listOfCharacters.add(c); }
 
     public void setCharacters(List<Character> newCharacters){
         this.listOfCharacters = newCharacters;
@@ -151,6 +155,11 @@ public abstract class Room {
     //return: void
     public void addNeighbours(List<Room> l1) {
         this.listOfNeighbours.addAll(l1);
+    }
+
+    // add neighbour room
+    public void addNeighbour(Room room) {
+        this.listOfNeighbours.add(room);
     }
 
     //input: List<Item> l1

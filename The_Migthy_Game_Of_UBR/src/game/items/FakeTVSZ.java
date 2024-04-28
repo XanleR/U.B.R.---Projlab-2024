@@ -3,7 +3,9 @@ package game.items;
 import game.characters.Instructor;
 import game.characters.Student;
 
-public class FakeTVSZ extends TVSZ{
+import java.io.Serializable;
+
+public class FakeTVSZ extends TVSZ  implements Serializable {
 
     //input: Student student
     //method: Azt az esemenyt kezeli, amikor egy tanulo felveszi a targyat

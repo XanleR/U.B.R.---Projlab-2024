@@ -4,11 +4,13 @@ import game.items.Item;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
 
+import java.io.Serializable;
+
 //Git test
 
 // A karaktereket megvalosito abstarct ososztaly.
 // A Student es az Instructor ebbol szarmazik le.
-public abstract class Character {
+public abstract class Character implements Serializable {
 
     //Megadja, hogy hany action-je van hatra a peldanynak
     protected int remainingactions;
@@ -27,6 +29,7 @@ public abstract class Character {
     public void setCurrentRoom(Room newRoom){
         currentRoom = newRoom;
     }
+
 
     //Setter: A parameterkent kapott int-re beallitja a stunnedRounds
     public abstract void stun(int stun);

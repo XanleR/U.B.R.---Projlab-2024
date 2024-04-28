@@ -3,10 +3,17 @@ package game.items;
 import game.characters.Instructor;
 import game.characters.Student;
 
-public class FFP2 extends Item{
+import java.io.Serializable;
+
+public class FFP2 extends Item  implements Serializable {
 
     //Megadja, hogy hanyszor ved meg meg az FFP2
     private int durability;
+
+    // Setter
+    public void setDurability(int durability) {
+        this.durability = durability;
+    }
 
     //input: Student user
     //method: Megvalositja a targyak felhasznalasat

@@ -6,7 +6,6 @@ import game.characters.Student;
 import java.io.Serializable;
 
 
-
 public class FakeSlideRule extends SlideRule  implements Serializable {
 
     //input: Student student

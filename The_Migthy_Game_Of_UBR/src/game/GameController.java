@@ -65,6 +65,10 @@ public class GameController {
         studentCount = listOfCharacters.size();
     }
 
+    public List<Character> getListOfCharacters() {
+        return listOfCharacters;
+    }
+
     //input: -
     //method: Kezeli azt az esemenyt, amikor egy Student felveszi a SlideRule targyat
     //return: void

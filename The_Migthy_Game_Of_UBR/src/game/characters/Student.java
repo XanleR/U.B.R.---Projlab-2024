@@ -5,6 +5,7 @@ import game.items.*;
 import game.rooms.Room;
 
 import java.io.Serializable;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -268,6 +269,7 @@ public class Student extends Character implements Serializable {
 
             while (remainingactions > 0 && stunnedRounds == 0){
                 System.out.println("The student has " + remainingactions + " action");
+
                 action();
                 remainingactions--;
             }

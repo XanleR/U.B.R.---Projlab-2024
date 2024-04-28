@@ -54,6 +54,11 @@ public class Cleaner extends Character implements Serializable {
             return;
         }
 
+        if(currentRoom.getNeighbours().isEmpty()){
+            System.out.println("The cleaner cannot move anywhere...");
+            return;
+        }
+
         Random random = new Random();
         int index = random.nextInt(currentRoom.getNeighbours().size());
         move(currentRoom, currentRoom.getNeighbours().get(index));

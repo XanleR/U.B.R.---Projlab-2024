@@ -82,12 +82,15 @@ public class Student extends Character implements Serializable {
     //return: void
     private void printVariables(){
         System.out.println("The player is stunned for " + stunnedRounds + " rounds!");
+        System.out.println("The player is in the " + currentRoom.getUniqueName() + " room!");
 
         // A szomszédos szobák, ahova mozoghat
         System.out.println("\nNeighbouring Rooms:");
         for(Room room : currentRoom.getNeighbours()){
             System.out.println(room.getUniqueName());
         }
+
+        // TransistorJump lehetősége
         if(this.currentRoom.geTransistor() != null && this.currentRoom.geTransistor().getPairsRoom() != null){
             System.out.println(this.currentRoom.geTransistor().getPairsRoom().getUniqueName());
         }
@@ -98,12 +101,31 @@ public class Student extends Character implements Serializable {
             System.out.println(item.getUniqueName());
         }
 
+        // A szobában letett tranzisztor
+        if(currentRoom.geTransistor() != null){
+            System.out.println("Transistor placed in the room: " + currentRoom.geTransistor().getUniqueName());
+        }
+
         // Az itemek, amik a hallgatónál vannak
-        System.out.println("\nItems in your inventory");
+        System.out.println("\nItems in your inventory:");
         for(Item item : this.inventory){
             System.out.println(item.getUniqueName());
         }
 
+
+        System.out.println("\n");
+
+    }
+
+    private void printOptions(){
+        System.out.println("\nOptions:");
+        System.out.println("StudentMove simpleMove {roomName}");
+        System.out.println("StudentMove transistorJump {roomName}");
+        System.out.println("dropItem {itemName}");
+        System.out.println("useItem {itemName}");
+        System.out.println("pickUpItem {itemName}");
+        System.out.println("turnOnTransistor");
+        System.out.println("idle");
     }
 
     //input: -
@@ -120,12 +142,12 @@ public class Student extends Character implements Serializable {
 
         while(!succes){
             printVariables();
-
+            printOptions();
             System.out.println("\nWhat would you like to do?\n");
 
             String answer;
             Scanner scanner = new Scanner(System.in);
-            answer = scanner.next();
+            answer = scanner.nextLine();
 
             String[] command = answer.split(" ");
             if(command.length<=0){
@@ -189,6 +211,11 @@ public class Student extends Character implements Serializable {
                                 break;
                             }
                         }
+                    }
+                    break;
+                case "turnOnTransistor":
+                    if(currentRoom.geTransistor() != null){
+                        currentRoom.geTransistor().powerOn();
                     }
                     break;
                 case "idle":

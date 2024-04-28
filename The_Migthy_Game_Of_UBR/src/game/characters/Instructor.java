@@ -40,6 +40,10 @@ public class Instructor extends Character implements Serializable {
         }
 
         Random random = new Random();
+        if(currentRoom.getNeighbours().isEmpty()){
+            System.out.println("The Instructor cannot move anywhere...");
+            return;
+        }
         int index = random.nextInt(currentRoom.getNeighbours().size());
         move(currentRoom, currentRoom.getNeighbours().get(index));
     }
@@ -82,10 +86,11 @@ public class Instructor extends Character implements Serializable {
     @Override
     public void startRound(int in) {
         if(stunnedRounds != 0){
-            System.out.println("The cleaner is stunned, no actions for this round...");
+            System.out.println("The instructor is stunned, no actions for this round...");
             stunnedRounds--;
             return;
         }
+        System.out.println("Instructors turn!");
         Random random = new Random();
         remainingactions = random.nextInt(6)+1;
         while(remainingactions > 0 && stunnedRounds == 0){

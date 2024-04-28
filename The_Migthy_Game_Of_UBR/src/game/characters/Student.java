@@ -5,6 +5,7 @@ import game.items.*;
 import game.rooms.Room;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -26,13 +27,28 @@ public class Student extends Character implements Serializable {
     //A hallgatonal csak 1 db tvsz lehet, ez a valtozo eppen ezt tarolja el
     private TVSZ tvsz;
 
+    //input: -
+    //method: Konstruktora a Student classnak, mely inicializálja a listákat
+    //return: -
+    public Student(){
+        inventory = new ArrayList<>();
+        transistorList = new ArrayList<>();
+    }
+
+
+    //input: int iSize
+    //method: beállítja a karakter inventoryának méretét
+    //return: void
+    public void setInventorySize(int iSize){
+        inventorySize = iSize;
+    }
+
     //input: Room from, Room to
     //method: A karaktert athelyezi az egyik bemenetkent adott szobabol a masikba
     //return: void
     @Override
     public void move(Room from, Room to){
         if(stunnedRounds <= 0){
-            //TODO az addCharacter állítsa be a Studentnek a szobáját az új szobára
             to.addCharacter(this);
         }
         else{
@@ -156,7 +172,7 @@ public class Student extends Character implements Serializable {
                         for(Item item : this.inventory){
                             if(item.getUniqueName().equals(command[1])){
                                 succes = true;
-                                item.use(this);
+                                this.useItem(item);
                                 break;
                             }
                         }
@@ -195,10 +211,10 @@ public class Student extends Character implements Serializable {
 
     //Megadja, hogy tele van-e az ineventory
     public boolean canPickUp(){
-        if(this.inventorySize == this.inventory.size()){
+        if(this.inventorySize <= this.inventory.size()){
             return false;
         }
-        return false;
+        return true;
     }
 
     //input: Character character
@@ -239,12 +255,15 @@ public class Student extends Character implements Serializable {
     //return: void
     @Override
     public void startRound(int in) {
+        if(maskedRounds > 0){
+            maskedRounds--;
+        }
         if(stunnedRounds != 0){
             System.out.println("The Student is stunned, no actions for this round...");
             stunnedRounds--;
         }
         else{
-            remainingactions = rollDice();
+            remainingactions = in;
 
             while (remainingactions > 0 && stunnedRounds == 0){
                 action();
@@ -259,11 +278,16 @@ public class Student extends Character implements Serializable {
     //return: void
     @Override
     public void forceMove() {
-        for(Room room: currentRoom.getNeighbours()) {
-            if (room.isAccessible(currentRoom)) {
-                room.addCharacter(this);
+        if(stunnedRounds == 0){
+            for(Room room: currentRoom.getNeighbours()) {
+                if (room.isAccessible(currentRoom)) {
+                    room.addCharacter(this);
+                    System.out.println("The character was forced to move to another room...");
+                    break;
+                }
             }
         }
+
     }
 
     //input: Item dropped
@@ -356,9 +380,11 @@ public class Student extends Character implements Serializable {
     //return: void
     public void setTVSZ(TVSZ _tvsz){
         if(tvsz == null){
+            System.out.println("The student's TVSZ was set!");
             this.tvsz = _tvsz;
             return;
         }
+        System.out.println("The student's TVSZ was updated!");
         tvsz.addProtection(_tvsz.getRemainingProtection());
     }
 
@@ -367,6 +393,13 @@ public class Student extends Character implements Serializable {
     //return: TVSZ
     public TVSZ getTVSZ(){
         return tvsz;
+    }
+
+    //input: -
+    //method: eltávolítja a hallgató tvsz-ét
+    //return: -
+    public void removeTVSZ(){
+        tvsz = null;
     }
 
     //input: Item removed
@@ -382,14 +415,22 @@ public class Student extends Character implements Serializable {
     public void die(Instructor instructor){
         boolean studentSaved = false;
 
-        for(Item item : inventory){
-            if(item.onAttacked(this, instructor)){
-                studentSaved = true;
-                break;
+        if(this.tvsz != null && this.tvsz.onAttacked(this, instructor)){
+            studentSaved = true;
+        }
+        else{
+            for(Item item : inventory){
+                if(item.onAttacked(this, instructor)){
+                    studentSaved = true;
+                    break;
+                }
             }
         }
+
+
         if(!studentSaved){
             GameController.getInstance().removeCharacter(this);
+            System.out.println("The student died...");
         }
     }
 
@@ -397,10 +438,15 @@ public class Student extends Character implements Serializable {
     //method: A hallgatót elkábítja a paraméterként kapott kör idejére
     //return: void
     public void stun(int stunnedFor){
+        if(maskedRounds > 0){
+            System.out.println("The student was protected by the FFP2 mask!");
+            return;
+        }
         stunnedRounds += stunnedFor;
         for(Item item : inventory){
             dropItem(item);
         }
+        System.out.println("The student is stunned!");
     }
 
     //input: -

@@ -2,6 +2,7 @@ package game.characters;
 
 import game.GameController;
 import game.items.*;
+import game.rooms.RegularRoom;
 import game.rooms.Room;
 
 import java.io.Serializable;
@@ -23,10 +24,15 @@ public class Cleaner extends Character implements Serializable {
     @Override
     public void move(Room from, Room to) {
         if(stunnedRounds <= 0){
+            RegularRoom regularRoom = new RegularRoom();
+            currentRoom.copyToRoom(regularRoom);
+            GameController.getInstance().removeRoom(currentRoom);
+            GameController.getInstance().addRoom(regularRoom);
             to.addCharacter(this);
+            System.out.println("The room was cleaned");
         }
         else{
-            System.out.println("The Student could not move to the "+to.getUniqueName());
+            System.out.println("The Cleaner could not move to the "+to.getUniqueName());
         }
     }
 
@@ -109,9 +115,13 @@ public class Cleaner extends Character implements Serializable {
     //return: void
     @Override
     public void forceMove() {
-        for(Room room: currentRoom.getNeighbours()){
-            if(room.isAccessible(currentRoom)){
-                room.addCharacter(this);
+        if(stunnedRounds == 0){
+            for(Room room: currentRoom.getNeighbours()) {
+                if (room.isAccessible(currentRoom)) {
+                    room.addCharacter(this);
+                    System.out.println("The character was forced to move to another room...");
+                    break;
+                }
             }
         }
     }

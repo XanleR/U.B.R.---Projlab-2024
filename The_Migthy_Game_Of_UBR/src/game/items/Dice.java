@@ -17,6 +17,7 @@ public class Dice extends Item implements Serializable {
     public void throwDice(){
         Random rd = new Random();
         this.currentValue = rd.nextInt(1, 6);
+        System.out.println("You rolled "+currentValue+" with the Dice");
     }
 
     //input: Student user

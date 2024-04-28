@@ -2,11 +2,13 @@ package game.items;
 
 import game.characters.Student;
 
+
 import java.io.Serializable;
 
 import static game.Skeleton.gameController;
 
 public class FakeSlideRule extends SlideRule  implements Serializable {
+
     //input: Student student
     //method: Azt az esemenyt kezeli, amikor egy tanulo felveszi a targyat
     //return: void

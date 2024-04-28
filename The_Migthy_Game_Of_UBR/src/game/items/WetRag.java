@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class WetRag extends Item  implements Serializable {
 
     //Megadja, hogy hany korig lehet meg felhasznalni a WetRag-et
-    private int wetness;
+    private int wetness = 3;
 
     //input: -
     //method: Visszaadja a Wetness erteket
@@ -29,6 +29,7 @@ public class WetRag extends Item  implements Serializable {
     public void use(Student user){
         user.getRoom().addWetRag(this);
         user.removeItem(this);
+        System.out.println("The student placed a wet rag in the room!");
     }
 
     //input: -
@@ -58,6 +59,7 @@ public class WetRag extends Item  implements Serializable {
     public boolean onAttacked(Student attacked, Instructor attacker){
         if(this.wetness > 0){
             this.use(attacked);
+            System.out.println("The student was protected by the Wet Rag!");
             return true;
         }
         return false;

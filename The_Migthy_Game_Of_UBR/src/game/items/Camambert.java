@@ -1,16 +1,14 @@
 package game.items;
 
-import game.GameController;
-import game.Skeleton;
 import game.characters.Instructor;
 import game.characters.Student;
 import game.rooms.GasRoom;
-import game.rooms.RegularRoom;
 import game.rooms.Room;
 
 import java.io.Serializable;
 
 import static game.Skeleton.gameController;
+import static game.Prototype.gameController;
 
 public class Camambert extends Item implements Serializable {
 
@@ -23,6 +21,7 @@ public class Camambert extends Item implements Serializable {
         user.getRoom().copyToRoom(newGasRoom);
         gameController.removeRoom(user.getRoom());
         gameController.addRoom(newGasRoom);
+        System.out.println("The room became a gas room!");
     }
 
     //input: -

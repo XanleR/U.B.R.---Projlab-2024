@@ -100,9 +100,13 @@ public class Instructor extends Character implements Serializable {
     //return: void
     @Override
     public void forceMove() {
-        for(Room room : currentRoom.getNeighbours()){
-            if(room.isAccessible(currentRoom)){
-                room.addCharacter(this);
+        if(stunnedRounds == 0){
+            for(Room room: currentRoom.getNeighbours()) {
+                if (room.isAccessible(currentRoom)) {
+                    room.addCharacter(this);
+                    System.out.println("The character was forced to move to another room...");
+                    break;
+                }
             }
         }
     }

@@ -11,11 +11,14 @@ public class GlassOfBeer extends Item  implements Serializable {
     private boolean activated = false;
     private int activeRounds;
 
+    private boolean activatedOnce = false;
+
     //input: -
     //method: Aktivalja a GlassOfBeer-t
     //return: boolean
     public void activate(){
-        if(this.activeRounds != 0){
+        if(!activatedOnce){
+            activatedOnce = true;
             activated = true;
             activeRounds = 3;
         }
@@ -68,9 +71,11 @@ public class GlassOfBeer extends Item  implements Serializable {
     public boolean onAttacked(Student attacked, Instructor attacker){
         if(this.activeRounds > 0){
             if(this.activated){
+                System.out.println("The student was protected by the Glass Of Beer!");
                 return true;
             }else{
                 this.activate();
+                System.out.println("The student was protected by the Glass Of Beer!");
                 return true;
             }
         }else{

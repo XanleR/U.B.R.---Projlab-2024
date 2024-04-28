@@ -66,6 +66,7 @@ public class Prototype {
                 TVSZ tvsz1 = new TVSZ();
                 TVSZ tvsz2 = new TVSZ();
                 GlassOfBeer glassOfBeer = new GlassOfBeer();
+                SlideRule slideRule = new SlideRule();
 
                 // Teszt karakterek létrehozása
                 Student student = new Student();
@@ -275,7 +276,12 @@ public class Prototype {
 
                     case 17:
                         //SlideRulePickUp
-                        //TODO
+                        System.out.println("Input: pickUpItem slideRule1");
+                        regularRoom1.setMaxCharacter(5);
+                        regularRoom1.addItem(slideRule);
+                        student.setCurrentRoom(regularRoom1);
+                        student.setInventorySize(5);
+                        student.pickUpItem(slideRule);
                         break;
 
                     case 18:

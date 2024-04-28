@@ -81,6 +81,7 @@ public class Student extends Character implements Serializable {
     //return: void
     private void printVariables(){
         System.out.println("The player is stunned for " + stunnedRounds + " rounds!");
+
         // A szomszédos szobák, ahova mozoghat
         System.out.println("\nNeighbouring Rooms:");
         for(Room room : currentRoom.getNeighbours()){
@@ -266,6 +267,7 @@ public class Student extends Character implements Serializable {
             remainingactions = in;
 
             while (remainingactions > 0 && stunnedRounds == 0){
+                System.out.println("The student has " + remainingactions + " action");
                 action();
                 remainingactions--;
             }

@@ -69,11 +69,9 @@ public class GameController {
     //method: Kezeli azt az esemenyt, amikor egy Student felveszi a SlideRule targyat
     //return: void
     public void slideRulePickedUp(){
-        System.out.println("\t\t\t--> (gameController: GameController).slideRulePickedUp()");
-
+        System.out.println("The student won!");
         this.endGame();
 
-        System.out.println("\t\t\t<--");
     }
 
     //input: Room slipt
@@ -152,11 +150,7 @@ public class GameController {
     //method: Kezeli azt az esemnyt, amikor a jateknak vege van
     //return: void
     public void endGame(){
-        System.out.println("\t\t\t\t--> (gameController: GameController).endGame()");
-
         active = false;
-
-        System.out.println("\t\t\t\t<--");
     }
 
     //input: Character removeable

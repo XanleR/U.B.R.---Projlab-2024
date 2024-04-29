@@ -149,9 +149,12 @@ public class GameController {
     //method: Elindit egy uj kort
     //return: void
     public void newRound(){
-        for (Character i : listOfCharacters) {
-            i.startRound(rollDice());
+        if(!listOfCharacters.isEmpty()){
+            for (Character i : listOfCharacters) {
+                i.startRound(rollDice());
+            }
         }
+
     }
 
     //input: -
@@ -190,6 +193,7 @@ public class GameController {
     public void play(){
         int roundCounter = 0;
         while (active || roundCounter <= 30) {
+            System.out.println("ROUND "+(roundCounter+1));
             newRound();
             roundCounter++;
         }

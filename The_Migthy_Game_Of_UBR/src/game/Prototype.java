@@ -448,12 +448,12 @@ public class Prototype {
 
 
                 GameInitializer.initMaps("NEWMAP");
-                System.out.println("Fileok Betöltve");
+                //System.out.println("Fileok Betöltve");
 
                 GameInitializer.initCharacters(playerNumber);
-                System.out.println("karakterek létrehozva");
+                //System.out.println("karakterek létrehozva");
 
-                testPrint();
+                //testPrint();
 
                 gameController.play();
 

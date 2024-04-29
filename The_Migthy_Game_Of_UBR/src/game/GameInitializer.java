@@ -23,15 +23,15 @@ public class GameInitializer {
 
         // beolvasás
         FileInputStream mapStream = new FileInputStream(from + "_rooms.dat");
-        System.out.println("1 beolvasás ok");
+        //System.out.println("1 beolvasás ok");
         ObjectInputStream map = new ObjectInputStream(mapStream);
-        System.out.println("2 beolvasás ok");
+        //System.out.println("2 beolvasás ok");
         List<Room> rooms = ( ArrayList<Room> ) map.readObject();
-        System.out.println("3 beolvasás ok");
+        //System.out.println("3 beolvasás ok");
         map.close();
-        System.out.println("4 beolvasás ok");
+        //System.out.println("4 beolvasás ok");
 
-        System.out.println("beolvasás ok");
+        //System.out.println("beolvasás ok");
 
         // feltöltés
         for (Room i : rooms) {

@@ -440,6 +440,7 @@ public class Prototype {
 
                 gameController.play();
 
+
             }
             catch (NumberFormatException nfe){
                 System.out.println("Invalid parameters...");
@@ -567,10 +568,12 @@ public class Prototype {
 
         // Room2
         Room r2 = new RegularRoom();
+        r2.setMaxCharacter(3);
         r2.setUniqueName("Room2");
 
         // Room3
         Room r3 = new RegularRoom();
+        r3.setMaxCharacter(3);
         r3.setUniqueName("Room3");
         Item r3i1 = new FakeFFP2();
         r3i1.setUniqueName("FakeTVSZ1");
@@ -578,6 +581,7 @@ public class Prototype {
 
         // Room4
         Room r4 = new RegularRoom();
+        r4.setMaxCharacter(3);
         r4.setUniqueName("Room4");
         Item r4i1 = new FFP2();
         Item r4i2 = new Dice();
@@ -588,6 +592,7 @@ public class Prototype {
 
         // Room5
         Room r5 = new RegularRoom();
+        r5.setMaxCharacter(3);
         r5.setUniqueName("Room5");
         Item r5i1 = new FakeSlideRule();
         r5i1.setUniqueName("FakeSideRuler1");
@@ -595,6 +600,7 @@ public class Prototype {
 
         // Room6
         Room r6 = new RegularRoom();
+        r6.setMaxCharacter(3);
         r6.setUniqueName("Room6");
         Item r6i1 = new TVSZ();
         Item r6i2 = new FakeTVSZ();
@@ -605,6 +611,7 @@ public class Prototype {
 
         // Room7
         Room r7 = new RegularRoom();
+        r7.setMaxCharacter(3);
         r7.setUniqueName("Room7");
         Item r7i1 = new WetRag();
         Item r7i2 = new Camambert();
@@ -615,6 +622,7 @@ public class Prototype {
 
         // Room8
         Room r8 = new RegularRoom();
+        r8.setMaxCharacter(3);
         r8.setUniqueName("Room8");
         Item r8i1 = new SlideRule();
         r8i1.setUniqueName("SideRuler");
@@ -622,11 +630,13 @@ public class Prototype {
         
         // Room9
         Room r9 = new RegularRoom();
+        r9.setMaxCharacter(3);
         r9.setUniqueName("Room9");
 
 
         // Room10
         Room r10 = new RegularRoom();
+        r10.setMaxCharacter(3);
         r10.setUniqueName("Room10");
         Item r10i1 = new GlassOfBeer();
         r10i1.setUniqueName("GlassOfBeer1");
@@ -634,6 +644,7 @@ public class Prototype {
 
         // Room11
         Room r11 = new RegularRoom();
+        r11.setMaxCharacter(3);
         r11.setUniqueName("Room11");
         Item r11i1 = new AirFreshener();
         r11i1.setUniqueName("AirFreshener1");
@@ -641,6 +652,7 @@ public class Prototype {
 
         // Room12
         Room r12 = new RegularRoom();
+        r12.setMaxCharacter(3);
         r12.setUniqueName("Room12");
         Item r12i1 = new Transistor();
         r12i1.setUniqueName("Transistor1");
@@ -648,6 +660,7 @@ public class Prototype {
 
         // Room13
         Room r13 = new RegularRoom();
+        r13.setMaxCharacter(3);
         r13.setUniqueName("Room13");
         Item r13i1 = new Camambert();
         r13i1.setUniqueName("Camambert2");
@@ -655,6 +668,7 @@ public class Prototype {
 
         // Room14
         Room r14 = new RegularRoom();
+        r14.setMaxCharacter(3);
         r14.setUniqueName("Room14");
         Item r14i1 = new Dice();
         r14i1.setUniqueName("Dice2");
@@ -662,10 +676,12 @@ public class Prototype {
 
         // Room15
         Room r15 = new RegularRoom();
+        r15.setMaxCharacter(3);
         r15.setUniqueName("Room15");
         Item r15i1 = new Transistor();
         r15i1.setUniqueName("Transistor2");
         r15.addItem(r15i1);
+
 
         ////////// mapping
         r1.addNeighbour(r3);

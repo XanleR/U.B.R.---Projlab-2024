@@ -152,9 +152,18 @@ public class GameController {
         if(!listOfCharacters.isEmpty()){
             for (Character i : listOfCharacters) {
                 i.startRound(rollDice());
+
+                //endgamecheck
+                if (!active) {
+                    return;
+                }
             }
         }
 
+    }
+
+    public boolean isActive() {
+        return active;
     }
 
     //input: -
@@ -195,6 +204,7 @@ public class GameController {
         while (active || roundCounter <= 30) {
             System.out.println("ROUND "+(roundCounter+1));
             newRound();
+
             roundCounter++;
         }
     }

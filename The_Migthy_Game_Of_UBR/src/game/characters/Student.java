@@ -305,6 +305,11 @@ public class Student extends Character implements Serializable {
 
                 action();
                 remainingactions--;
+
+                //endgamecheck
+                if (!GameController.getInstance().isActive()) {
+                    return;
+                }
             }
         }
         remainingactions = 0;

@@ -20,6 +20,8 @@ public class GameController {
 
     private static GameController instance;
 
+
+
     public static GameController getInstance(){
         if(instance == null){
             instance = new GameController();
@@ -32,6 +34,8 @@ public class GameController {
 
     //Megadja, hogy hany felhasznalo jatszhat a programmal
     private int studentCount;
+
+
 
     //Eltarolja a jatekban resztvevo Charactereket
     private List<Character> listOfCharacters;
@@ -160,13 +164,17 @@ public class GameController {
     //input: Character removeable
     //method: A kapott Character-t kitorli a jatekban levo Characterek kozul
     //return: void
-    public void removeCharacter(Character removeable){
+    public void removeCharacter(Student removeable){
         for (Room i : rooms) {
             i.getCharacters().remove(removeable);
 
         }
 
         listOfCharacters.remove(removeable);
+        studentCount--;
+        if(studentCount == 0){
+            active = false;
+        }
     }
 
     //input: Character
@@ -180,8 +188,10 @@ public class GameController {
     //method: Elinditja a jatekmenetet
     //return: void
     public void play(){
-        while (active) {
+        int roundCounter = 0;
+        while (active || roundCounter <= 30) {
             newRound();
+            roundCounter++;
         }
     }
 

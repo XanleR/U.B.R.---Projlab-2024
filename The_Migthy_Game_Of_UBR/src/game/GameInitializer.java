@@ -38,6 +38,8 @@ public class GameInitializer {
             GameController.getInstance().addRoom(i);
         }
 
+        System.out.println("The load of the map was successful!");
+
     }
 
     //input: int count
@@ -45,9 +47,11 @@ public class GameInitializer {
     //return: void
     public static void initCharacters(int count) throws IOException, ClassNotFoundException{
 
+        GameController.getInstance().setStudentCount(count);
         // tanulók
         for (int i = 0; i < count ; i++) {
             Student tmp = new Student(); tmp.setInventorySize(5);
+            tmp.setUniqueName("Student" + i);
             GameController.getInstance().addCharacter(tmp);
             int tmpRoom;
             tmpRoom = 0;
@@ -58,6 +62,7 @@ public class GameInitializer {
         //tanárok
         for (int i = 0; i < 3; i++) {
             Instructor tmp = new Instructor();
+            tmp.setUniqueName("Instructor" + i);
             GameController.getInstance().addCharacter(tmp);
             Random r = new Random();
             int tmpRoom;
@@ -69,6 +74,7 @@ public class GameInitializer {
         //takarítók
         for (int i = 0; i < 1; i++) {
             Character tmp = new Cleaner();
+            tmp.setUniqueName("Cleaner" + i);
             GameController.getInstance().addCharacter(tmp);
             Random r = new Random();
             int tmpRoom;

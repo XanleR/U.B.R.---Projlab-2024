@@ -112,8 +112,10 @@ public class Student extends Character implements Serializable {
             System.out.println(item.getUniqueName());
         }
 
-
-        System.out.println("\n");
+        // A hallgatónál lévő tvsz
+        if(tvsz != null){
+            System.out.println(tvsz.getUniqueName());
+        }
 
     }
 
@@ -134,7 +136,7 @@ public class Student extends Character implements Serializable {
     @Override
     public void action() {
 
-        System.out.println("Student action");
+        System.out.println(uniqueName + " action");
 
         // Azért, hogy addig kérdezze a játékost, ameddig nem ad egy valid akciót
         // Egy while loop feltétele
@@ -235,7 +237,7 @@ public class Student extends Character implements Serializable {
     //method: A hallgató tétlen akciója
     //return: void
     public void idle(){
-        System.out.println("The student did nothing in the action!");
+        System.out.println("The "+uniqueName+" did nothing in the action!");
     }
 
     //Megadja, hogy tele van-e az ineventory
@@ -284,18 +286,22 @@ public class Student extends Character implements Serializable {
     //return: void
     @Override
     public void startRound(int in) {
+        System.out.println("--------------------------------------");
+        System.out.println("New round for " + uniqueName);
+
         if(maskedRounds > 0){
             maskedRounds--;
         }
         if(stunnedRounds != 0){
-            System.out.println("The Student is stunned, no actions for this round...");
+            System.out.println("The "+uniqueName+" is stunned, no actions for this round...");
             stunnedRounds--;
         }
         else{
             remainingactions = in;
 
             while (remainingactions > 0 && stunnedRounds == 0){
-                System.out.println("The student has " + remainingactions + " action");
+                System.out.println("---------");
+                System.out.println("The "+uniqueName+" has " + remainingactions + " action");
 
                 action();
                 remainingactions--;
@@ -327,7 +333,7 @@ public class Student extends Character implements Serializable {
     public void dropItem(Item dropped){
         if(this.currentRoom.addItem(dropped)){
             removeItem(dropped);
-            System.out.println("The Item drop was successful!");
+            System.out.println("The "+dropped.getUniqueName()+" drop was successful!");
         }
 
     }
@@ -337,7 +343,7 @@ public class Student extends Character implements Serializable {
     //return: void
     public void useItem(Item used){
         used.use(this);
-        System.out.println("The item was used!");
+        System.out.println("The "+used.getUniqueName()+" was used!");
     }
 
     //input: -
@@ -411,11 +417,11 @@ public class Student extends Character implements Serializable {
     //return: void
     public void setTVSZ(TVSZ _tvsz){
         if(tvsz == null){
-            System.out.println("The student's TVSZ was set!");
+            System.out.println("The "+uniqueName+"'s TVSZ was set!");
             this.tvsz = _tvsz;
             return;
         }
-        System.out.println("The student's TVSZ was updated!");
+        System.out.println("The "+uniqueName+"'s TVSZ was updated!");
         tvsz.addProtection(_tvsz.getRemainingProtection());
     }
 
@@ -461,7 +467,7 @@ public class Student extends Character implements Serializable {
 
         if(!studentSaved){
             GameController.getInstance().removeCharacter(this);
-            System.out.println("The student died...");
+            System.out.println("The "+uniqueName+" died...");
         }
     }
 
@@ -470,14 +476,14 @@ public class Student extends Character implements Serializable {
     //return: void
     public void stun(int stunnedFor){
         if(maskedRounds > 0){
-            System.out.println("The student was protected by the FFP2 mask!");
+            System.out.println("The "+uniqueName+" was protected by the FFP2 mask!");
             return;
         }
         stunnedRounds += stunnedFor;
         for(Item item : inventory){
             dropItem(item);
         }
-        System.out.println("The student is stunned!");
+        System.out.println("The "+uniqueName+" is stunned!");
     }
 
     //input: -

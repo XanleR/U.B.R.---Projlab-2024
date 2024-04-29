@@ -21,6 +21,16 @@ public abstract class Character implements Serializable {
     //Megadja, hogy hany korbol marad ki a peldany
     protected int stunnedRounds;
 
+    protected String uniqueName;
+
+    public void setUniqueName(String name){
+        uniqueName = name;
+    }
+
+    public String getUniqueName(){
+        return uniqueName;
+    }
+
     //Getter: Visszaadja a szobat, amelyben a karakter all
     public Room getRoom(){
         return this.currentRoom;

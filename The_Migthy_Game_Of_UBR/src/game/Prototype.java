@@ -40,7 +40,6 @@ public class Prototype {
             return;
         }
         if(args[0].equals("-test")){
-            //TODO Tesztek
 
             boolean exit = false;
             while(!exit){
@@ -51,30 +50,30 @@ public class Prototype {
                 int answer = Integer.parseInt(scanner.next());
 
                 // Teszt szobák létrehozása
-                RegularRoom regularRoom1 = new RegularRoom();
-                RegularRoom regularRoom2 = new RegularRoom();
-                RegularRoom regularRoom3 = new RegularRoom();
-                GasRoom gasRoom = new GasRoom();
+                RegularRoom regularRoom1 = new RegularRoom(); regularRoom1.setUniqueName("RegularRoom1");
+                RegularRoom regularRoom2 = new RegularRoom(); regularRoom2.setUniqueName("RegularRoom2");
+                RegularRoom regularRoom3 = new RegularRoom(); regularRoom3.setUniqueName("RegularRoom3");
+                GasRoom gasRoom = new GasRoom(); gasRoom.setUniqueName("GasRoom");
 
                 // Teszt tárgyak létrehozása
-                Dice dice = new Dice();
-                Transistor transistor1 = new Transistor();
-                Transistor transistor2 = new Transistor();
+                Dice dice = new Dice(); dice.setUniqueName("Dice");
+                Transistor transistor1 = new Transistor(); transistor1.setUniqueName("Transistor1");
+                Transistor transistor2 = new Transistor(); transistor2.setUniqueName("Transistor2");
                 transistor1.pairing(transistor2);
                 transistor2.pairing(transistor1);
 
-                WetRag wetRag = new WetRag();
-                Camambert camambert = new Camambert();
-                FFP2 ffp2 = new FFP2();
-                TVSZ tvsz1 = new TVSZ();
-                TVSZ tvsz2 = new TVSZ();
-                GlassOfBeer glassOfBeer = new GlassOfBeer();
-                SlideRule slideRule = new SlideRule();
+                WetRag wetRag = new WetRag(); wetRag.setUniqueName("WetRag");
+                Camambert camambert = new Camambert(); camambert.setUniqueName("Camambert");
+                FFP2 ffp2 = new FFP2(); ffp2.setUniqueName("FFP2");
+                TVSZ tvsz1 = new TVSZ(); tvsz1.setUniqueName("TVSZ1");
+                TVSZ tvsz2 = new TVSZ(); tvsz2.setUniqueName("TVSZ2");
+                GlassOfBeer glassOfBeer = new GlassOfBeer(); glassOfBeer.setUniqueName("GlassOfBeer");
+                SlideRule slideRule = new SlideRule(); slideRule.setUniqueName("SlideRule");
 
                 // Teszt karakterek létrehozása
-                Student student = new Student();
-                Instructor instructor = new Instructor();
-                Cleaner cleaner = new Cleaner();
+                Student student = new Student(); student.setUniqueName("Student");
+                Instructor instructor = new Instructor(); instructor.setUniqueName("Instructor");
+                Cleaner cleaner = new Cleaner(); cleaner.setUniqueName("Cleaner");
 
                 List<Room> regularRoomList = new ArrayList<>();
                 List<Character> characterList = new ArrayList<>();
@@ -84,7 +83,7 @@ public class Prototype {
                         exit = true;
                         break;
                     case 1:
-                        System.out.println("Input: studentMove simpleMove room1");
+                        System.out.println("Input: studentMove simpleMove RegularRoom2");
                         //Student Move
                         regularRoomList.add(regularRoom2);
                         regularRoom1.addNeighbours(regularRoomList);
@@ -92,7 +91,7 @@ public class Prototype {
                         student.setCurrentRoom(regularRoom1);
                         student.move(regularRoom1, regularRoom2);
 
-                        System.out.println("Input studentMove transistorJump room1");
+                        System.out.println("Input studentMove transistorJump RegularRoom2");
                         regularRoom1.addTransistor(transistor1);
                         regularRoom2.addTransistor(transistor1);
                         student.setCurrentRoom(regularRoom1);
@@ -104,7 +103,7 @@ public class Prototype {
 
                     case 2:
                         //Instructor Move
-                        System.out.println("Input: teacherMove room1");
+                        System.out.println("Input: teacherMove RegularRoom2");
                         regularRoomList.add(regularRoom2);
                         regularRoom1.addNeighbours(regularRoomList);
 
@@ -114,7 +113,7 @@ public class Prototype {
 
                     case 3:
                         //Cleaner Move
-                        System.out.println("Input: cleanerMove room1");
+                        System.out.println("Input: cleanerMove RegularRoom2");
                         regularRoomList.add(regularRoom2);
                         regularRoom1.addNeighbours(regularRoomList);
 
@@ -124,7 +123,7 @@ public class Prototype {
 
                     case 4:
                         //Drop Item
-                        System.out.println("Input: dropItem item1");
+                        System.out.println("Input: dropItem Dice");
                         //Drop Item
                         student.addItem(dice);
                         student.setCurrentRoom(regularRoom1);
@@ -134,7 +133,7 @@ public class Prototype {
 
                     case 5:
                         //Pick Up Item
-                        System.out.println("Input: pickUpItem item1");
+                        System.out.println("Input: pickUpItem Dice");
                         regularRoom1.setMaxCharacter(5);
                         regularRoom1.addItem(dice);
                         student.setCurrentRoom(regularRoom1);
@@ -144,7 +143,7 @@ public class Prototype {
 
                     case 6:
                         //Use Dice
-                        System.out.println("Input: useItem dice1");
+                        System.out.println("Input: useItem Dice");
                         student.setInventorySize(5);
                         student.addItem(dice);
                         student.useItem(dice);
@@ -152,7 +151,7 @@ public class Prototype {
 
                     case 7:
                         //Use Transistor
-                        System.out.println("Input: useItem transistor1");
+                        System.out.println("Input: useItem Transistor1");
                         student.setCurrentRoom(regularRoom1);
                         student.addItem(transistor1);
                         student.useItem(transistor1);
@@ -160,7 +159,7 @@ public class Prototype {
 
                     case 8:
                         //Use WetRag
-                        System.out.println("Input: useItem wetRag1");
+                        System.out.println("Input: useItem WetRag");
                         student.setCurrentRoom(regularRoom1);
                         student.addItem(wetRag);
                         student.useItem(wetRag);
@@ -168,7 +167,7 @@ public class Prototype {
 
                     case 9:
                         //Use Camambert
-                        System.out.println("Input: useItem camambert1");
+                        System.out.println("Input: useItem Camambert");
                         student.setCurrentRoom(regularRoom1);
                         student.addItem(camambert);
                         student.useItem(camambert);
@@ -176,12 +175,12 @@ public class Prototype {
 
                     case 10:
                         //Student Enters Gas Room
-                        System.out.println("Input: studentMove simpleMove gasRoom room1");
+                        System.out.println("Input: studentMove simpleMove GasRoom");
                         student.setCurrentRoom(regularRoom1);
                         regularRoomList.add(gasRoom);
                         student.move(regularRoom1, gasRoom);
 
-                        System.out.println("Input studentMove transistorJump room1");
+                        System.out.println("Input studentMove transistorJump GasRoom");
                         regularRoom1.addTransistor(transistor1);
                         gasRoom.addTransistor(transistor1);
                         student.setCurrentRoom(regularRoom1);
@@ -192,13 +191,13 @@ public class Prototype {
 
                     case 11:
                         //Student Enters Gas Room with FFP2
-                        System.out.println("Input: studentMove simpleMove gasRoom room1");
+                        System.out.println("Input: studentMove simpleMove GasRoom");
                         student.setCurrentRoom(regularRoom1);
                         student.addMaskedRounds(2);
                         regularRoomList.add(gasRoom);
                         student.move(regularRoom1, gasRoom);
 
-                        System.out.println("Input studentMove transistorJump room1");
+                        System.out.println("Input studentMove transistorJump GasRoom");
                         regularRoom1.addTransistor(transistor1);
                         gasRoom.addTransistor(transistor1);
                         student.setCurrentRoom(regularRoom1);
@@ -221,7 +220,7 @@ public class Prototype {
 
                     case 14:
                         //Cleaner Enters a Room with a Student and Stunned Instructor
-                        System.out.println("Input: cleanerMove room1");
+                        System.out.println("Input: cleanerMove RegularRoom1");
                         characterList.add(student);
                         characterList.add(instructor);
                         student.setCurrentRoom(regularRoom1);
@@ -246,8 +245,8 @@ public class Prototype {
                         break;
 
                     case 15:
-                        //Cleaner Move
-                        System.out.println("Input: cleanerMove gasRoom1");
+                        //Cleaner Enters Gas Room
+                        System.out.println("Input: cleanerMove GasRoom");
                         regularRoomList.add(gasRoom);
                         regularRoom1.addNeighbours(regularRoomList);
 
@@ -257,7 +256,7 @@ public class Prototype {
 
                     case 16:
                         //Student Enters a Room that Becomes Sticky
-                        System.out.println("Input: studentMove simpleMove room1");
+                        System.out.println("Input: studentMove simpleMove RegularRoom1");
                         regularRoom2.setStepCount(9);
                         //Student Move
                         regularRoomList.add(regularRoom2);
@@ -266,7 +265,7 @@ public class Prototype {
                         student.setCurrentRoom(regularRoom1);
                         student.move(regularRoom1, regularRoom2);
 
-                        System.out.println("Input studentMove transistorJump room1");
+                        System.out.println("Input studentMove transistorJump RegularRoom1");
                         regularRoom2.setStepCount(9);
                         regularRoom1.addTransistor(transistor1);
                         regularRoom2.addTransistor(transistor1);
@@ -279,7 +278,7 @@ public class Prototype {
 
                     case 17:
                         //SlideRulePickUp
-                        System.out.println("Input: pickUpItem slideRule1");
+                        System.out.println("Input: pickUpItem SlideRule");
                         regularRoom1.setMaxCharacter(5);
                         regularRoom1.addItem(slideRule);
                         student.setCurrentRoom(regularRoom1);
@@ -289,7 +288,7 @@ public class Prototype {
 
                     case 18:
                         //Student Enters a Room that has a Teacher in it, and does not have Items
-                        System.out.println("Input: studentMove simpleMove room1");
+                        System.out.println("Input: studentMove simpleMove RegularRoom2");
                         instructor.setCurrentRoom(regularRoom2);
                         characterList.add(instructor);
                         regularRoom2.setCharacters(characterList);
@@ -300,7 +299,7 @@ public class Prototype {
                         student.setCurrentRoom(regularRoom1);
                         student.move(regularRoom1, regularRoom2);
 
-                        System.out.println("Input studentMove transistorJump room1");
+                        System.out.println("Input studentMove transistorJump RegularRoom2");
                         regularRoom1.addTransistor(transistor1);
                         regularRoom2.addTransistor(transistor1);
                         student.setCurrentRoom(regularRoom1);
@@ -311,7 +310,7 @@ public class Prototype {
 
                     case 19:
                         //Student Enters a Room that has a Teacher in it, and the TVSZ protects him
-                        System.out.println("Input: studentMove simpleMove room1");
+                        System.out.println("Input: studentMove simpleMove RegularRoom2");
                         instructor.setCurrentRoom(regularRoom2);
                         characterList.add(instructor);
                         regularRoom2.setCharacters(characterList);
@@ -324,7 +323,7 @@ public class Prototype {
                         student.setCurrentRoom(regularRoom1);
                         student.move(regularRoom1, regularRoom2);
 
-                        System.out.println("Input studentMove transistorJump room1");
+                        System.out.println("Input studentMove transistorJump RegularRoom2");
                         regularRoom1.addTransistor(transistor1);
                         regularRoom2.addTransistor(transistor1);
                         student.setCurrentRoom(regularRoom1);
@@ -349,7 +348,7 @@ public class Prototype {
                         student.setCurrentRoom(regularRoom1);
                         student.move(regularRoom1, regularRoom2);
 
-                        System.out.println("Input studentMove transistorJump room1");
+                        System.out.println("Input studentMove transistorJump RegularRoom2");
                         regularRoom1.addTransistor(transistor1);
                         regularRoom2.addTransistor(transistor1);
                         student.setCurrentRoom(regularRoom1);
@@ -360,7 +359,7 @@ public class Prototype {
 
                     case 21:
                         //Student Enters a Room that has a Teacher in it, and the WetRag protects him
-                        System.out.println("Input: studentMove simpleMove room1");
+                        System.out.println("Input: studentMove simpleMove RegularRoom2");
                         instructor.setCurrentRoom(regularRoom2);
                         characterList.add(instructor);
                         regularRoom2.setCharacters(characterList);
@@ -373,7 +372,7 @@ public class Prototype {
                         student.setCurrentRoom(regularRoom1);
                         student.move(regularRoom1, regularRoom2);
 
-                        System.out.println("Input studentMove transistorJump room1");
+                        System.out.println("Input studentMove transistorJump RegularRoom2");
 
                         student.addItem(wetRag);
 
@@ -387,7 +386,14 @@ public class Prototype {
 
                     case 22:
                         //Load Map
-                        //TODO
+
+                        System.out.println("Input: loadmap testmap");
+                        try {
+                            GameInitializer.initMaps("NEWMAP");
+
+                        } catch (IOException | ClassNotFoundException e) {
+                            System.out.println("ERROR");
+                        }
 
                         break;
 
@@ -403,7 +409,7 @@ public class Prototype {
                     case 24:
                         //Pick Up TVSZ
 
-                        System.out.println("Input: pickUpItem tvsz1");
+                        System.out.println("Input: pickUpItem TVSZ1");
                         regularRoom1.setMaxCharacter(5);
                         regularRoom1.addItem(tvsz1);
                         student.setCurrentRoom(regularRoom1);
@@ -415,7 +421,7 @@ public class Prototype {
                     case 25:
                         //Pick Up TVSZ, but the Student already has a TVSZ
 
-                        System.out.println("Input: pickUpItem tvsz1");
+                        System.out.println("Input: pickUpItem TVSZ2");
                         regularRoom1.setMaxCharacter(5);
                         regularRoom1.addItem(tvsz1);
                         student.setCurrentRoom(regularRoom1);
@@ -435,6 +441,11 @@ public class Prototype {
         else{
             try {
                 playerNumber = Integer.parseInt(args[0]);
+                if(playerNumber < 2 || playerNumber > 5){
+                    System.out.println("Invalid Input");
+                    return;
+                }
+
 
                 GameInitializer.initMaps("NEWMAP");
                 System.out.println("Fileok Betöltve");
@@ -450,9 +461,7 @@ public class Prototype {
             catch (NumberFormatException nfe){
                 System.out.println("Invalid parameters...");
                 return;
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } catch (ClassNotFoundException e) {
+            } catch (IOException | ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
         }

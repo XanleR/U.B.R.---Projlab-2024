@@ -57,7 +57,7 @@ public abstract class Room  implements Serializable {
         c1.setCurrentRoom(this);
         this.onEntered(c1);
 
-        System.out.println("Character moved to the room!");
+        System.out.println(c1.getUniqueName()+" moved to "+uniqueName+"!");
     }
 
     public void putCharacter(Character c) { listOfCharacters.add(c); }
@@ -309,7 +309,7 @@ public abstract class Room  implements Serializable {
         if(ch.canPickUp()) {
             i.onPickedUp(ch);
             this.removeItem(i);
-            System.out.println("The student picked the item up!");
+            System.out.println("The student picked the "+i.getUniqueName()+" up!");
         }
     }
 

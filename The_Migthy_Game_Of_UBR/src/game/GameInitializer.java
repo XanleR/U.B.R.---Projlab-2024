@@ -60,15 +60,15 @@ public class GameInitializer {
         }
 
         //tanárok
-        //for (int i = 0; i < 3; i++) {
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 3; i++) {
+        //for (int i = 0; i < 1; i++) {
                 Instructor tmp = new Instructor();
                 tmp.setUniqueName("Instructor" + i);
                 GameController.getInstance().addCharacter(tmp);
                 Random r = new Random();
                 int tmpRoom;
-                //tmpRoom = r.nextInt(1, GameController.getInstance().getRooms().size());
-                tmpRoom = 8;
+                tmpRoom = r.nextInt(1, GameController.getInstance().getRooms().size());
+                //tmpRoom = 8;
                 tmp.setCurrentRoom( GameController.getInstance().getRooms().get(tmpRoom) );
                 GameController.getInstance().getRooms().get(tmpRoom).putCharacter(tmp);
         }

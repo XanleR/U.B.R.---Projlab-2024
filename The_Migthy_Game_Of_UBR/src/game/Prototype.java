@@ -591,7 +591,7 @@ public class Prototype {
         r3.setMaxCharacter(3);
         r3.setUniqueName("Room3");
         Item r3i1 = new FakeFFP2();
-        r3i1.setUniqueName("FakeTVSZ1");
+        r3i1.setUniqueName("FakeFFP2");
         r3.addItem(r3i1);
 
         // Room4

@@ -28,6 +28,12 @@ public class Student extends Character implements Serializable {
     //A hallgatonal csak 1 db tvsz lehet, ez a valtozo eppen ezt tarolja el
     private TVSZ tvsz;
 
+    private boolean alive = true;
+
+    public boolean isAlive() {
+        return alive;
+    }
+
     //input: -
     //method: Konstruktora a Student classnak, mely inicializálja a listákat
     //return: -
@@ -299,7 +305,7 @@ public class Student extends Character implements Serializable {
         else{
             remainingactions = in;
 
-            while (remainingactions > 0 && stunnedRounds == 0){
+            while (remainingactions > 0 && stunnedRounds == 0 && alive){
                 System.out.println("---------");
                 System.out.println("The "+uniqueName+" has " + remainingactions + " action");
 
@@ -472,6 +478,7 @@ public class Student extends Character implements Serializable {
 
         if(!studentSaved){
             GameController.getInstance().removeCharacter(this);
+            alive = false;
             System.out.println("The "+uniqueName+" died...");
         }
     }

@@ -500,8 +500,10 @@ public class Prototype {
 
 
     public static void testPrint() {
+        int c = 0;
         for (Room i : gameController.getRooms()) {
-            System.out.println(i.toString());
+            c++;
+            System.out.println( c  + " - " + i.toString());
             for (Room j : i.getNeighbours()) {
                 System.out.println("\t" + j.toString());
             }

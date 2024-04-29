@@ -19,6 +19,8 @@ public class RegularRoom extends Room  implements Serializable {
     //return: void
     @Override
     public void onEntered(Character c1) {
+        this.putCharacter(c1);
+
         stepCount++;
 
         //Ha eléri a belépések száma a limitet, létrehzunk egy új ragacsos szobát

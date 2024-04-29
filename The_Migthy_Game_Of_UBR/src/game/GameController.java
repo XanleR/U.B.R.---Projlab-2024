@@ -193,6 +193,7 @@ public class GameController {
         listOfCharacters.remove(removeable);
         studentCount--;
         if(studentCount == 0){
+            System.out.println("All student died, the instructors won...");
             active = false;
         }
     }
@@ -209,7 +210,7 @@ public class GameController {
     //return: void
     public void play(){
         int roundCounter = 0;
-        while (active || roundCounter <= 30) {
+        while (active && roundCounter <= 30) {
             System.out.println("ROUND "+(roundCounter+1));
             newRound();
 

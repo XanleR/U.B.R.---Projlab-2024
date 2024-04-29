@@ -453,7 +453,7 @@ public class Prototype {
                 GameInitializer.initCharacters(playerNumber);
                 //System.out.println("karakterek létrehozva");
 
-                testPrint();
+                //testPrint();
 
                 gameController.play();
 

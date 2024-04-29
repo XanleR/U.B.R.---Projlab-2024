@@ -150,13 +150,21 @@ public class GameController {
     //return: void
     public void newRound(){
         if(!listOfCharacters.isEmpty()){
-            for (Character i : listOfCharacters) {
+
+            int cSize = listOfCharacters.size();
+
+            for (int c = 0; c < cSize; c++) {
+
+                Character i = listOfCharacters.get(c);
+
                 i.startRound(rollDice());
 
                 //endgamecheck
                 if (!active) {
                     return;
                 }
+
+                cSize = listOfCharacters.size();
             }
         }
 

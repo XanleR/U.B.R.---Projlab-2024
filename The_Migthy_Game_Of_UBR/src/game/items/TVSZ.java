@@ -3,9 +3,10 @@ package game.items;
 import game.characters.Instructor;
 import game.characters.Student;
 
+import java.io.Serializable;
 import java.util.Scanner;
 
-public class TVSZ extends Item{
+public class TVSZ extends Item  implements Serializable {
 
     //Megadja, hogy hanyszor ved meg meg a TVSZ
     private int remainingProtection = 3;
@@ -14,18 +15,16 @@ public class TVSZ extends Item{
     //method: Hozzaadja a kapott int-et a vedelmek szamahoz
     //return: void
     public void addProtection(int plus){
-        System.out.println("\t\t\t\t--> (tvsz1: TVSZ).addProtection("+plus+": int)");
-
-        System.out.println("\t\t\t\t<--");
+        this.remainingProtection += plus;
+        if(this.remainingProtection > 3){
+            this.remainingProtection = 3;
+        }
     }
 
     //input: -
     //method: Visszaadja a vedelmek szamat
     //return: int
     public int getRemainingProtection(){
-        System.out.println("\t\t\t\t--> (tvsz1: TVSZ).getRemainingProtection()");
-
-        System.out.println("\t\t\t\t<-- remainingProtection: int");
         return this.remainingProtection;
     }
 
@@ -39,32 +38,14 @@ public class TVSZ extends Item{
     //Megadja, hogy az Intructor felveheti-e a targyat
     //return: boolean
     @Override
-    public boolean canInstructorPickUp(){ return false;}
+    public boolean canInstructorPickUp(){ return true;}
 
     //input: Student student
     //method: Azt az esemenyt kezeli, amikor egy tanulo felveszi a targyat
     //return: void
     @Override
     public void onPickedUp(Student student){
-        student.getTVSZ();
-
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.println("\t\t-?- A hallgatonal mar van tvsz? (y/n): ");
-        String answer = scanner.next();
-
-        if(answer.equals("y")) {
-            this.getRemainingProtection();
-
-            System.out.println("\t\t-?- Mennyi a felvett TVSZ vedelmi erteke? (1-3): ");
-            int selected = Integer.parseInt(scanner.next());
-
-            TVSZ t1 = new TVSZ();
-            t1.addProtection(selected);
-        }
-        if(answer.equals("n")){
-            student.setTVSZ(this);
-        }
+        student.setTVSZ(this);
     }
 
 
@@ -72,33 +53,23 @@ public class TVSZ extends Item{
     //method: Elvegzi a kor elejen szukseges modositasokat a palyan
     //return: void
     @Override
-    public void onRoundStart(){}
+    public void onRoundStart(){
+        this.remainingProtection--;
+    }
 
     //input: Student attacked, Instructor attacker
     //method: Azt az esemenyt kezeli, amikor egy hallgato talalkozik egy oktatoval, tehat egy mezore kerulnek
     //return: boolean
     @Override
     public boolean onAttacked(Student attacked, Instructor attacker){
-        System.out.println("\t\t\t--> (tvsz1: TVSZ).onAttacked(testS1: Student, testI1: Instructor)");
-
-        int r = this.getRemainingProtection();
-        System.out.println("\t\t\t-?- Nagyobb-e, mint 0 a maradek vedelem? (y/n): ");
-        Scanner attackedScanner = new Scanner(System.in);
-        String attackedAnswer = attackedScanner.next();
-        if(attackedAnswer.equals("y")){
-            this.addProtection(-1);
-            r = this.getRemainingProtection();
-            System.out.println("\t\t\t-?- Elfogyott a vedelem? (y/n): ");
-            attackedAnswer = attackedScanner.next();
-            if(attackedAnswer.equals("y")){
-                attacked.removeItem(this);
+        if(this.remainingProtection > 0){
+            remainingProtection--;
+            System.out.println("The student was protected by the TVSZ!");
+            if(remainingProtection == 0){
+                attacked.removeTVSZ();
             }
-            System.out.println("\t\t\t<-- true: boolean");
             return true;
         }
-
-
-        System.out.println("\t\t\t<-- false: boolean");
         return false;
     }
 

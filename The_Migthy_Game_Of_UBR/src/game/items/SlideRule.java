@@ -1,10 +1,12 @@
 package game.items;
 
-import game.GameController;
 import game.characters.Instructor;
 import game.characters.Student;
 
-public class SlideRule extends Item{
+import java.io.Serializable;
+import static game.Prototype.gameController;
+
+public class SlideRule extends Item  implements Serializable {
 
     //input: Student user
     //method: Megvalositja a targyak felhasznalasat
@@ -23,10 +25,8 @@ public class SlideRule extends Item{
     //return: void
     @Override
     public void onPickedUp(Student student){
-        GameController gameController = new GameController();
-
+        student.addItem(this);
         gameController.slideRulePickedUp();
-
     }
 
     //input: -

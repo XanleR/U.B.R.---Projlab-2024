@@ -3,7 +3,10 @@ package game.items;
 import game.characters.Instructor;
 import game.characters.Student;
 
-public class Dice extends Item{
+import java.io.Serializable;
+import java.util.Random;
+
+public class Dice extends Item implements Serializable {
 
     //Megadja a legutobbi dobott erteket
     private int currentValue;
@@ -11,32 +14,34 @@ public class Dice extends Item{
     //input: -
     //method: A currentValue-t beallitja egy 1-6 kozotti random ertekre
     //return: void
-    public void throwDice(){}
+    public void throwDice(){
+        Random rd = new Random();
+        this.currentValue = rd.nextInt(1, 6);
+        System.out.println("You rolled "+currentValue+" with the Dice");
+    }
 
     //input: Student user
     //method: Megvalositja a targyak felhasznalasat
     //return: void
     @Override
     public void use(Student user){
-        System.out.println("\t\t -->(this: Dice).throw()");
         this.throwDice();
-        System.out.println("\t\t <--");
-        System.out.println("\t\t -->(user: Student).addRounds(currentvalue: int)");
-        user.addRounds(currentValue);
-        System.out.println("\t\t <--");
+        user.addRounds(this.getCurrentValue());
     }
 
     //input: -
     //Megadja, hogy az Intructor felveheti-e a targyat
     //return: boolean
     @Override
-    public boolean canInstructorPickUp(){ return false; }
+    public boolean canInstructorPickUp(){ return true; }
 
     //input: Student student
     //method: Azt az esemenyt kezeli, amikor egy tanulo felveszi a targyat
     //return: void
     @Override
-    public void onPickedUp(Student student){}
+    public void onPickedUp(Student student){
+        student.addItem(this);
+    }
 
     //input: -
     //method: Elvegzi a kor elejen szukseges modositasokat a palyan
@@ -49,4 +54,8 @@ public class Dice extends Item{
     //return: boolean
     @Override
     public boolean onAttacked(Student attacked, Instructor attacker){ return false;}
+
+    public int getCurrentValue() {
+        return currentValue;
+    }
 }

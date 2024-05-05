@@ -1,36 +1,51 @@
 package game.characters;
 
-import game.items.Item;
+import game.GameController;
+import game.items.*;
+import game.rooms.RegularRoom;
 import game.rooms.Room;
 
 import java.io.Serializable;
 import java.util.Random;
 
+public class Cleaner extends Character implements Serializable {
 
-public class Instructor extends Character implements Serializable {
+    //input: int stunned
+    //method: Az adott takarító elkábul a paraméterként kapott körre
+    //return: void
+    @Override
+    public void stun(int stunned) {
+        stunnedRounds += stunned;
+    }
+
     //input: Room from, Room to
     //method: A karaktert athelyezi az egyik bemenetkent adott szobabol a masikba
     //return: void
     @Override
     public void move(Room from, Room to) {
         if(stunnedRounds <= 0){
+            RegularRoom regularRoom = new RegularRoom();
+            currentRoom.copyToRoom(regularRoom);
+            GameController.getInstance().removeRoom(currentRoom);
+            GameController.getInstance().addRoom(regularRoom);
             to.addCharacter(this);
+            System.out.println("The room was cleaned");
         }
         else{
-            System.out.println("The Instructor could not move to the "+to.getUniqueName());
+            System.out.println("The Cleaner could not move to the "+to.getUniqueName());
         }
     }
 
     //input: Item newI
-    //method: A parameterként megadott Item-et, mikor a tanár felveszi, kitörli a játékból
+    //method: A paraméterként megadott Item-et, mikor a takarító felveszi, kitörli a játékból.
     //return: void
     @Override
-    public void pickUpItem(Item newI){
+    public void pickUpItem(Item newI) {
         this.currentRoom.removeItem(newI);
     }
 
-    //input: -
-    //method: vegrehajtja a felhasznalo altal kivalasztott action-t
+    //input: void
+    //Végrehajtja a tanár egyik akcióját
     //return: void
     @Override
     public void action() {
@@ -39,11 +54,12 @@ public class Instructor extends Character implements Serializable {
             return;
         }
 
-        Random random = new Random();
         if(currentRoom.getNeighbours().isEmpty()){
-            System.out.println("The "+uniqueName+" cannot move anywhere...");
+            System.out.println("The cleaner cannot move anywhere...");
             return;
         }
+
+        Random random = new Random();
         int index = random.nextInt(currentRoom.getNeighbours().size());
         move(currentRoom, currentRoom.getNeighbours().get(index));
     }
@@ -52,8 +68,8 @@ public class Instructor extends Character implements Serializable {
     //method: Vegrehajtja azt az esemenyt, amikor a peldany egy másik Character-el kerul egy mezore
     //return: void
     @Override
-    public void meet(Character character){
-        character.meetInstructor(this);
+    public void meet(Character character) {
+        character.meetCleaner(this);
     }
 
     //input: Student student
@@ -61,7 +77,7 @@ public class Instructor extends Character implements Serializable {
     //return: void
     @Override
     public void meetStudent(Student student) {
-        student.die(this);
+        student.forceMove();
     }
 
     //input: Instructor instructor
@@ -69,7 +85,7 @@ public class Instructor extends Character implements Serializable {
     //return: void
     @Override
     public void meetInstructor(Instructor instructor) {
-
+        instructor.forceMove();
     }
 
     //input: Cleaner cleaner
@@ -77,7 +93,7 @@ public class Instructor extends Character implements Serializable {
     //return: void
     @Override
     public void meetCleaner(Cleaner cleaner) {
-        this.forceMove();
+
     }
 
     //input: -
@@ -85,10 +101,8 @@ public class Instructor extends Character implements Serializable {
     //return: void
     @Override
     public void startRound(int in) {
-        System.out.println("---------------------------------------");
-        System.out.println("New round for "+uniqueName);
         if(stunnedRounds != 0){
-            System.out.println("The "+uniqueName+" is stunned, no actions for this round...");
+            System.out.println("The cleaner is stunned, no actions for this round...");
             stunnedRounds--;
             return;
         }
@@ -115,12 +129,5 @@ public class Instructor extends Character implements Serializable {
                 }
             }
         }
-    }
-
-    //input: int stunned
-    //method: Az adott tanár elkábul a paraméterként kapott körre
-    //return: void
-    public void stun(int stunned){
-        stunnedRounds += stunned;
     }
 }

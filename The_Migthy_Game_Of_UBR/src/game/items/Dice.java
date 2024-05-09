@@ -1,6 +1,5 @@
 package game.items;
 
-import game.ElementView;
 import game.characters.Instructor;
 import game.characters.Student;
 
@@ -11,8 +10,6 @@ public class Dice extends Item implements Serializable {
 
     //Megadja a legutobbi dobott erteket
     private int currentValue;
-
-    private ElementView elementView;
 
     //input: -
     //method: A currentValue-t beallitja egy 1-6 kozotti random ertekre

@@ -9,16 +9,14 @@ import game.rooms.GasRoom;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.security.DigestException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Prototype {
+public class GUI {
 
     public static GameController gameController;
     public static GameInitializer gameInitializer;

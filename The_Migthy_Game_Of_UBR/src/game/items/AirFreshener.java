@@ -7,7 +7,7 @@ import game.rooms.RegularRoom;
 import game.rooms.Room;
 
 import java.io.Serializable;
-import static game.Prototype.gameController;
+import static game.graphical.gameController;
 
 public class AirFreshener extends Item  implements Serializable {
     @Override

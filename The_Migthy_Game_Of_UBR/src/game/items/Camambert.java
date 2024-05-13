@@ -1,5 +1,6 @@
 package game.items;
 
+import game.GameController;
 import game.characters.Instructor;
 import game.characters.Student;
 import game.rooms.GasRoom;
@@ -7,8 +8,6 @@ import game.rooms.Room;
 
 import java.io.Serializable;
 
-
-import static game.graphical.gameController;
 
 public class Camambert extends Item implements Serializable {
 
@@ -19,8 +18,8 @@ public class Camambert extends Item implements Serializable {
     public void use(Student user){
         Room newGasRoom = new GasRoom();
         user.getRoom().copyToRoom(newGasRoom);
-        gameController.removeRoom(user.getRoom());
-        gameController.addRoom(newGasRoom);
+        GameController.getInstance().removeRoom(user.getRoom());
+        GameController.getInstance().addRoom(newGasRoom);
         System.out.println("The room became a gas room!");
     }
 

@@ -23,6 +23,10 @@ public abstract class Character implements Serializable {
 
     protected String uniqueName;
 
+    public int getRemainingactions(){
+        return remainingactions;
+    }
+
     public void setUniqueName(String name){
         uniqueName = name;
     }

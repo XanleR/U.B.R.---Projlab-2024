@@ -1,10 +1,10 @@
 package game.items;
 
+import game.GameController;
 import game.characters.Instructor;
 import game.characters.Student;
 
 import java.io.Serializable;
-import static game.graphical.gameController;
 
 public class SlideRule extends Item  implements Serializable {
 
@@ -26,7 +26,7 @@ public class SlideRule extends Item  implements Serializable {
     @Override
     public void onPickedUp(Student student){
         student.addItem(this);
-        gameController.slideRulePickedUp();
+        GameController.getInstance().slideRulePickedUp();
     }
 
     //input: -

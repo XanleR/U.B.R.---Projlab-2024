@@ -30,6 +30,10 @@ public class Student extends Character implements Serializable {
 
     private boolean alive = true;
 
+    public List<Item> getInventory(){
+        return inventory;
+    }
+
     public boolean isAlive() {
         return alive;
     }

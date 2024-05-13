@@ -20,6 +20,20 @@ public class GameController {
 
     private static GameController instance;
 
+    private Character currentCharacter;
+
+    private int roundCounter = 0;
+
+    private final int roundLimit = 30;
+
+
+    //input: -
+    //method: Visszaadja az éppen körön lévő karaktert
+    //return: Character
+    public Character getCurrentCharacter(){
+        return currentCharacter;
+    }
+
 
 
     public static GameController getInstance(){
@@ -157,6 +171,7 @@ public class GameController {
 
                 Character i = listOfCharacters.get(c);
 
+                currentCharacter = i;
                 i.startRound(rollDice());
 
                 //endgamecheck
@@ -209,13 +224,16 @@ public class GameController {
     //method: Elinditja a jatekmenetet
     //return: void
     public void play(){
-        int roundCounter = 0;
-        while (active && roundCounter <= 30) {
+        while (active && roundCounter <= roundLimit) {
             System.out.println("ROUND "+(roundCounter+1));
             newRound();
 
             roundCounter++;
         }
+    }
+
+    public int getRoundCounter(){
+        return roundCounter;
     }
 
     //input: -

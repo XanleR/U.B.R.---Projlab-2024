@@ -31,6 +31,10 @@ public class Transistor extends Item  implements Serializable {
         this.pair.isPaired = true;
     }
 
+    public boolean getIsOn(){
+        return isOn;
+    }
+
     public void powerOn(){
         if(this.isPaired) {
             this.isOn = true;

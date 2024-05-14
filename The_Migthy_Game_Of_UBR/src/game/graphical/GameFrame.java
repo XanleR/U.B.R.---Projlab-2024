@@ -6,6 +6,7 @@ import game.characters.Student;
 import game.rooms.Room;
 
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 
 public class GameFrame extends JFrame {
@@ -78,14 +79,53 @@ public class GameFrame extends JFrame {
             turnOnTransButton.setEnabled(currentPlayer.getRoom().geTransistor() != null && !currentPlayer.getRoom().geTransistor().getIsOn());
         }
         else{
-            actualPlayer.setText("Unkown");
-            remainingAction.setText("Unkown");
+            actualPlayer.setText("Players name");
+            actualPlayer.setForeground(new Color(255, 178, 102));
+            actualPlayer.setFont(new Font("Segoe UI", Font.BOLD, 15));
+            actualPlayer.setHorizontalAlignment(SwingConstants.CENTER);
+
+            remainingAction.setText("Remaining Actions: XX");
+            remainingAction.setHorizontalAlignment(SwingConstants.CENTER);
+            remainingAction.setForeground(new Color(255, 178, 102));
+            remainingAction.setFont(new Font("Segoe UI", Font.BOLD, 15));
+
+            currentRound.setText("X. Round");
+            currentRound.setHorizontalAlignment(SwingConstants.CENTER);
+            currentRound.setForeground(new Color(255, 178, 102));
+            currentRound.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            currentRound.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(255, 178, 102)));
+
             moveButton.setEnabled(false);
             tranJumpButton.setEnabled(false);
             dropItemButton.setEnabled(false);
             useItemButton.setEnabled(false);
             turnOnTransButton.setEnabled(false);
         }
+
+        moveButton.setBackground(new Color(255, 153, 51));
+        moveButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        moveButton.setForeground(new Color(153, 76, 0));
+
+        tranJumpButton.setBackground(new Color(255, 153, 51));
+        tranJumpButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        tranJumpButton.setForeground(new Color(153, 76, 0));
+
+        dropItemButton.setBackground(new Color(255, 153, 51));
+        dropItemButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        dropItemButton.setForeground(new Color(153, 76, 0));
+
+        useItemButton.setBackground(new Color(255, 153, 51));
+        useItemButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        useItemButton.setForeground(new Color(153, 76, 0));
+
+        turnOnTransButton.setBackground(new Color(255, 153, 51));
+        turnOnTransButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        turnOnTransButton.setForeground(new Color(153, 76, 0));
+
+        idleButton.setBackground(new Color(255, 153, 51));
+        idleButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        idleButton.setForeground(new Color(153, 76, 0));
+
 
     }
 
@@ -119,12 +159,18 @@ public class GameFrame extends JFrame {
 
         initButtons();
         controllerPanel.setLayout(new GridLayout(0, 1));
+        controllerPanel.add(currentRound);
+        controllerPanel.add(actualPlayer);
+        controllerPanel.add(remainingAction);
         controllerPanel.add(moveButton);
         controllerPanel.add(tranJumpButton);
         controllerPanel.add(dropItemButton);
         controllerPanel.add(useItemButton);
         controllerPanel.add(turnOnTransButton);
         controllerPanel.add(idleButton);
+
+        controllerPanel.setBackground(new Color(153, 76, 0));
+        controllerPanel.setBorder(new EmptyBorder(10, 20, 10, 20));
 
         add(controllerPanel, BorderLayout.WEST);
 

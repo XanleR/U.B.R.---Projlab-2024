@@ -65,6 +65,9 @@ public class GUI {
             System.out.println("Invalid parameters...");
             return;
         }
+//        catch (IOException | ClassNotFoundException e){
+//            throw new RuntimeException(e);
+//        }
 
     }
 

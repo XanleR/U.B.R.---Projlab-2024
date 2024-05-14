@@ -1,6 +1,7 @@
 package game.characters;
 
 import game.GameController;
+import game.graphical.GameFrame;
 import game.items.*;
 import game.rooms.Room;
 
@@ -145,6 +146,7 @@ public class Student extends Character implements Serializable {
     //return: void
     @Override
     public void action() {
+        GameFrame.getInstance().drawMap(this);
 
         System.out.println(uniqueName + " action");
 

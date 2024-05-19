@@ -16,6 +16,9 @@ import java.util.Random;
 */
 public abstract class Room  implements Serializable {
 
+    private int x;
+    private int y;
+
     //A szobaban levo rongyok listaja
     private List<WetRag> wetRags = new ArrayList<>();
 
@@ -315,5 +318,26 @@ public abstract class Room  implements Serializable {
 
     public void setTransistor(Transistor transistor) {
         this.transistor = transistor;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setXY(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 }

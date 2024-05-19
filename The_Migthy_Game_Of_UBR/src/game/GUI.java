@@ -201,6 +201,7 @@ public class GUI {
 
         // Room1
         Room r1 = new RegularRoom();
+        r1.setXY(121, 52);
         r1.setMaxCharacter(3);
         r1.setUniqueName("Room1");
         Item r1i1 = new TVSZ();
@@ -210,11 +211,13 @@ public class GUI {
 
         // Room2
         Room r2 = new RegularRoom();
+        r2.setXY(63, 134);
         r2.setMaxCharacter(3);
         r2.setUniqueName("Room2");
 
         // Room3
         Room r3 = new RegularRoom();
+        r3.setXY(213, 146);
         r3.setMaxCharacter(3);
         r3.setUniqueName("Room3");
         Item r3i1 = new FakeFFP2();
@@ -223,6 +226,7 @@ public class GUI {
 
         // Room4
         Room r4 = new RegularRoom();
+        r4.setXY(395, 120);
         r4.setMaxCharacter(3);
         r4.setUniqueName("Room4");
         Item r4i1 = new FFP2();
@@ -234,6 +238,7 @@ public class GUI {
 
         // Room5
         Room r5 = new RegularRoom();
+        r5.setXY(702, 138);
         r5.setMaxCharacter(3);
         r5.setUniqueName("Room5");
         Item r5i1 = new FakeSlideRule();
@@ -242,6 +247,7 @@ public class GUI {
 
         // Room6
         Room r6 = new RegularRoom();
+        r6.setXY(164, 273);
         r6.setMaxCharacter(3);
         r6.setUniqueName("Room6");
         Item r6i1 = new TVSZ();
@@ -253,6 +259,7 @@ public class GUI {
 
         // Room7
         Room r7 = new RegularRoom();
+        r7.setXY(398, 253);
         r7.setMaxCharacter(3);
         r7.setUniqueName("Room7");
         Item r7i1 = new WetRag();
@@ -264,6 +271,7 @@ public class GUI {
 
         // Room8
         Room r8 = new RegularRoom();
+        r8.setXY(700, 263);
         r8.setMaxCharacter(3);
         r8.setUniqueName("Room8");
         Item r8i1 = new SlideRule();
@@ -272,12 +280,14 @@ public class GUI {
         
         // Room9
         Room r9 = new RegularRoom();
+        r9.setXY(66, 391);
         r9.setMaxCharacter(3);
         r9.setUniqueName("Room9");
 
 
         // Room10
         Room r10 = new RegularRoom();
+        r10.setXY(215, 400);
         r10.setMaxCharacter(3);
         r10.setUniqueName("Room10");
         Item r10i1 = new GlassOfBeer();
@@ -286,6 +296,7 @@ public class GUI {
 
         // Room11
         Room r11 = new RegularRoom();
+        r11.setXY(379, 393);
         r11.setMaxCharacter(3);
         r11.setUniqueName("Room11");
         Item r11i1 = new AirFreshener();
@@ -294,6 +305,7 @@ public class GUI {
 
         // Room12
         Room r12 = new RegularRoom();
+        r12.setXY(558, 349);
         r12.setMaxCharacter(3);
         r12.setUniqueName("Room12");
         Item r12i1 = new Transistor();
@@ -302,6 +314,7 @@ public class GUI {
 
         // Room13
         Room r13 = new RegularRoom();
+        r13.setXY(219, 475);
         r13.setMaxCharacter(3);
         r13.setUniqueName("Room13");
         Item r13i1 = new Camambert();
@@ -310,6 +323,7 @@ public class GUI {
 
         // Room14
         Room r14 = new RegularRoom();
+        r14.setXY(503, 503);
         r14.setMaxCharacter(3);
         r14.setUniqueName("Room14");
         Item r14i1 = new Dice();
@@ -318,6 +332,7 @@ public class GUI {
 
         // Room15
         Room r15 = new RegularRoom();
+        r15.setXY(714, 392);
         r15.setMaxCharacter(3);
         r15.setUniqueName("Room15");
         Item r15i1 = new Transistor();

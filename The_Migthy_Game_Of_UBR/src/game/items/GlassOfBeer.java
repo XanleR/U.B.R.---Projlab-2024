@@ -9,6 +9,11 @@ import java.util.Scanner;
 public class GlassOfBeer extends Item  implements Serializable {
 
     private boolean activated = false;
+
+    public int getActiveRounds() {
+        return activeRounds;
+    }
+
     private int activeRounds;
 
     private boolean activatedOnce = false;

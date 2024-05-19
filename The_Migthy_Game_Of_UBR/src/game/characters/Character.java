@@ -18,6 +18,10 @@ public abstract class Character implements Serializable {
     //Megajda azt a szobat, ahol a peldany jelenleg all
     protected Room currentRoom;
 
+    public int getStunnedRounds() {
+        return stunnedRounds;
+    }
+
     //Megadja, hogy hany korbol marad ki a peldany
     protected int stunnedRounds;
 

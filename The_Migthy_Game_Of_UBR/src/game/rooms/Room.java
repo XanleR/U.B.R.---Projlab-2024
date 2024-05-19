@@ -2,6 +2,7 @@ package game.rooms;
 
 import game.characters.Character;
 import game.characters.Student;
+import game.graphical.RoomView;
 import game.items.Item;
 import game.items.Transistor;
 import game.items.WetRag;
@@ -15,6 +16,9 @@ import java.util.Random;
 *Class Done
 */
 public abstract class Room  implements Serializable {
+
+    private int x;
+    private int y;
 
     //A szobaban levo rongyok listaja
     private List<WetRag> wetRags = new ArrayList<>();
@@ -315,5 +319,32 @@ public abstract class Room  implements Serializable {
 
     public void setTransistor(Transistor transistor) {
         this.transistor = transistor;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public void setXY(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public abstract String imageLocation();
+
+    public RoomView getView(){
+        return new RoomView(this);
     }
 }

@@ -15,4 +15,9 @@ public class GasRoom extends Room  implements Serializable {
             ch.meet(c1);
         }
     }
+
+    @Override
+    public String imageLocation() {
+        return "GasRoom.png";
+    }
 }

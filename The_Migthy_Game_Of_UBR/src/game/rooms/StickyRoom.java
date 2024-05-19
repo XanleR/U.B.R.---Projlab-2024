@@ -16,4 +16,9 @@ public class StickyRoom extends Room  implements Serializable {
     
     @Override
     public void pickUp(Item i, Student ch){}
+
+    @Override
+    public String imageLocation() {
+        return "Assets/StickyRoom.png";
+    }
 }

@@ -2,6 +2,7 @@ package game.rooms;
 
 import game.GameController;
 import game.characters.Character;
+import game.graphical.RoomView;
 
 import java.io.Serializable;
 
@@ -38,6 +39,11 @@ public class RegularRoom extends Room  implements Serializable {
                 ch.meet(c1);
             }
         }
+    }
+
+    @Override
+    public String imageLocation() {
+        return "Assets/Room.png";
     }
 
     //input: int stepCount

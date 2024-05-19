@@ -8,6 +8,9 @@ import game.rooms.Room;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class GameFrame extends JFrame {
     //Az aktuálisan körön lévő játékosnak a neve
@@ -48,6 +51,13 @@ public class GameFrame extends JFrame {
         return instance;
     }
 
+    public void setMapView(MapView mapView){
+        this.mapView = mapView;
+    }
+
+    public MapView getMapView() {
+        return mapView;
+    }
 
     //input: -
     //method: A gombokat inicializálja
@@ -173,6 +183,22 @@ public class GameFrame extends JFrame {
         controllerPanel.setBorder(new EmptyBorder(10, 20, 10, 20));
 
         add(controllerPanel, BorderLayout.WEST);
+
+        mapView.setBackground(Color.WHITE);
+        mapView.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int x = e.getX();
+                int y = e.getY();
+                System.out.println("Kattintás koordinátái: (" + x + ", " + y + ")");
+            }
+        });
+
+
+        //mapView.setLayout(null);
+        mapView.draw();
+
+        add(mapView, BorderLayout.CENTER);
 
         //mapView.initPanel();
 

@@ -52,12 +52,12 @@ public class GUI {
             }
 
 
-//            try {
-//                newMapBuilder();
-//            } catch (IOException e) {
-//                throw new RuntimeException(e);
-//            }
-            gameFrame.initFrame();
+            try {
+                newMapBuilder();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+
 
 
             try {
@@ -69,6 +69,9 @@ public class GUI {
             }
             //System.out.println("Fileok Betöltve");
 
+
+
+
             try {
                 GameInitializer.initCharacters(playerNumber);
             } catch (IOException e) {
@@ -76,6 +79,10 @@ public class GUI {
             } catch (ClassNotFoundException e) {
                 throw new RuntimeException(e);
             }
+
+
+
+            gameFrame.initFrame();
             //System.out.println("karakterek létrehozva");
 
             //testPrint();

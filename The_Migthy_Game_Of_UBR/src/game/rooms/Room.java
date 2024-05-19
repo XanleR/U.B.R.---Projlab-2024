@@ -2,6 +2,7 @@ package game.rooms;
 
 import game.characters.Character;
 import game.characters.Student;
+import game.graphical.RoomView;
 import game.items.Item;
 import game.items.Transistor;
 import game.items.WetRag;
@@ -339,5 +340,11 @@ public abstract class Room  implements Serializable {
 
     public void setY(int y) {
         this.y = y;
+    }
+
+    public abstract String imageLocation();
+
+    public RoomView getView(){
+        return new RoomView(this);
     }
 }

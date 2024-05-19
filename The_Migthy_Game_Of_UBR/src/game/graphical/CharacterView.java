@@ -3,6 +3,8 @@ package game.graphical;
 import game.characters.Character;
 
 public class CharacterView extends ElementView {
+
+    private Character character;
     @Override
     protected void drawImage() {
 
@@ -10,6 +12,6 @@ public class CharacterView extends ElementView {
 
     @Override
     protected void initView() {
-
+        
     }
 }

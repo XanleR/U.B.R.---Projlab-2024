@@ -1,13 +1,14 @@
 package game.graphical;
 
 import javax.swing.*;
+import java.awt.*;
 
 public abstract class ElementView {
-    private int xCoord;
-    private int yCoord;
-    private JLabel image;
+    protected int xCoord;
+    protected int yCoord;
+    protected JLabel image;
 
-    protected abstract void drawImage();
+    public abstract void drawImage(int width, int height);
 
-    protected abstract void initView();
+    protected abstract void initView(JLabel i, int x, int y);
 }

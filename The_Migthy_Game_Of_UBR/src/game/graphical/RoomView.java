@@ -1,13 +1,17 @@
 package game.graphical;
 
+import javax.swing.*;
+
 public class RoomView extends ElementView{
     @Override
-    protected void drawImage() {
+    public void drawImage(int width, int height) {
 
     }
 
     @Override
-    protected void initView() {
+    protected void initView(JLabel i, int x, int y) {
 
     }
+
+
 }

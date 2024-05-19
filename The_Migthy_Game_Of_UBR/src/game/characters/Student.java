@@ -14,6 +14,10 @@ import java.util.Scanner;
 
 public class Student extends Character implements Serializable {
 
+    public int getMaskedRounds() {
+        return maskedRounds;
+    }
+
     //Megadja, hogy hany kor van meg hatra az FFP2 targy felhasznalasabol
     private int maskedRounds;
 

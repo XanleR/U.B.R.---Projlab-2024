@@ -5,11 +5,14 @@ import game.characters.Cleaner;
 import game.characters.Instructor;
 import game.characters.Student;
 import game.graphical.GameFrame;
+import game.graphical.ItemView;
 import game.items.*;
 import game.rooms.GasRoom;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
 
+import javax.swing.*;
+import java.awt.*;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -21,6 +24,7 @@ public class GUI {
 
     public static GameController gameController;
     public static GameInitializer gameInitializer;
+    public static GameFrame gameFrame = GameFrame.getInstance();
 
     public static String testInput;
 
@@ -44,10 +48,11 @@ public class GUI {
             if(playerNumber < 2 || playerNumber > 5){
                 System.out.println("Invalid Input");
                 return;
-        }
-            GameFrame gameFrame = GameFrame.getInstance();
+            }
+
 
             gameFrame.initFrame();
+
 
             //GameInitializer.initMaps("NEWMAP");
             //System.out.println("Fileok Betöltve");
@@ -68,7 +73,6 @@ public class GUI {
 //        catch (IOException | ClassNotFoundException e){
 //            throw new RuntimeException(e);
 //        }
-
     }
 
     private static void printTestOptions(){
@@ -469,7 +473,5 @@ public class GUI {
                 gameController.addCharacter(i);
             }
         }
-
-
     }
 }

@@ -29,7 +29,7 @@ public class GameFrame extends JFrame {
     //Gomb, amivel a hallgató a tétlen maradását tudja végrehajtani
     private JButton idleButton;
     //A pálya eltárolására szolgáló változó
-    private MapView mapView;
+    public MapView mapView;
     //Az aktuálisan körön lévő karakter, melyről szeretnénk információt kirajzolni
     private Student currentPlayer;
     private JPanel controllerPanel = new JPanel();

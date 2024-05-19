@@ -51,4 +51,5 @@ public abstract class Item  implements Serializable {
     public abstract boolean onAttacked(Student attacked, Instructor attacker);
 
 
+    public abstract String getImageLocation();
 }

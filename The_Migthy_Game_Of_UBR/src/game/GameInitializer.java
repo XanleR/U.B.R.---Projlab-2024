@@ -4,6 +4,9 @@ import game.characters.Character;
 import game.characters.Cleaner;
 import game.characters.Instructor;
 import game.characters.Student;
+import game.graphical.ItemView;
+import game.graphical.RoomView;
+import game.items.Item;
 import game.rooms.Room;
 
 import java.io.FileInputStream;
@@ -27,6 +30,8 @@ public class GameInitializer {
         ObjectInputStream map = new ObjectInputStream(mapStream);
         //System.out.println("2 beolvasás ok");
         List<Room> rooms = ( ArrayList<Room> ) map.readObject();
+
+
         //System.out.println("3 beolvasás ok");
         map.close();
         //System.out.println("4 beolvasás ok");

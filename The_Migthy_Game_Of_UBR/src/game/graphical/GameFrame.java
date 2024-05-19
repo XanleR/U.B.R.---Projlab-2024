@@ -180,6 +180,7 @@ public class GameFrame extends JFrame {
         controllerPanel.setBorder(new EmptyBorder(10, 20, 10, 20));
 
         add(controllerPanel, BorderLayout.WEST);
+        //add(mapView, BorderLayout.EAST);
 
         //mapView.initPanel();
 

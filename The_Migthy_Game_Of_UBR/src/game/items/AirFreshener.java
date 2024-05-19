@@ -11,6 +11,9 @@ import java.io.Serializable;
 import static game.GUI.gameController;
 
 public class AirFreshener extends Item  implements Serializable {
+
+
+
     @Override
     public void use(Student user) {
         Room from = user.getRoom();

@@ -10,9 +10,10 @@ import static game.GUI.gameFrame;
 public class TVSZView extends ItemView{
     private JLabel remainingProtLabel;
     private TVSZ tvsz;
-    public TVSZView(TVSZ tvsz) {
+    public TVSZView(TVSZ tvsz, JLabel _image) {
         super(tvsz);
         this.tvsz = tvsz;
+        this.image = _image;
     }
 
     @Override

@@ -4,7 +4,7 @@ import javax.swing.*;
 
 public class RoomView extends ElementView{
     @Override
-    public void drawImage(int width, int height) {
+    public void drawImage() {
 
     }
 

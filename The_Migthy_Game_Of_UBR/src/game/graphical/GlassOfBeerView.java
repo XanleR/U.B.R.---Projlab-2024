@@ -17,12 +17,12 @@ public class GlassOfBeerView extends ItemView{
     }
 
     @Override
-    public void drawImage(int width, int height) {
-        super.drawImage(width, height);
-        activatedLabel.setSize(width - 2, height - 2);
-        activeRoundsLabel.setSize(width - 2, height - 2);
-        gameFrame.mapView.add(activatedLabel);
-        gameFrame.mapView.add(activeRoundsLabel);
+    public void drawImage() {
+        super.drawImage();
+        activatedLabel.setSize(preferredWidth - 2, preferredHeight - 2);
+        activeRoundsLabel.setSize(preferredWidth - 2, preferredHeight - 2);
+        gameFrame.getMapView().add(activatedLabel);
+        gameFrame.getMapView().add(activeRoundsLabel);
     }
 
     @Override

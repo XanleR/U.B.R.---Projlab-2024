@@ -46,23 +46,41 @@ public class GUI {
         try {
             playerNumber = Integer.parseInt(args[0]);
             if(playerNumber < 2 || playerNumber > 5){
+
                 System.out.println("Invalid Input");
                 return;
             }
 
 
+//            try {
+//                newMapBuilder();
+//            } catch (IOException e) {
+//                throw new RuntimeException(e);
+//            }
             gameFrame.initFrame();
 
 
-            //GameInitializer.initMaps("NEWMAP");
+            try {
+                GameInitializer.initMaps("NEWMAP");
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
             //System.out.println("Fileok Betöltve");
 
-            //GameInitializer.initCharacters(playerNumber);
+            try {
+                GameInitializer.initCharacters(playerNumber);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } catch (ClassNotFoundException e) {
+                throw new RuntimeException(e);
+            }
             //System.out.println("karakterek létrehozva");
 
             //testPrint();
 
-            //gameController.play();
+            gameController.play();
 
 
         }
@@ -177,7 +195,7 @@ public class GUI {
         }
     }
 
-    public static void newMapBuilder(int mode) throws IOException {
+    public static void newMapBuilder() throws IOException {
 
         ////////// ROOMS INIT
 

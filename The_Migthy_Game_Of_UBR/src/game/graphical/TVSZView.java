@@ -25,9 +25,9 @@ public class TVSZView extends ItemView{
     }
 
     @Override
-    public void drawImage(int width, int height) {
-        super.drawImage(width, height);
-        remainingProtLabel.setSize(width - 2, height - 2);
-        gameFrame.mapView.add(remainingProtLabel);
+    public void drawImage() {
+        super.drawImage();
+        remainingProtLabel.setSize(preferredWidth - 2, preferredHeight - 2);
+        gameFrame.getMapView().add(remainingProtLabel);
     }
 }

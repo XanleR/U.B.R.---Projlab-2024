@@ -16,11 +16,11 @@ public class CharacterView extends ElementView {
         this.character = c;
     }
     @Override
-    public void drawImage(int width, int height) {
-        this.image.setPreferredSize(new Dimension(width, height));
-        gameFrame.mapView.add(this.image);
-        stunnedLabel.setSize(width - 2, height - 2);
-        gameFrame.mapView.add(stunnedLabel);
+    public void drawImage() {
+        this.image.setPreferredSize(new Dimension(preferredWidth, preferredHeight));
+        gameFrame.getMapView().add(this.image);
+        stunnedLabel.setSize(preferredWidth - 2, preferredHeight - 2);
+        gameFrame.getMapView().add(stunnedLabel);
     }
     @Override
     protected void initView(JLabel i, int x, int y){

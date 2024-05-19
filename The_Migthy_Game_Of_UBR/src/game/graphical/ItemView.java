@@ -14,9 +14,9 @@ public class ItemView extends ElementView{
     }
 
     @Override
-    public void drawImage(int width, int height) {
-        this.image.setPreferredSize(new Dimension(width, height));
-        gameFrame.mapView.add(this.image);
+    public void drawImage() {
+        this.image.setPreferredSize(new Dimension(preferredWidth, preferredHeight));
+        gameFrame.getMapView().add(this.image);
     }
 
     @Override

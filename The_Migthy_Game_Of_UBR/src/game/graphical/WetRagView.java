@@ -1,9 +1,12 @@
 package game.graphical;
 
+import game.items.Item;
+
 import javax.swing.*;
 
 public class WetRagView extends ItemView{
-    public WetRagView(JLabel i, int x, int y) {
-        super(i, x, y);
+
+    public WetRagView(Item i) {
+        super(i);
     }
 }

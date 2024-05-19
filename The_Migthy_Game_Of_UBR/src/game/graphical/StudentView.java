@@ -17,12 +17,12 @@ public class StudentView extends CharacterView{
     }
 
     @Override
-    public void drawImage(int width, int height) {
-        super.drawImage(width, height);
-        maskedLabel.setSize(width - 2, height - 2);
-        tvszLabel.setSize(width - 2, height - 2);
-        gameFrame.mapView.add(maskedLabel);
-        gameFrame.mapView.add(tvszLabel);
+    public void drawImage() {
+        super.drawImage();
+        maskedLabel.setSize(preferredWidth - 2, preferredHeight - 2);
+        tvszLabel.setSize(preferredWidth - 2, preferredHeight - 2);
+        gameFrame.getMapView().add(maskedLabel);
+        gameFrame.getMapView().add(tvszLabel);
     }
 
     @Override

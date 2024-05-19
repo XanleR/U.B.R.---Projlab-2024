@@ -29,7 +29,7 @@ public class GameFrame extends JFrame {
     //Gomb, amivel a hallgató a tétlen maradását tudja végrehajtani
     private JButton idleButton;
     //A pálya eltárolására szolgáló változó
-    public MapView mapView;
+    private MapView mapView;
     //Az aktuálisan körön lévő karakter, melyről szeretnénk információt kirajzolni
     private Student currentPlayer;
     private JPanel controllerPanel = new JPanel();
@@ -48,6 +48,13 @@ public class GameFrame extends JFrame {
         return instance;
     }
 
+    public void setMapView(MapView mapView){
+        this.mapView = mapView;
+    }
+
+    public MapView getMapView() {
+        return mapView;
+    }
 
     //input: -
     //method: A gombokat inicializálja

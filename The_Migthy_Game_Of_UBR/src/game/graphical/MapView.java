@@ -6,10 +6,16 @@ import java.util.List;
 
 public class MapView extends JPanel {
 
-    private List<ElementView> elementViewList = new ArrayList<>();
+    private List<ElementView> elementViewList;
+
+    public MapView(List<ElementView> elementViewList) {
+        this.elementViewList = elementViewList;
+    }
 
     public void draw(){
-
+        for(ElementView elementView : elementViewList){
+            elementView.drawImage();
+        }
     }
 
     public void initPanel(){

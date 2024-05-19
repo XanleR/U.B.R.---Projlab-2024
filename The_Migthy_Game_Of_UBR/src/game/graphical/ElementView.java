@@ -7,8 +7,10 @@ public abstract class ElementView {
     protected int xCoord;
     protected int yCoord;
     protected JLabel image;
+    protected int preferredWidth;
+    protected int preferredHeight;
 
-    public abstract void drawImage(int width, int height);
+    public abstract void drawImage();
 
     protected abstract void initView(JLabel i, int x, int y);
 }

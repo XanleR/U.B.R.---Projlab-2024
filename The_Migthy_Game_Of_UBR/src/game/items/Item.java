@@ -2,6 +2,7 @@ package game.items;
 
 import game.characters.Instructor;
 import game.characters.Student;
+import game.graphical.ItemView;
 
 import java.io.Serializable;
 
@@ -51,5 +52,8 @@ public abstract class Item  implements Serializable {
     public abstract boolean onAttacked(Student attacked, Instructor attacker);
 
 
-    public abstract String getImageLocation();
+    //public abstract String getImageLocation();
+
+    //public abstract ItemView getView();
+
 }

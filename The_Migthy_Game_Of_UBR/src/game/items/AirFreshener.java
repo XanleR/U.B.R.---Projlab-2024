@@ -3,6 +3,7 @@ package game.items;
 import game.characters.Character;
 import game.characters.Instructor;
 import game.characters.Student;
+import game.graphical.ItemView;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
 
@@ -41,4 +42,5 @@ public class AirFreshener extends Item  implements Serializable {
     public boolean onAttacked(Student attacked, Instructor attacker) {
         return false;
     }
+
 }

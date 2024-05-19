@@ -8,6 +8,8 @@ import game.rooms.Room;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class GameFrame extends JFrame {
     //Az aktuálisan körön lévő játékosnak a neve
@@ -29,7 +31,7 @@ public class GameFrame extends JFrame {
     //Gomb, amivel a hallgató a tétlen maradását tudja végrehajtani
     private JButton idleButton;
     //A pálya eltárolására szolgáló változó
-    private MapView mapView;
+    private MapView mapView = new MapView(null);
     //Az aktuálisan körön lévő karakter, melyről szeretnénk információt kirajzolni
     private Student currentPlayer;
     private JPanel controllerPanel = new JPanel();
@@ -180,7 +182,18 @@ public class GameFrame extends JFrame {
         controllerPanel.setBorder(new EmptyBorder(10, 20, 10, 20));
 
         add(controllerPanel, BorderLayout.WEST);
-        //add(mapView, BorderLayout.EAST);
+
+        mapView.setBackground(Color.RED);
+        mapView.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int x = e.getX();
+                int y = e.getY();
+                System.out.println("Kattintás koordinátái: (" + x + ", " + y + ")");
+            }
+        });
+
+        add(mapView, BorderLayout.CENTER);
 
         //mapView.initPanel();
 

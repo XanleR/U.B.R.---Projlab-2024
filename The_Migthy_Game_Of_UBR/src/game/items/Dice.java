@@ -2,7 +2,9 @@ package game.items;
 
 import game.characters.Instructor;
 import game.characters.Student;
+import game.graphical.ItemView;
 
+import javax.swing.*;
 import java.io.Serializable;
 import java.util.Random;
 
@@ -41,6 +43,12 @@ public class Dice extends Item implements Serializable {
     @Override
     public void onPickedUp(Student student){
         student.addItem(this);
+    }
+
+    @Override
+    public void setView(int x, int y) {
+        ImageIcon icon = new ImageIcon("Assets/Dice.png");
+        this.itemView = new ItemView(icon, x, y);
     }
 
     //input: -

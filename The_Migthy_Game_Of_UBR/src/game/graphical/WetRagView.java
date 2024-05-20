@@ -6,7 +6,8 @@ import javax.swing.*;
 
 public class WetRagView extends ItemView{
 
-    public WetRagView(Item i) {
-        super(i);
+    //TODO
+    public WetRagView(ImageIcon icon, int x, int y) {
+        super(icon, x, y);
     }
 }

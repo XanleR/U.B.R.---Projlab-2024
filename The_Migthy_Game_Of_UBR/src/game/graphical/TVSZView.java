@@ -9,26 +9,22 @@ import static game.GUI.gameFrame;
 
 public class TVSZView extends ItemView{
     private JLabel remainingProtLabel;
-    private TVSZ tvsz;
-    public TVSZView(TVSZ tvsz, JLabel _image) {
-        super(tvsz);
-        this.tvsz = tvsz;
-        this.image = _image;
+
+    public TVSZView(ImageIcon icon, int x, int y, int remaingingProt) {
+        super(icon, x, y);
+        remainingProtLabel = new JLabel(Integer.toString(remaingingProt));
+        remainingProtLabel.setLocation(x+2, y+2);
     }
 
+
     @Override
-    protected void initView(JLabel i, int x, int y){
-        i.setLocation(this.xCoord, this.yCoord);
-        this.image = i;
-        String s = Integer.toString(this.tvsz.getRemainingProtection());
-        this.remainingProtLabel = new JLabel(s);
-        this.remainingProtLabel.setLocation(this.xCoord + 1, this.yCoord + 1);
-    }
+    protected void initView(JLabel i, int x, int y){}
 
     @Override
     public void drawImage() {
         super.drawImage();
-        remainingProtLabel.setSize(preferredWidth - 2, preferredHeight - 2);
         gameFrame.getMapView().add(remainingProtLabel);
+        GameFrame.getInstance().getMapView().revalidate();
+        GameFrame.getInstance().getMapView().repaint();
     }
 }

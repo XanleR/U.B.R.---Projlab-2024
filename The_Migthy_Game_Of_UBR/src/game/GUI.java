@@ -10,6 +10,7 @@ import game.items.*;
 import game.rooms.GasRoom;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
+import game.rooms.StickyRoom;
 
 import javax.swing.*;
 import java.awt.*;
@@ -212,22 +213,24 @@ public class GUI {
         r1.setMaxCharacter(3);
         r1.setUniqueName("Room1");
         Item r1i1 = new TVSZ();
+        r1i1.setXY(123, 54);
         r1i1.setUniqueName("tvsz1");
         r1i1.setDesc("TVSZ");
         r1.addItem(r1i1);
 
         // Room2
-        Room r2 = new RegularRoom();
+        Room r2 = new GasRoom();
         r2.setXY(63, 134);
         r2.setMaxCharacter(3);
         r2.setUniqueName("Room2");
 
         // Room3
-        Room r3 = new RegularRoom();
+        Room r3 = new StickyRoom();
         r3.setXY(213, 146);
         r3.setMaxCharacter(3);
         r3.setUniqueName("Room3");
         Item r3i1 = new FakeFFP2();
+        r3i1.setXY(215, 148);
         r3i1.setUniqueName("FakeFFP2");
         r3.addItem(r3i1);
 
@@ -240,6 +243,8 @@ public class GUI {
         Item r4i2 = new Dice();
         r4i1.setUniqueName("FFP2_1");
         r4i2.setUniqueName("Dice1");
+        r4i1.setXY(397, 122);
+        r4i2.setXY(399, 124);
         r4.addItem(r4i1);
         r4.addItem(r4i2);
 
@@ -250,6 +255,7 @@ public class GUI {
         r5.setUniqueName("Room5");
         Item r5i1 = new FakeSlideRule();
         r5i1.setUniqueName("FakeSideRuler1");
+        r5i1.setXY(704, 140);
         r5.addItem(r5i1);
 
         // Room6
@@ -261,6 +267,8 @@ public class GUI {
         Item r6i2 = new FakeTVSZ();
         r6i1.setUniqueName("FakeTVSZ2");
         r6i2.setUniqueName("TVSZ2");
+        r6i1.setXY(166, 275);
+        r6i2.setXY(168, 277);
         r6.addItem(r6i1);
         r6.addItem(r6i2);
 
@@ -273,6 +281,8 @@ public class GUI {
         Item r7i2 = new Camambert();
         r7i1.setUniqueName("WetRag1");
         r7i2.setUniqueName("Camambert1");
+        r7i1.setXY(400, 255);
+        r7i2.setXY(402, 257);
         r7.addItem(r7i1);
         r7.addItem(r7i2);
 
@@ -283,6 +293,7 @@ public class GUI {
         r8.setUniqueName("Room8");
         Item r8i1 = new SlideRule();
         r8i1.setUniqueName("SideRuler");
+        r8i1.setXY(702, 265);
         r8.addItem(r8i1);
         
         // Room9
@@ -299,6 +310,7 @@ public class GUI {
         r10.setUniqueName("Room10");
         Item r10i1 = new GlassOfBeer();
         r10i1.setUniqueName("GlassOfBeer1");
+        r10i1.setXY(217, 402);
         r10.addItem(r10i1);
 
         // Room11
@@ -308,6 +320,7 @@ public class GUI {
         r11.setUniqueName("Room11");
         Item r11i1 = new AirFreshener();
         r11i1.setUniqueName("AirFreshener1");
+        r11i1.setXY(381, 395);
         r11.addItem(r11i1);
 
         // Room12
@@ -317,6 +330,7 @@ public class GUI {
         r12.setUniqueName("Room12");
         Item r12i1 = new Transistor();
         r12i1.setUniqueName("Transistor1");
+        r12i1.setXY(560, 351);
         r12.addItem(r12i1);
 
         // Room13
@@ -326,6 +340,7 @@ public class GUI {
         r13.setUniqueName("Room13");
         Item r13i1 = new Camambert();
         r13i1.setUniqueName("Camambert2");
+        r13i1.setXY(221, 477);
         r13.addItem(r13i1);
 
         // Room14
@@ -335,6 +350,7 @@ public class GUI {
         r14.setUniqueName("Room14");
         Item r14i1 = new Dice();
         r14i1.setUniqueName("Dice2");
+        r14i1.setXY(505, 505);
         r14.addItem(r14i1);
 
         // Room15
@@ -344,6 +360,7 @@ public class GUI {
         r15.setUniqueName("Room15");
         Item r15i1 = new Transistor();
         r15i1.setUniqueName("Transistor2");
+        r15i1.setXY(716, 394);
         r15.addItem(r15i1);
 
 

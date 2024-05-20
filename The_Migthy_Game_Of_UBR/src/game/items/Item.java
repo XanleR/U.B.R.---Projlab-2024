@@ -11,7 +11,24 @@ public abstract class Item  implements Serializable {
     //Megadja a targy leirasat
     private String desc;
 
+    public ItemView getItemView() {
+        return itemView;
+    }
+
+    protected ItemView itemView;
+
     private String uniqueName;
+
+    public int getxCoord() {
+        return xCoord;
+    }
+
+    public int getyCoord() {
+        return yCoord;
+    }
+
+    private int xCoord;
+    private int yCoord;
 
     // Getter
     public String getDesc() { return desc;}
@@ -41,6 +58,8 @@ public abstract class Item  implements Serializable {
     //return: void
     public abstract void onPickedUp(Student student);
 
+    public abstract void setView(int x, int y);
+
     //input: -
     //method: Elvegzi a kor elejen szukseges modositasokat a palyan
     //return: void
@@ -51,6 +70,10 @@ public abstract class Item  implements Serializable {
     //return: boolean
     public abstract boolean onAttacked(Student attacked, Instructor attacker);
 
+    public void setXY(int x, int y){
+        this.xCoord = x;
+        this.yCoord = y;
+    }
 
     //public abstract String getImageLocation();
 

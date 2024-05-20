@@ -2,6 +2,7 @@ package game.rooms;
 
 import game.characters.Character;
 import game.characters.Student;
+import game.graphical.ElementView;
 import game.graphical.RoomView;
 import game.items.Item;
 import game.items.Transistor;
@@ -17,8 +18,32 @@ import java.util.Random;
 */
 public abstract class Room  implements Serializable {
 
-    private int x;
-    private int y;
+    protected transient RoomView roomView;
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    protected int x;
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public void setXY(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
+    protected int y;
 
     //A szobaban levo rongyok listaja
     private List<WetRag> wetRags = new ArrayList<>();
@@ -35,6 +60,10 @@ public abstract class Room  implements Serializable {
     private List<Item> listOfItems = new ArrayList<>();
     private List<Room> listOfNeighbours = new ArrayList<>();
     private String uniqueName;
+
+    public ElementView getView() {
+        return roomView;
+    }
 
     public void setUniqueName(String name){
         uniqueName = name;
@@ -321,30 +350,33 @@ public abstract class Room  implements Serializable {
         this.transistor = transistor;
     }
 
-    public int getX() {
+    public abstract void setRoomView(int x, int y);
+
+    /*public int getX() {
         return x;
-    }
+    }*/
 
-    public void setX(int x) {
+
+    /*public void setX(int x) {
         this.x = x;
-    }
+    }*/
 
-    public void setXY(int x, int y){
+    /*public void setXY(int x, int y){
         this.x = x;
         this.y = y;
-    }
+    }*/
 
-    public int getY() {
+   /* public int getY() {
         return y;
     }
 
     public void setY(int y) {
         this.y = y;
-    }
+    }*/
 
     public abstract String imageLocation();
 
-    public RoomView getView(){
+    /*public RoomView getView(){
         return new RoomView(this);
-    }
+    }*/
 }

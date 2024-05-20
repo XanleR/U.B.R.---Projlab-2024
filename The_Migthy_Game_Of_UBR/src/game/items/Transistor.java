@@ -1,10 +1,12 @@
 package game.items;
 
+import game.graphical.TransistorView;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
 import game.characters.Instructor;
 import game.characters.Student;
 
+import javax.swing.*;
 import java.io.Serializable;
 import java.util.Scanner;
 
@@ -87,6 +89,12 @@ public class Transistor extends Item  implements Serializable {
     public void onPickedUp(Student student){
         student.addTransistor(this);
         student.addItem(this);
+    }
+
+    @Override
+    public void setView(int x, int y) {
+        ImageIcon icon = new ImageIcon("Assets/Transistor(Off).png");
+        this.itemView = new TransistorView(icon, x, y);
     }
 
     //input: -

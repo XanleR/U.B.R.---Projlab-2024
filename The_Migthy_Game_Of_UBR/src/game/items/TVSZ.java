@@ -2,7 +2,9 @@ package game.items;
 
 import game.characters.Instructor;
 import game.characters.Student;
+import game.graphical.TVSZView;
 
+import javax.swing.*;
 import java.io.Serializable;
 import java.util.Scanner;
 
@@ -71,6 +73,12 @@ public class TVSZ extends Item  implements Serializable {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void setView(int x, int y){
+        ImageIcon icon = new ImageIcon("Assets/TVSZ.png");
+        this.itemView = new TVSZView(icon, x, y, this.remainingProtection);
     }
 
 }

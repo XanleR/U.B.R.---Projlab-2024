@@ -159,7 +159,7 @@ public class GameFrame extends JFrame {
     public void initFrame(){
         setTitle("SlideRule");
 
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         setLayout(new BorderLayout());
 
@@ -184,6 +184,7 @@ public class GameFrame extends JFrame {
 
         add(controllerPanel, BorderLayout.WEST);
 
+        mapView.setLayout(null);
         mapView.setBackground(Color.WHITE);
         mapView.addMouseListener(new MouseAdapter() {
             @Override
@@ -195,14 +196,15 @@ public class GameFrame extends JFrame {
         });
 
 
-        //mapView.setLayout(null);
+
+        //mapView.setBackground(new Color(255, 0, 255));
+
         mapView.draw();
 
         add(mapView, BorderLayout.CENTER);
 
-        //mapView.initPanel();
 
-        //pack();
+        //mapView.initPanel();
 
         setLocationRelativeTo(null);
         setVisible(true);

@@ -6,7 +6,8 @@ import javax.swing.*;
 
 public class FFP2View extends ItemView{
 
-    public FFP2View(Item i) {
-        super(i);
+    //TODO
+    public FFP2View(ImageIcon icon, int x, int y) {
+        super(icon, x, y);
     }
 }

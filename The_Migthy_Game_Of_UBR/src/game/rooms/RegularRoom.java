@@ -4,6 +4,7 @@ import game.GameController;
 import game.characters.Character;
 import game.graphical.RoomView;
 
+import javax.swing.*;
 import java.io.Serializable;
 
 import java.util.ArrayList;
@@ -39,6 +40,12 @@ public class RegularRoom extends Room  implements Serializable {
                 ch.meet(c1);
             }
         }
+    }
+
+    @Override
+    public void setRoomView(int x, int y) {
+        ImageIcon icon  = new ImageIcon(this.imageLocation());
+        this.roomView = new RoomView(icon, x, y);
     }
 
     @Override

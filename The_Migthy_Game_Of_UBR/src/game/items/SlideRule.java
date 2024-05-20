@@ -3,7 +3,9 @@ package game.items;
 import game.GameController;
 import game.characters.Instructor;
 import game.characters.Student;
+import game.graphical.ItemView;
 
+import javax.swing.*;
 import java.io.Serializable;
 
 public class SlideRule extends Item  implements Serializable {
@@ -27,6 +29,12 @@ public class SlideRule extends Item  implements Serializable {
     public void onPickedUp(Student student){
         student.addItem(this);
         GameController.getInstance().slideRulePickedUp();
+    }
+
+    @Override
+    public void setView(int x, int y) {
+        ImageIcon icon = new ImageIcon("Asstes/SlideRule.png");
+        this.itemView = new ItemView(icon, x, y);
     }
 
     //input: -

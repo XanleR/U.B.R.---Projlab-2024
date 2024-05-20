@@ -2,9 +2,11 @@ package game.items;
 
 import game.characters.Instructor;
 import game.characters.Student;
+import game.graphical.WetRagView;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
 
+import javax.swing.*;
 import java.io.Serializable;
 import java.util.Scanner;
 
@@ -43,6 +45,12 @@ public class WetRag extends Item  implements Serializable {
     //return: void
     @Override
     public void onPickedUp(Student student){}
+
+    @Override
+    public void setView(int x, int y) {
+        ImageIcon icon = new ImageIcon("Assets/WetRag.png");
+        this.itemView = new WetRagView(icon, x, y);
+    }
 
     //input: -
     //method: Elvegzi a kor elejen szukseges modositasokat a palyan

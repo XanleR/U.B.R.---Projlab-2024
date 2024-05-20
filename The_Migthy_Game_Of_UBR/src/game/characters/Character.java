@@ -1,5 +1,6 @@
 package game.characters;
 
+import game.graphical.CharacterView;
 import game.items.Item;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
@@ -12,8 +13,22 @@ import java.io.Serializable;
 // A Student es az Instructor ebbol szarmazik le.
 public abstract class Character implements Serializable {
 
+    protected int xCoord;
+
+    public int getxCoord() {
+        return xCoord;
+    }
+
+    public int getyCoord() {
+        return yCoord;
+    }
+
+    protected int yCoord;
+
     //Megadja, hogy hany action-je van hatra a peldanynak
     protected int remainingactions;
+
+    protected CharacterView characterView;
 
     //Megajda azt a szobat, ahol a peldany jelenleg all
     protected Room currentRoom;
@@ -97,6 +112,13 @@ public abstract class Character implements Serializable {
     //method: A karaktert átmozgatja erőszakosan egy szomszédos szobába
     //return: void
     public abstract void forceMove();
+
+    public abstract void setView(int x, int y);
+
+    public void setXY(int x, int y){
+        this.xCoord = x;
+        this.yCoord = y;
+    }
 }
 
 

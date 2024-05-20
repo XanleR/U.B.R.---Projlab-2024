@@ -10,27 +10,25 @@ import static game.GUI.gameFrame;
 
 public class CharacterView extends ElementView {
 
-    private Character character;
     protected JLabel stunnedLabel;
-    public CharacterView (Character c){
-        this.character = c;
+    public CharacterView (ImageIcon icon, int x, int y, int stun){
+        this.xCoord = x;
+        this.yCoord = y;
+        icon.setImage(icon.getImage().getScaledInstance(30, 30, Image.SCALE_DEFAULT));
+        this.image = new JLabel(icon);
+        image.setLocation(x, y);
+        stunnedLabel = new JLabel(Integer.toString(stun));
+        stunnedLabel.setLocation(this.xCoord + 2, this.yCoord + 2);
     }
     
     @Override
     public void drawImage() {
-        this.image.setPreferredSize(new Dimension(preferredWidth, preferredHeight));
         gameFrame.getMapView().add(this.image);
-        stunnedLabel.setSize(preferredWidth - 2, preferredHeight - 2);
         gameFrame.getMapView().add(stunnedLabel);
+        GameFrame.getInstance().getMapView().revalidate();
+        GameFrame.getInstance().getMapView().repaint();
     }
 
     @Override
-    protected void initView(JLabel i, int x, int y){
-        i.setLocation(this.xCoord, this.yCoord);
-        this.image = i;
-
-        String stun = Integer.toString(character.getStunnedRounds());
-        stunnedLabel = new JLabel(stun);
-        stunnedLabel.setLocation(x - 1, y - 1);
-    }
+    protected void initView(JLabel i, int x, int y){}
 }

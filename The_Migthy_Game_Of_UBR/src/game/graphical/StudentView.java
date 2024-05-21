@@ -13,12 +13,16 @@ public class StudentView extends CharacterView{
     private JLabel maskedLabel;
     private JLabel tvszLabel;
 
-    public StudentView(ImageIcon icon, int x, int y, int stun, int mask, int tvsz) {
-        super(icon, x, y, stun);
-        maskedLabel = new JLabel(Integer.toString(mask));
-        maskedLabel.setLocation(x + 3, y + 3);
-        tvszLabel = new JLabel(Integer.toString(tvsz));
-        tvszLabel.setLocation(x + 5, y + 5);
+
+    private Student student;
+
+    public StudentView(ImageIcon icon, Student _student) {
+        super(icon, _student);
+        this.student = _student;
+        maskedLabel = new JLabel(Integer.toString(_student.getxCoord()));
+        maskedLabel.setLocation(student.getxCoord() + 3, student.getyCoord() + 3);
+        tvszLabel = new JLabel(Integer.toString(student.getTVSZ() == null ? 0 : student.getTVSZ().getRemainingProtection()));
+        tvszLabel.setLocation(student.getxCoord() + 5, student.getyCoord() + 5);
     }
 
     @Override

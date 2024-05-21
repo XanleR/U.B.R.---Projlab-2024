@@ -351,9 +351,9 @@ public class Student extends Character implements Serializable {
     }
 
     @Override
-    public void setView(int x, int y) {
+    public void setView() {
         ImageIcon icon = new ImageIcon("Assets/Student.png");
-        this.characterView = new StudentView(icon, x, y, stunnedRounds, maskedRounds, tvsz.getRemainingProtection());
+        this.characterView = new StudentView(icon, this);
     }
 
     //input: Item dropped

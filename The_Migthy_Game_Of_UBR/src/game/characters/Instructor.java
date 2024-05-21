@@ -119,11 +119,13 @@ public class Instructor extends Character implements Serializable {
         }
     }
 
+
     @Override
-    public void setView(int x, int y) {
+    public void setView() {
         ImageIcon icon = new ImageIcon("Assets/Instructor.png");
-        this.characterView = new CharacterView(icon, x, y, stunnedRounds);
+        this.characterView = new CharacterView(icon,this);
     }
+
 
     //input: int stunned
     //method: Az adott tanár elkábul a paraméterként kapott körre

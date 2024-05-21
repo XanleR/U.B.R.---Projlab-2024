@@ -25,16 +25,15 @@ public class Cleaner extends Character implements Serializable {
     //return: void
     @Override
     public void move(Room from, Room to) {
-        if(stunnedRounds <= 0){
+        if (stunnedRounds <= 0) {
             RegularRoom regularRoom = new RegularRoom();
             currentRoom.copyToRoom(regularRoom);
             GameController.getInstance().removeRoom(currentRoom);
             GameController.getInstance().addRoom(regularRoom);
             to.addCharacter(this);
             System.out.println("The room was cleaned");
-        }
-        else{
-            System.out.println("The Cleaner could not move to the "+to.getUniqueName());
+        } else {
+            System.out.println("The Cleaner could not move to the " + to.getUniqueName());
         }
     }
 
@@ -51,12 +50,12 @@ public class Cleaner extends Character implements Serializable {
     //return: void
     @Override
     public void action() {
-        if(!currentRoom.getItems().isEmpty()){
+        if (!currentRoom.getItems().isEmpty()) {
             pickUpItem(currentRoom.getItems().get(0));
             return;
         }
 
-        if(currentRoom.getNeighbours().isEmpty()){
+        if (currentRoom.getNeighbours().isEmpty()) {
             System.out.println("The cleaner cannot move anywhere...");
             return;
         }
@@ -103,14 +102,14 @@ public class Cleaner extends Character implements Serializable {
     //return: void
     @Override
     public void startRound(int in) {
-        if(stunnedRounds != 0){
+        if (stunnedRounds != 0) {
             System.out.println("The cleaner is stunned, no actions for this round...");
             stunnedRounds--;
             return;
         }
         Random random = new Random();
-        remainingactions = random.nextInt(6)+1;
-        while(remainingactions > 0 && stunnedRounds == 0){
+        remainingactions = random.nextInt(6) + 1;
+        while (remainingactions > 0 && stunnedRounds == 0) {
             action();
             remainingactions--;
         }
@@ -122,8 +121,8 @@ public class Cleaner extends Character implements Serializable {
     //return: void
     @Override
     public void forceMove() {
-        if(stunnedRounds == 0){
-            for(Room room: currentRoom.getNeighbours()) {
+        if (stunnedRounds == 0) {
+            for (Room room : currentRoom.getNeighbours()) {
                 if (room.isAccessible(currentRoom)) {
                     room.addCharacter(this);
                     System.out.println("The character was forced to move to another room...");
@@ -134,8 +133,11 @@ public class Cleaner extends Character implements Serializable {
     }
 
     @Override
-    public void setView(int x, int y) {
+    public void setView() {
         ImageIcon icon = new ImageIcon("Assets/Cleaner.png");
-        this.characterView = new CharacterView(icon, x, y, this.stunnedRounds);
+        this.characterView = new CharacterView(icon, this);
     }
+
 }
+
+

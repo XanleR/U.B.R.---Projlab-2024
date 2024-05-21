@@ -18,6 +18,10 @@ public class MapView extends JPanel {
         }
     }
 
+    public void addViews(List<ElementView> elementViewList){
+        this.elementViewList.addAll(elementViewList);
+    }
+
     public void initPanel(){
 
     }

@@ -31,12 +31,13 @@ public class SlideRule extends Item  implements Serializable {
         GameController.getInstance().slideRulePickedUp();
     }
 
+
     @Override
     public void setView(int x, int y) {
-        ImageIcon icon = new ImageIcon("Asstes/SlideRule.png");
+        ImageIcon icon = new ImageIcon("Assets/SlideRule.png");
         this.itemView = new ItemView(icon, x, y);
     }
-
+    
     //input: -
     //method: Elvegzi a kor elejen szukseges modositasokat a palyan
     //return: void

@@ -22,7 +22,7 @@ public class StickyRoom extends Room  implements Serializable {
     @Override
     public void setRoomView(int x, int y) {
         ImageIcon icon = new ImageIcon(this.imageLocation());
-        this.roomView = new RoomView(icon, x, y);
+        this.roomView = new RoomView(icon, x, y, this);
     }
 
     @Override

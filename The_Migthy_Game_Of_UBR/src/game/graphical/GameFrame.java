@@ -12,6 +12,8 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
+import static game.GUI.gameController;
+
 public class GameFrame extends JFrame {
     //Az aktuálisan körön lévő játékosnak a neve
     private JLabel actualPlayer = new JLabel();

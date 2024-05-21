@@ -49,8 +49,6 @@ public class GameController {
     //Megadja, hogy hany felhasznalo jatszhat a programmal
     private int studentCount;
 
-
-
     //Eltarolja a jatekban resztvevo Charactereket
     private List<Character> listOfCharacters;
 

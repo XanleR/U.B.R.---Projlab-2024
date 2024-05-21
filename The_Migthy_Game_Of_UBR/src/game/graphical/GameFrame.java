@@ -104,6 +104,11 @@ public class GameFrame extends JFrame {
                 currentPlayer.action("idle");
             }
         });
+        tranJumpButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) { currentPlayer.transistorJump(); }
+        });
+
     }
 
     //input: -

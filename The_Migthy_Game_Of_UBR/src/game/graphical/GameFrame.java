@@ -73,6 +73,7 @@ public class GameFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 JFrame dialogWindow = new JFrame("Choose where to move...");
                 dialogWindow.setSize(300, 200);
+                dialogWindow.setLayout(new GridLayout(currentPlayer.getRoom().getNeighbours().size(), 1));
                 dialogWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
                 for(Room room : currentPlayer.getRoom().getNeighbours()){
@@ -84,7 +85,7 @@ public class GameFrame extends JFrame {
                             currentPlayer.action("StudentMove simpleMove " + room.getUniqueName());
                         }
                     });
-                    dialogWindow.pack();
+                    //dialogWindow.pack();
                     dialogWindow.add(button);
                     dialogWindow.setLocationRelativeTo(null);
                     dialogWindow.setVisible(true);

@@ -118,7 +118,7 @@ public abstract class Character implements Serializable {
     public abstract void forceMove();
 
 
-    public abstract void setView(int x, int y);
+    public abstract void setView();
 }
 
 

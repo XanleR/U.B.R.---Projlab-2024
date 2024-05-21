@@ -14,9 +14,7 @@ import static game.GUI.gameFrame;
 
 public class RoomView extends ElementView{
 
-    //private Room room;
-
-
+    private Room room;
 
     private JLabel maxCharLabel = new JLabel();
 

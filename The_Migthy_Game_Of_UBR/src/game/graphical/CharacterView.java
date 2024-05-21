@@ -13,7 +13,7 @@ public class CharacterView extends ElementView {
     protected JLabel stunnedLabel;
     Character character;
 
-    public CharacterView (ImageIcon icon, Character _character){
+    public CharacterView (ImageIcon icon, Character _character) {
         this.xCoord = _character.getxCoord();
         this.yCoord = _character.getyCoord();
         this.character = _character;
@@ -23,7 +23,7 @@ public class CharacterView extends ElementView {
         image.setSize(30, 30);
         stunnedLabel = new JLabel(Integer.toString(character.getStunnedRounds()));
         stunnedLabel.setLocation(this.xCoord + 2, this.yCoord + 2);
-
+    }
     
     @Override
     public void drawImage() {

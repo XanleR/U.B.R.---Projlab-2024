@@ -204,6 +204,7 @@ public class GameFrame extends JFrame {
         add(mapView, BorderLayout.CENTER);
 
 
+
         //mapView.initPanel();
 
         setLocationRelativeTo(null);

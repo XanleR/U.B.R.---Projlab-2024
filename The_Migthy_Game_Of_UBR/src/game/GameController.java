@@ -12,6 +12,8 @@ import java.util.Scanner;
 
 import game.characters.Character;
 
+import static game.GUI.gameFrame;
+
 public class GameController {
 
     private final Random random = new Random();
@@ -25,6 +27,8 @@ public class GameController {
     private int roundCounter = 0;
 
     private final int roundLimit = 30;
+
+    private int characterindex = 0;
 
 
     //input: -
@@ -222,12 +226,32 @@ public class GameController {
     //method: Elinditja a jatekmenetet
     //return: void
     public void play(){
-        while (active && roundCounter <= roundLimit) {
-            System.out.println("ROUND "+(roundCounter+1));
-            newRound();
+        characterindex = 0;
+        currentCharacter = listOfCharacters.get(characterindex);
+        currentCharacter.startRound(rollDice());
 
+
+
+
+//        while (active && roundCounter <= roundLimit) {
+//            System.out.println("ROUND "+(roundCounter+1));
+//            newRound();
+//
+//            roundCounter++;
+//        }
+    }
+
+    public void stepCharacter(){
+        characterindex++;
+        if(characterindex >= listOfCharacters.size()){
             roundCounter++;
+            characterindex = 0;
         }
+        currentCharacter = listOfCharacters.get(characterindex);
+        currentCharacter.startRound(rollDice());
+
+
+
     }
 
     public int getRoundCounter(){

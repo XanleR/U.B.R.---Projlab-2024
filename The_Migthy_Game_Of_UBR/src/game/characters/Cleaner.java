@@ -49,7 +49,7 @@ public class Cleaner extends Character implements Serializable {
     //Végrehajtja a tanár egyik akcióját
     //return: void
     @Override
-    public void action() {
+    public void action(String command) {
         if (!currentRoom.getItems().isEmpty()) {
             pickUpItem(currentRoom.getItems().get(0));
             return;
@@ -110,7 +110,7 @@ public class Cleaner extends Character implements Serializable {
         Random random = new Random();
         remainingactions = random.nextInt(6) + 1;
         while (remainingactions > 0 && stunnedRounds == 0) {
-            action();
+            action("");
             remainingactions--;
         }
         remainingactions = 0;

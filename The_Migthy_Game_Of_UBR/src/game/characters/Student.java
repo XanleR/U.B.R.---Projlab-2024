@@ -14,6 +14,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import static game.GUI.gameController;
+import static game.GUI.gameFrame;
+
 public class Student extends Character implements Serializable {
 
     public int getMaskedRounds() {
@@ -151,111 +154,89 @@ public class Student extends Character implements Serializable {
     //method: vegrehajtja a felhasznalo altal kivalasztott action-t
     //return: void
     @Override
-    public void action() {
-        GameFrame.getInstance().drawMap(this);
+    public void action(String command) {
+        //GameFrame.getInstance().drawMap(this);
 
-        System.out.println(uniqueName + " action");
+        String[] slicedCommand = command.split(" ");
 
-        // Azért, hogy addig kérdezze a játékost, ameddig nem ad egy valid akciót
-        // Egy while loop feltétele
-        boolean succes = false;
 
-        while(!succes){
-            printVariables();
-            printOptions();
-            System.out.println("\nWhat would you like to do?\n");
-
-            String answer;
-            Scanner scanner = new Scanner(System.in);
-            answer = scanner.nextLine();
-
-            String[] command = answer.split(" ");
-            if(command.length<=0){
-                System.out.println("Invalid input...\n");
-                continue;
-            }
-
-            //a command első szavának vizsgálata
-            switch (command[0]){
-                case "StudentMove":
-                    if(command.length == 3){
-                        switch (command[1]){
-                            case "simpleMove":
-                                for(Room room : currentRoom.getNeighbours()){
-                                    if(room.getUniqueName().equals(command[2])){
-                                        move(this.currentRoom, room);
-                                        succes = true;
-                                        break;
-                                    }
+        //a command első szavának vizsgálata
+        switch (slicedCommand[0]){
+            case "StudentMove":
+                if(slicedCommand.length == 3){
+                    switch (slicedCommand[1]){
+                        case "simpleMove":
+                            for(Room room : currentRoom.getNeighbours()){
+                                if(room.getUniqueName().equals(slicedCommand[2])){
+                                    move(this.currentRoom, room);
+                                    break;
                                 }
-                                break;
-                            case "transistorJump":
-                                if(this.currentRoom.geTransistor() != null && this.currentRoom.geTransistor().getPairsRoom() != null
-                                        && this.currentRoom.geTransistor().getPairsRoom().getUniqueName().equals(command[2])){
-                                    succes = true;
-                                    this.transistorJump();
-                                }
-                                break;
-                        }
+                            }
+                            break;
+                        case "transistorJump":
+                            if(this.currentRoom.geTransistor() != null && this.currentRoom.geTransistor().getPairsRoom() != null
+                                    && this.currentRoom.geTransistor().getPairsRoom().getUniqueName().equals(slicedCommand[2])){
+                                this.transistorJump();
+                            }
+                            break;
                     }
+                }
 
-                    break;
-                case "dropItem":
-                    if(command.length == 2){
-                        for(Item item : this.inventory){
-                            if(item.getUniqueName().equals(command[1])){
-                                succes = true;
-                                dropItem(item);
-                                break;
-                            }
+                break;
+            case "dropItem":
+                if(slicedCommand.length == 2){
+                    for(Item item : this.inventory){
+                        if(item.getUniqueName().equals(slicedCommand[1])){
+                            dropItem(item);
+                            break;
                         }
                     }
-                    break;
-                case "useItem":
-                    if(command.length == 2){
-                        for(Item item : this.inventory){
-                            if(item.getUniqueName().equals(command[1])){
-                                succes = true;
-                                this.useItem(item);
-                                break;
-                            }
+                }
+                break;
+            case "useItem":
+                if(slicedCommand.length == 2){
+                    for(Item item : this.inventory){
+                        if(item.getUniqueName().equals(slicedCommand[1])){
+                            this.useItem(item);
+                            break;
                         }
                     }
-                    break;
-                case "pickUpItem":
-                    if(command.length == 2){
-                        for(Item item : this.currentRoom.getItems()){
-                            if(item.getUniqueName().equals(command[1])){
-                                succes = true;
-                                pickUpItem(item);
-                                break;
-                            }
+                }
+                break;
+            case "pickUpItem":
+                if(slicedCommand.length == 2){
+                    for(Item item : this.currentRoom.getItems()){
+                        if(item.getUniqueName().equals(slicedCommand[1])){
+                            pickUpItem(item);
+                            break;
                         }
                     }
-                    break;
-                case "turnOnTransistor":
-                    if(currentRoom.geTransistor() != null){
-                        currentRoom.geTransistor().powerOn();
-                    }
-                    break;
-                case "idle":
-                    idle();
-                    succes = true;
-                    break;
-                default:
-                    break;
-            }
-            if(!succes){
-                System.out.println("Invalid input...\n");
-            }
+                }
+                break;
+            case "turnOnTransistor":
+                if(currentRoom.geTransistor() != null){
+                    currentRoom.geTransistor().powerOn();
+                }
+                break;
+            case "idle":
+                idle();
+                break;
+            default:
+                break;
         }
+
     }
 
     //input: -
     //method: A hallgató tétlen akciója
     //return: void
     public void idle(){
-        System.out.println("The "+uniqueName+" did nothing in the action!");
+        remainingactions--;
+        gameFrame.drawMap(this);
+
+        if(remainingactions == 0){
+            gameController.stepCharacter();
+        }
     }
 
     //Megadja, hogy tele van-e az ineventory
@@ -304,33 +285,31 @@ public class Student extends Character implements Serializable {
     //return: void
     @Override
     public void startRound(int in) {
-        System.out.println("--------------------------------------");
-        System.out.println("New round for " + uniqueName);
-
         if(maskedRounds > 0){
             maskedRounds--;
         }
         if(stunnedRounds != 0){
-            System.out.println("The "+uniqueName+" is stunned, no actions for this round...");
             stunnedRounds--;
+            GameController.getInstance().stepCharacter();
         }
         else{
             remainingactions = in;
+            gameFrame.drawMap(this);
 
-            while (remainingactions > 0 && stunnedRounds == 0 && alive){
-                System.out.println("---------");
-                System.out.println("The "+uniqueName+" has " + remainingactions + " action");
-
-                action();
-                remainingactions--;
-
-                //endgamecheck
-                if (!GameController.getInstance().isActive()) {
-                    return;
-                }
-            }
+//            while (remainingactions > 0 && stunnedRounds == 0 && alive){
+//                System.out.println("---------");
+//                System.out.println("The "+uniqueName+" has " + remainingactions + " action");
+//
+//                action();
+//                remainingactions--;
+//
+//                //endgamecheck
+//                if (!GameController.getInstance().isActive()) {
+//                    return;
+//                }
+//            }
         }
-        remainingactions = 0;
+        //remainingactions = 0;
     }
 
     //input: -

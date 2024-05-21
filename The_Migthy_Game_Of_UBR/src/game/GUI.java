@@ -81,14 +81,16 @@ public class GUI {
                 throw new RuntimeException(e);
             }
 
-
-
             gameFrame.initFrame();
+
+
             //System.out.println("karakterek létrehozva");
 
             //testPrint();
 
             gameController.play();
+
+
 
 
         }

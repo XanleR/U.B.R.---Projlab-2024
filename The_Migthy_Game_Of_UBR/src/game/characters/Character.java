@@ -85,7 +85,7 @@ public abstract class Character implements Serializable {
     //input: -
     //method: vegrehajtja a felhasznalo altal kivalasztott action-t
     //return: void
-    public abstract void action();
+    public abstract void action(String command);
 
     //input: Character character
     //method: Vegrehajtja azt az esemenyt, amikor a peldany egy másik Character-el kerul egy mezore

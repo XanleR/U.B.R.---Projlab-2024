@@ -8,9 +8,7 @@ import game.rooms.Room;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 
 import static game.GUI.gameController;
 
@@ -70,11 +68,42 @@ public class GameFrame extends JFrame {
     //return: void
     public void initButtons(){
         moveButton = new JButton("Move");
+        moveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame dialogWindow = new JFrame("Choose where to move...");
+                dialogWindow.setSize(300, 200);
+                dialogWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                for(Room room : currentPlayer.getRoom().getNeighbours()){
+                    JButton button = new JButton(room.getUniqueName());
+                    button.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            dialogWindow.dispose();
+                            currentPlayer.action("StudentMove simpleMove " + room.getUniqueName());
+                        }
+                    });
+                    dialogWindow.pack();
+                    dialogWindow.add(button);
+                    dialogWindow.setLocationRelativeTo(null);
+                    dialogWindow.setVisible(true);
+                }
+
+
+            }
+        });
         tranJumpButton = new JButton("Transistor Jump");
         dropItemButton = new JButton("Drop Item");
         useItemButton = new JButton("Use Item");
         turnOnTransButton = new JButton("Turn On Transistor");
         idleButton = new JButton("Idle");
+        idleButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                currentPlayer.action("idle");
+            }
+        });
     }
 
     //input: -
@@ -84,10 +113,10 @@ public class GameFrame extends JFrame {
         if(currentPlayer != null){
             actualPlayer.setText(currentPlayer.getUniqueName());
             remainingAction.setText("Remaining Action: " + currentPlayer.getRemainingactions());
-            currentRound.setText("Round " + GameController.getInstance().getRoundCounter());
+            currentRound.setText("Round " + (GameController.getInstance().getRoundCounter()+1));
 
             //magic
-            moveButton.setEnabled(currentPlayer.getRoom().getNeighbours().stream().anyMatch(room -> room.isAccessible(currentPlayer.getRoom())));
+            moveButton.setEnabled(!currentPlayer.getRoom().getNeighbours().isEmpty());
 
             tranJumpButton.setEnabled(currentPlayer.getRoom().geTransistor() != null && currentPlayer.getRoom().geTransistor().getIsOn());
             dropItemButton.setEnabled(!currentPlayer.getInventory().isEmpty());
@@ -158,6 +187,8 @@ public class GameFrame extends JFrame {
         currentPlayer = student;
         drawMap();
     }
+
+
 
     //input: -
     //method: Inicializálja az egész képernyőt

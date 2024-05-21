@@ -26,6 +26,7 @@ public class GameController {
 
     private final int roundLimit = 30;
 
+    private int currentElementOfList = 0;
 
     //input: -
     //method: Visszaadja az éppen körön lévő karaktert
@@ -161,7 +162,7 @@ public class GameController {
     //method: Elindit egy uj kort
     //return: void
     public void newRound(){
-        if(!listOfCharacters.isEmpty()){
+       /* if(!listOfCharacters.isEmpty()){
 
             int cSize = listOfCharacters.size();
 
@@ -179,6 +180,11 @@ public class GameController {
 
                 cSize = listOfCharacters.size();
             }
+        }*/
+        if(!listOfCharacters.isEmpty()){
+            this.currentCharacter = listOfCharacters.get(currentElementOfList);
+            currentElementOfList++;
+            currentCharacter.startRound(rollDice());
         }
 
     }
@@ -222,12 +228,14 @@ public class GameController {
     //method: Elinditja a jatekmenetet
     //return: void
     public void play(){
-        while (active && roundCounter <= roundLimit) {
+        /*while (active && roundCounter <= roundLimit) {
             System.out.println("ROUND "+(roundCounter+1));
             newRound();
 
             roundCounter++;
-        }
+        }*/
+        roundCounter++;
+        newRound();
     }
 
     public int getRoundCounter(){

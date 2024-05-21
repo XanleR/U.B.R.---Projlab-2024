@@ -8,6 +8,10 @@ import game.rooms.RegularRoom;
 import game.rooms.Room;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import static game.GUI.gameFrame;
 
 //Git test
 
@@ -119,6 +123,10 @@ public abstract class Character implements Serializable {
 
 
     public abstract void setView();
+
+    public List<Item> getInventory() {
+        return new ArrayList<>();
+    }
 }
 
 

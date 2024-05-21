@@ -8,9 +8,7 @@ import game.rooms.Room;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.event.*;
 
 import static game.GUI.gameController;
 
@@ -21,6 +19,31 @@ public class GameFrame extends JFrame {
     private JLabel remainingAction = new JLabel();
     //A játék köreinek számlálója
     private JLabel currentRound = new JLabel();
+
+    public JButton getMoveButton() {
+        return moveButton;
+    }
+
+    public JButton getTranJumpButton() {
+        return tranJumpButton;
+    }
+
+    public JButton getDropItemButton() {
+        return dropItemButton;
+    }
+
+    public JButton getUseItemButton() {
+        return useItemButton;
+    }
+
+    public JButton getTurnOnTransButton() {
+        return turnOnTransButton;
+    }
+
+    public JButton getIdleButton() {
+        return idleButton;
+    }
+
     //Gomb, amivel a hallgató tud mozogni
     private JButton moveButton;
     //Gomb, amivel a hallgató tud tranzisztor ugrást végrehajtani
@@ -35,8 +58,11 @@ public class GameFrame extends JFrame {
     private JButton idleButton;
     //A pálya eltárolására szolgáló változó
     private MapView mapView;
+
+
     //Az aktuálisan körön lévő karakter, melyről szeretnénk információt kirajzolni
     private Student currentPlayer;
+
     private JPanel controllerPanel = new JPanel();
 
     private static GameFrame instance;
@@ -137,7 +163,6 @@ public class GameFrame extends JFrame {
         idleButton.setBackground(new Color(255, 153, 51));
         idleButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
         idleButton.setForeground(new Color(153, 76, 0));
-
 
     }
 

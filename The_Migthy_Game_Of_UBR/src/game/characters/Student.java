@@ -7,12 +7,17 @@ import game.items.*;
 import game.rooms.Room;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.Serializable;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+
+import static game.GUI.gameController;
+import static game.GUI.gameFrame;
 
 public class Student extends Character implements Serializable {
 
@@ -258,6 +263,10 @@ public class Student extends Character implements Serializable {
         System.out.println("The "+uniqueName+" did nothing in the action!");
     }
 
+    public void excecuteIdle(){
+        this.remainingactions--;
+    }
+
     //Megadja, hogy tele van-e az ineventory
     public boolean canPickUp(){
         if(this.inventorySize <= this.inventory.size()){
@@ -304,7 +313,7 @@ public class Student extends Character implements Serializable {
     //return: void
     @Override
     public void startRound(int in) {
-        System.out.println("--------------------------------------");
+        /*System.out.println("--------------------------------------");
         System.out.println("New round for " + uniqueName);
 
         if(maskedRounds > 0){
@@ -330,7 +339,40 @@ public class Student extends Character implements Serializable {
                 }
             }
         }
-        remainingactions = 0;
+        remainingactions = 0;*/
+        if(maskedRounds > 0){
+            maskedRounds--;
+        }
+        if(stunnedRounds != 0){
+            stunnedRounds--;
+        }else{
+            remainingactions = in;
+        }
+        gameFrame.drawMap(this);
+        if(!this.currentRoom.getNeighbours().isEmpty()){
+            gameFrame.getMoveButton().addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.out.println("XDDD");
+                    gameFrame.updateHud();
+                    if(remainingactions == 0){
+                        gameController.newRound();
+                    }
+                }
+            });
+
+        }
+        gameFrame.getIdleButton().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                remainingactions--;
+                gameFrame.updateHud();
+                if(remainingactions == 0){
+                    gameController.newRound();
+                }
+            }
+        });
+
     }
 
     //input: -
@@ -524,4 +566,5 @@ public class Student extends Character implements Serializable {
         int index = random.nextInt(inventory.size());
         dropItem(inventory.get(index));
     }
+
 }

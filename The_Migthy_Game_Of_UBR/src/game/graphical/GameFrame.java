@@ -37,6 +37,10 @@ public class GameFrame extends JFrame {
     private Student currentPlayer;
     private JPanel controllerPanel = new JPanel();
 
+    private JPanel arrows = new JPanel();
+
+    private JLayeredPane layeredPane = new JLayeredPane();
+
     private static GameFrame instance;
 
     private final int frameWidth = 1000;
@@ -184,8 +188,7 @@ public class GameFrame extends JFrame {
 
         add(controllerPanel, BorderLayout.WEST);
 
-        mapView.setLayout(null);
-        mapView.setBackground(Color.WHITE);
+
         mapView.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -201,7 +204,31 @@ public class GameFrame extends JFrame {
 
         mapView.draw();
 
-        add(mapView, BorderLayout.CENTER);
+
+
+
+
+        mapView.setLayout(null);
+        mapView.setBounds(0, 0, frameWidth- controllerPanel.getWidth(), frameHeight);
+        //mapView.setBackground(new Color(0, 0, 0,0));
+        mapView.setOpaque(false);
+
+
+        arrows.setLayout(null);
+        arrows.setBounds(0, 0, frameWidth- controllerPanel.getWidth(), frameHeight);
+        arrows.setBackground(Color.WHITE);
+        arrows.setOpaque(true);
+
+        layeredPane.setBounds(0, 0, frameWidth - controllerPanel.getWidth(), frameHeight);
+        layeredPane.add(arrows, JLayeredPane.DEFAULT_LAYER);
+        layeredPane.add(mapView, JLayeredPane.PALETTE_LAYER);
+
+        //getContentPane().add(layeredPane);
+
+        add(layeredPane, BorderLayout.CENTER);
+
+        //add(arrows, BorderLayout.CENTER);
+        //add(mapView, BorderLayout.CENTER);
 
 
 
@@ -212,4 +239,9 @@ public class GameFrame extends JFrame {
 
         drawMap();
     }
+
+    public void addArrow(JLabel arrow){
+        arrows.add(arrow);
+    }
+
 }

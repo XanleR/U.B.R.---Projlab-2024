@@ -46,6 +46,10 @@ public class GameFrame extends JFrame {
 
     //Gomb, amivel a hallgató tud mozogni
     private JButton moveButton;
+
+    //Item felvetelere gomb
+    private JButton pickUpItem;
+
     //Gomb, amivel a hallgató tud tranzisztor ugrást végrehajtani
     private JButton tranJumpButton;
     //Gomb, amivel a hallgató el tud dobni egy itemet
@@ -92,6 +96,7 @@ public class GameFrame extends JFrame {
     //return: void
     public void initButtons(){
         moveButton = new JButton("Move");
+        pickUpItem = new JButton("Pick Up Item");
         tranJumpButton = new JButton("Transistor Jump");
         dropItemButton = new JButton("Drop Item");
         useItemButton = new JButton("Use Item");
@@ -109,7 +114,7 @@ public class GameFrame extends JFrame {
             currentRound.setText("Round " + GameController.getInstance().getRoundCounter());
 
             //magic
-            moveButton.setEnabled(currentPlayer.getRoom().getNeighbours().stream().anyMatch(room -> room.isAccessible(currentPlayer.getRoom())));
+            moveButton.setEnabled(!currentPlayer.getRoom().getNeighbours().isEmpty());
 
             tranJumpButton.setEnabled(currentPlayer.getRoom().geTransistor() != null && currentPlayer.getRoom().geTransistor().getIsOn());
             dropItemButton.setEnabled(!currentPlayer.getInventory().isEmpty());
@@ -144,6 +149,10 @@ public class GameFrame extends JFrame {
         moveButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
         moveButton.setForeground(new Color(153, 76, 0));
 
+        pickUpItem.setBackground(new Color(255, 153, 51));
+        pickUpItem.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        pickUpItem.setForeground(new Color(153, 76, 0));
+
         tranJumpButton.setBackground(new Color(255, 153, 51));
         tranJumpButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
         tranJumpButton.setForeground(new Color(153, 76, 0));
@@ -163,6 +172,7 @@ public class GameFrame extends JFrame {
         idleButton.setBackground(new Color(255, 153, 51));
         idleButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
         idleButton.setForeground(new Color(153, 76, 0));
+        mapView.draw();
 
     }
 
@@ -200,6 +210,7 @@ public class GameFrame extends JFrame {
         controllerPanel.add(actualPlayer);
         controllerPanel.add(remainingAction);
         controllerPanel.add(moveButton);
+        controllerPanel.add(pickUpItem);
         controllerPanel.add(tranJumpButton);
         controllerPanel.add(dropItemButton);
         controllerPanel.add(useItemButton);

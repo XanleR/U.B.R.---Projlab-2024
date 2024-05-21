@@ -182,11 +182,14 @@ public class GameController {
             }
         }*/
         if(!listOfCharacters.isEmpty()){
+            if(currentElementOfList == listOfCharacters.size()){
+                currentElementOfList = 0;
+                play();
+            }
             this.currentCharacter = listOfCharacters.get(currentElementOfList);
             currentElementOfList++;
             currentCharacter.startRound(rollDice());
         }
-
     }
 
     public boolean isActive() {
@@ -235,6 +238,9 @@ public class GameController {
             roundCounter++;
         }*/
         roundCounter++;
+        if(roundCounter >= roundLimit){
+            endGame();
+        }
         newRound();
     }
 

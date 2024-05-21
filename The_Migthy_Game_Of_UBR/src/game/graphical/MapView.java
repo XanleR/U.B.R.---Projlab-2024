@@ -13,6 +13,7 @@ public class MapView extends JPanel {
     }
 
     public void draw(){
+        this.removeAll();
         for(ElementView elementView : elementViewList){
             elementView.drawImage();
         }

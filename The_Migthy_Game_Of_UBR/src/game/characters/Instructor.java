@@ -8,6 +8,9 @@ import javax.swing.*;
 import java.io.Serializable;
 import java.util.Random;
 
+import static game.GUI.gameController;
+import static game.GUI.gameFrame;
+
 
 public class Instructor extends Character implements Serializable {
     //input: Room from, Room to
@@ -92,7 +95,6 @@ public class Instructor extends Character implements Serializable {
         if(stunnedRounds != 0){
             System.out.println("The "+uniqueName+" is stunned, no actions for this round...");
             stunnedRounds--;
-            return;
         }
         Random random = new Random();
         remainingactions = random.nextInt(6)+1;
@@ -101,6 +103,7 @@ public class Instructor extends Character implements Serializable {
             remainingactions--;
         }
         remainingactions = 0;
+        gameController.newRound();
     }
 
     //input: -

@@ -6,6 +6,8 @@ import java.util.List;
 
 public class MapView extends JPanel {
 
+
+
     private List<ElementView> elementViewList;
 
     public MapView(List<ElementView> elementViewList) {

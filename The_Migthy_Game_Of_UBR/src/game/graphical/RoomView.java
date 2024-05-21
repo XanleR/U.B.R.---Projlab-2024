@@ -15,11 +15,11 @@ import static game.GUI.gameFrame;
 
 public class RoomView extends ElementView{
 
-    private static boolean onlyoone = true;
-
     private Room room;
 
     private JLabel maxCharLabel = new JLabel();
+
+    private String filename;
 
     public RoomView(ImageIcon newIcon, int x, int y, Room r) {
         this.xCoord = x;
@@ -35,19 +35,26 @@ public class RoomView extends ElementView{
 
     @Override
     public void drawImage() {
-        gameFrame.getMapView().add(image);
 
         for(Room tmpRoom : room.getNeighbours()){
-
-            if(onlyoone){
-                System.out.println(room.getUniqueName() + " + " + tmpRoom.getUniqueName());
-                JLabel arrow = drawArrow(room.getX(), room.getY(), tmpRoom.getX(), tmpRoom.getY());
-                //gameFrame.getMapView().add(arrow);
-                onlyoone = false;
+            filename = "Assets/arrow.png";
+            if(room.getX() < tmpRoom.getX() || (room.getX() == tmpRoom.getX() && room.getY() < tmpRoom.getY()) ){
+                filename = "Assets/arrowBackwards.png";
             }
+            if(tmpRoom.getNeighbours().contains(room)){
+                filename = "Assets/arrow2way.png";
+            }
+
+            JLabel arrow = drawArrow(room.getX()+30, room.getY()+30, tmpRoom.getX()+30, tmpRoom.getY()+30);
+            gameFrame.addArrow(arrow);
+
 
 
         }
+
+        gameFrame.getMapView().add(image);
+
+
 
         GameFrame.getInstance().getMapView().revalidate();
         GameFrame.getInstance().getMapView().repaint();
@@ -60,7 +67,7 @@ public class RoomView extends ElementView{
     private JLabel drawArrow(int x1, int y1, int x2, int y2) {
         int width = Math.abs(x1 - x2);
         int heigh = Math.abs(y1 - y2);
-        String filename = "Assets/Door(OneWay).png";
+
         double degree = Math.toDegrees(Math.atan((double) heigh / (double) width));
         if ((x1 < x2 && y1 > y2) || (x1 > x2 && y1 < y2)){
             degree *= -1;
@@ -68,7 +75,19 @@ public class RoomView extends ElementView{
         try{
 
             BufferedImage originalimg = ImageIO.read(new File(filename));
+            BufferedImage rotatedImg = rotate(originalimg, degree);
+            JLabel arrow = new JLabel(new ImageIcon(rotatedImg));
 
+            if (x1 <= x2 && y1 <= y2)
+                arrow.setBounds(x1, y1, width, heigh);
+            else if (x1 < x2 && y1 > y2)
+                arrow.setBounds(x1, y2, width, heigh);
+            else if (x1 > x2 && y1 < y2)
+                arrow.setBounds(x2, y1, width, heigh);
+            else if (x1 >= x2 && y1 >= y2)
+                arrow.setBounds(x2, y2, width, heigh);
+
+            return arrow;
 
 
         }catch (Exception e){
@@ -90,8 +109,10 @@ public class RoomView extends ElementView{
         Graphics2D g2d = rotate.createGraphics();
         int x = (newWidth - image.getWidth()) / 2;
         int y = (newHeight - image.getHeight()) / 2;
+
         AffineTransform at = new AffineTransform();
         at.setToRotation(radians, x + (image.getWidth() / 2), y + (image.getHeight() / 2));
+
         at.translate(x, y);
         g2d.setTransform(at);
         g2d.drawImage(image, 0, 0, null);

@@ -10,7 +10,7 @@ import java.io.Serializable;
 public class FFP2 extends Item  implements Serializable {
 
     //Megadja, hogy hanyszor ved meg meg az FFP2
-    private int durability;
+    private int durability = 2;
 
     // Setter
     public void setDurability(int durability) {
@@ -42,7 +42,7 @@ public class FFP2 extends Item  implements Serializable {
     @Override
     public void setView(int x, int y) {
         ImageIcon icon = new ImageIcon("Assets/FFP2.png");
-        this.itemView = new FFP2View(icon, x, y);
+        this.itemView = new FFP2View(icon, x, y, this.durability);
     }
 
     //input: -

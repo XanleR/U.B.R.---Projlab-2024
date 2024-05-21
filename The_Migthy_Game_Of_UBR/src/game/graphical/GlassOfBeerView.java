@@ -13,9 +13,9 @@ public class GlassOfBeerView extends ItemView{
     public GlassOfBeerView(ImageIcon icon, int x, int y, int activeRounds, boolean isActive) {
         super(icon, x, y);
         if(isActive){
-            activatedLabel = new JLabel("Active");
+            activatedLabel = new JLabel("A");
         }else{
-            activatedLabel = new JLabel("InActive");
+            activatedLabel = new JLabel("IA");
         }
         activeRoundsLabel = new JLabel(Integer.toString(activeRounds));
         activatedLabel.setLocation(x+2, y);

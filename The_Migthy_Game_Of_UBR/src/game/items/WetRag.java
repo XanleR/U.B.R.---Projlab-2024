@@ -49,7 +49,7 @@ public class WetRag extends Item  implements Serializable {
     @Override
     public void setView(int x, int y) {
         ImageIcon icon = new ImageIcon("Assets/WetRag.png");
-        this.itemView = new WetRagView(icon, x, y);
+        this.itemView = new WetRagView(icon, x, y, this.wetness);
     }
 
     //input: -

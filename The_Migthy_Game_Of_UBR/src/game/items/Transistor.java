@@ -94,7 +94,7 @@ public class Transistor extends Item  implements Serializable {
     @Override
     public void setView(int x, int y) {
         ImageIcon icon = new ImageIcon("Assets/Transistor(Off).png");
-        this.itemView = new TransistorView(icon, x, y);
+        this.itemView = new TransistorView(icon, x, y, this.isOn, this.isPaired);
     }
 
     //input: -

@@ -88,7 +88,7 @@ public class GUI {
 
             //testPrint();
 
-            //gameController.play();
+            gameController.play();
 
 
         }

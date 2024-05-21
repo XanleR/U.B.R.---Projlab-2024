@@ -6,7 +6,8 @@ import javax.swing.*;
 
 public class TransistorView extends ItemView{
 
-    public TransistorView(Item i) {
-        super(i);
+    //TODO
+    public TransistorView(ImageIcon icon, int x, int y) {
+        super(icon, x, y);
     }
 }

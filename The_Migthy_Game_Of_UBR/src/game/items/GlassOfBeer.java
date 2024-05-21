@@ -2,7 +2,9 @@ package game.items;
 
 import game.characters.Instructor;
 import game.characters.Student;
+import game.graphical.GlassOfBeerView;
 
+import javax.swing.*;
 import java.io.Serializable;
 import java.util.Scanner;
 
@@ -57,6 +59,12 @@ public class GlassOfBeer extends Item  implements Serializable {
     @Override
     public void onPickedUp(Student student){
         student.addItem(this);
+    }
+
+    @Override
+    public void setView(int x, int y) {
+        ImageIcon icon = new ImageIcon("Assets/GlassOfBeer.png");
+        this.itemView = new GlassOfBeerView(icon, x, y, this.activeRounds, this.getActivated());
     }
 
     //input: -

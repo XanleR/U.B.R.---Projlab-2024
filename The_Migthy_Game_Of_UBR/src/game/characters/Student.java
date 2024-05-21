@@ -2,9 +2,11 @@ package game.characters;
 
 import game.GameController;
 import game.graphical.GameFrame;
+import game.graphical.StudentView;
 import game.items.*;
 import game.rooms.Room;
 
+import javax.swing.*;
 import java.io.Serializable;
 import java.sql.SQLOutput;
 import java.util.ArrayList;
@@ -348,15 +350,12 @@ public class Student extends Character implements Serializable {
 
     }
 
-<<<<<<< Updated upstream
-=======
     @Override
     public void setView() {
         ImageIcon icon = new ImageIcon("Assets/Student.png");
         this.characterView = new StudentView(icon, this);
     }
 
->>>>>>> Stashed changes
     //input: Item dropped
     //method: Kitorli a targyat a Student inventory-jabol es hozzaadja a szoba targyakat tarolo attributumahoz
     //return: void

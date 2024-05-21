@@ -3,9 +3,11 @@ package game.items;
 import game.GameController;
 import game.characters.Instructor;
 import game.characters.Student;
+import game.graphical.ItemView;
 import game.rooms.GasRoom;
 import game.rooms.Room;
 
+import javax.swing.*;
 import java.io.Serializable;
 
 
@@ -35,6 +37,12 @@ public class Camambert extends Item implements Serializable {
     @Override
     public void onPickedUp(Student student){
         student.addItem(this);
+    }
+
+    @Override
+    public void setView(int x, int y) {
+        ImageIcon icon = new ImageIcon("Assets/Camambert.png");
+        this.itemView = new ItemView(icon, x, y);
     }
 
     //input: -

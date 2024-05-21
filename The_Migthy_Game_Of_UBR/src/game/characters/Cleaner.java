@@ -1,10 +1,12 @@
 package game.characters;
 
 import game.GameController;
+import game.graphical.CharacterView;
 import game.items.*;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
 
+import javax.swing.*;
 import java.io.Serializable;
 import java.util.Random;
 
@@ -130,13 +132,11 @@ public class Cleaner extends Character implements Serializable {
             }
         }
     }
-<<<<<<< Updated upstream
-=======
 
     @Override
     public void setView() {
         ImageIcon icon = new ImageIcon("Assets/Cleaner.png");
         this.characterView = new CharacterView(icon,this);
     }
->>>>>>> Stashed changes
-}
+
+

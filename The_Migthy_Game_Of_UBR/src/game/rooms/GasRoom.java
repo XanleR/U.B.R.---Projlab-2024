@@ -1,6 +1,8 @@
 package game.rooms;
 import game.characters.Character;
+import game.graphical.RoomView;
 
+import javax.swing.*;
 import java.io.Serializable;
 
 public class GasRoom extends Room  implements Serializable {
@@ -17,16 +19,13 @@ public class GasRoom extends Room  implements Serializable {
     }
 
     @Override
-<<<<<<< Updated upstream
-=======
     public void setRoomView(int x, int y) {
         ImageIcon icon = new ImageIcon(this.imageLocation());
         this.roomView = new RoomView(icon, x, y, this);
     }
 
     @Override
->>>>>>> Stashed changes
     public String imageLocation() {
-        return "GasRoom.png";
+        return "Assets/GasRoom.png";
     }
 }

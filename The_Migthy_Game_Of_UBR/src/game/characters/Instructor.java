@@ -1,8 +1,10 @@
 package game.characters;
 
+import game.graphical.CharacterView;
 import game.items.Item;
 import game.rooms.Room;
 
+import javax.swing.*;
 import java.io.Serializable;
 import java.util.Random;
 
@@ -117,15 +119,14 @@ public class Instructor extends Character implements Serializable {
         }
     }
 
-<<<<<<< Updated upstream
-=======
+
     @Override
     public void setView() {
         ImageIcon icon = new ImageIcon("Assets/Instructor.png");
         this.characterView = new CharacterView(icon,this);
     }
 
->>>>>>> Stashed changes
+
     //input: int stunned
     //method: Az adott tanár elkábul a paraméterként kapott körre
     //return: void

@@ -8,12 +8,17 @@ import game.graphical.*;
 import game.items.Item;
 import game.rooms.Room;
 
+import javax.swing.*;
+import java.awt.*;
+import java.io.Console;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import static game.GUI.gameFrame;
 
 public class GameInitializer {
 
@@ -28,18 +33,25 @@ public class GameInitializer {
         //System.out.println("1 beolvasás ok");
         ObjectInputStream map = new ObjectInputStream(mapStream);
         //System.out.println("2 beolvasás ok");
-        List<Room> rooms = ( ArrayList<Room> ) map.readObject();
+        List<Room> rooms = (ArrayList<Room>) map.readObject();
 
         List<ElementView> roomViews = new ArrayList<>();
-
+        //Szobák és itemeket valamint kinézeteik betöltése
         for (Room room : rooms) {
+            room.setRoomView(room.getX(), room.getY());
+            if(!room.getItems().isEmpty()) {
+                for (Item item : room.getItems()) {
+                    item.setView(item.getxCoord(), item.getyCoord());
+                    roomViews.add(item.getItemView());
+                }
+            }
             roomViews.add(room.getView());
+
         }
 
         MapView mapView = new MapView(roomViews);
 
         GameFrame.getInstance().setMapView(mapView);
-
 
         //System.out.println("3 beolvasás ok");
         map.close();

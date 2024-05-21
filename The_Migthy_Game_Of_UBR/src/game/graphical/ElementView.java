@@ -2,6 +2,7 @@ package game.graphical;
 
 import javax.swing.*;
 import java.awt.*;
+import java.io.Serializable;
 
 public abstract class ElementView {
     protected int xCoord;

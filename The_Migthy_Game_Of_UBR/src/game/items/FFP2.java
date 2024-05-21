@@ -2,7 +2,9 @@ package game.items;
 
 import game.characters.Instructor;
 import game.characters.Student;
+import game.graphical.FFP2View;
 
+import javax.swing.*;
 import java.io.Serializable;
 
 public class FFP2 extends Item  implements Serializable {
@@ -35,6 +37,12 @@ public class FFP2 extends Item  implements Serializable {
     @Override
     public void onPickedUp(Student student){
         student.addItem(this);
+    }
+
+    @Override
+    public void setView(int x, int y) {
+        ImageIcon icon = new ImageIcon("Assets/FFP2.png");
+        this.itemView = new FFP2View(icon, x, y);
     }
 
     //input: -

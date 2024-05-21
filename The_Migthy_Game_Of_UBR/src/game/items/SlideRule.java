@@ -29,6 +29,15 @@ public class SlideRule extends Item  implements Serializable {
         GameController.getInstance().slideRulePickedUp();
     }
 
+<<<<<<< Updated upstream
+=======
+    @Override
+    public void setView(int x, int y) {
+        ImageIcon icon = new ImageIcon("Assets/SlideRule.png");
+        this.itemView = new ItemView(icon, x, y);
+    }
+
+>>>>>>> Stashed changes
     //input: -
     //method: Elvegzi a kor elejen szukseges modositasokat a palyan
     //return: void

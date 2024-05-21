@@ -15,6 +15,7 @@ public class RoomView extends ElementView{
 
     private Room room;
 
+<<<<<<< Updated upstream
     public RoomView(Room room) {
         this.room = room;
         this.xCoord = room.getX();
@@ -35,6 +36,19 @@ public class RoomView extends ElementView{
         /*} catch (IOException e) {
             throw new RuntimeException(e);
         }*/
+=======
+    private JLabel maxCharLabel = new JLabel();
+
+    public RoomView(ImageIcon newIcon, int x, int y, Room r) {
+        this.xCoord = x;
+        this.yCoord = y;
+        this.room = r;
+        newIcon.setImage(newIcon.getImage().getScaledInstance(60, 60, Image.SCALE_DEFAULT));
+        image = new JLabel(newIcon);
+        image.setLocation(xCoord, yCoord);
+        image.setSize(60,60);
+        image.setVisible(true);
+>>>>>>> Stashed changes
     }
 
     @Override

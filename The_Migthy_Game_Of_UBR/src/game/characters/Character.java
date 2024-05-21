@@ -1,5 +1,10 @@
 package game.characters;
 
+<<<<<<< Updated upstream
+=======
+import game.graphical.CharacterView;
+import game.graphical.ElementView;
+>>>>>>> Stashed changes
 import game.items.Item;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
@@ -12,9 +17,29 @@ import java.io.Serializable;
 // A Student es az Instructor ebbol szarmazik le.
 public abstract class Character implements Serializable {
 
+<<<<<<< Updated upstream
     //Megadja, hogy hany action-je van hatra a peldanynak
     protected int remainingactions;
 
+=======
+    public int getxCoord() {
+        return currentRoom.getX();
+    }
+
+    public int getyCoord() {
+        return currentRoom.getY();
+    }
+
+    //Megadja, hogy hany action-je van hatra a peldanynak
+    protected int remainingactions;
+
+    protected transient CharacterView characterView;
+
+    public ElementView getView(){
+        return characterView;
+    }
+
+>>>>>>> Stashed changes
     //Megajda azt a szobat, ahol a peldany jelenleg all
     protected Room currentRoom;
 
@@ -97,6 +122,11 @@ public abstract class Character implements Serializable {
     //method: A karaktert átmozgatja erőszakosan egy szomszédos szobába
     //return: void
     public abstract void forceMove();
+<<<<<<< Updated upstream
+=======
+
+    public abstract void setView();
+>>>>>>> Stashed changes
 }
 
 

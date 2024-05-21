@@ -348,6 +348,15 @@ public class Student extends Character implements Serializable {
 
     }
 
+<<<<<<< Updated upstream
+=======
+    @Override
+    public void setView() {
+        ImageIcon icon = new ImageIcon("Assets/Student.png");
+        this.characterView = new StudentView(icon, this);
+    }
+
+>>>>>>> Stashed changes
     //input: Item dropped
     //method: Kitorli a targyat a Student inventory-jabol es hozzaadja a szoba targyakat tarolo attributumahoz
     //return: void

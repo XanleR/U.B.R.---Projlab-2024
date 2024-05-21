@@ -11,9 +11,22 @@ public class StudentView extends CharacterView{
     private Student s;
     private JLabel maskedLabel;
     private JLabel tvszLabel;
+<<<<<<< Updated upstream
     public StudentView(Student s) {
         super(s);
         this.s = s;
+=======
+
+    private Student student;
+
+    public StudentView(ImageIcon icon, Student _student) {
+        super(icon, _student);
+        this.student = _student;
+        maskedLabel = new JLabel(Integer.toString(_student.getxCoord()));
+        maskedLabel.setLocation(student.getxCoord() + 3, student.getyCoord() + 3);
+        tvszLabel = new JLabel(Integer.toString(student.getTVSZ() == null ? 0 : student.getTVSZ().getRemainingProtection()));
+        tvszLabel.setLocation(student.getxCoord() + 5, student.getyCoord() + 5);
+>>>>>>> Stashed changes
     }
 
     @Override

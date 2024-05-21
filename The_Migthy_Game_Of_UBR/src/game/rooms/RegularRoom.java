@@ -42,6 +42,15 @@ public class RegularRoom extends Room  implements Serializable {
     }
 
     @Override
+<<<<<<< Updated upstream
+=======
+    public void setRoomView(int x, int y) {
+        ImageIcon icon  = new ImageIcon(this.imageLocation());
+        this.roomView = new RoomView(icon, x, y, this);
+    }
+
+    @Override
+>>>>>>> Stashed changes
     public String imageLocation() {
         return "Assets/Room.png";
     }

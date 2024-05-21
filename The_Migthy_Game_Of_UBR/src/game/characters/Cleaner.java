@@ -130,4 +130,13 @@ public class Cleaner extends Character implements Serializable {
             }
         }
     }
+<<<<<<< Updated upstream
+=======
+
+    @Override
+    public void setView() {
+        ImageIcon icon = new ImageIcon("Assets/Cleaner.png");
+        this.characterView = new CharacterView(icon,this);
+    }
+>>>>>>> Stashed changes
 }

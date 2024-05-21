@@ -18,6 +18,15 @@ public class StickyRoom extends Room  implements Serializable {
     public void pickUp(Item i, Student ch){}
 
     @Override
+<<<<<<< Updated upstream
+=======
+    public void setRoomView(int x, int y) {
+        ImageIcon icon = new ImageIcon(this.imageLocation());
+        this.roomView = new RoomView(icon, x, y, this);
+    }
+
+    @Override
+>>>>>>> Stashed changes
     public String imageLocation() {
         return "Assets/StickyRoom.png";
     }

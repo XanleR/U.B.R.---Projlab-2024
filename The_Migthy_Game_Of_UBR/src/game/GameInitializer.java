@@ -61,6 +61,8 @@ public class GameInitializer {
     //return: void
     public static void initCharacters(int count) throws IOException, ClassNotFoundException{
 
+        List<ElementView> elementViews = new ArrayList<>();
+
         GameController.getInstance().setStudentCount(count);
         // tanulók
         for (int i = 0; i < count ; i++) {
@@ -71,7 +73,12 @@ public class GameInitializer {
             tmpRoom = 0;
             tmp.setCurrentRoom( GameController.getInstance().getRooms().get(tmpRoom) );
             GameController.getInstance().getRooms().get(tmpRoom).putCharacter(tmp);
+            tmp.setView();
+            elementViews.add(tmp.getView());
+
         }
+
+
 
         //tanárok
         for (int i = 0; i < 3; i++) {
@@ -85,7 +92,12 @@ public class GameInitializer {
                 //tmpRoom = 8;
                 tmp.setCurrentRoom( GameController.getInstance().getRooms().get(tmpRoom) );
                 GameController.getInstance().getRooms().get(tmpRoom).putCharacter(tmp);
+
+                tmp.setView();
+                elementViews.add(tmp.getView());
         }
+
+
 
         //takarítók
         for (int i = 0; i < 1; i++) {
@@ -97,7 +109,12 @@ public class GameInitializer {
             tmpRoom = r.nextInt(2, GameController.getInstance().getRooms().size());
             tmp.setCurrentRoom( GameController.getInstance().getRooms().get(tmpRoom) );
             GameController.getInstance().getRooms().get(tmpRoom).putCharacter(tmp);
+
+            tmp.setView();
+            elementViews.add(tmp.getView());
         }
+
+        gameFrame.getMapView().addViews(elementViews);
 
 
     }

@@ -16,8 +16,12 @@ public class MapView extends JPanel {
 
     public void draw(){
         removeAll();
-        for(ElementView elementView : elementViewList){
-            elementView.drawImage();
+
+        int loopLimit = elementViewList.size();
+
+        for(int i=0;i<loopLimit; i++){
+            elementViewList.get(i).drawImage();
+            loopLimit = elementViewList.size();
         }
     }
 

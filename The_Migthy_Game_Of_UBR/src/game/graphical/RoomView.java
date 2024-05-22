@@ -17,6 +17,8 @@ public class RoomView extends ElementView{
 
     private Room room;
 
+    private JLabel roomNumber;
+
     private JLabel maxCharLabel = new JLabel();
 
     private String filename;
@@ -30,6 +32,12 @@ public class RoomView extends ElementView{
         image.setLocation(xCoord, yCoord);
         image.setSize(60,60);
         image.setVisible(true);
+
+        roomNumber = new JLabel(room.getUniqueName());
+        roomNumber.setLocation(x+10, y-30);
+        roomNumber.setSize(60, 40);
+
+
 
     }
 
@@ -53,6 +61,7 @@ public class RoomView extends ElementView{
         }
 
         gameFrame.getMapView().add(image);
+        gameFrame.getMapView().add(roomNumber);
 
 
 

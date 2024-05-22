@@ -25,6 +25,10 @@ public class MapView extends JPanel {
         this.elementViewList.addAll(elementViewList);
     }
 
+    public void removeElementView(ElementView elementView){
+        elementViewList.remove(elementView);
+    }
+
     public void initPanel(){
 
     }

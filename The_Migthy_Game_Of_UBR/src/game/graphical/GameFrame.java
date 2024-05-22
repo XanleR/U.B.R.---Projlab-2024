@@ -3,6 +3,7 @@ package game.graphical;
 import game.GameController;
 import game.characters.Character;
 import game.characters.Student;
+import game.items.Item;
 import game.rooms.Room;
 
 import javax.swing.*;
@@ -23,6 +24,7 @@ public class GameFrame extends JFrame {
     private JButton moveButton;
     //Gomb, amivel a hallgató tud tranzisztor ugrást végrehajtani
     private JButton tranJumpButton;
+    private JButton pickUpItemButton;
     //Gomb, amivel a hallgató el tud dobni egy itemet
     private JButton dropItemButton;
     //Gomb, amivel egy hallgató tud használni egy itemet
@@ -95,6 +97,33 @@ public class GameFrame extends JFrame {
             }
         });
         tranJumpButton = new JButton("Transistor Jump");
+        pickUpItemButton = new JButton("Pick Up Item");
+        pickUpItemButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame dialogWindow = new JFrame("Choose which item to Pick Up");
+                dialogWindow.setSize(300, 200);
+                dialogWindow.setLayout(new GridLayout(currentPlayer.getRoom().getItems().size(), 1));
+                dialogWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                for(Item item : currentPlayer.getRoom().getItems()){
+                    JButton button = new JButton(item.getUniqueName());
+                    button.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            dialogWindow.dispose();
+                            currentPlayer.action("pickUpItem " + item.getUniqueName());
+                        }
+                    });
+                    //dialogWindow.pack();
+                    dialogWindow.add(button);
+                    dialogWindow.setLocationRelativeTo(null);
+                    dialogWindow.setVisible(true);
+                }
+
+
+            }
+        });
         dropItemButton = new JButton("Drop Item");
         useItemButton = new JButton("Use Item");
         turnOnTransButton = new JButton("Turn On Transistor");
@@ -120,6 +149,7 @@ public class GameFrame extends JFrame {
             moveButton.setEnabled(!currentPlayer.getRoom().getNeighbours().isEmpty());
 
             tranJumpButton.setEnabled(currentPlayer.getRoom().geTransistor() != null && currentPlayer.getRoom().geTransistor().getIsOn());
+            pickUpItemButton.setEnabled(!currentPlayer.getRoom().getItems().isEmpty());
             dropItemButton.setEnabled(!currentPlayer.getInventory().isEmpty());
             useItemButton.setEnabled(!currentPlayer.getInventory().isEmpty());
             turnOnTransButton.setEnabled(currentPlayer.getRoom().geTransistor() != null && !currentPlayer.getRoom().geTransistor().getIsOn());
@@ -143,6 +173,7 @@ public class GameFrame extends JFrame {
 
             moveButton.setEnabled(false);
             tranJumpButton.setEnabled(false);
+            pickUpItemButton.setEnabled(false);
             dropItemButton.setEnabled(false);
             useItemButton.setEnabled(false);
             turnOnTransButton.setEnabled(false);
@@ -155,6 +186,10 @@ public class GameFrame extends JFrame {
         tranJumpButton.setBackground(new Color(255, 153, 51));
         tranJumpButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
         tranJumpButton.setForeground(new Color(153, 76, 0));
+
+        pickUpItemButton.setBackground(new Color(255, 153, 51));
+        pickUpItemButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        pickUpItemButton.setForeground(new Color(153, 76, 0));
 
         dropItemButton.setBackground(new Color(255, 153, 51));
         dropItemButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
@@ -212,6 +247,7 @@ public class GameFrame extends JFrame {
         controllerPanel.add(remainingAction);
         controllerPanel.add(moveButton);
         controllerPanel.add(tranJumpButton);
+        controllerPanel.add(pickUpItemButton);
         controllerPanel.add(dropItemButton);
         controllerPanel.add(useItemButton);
         controllerPanel.add(turnOnTransButton);

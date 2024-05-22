@@ -214,6 +214,7 @@ public class Student extends Character implements Serializable {
                     for(Item item : this.currentRoom.getItems()){
                         if(item.getUniqueName().equals(slicedCommand[1])){
                             pickUpItem(item);
+                            idle();
                             break;
                         }
                     }

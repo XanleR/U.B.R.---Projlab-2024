@@ -188,8 +188,9 @@ public class Student extends Character implements Serializable {
                 break;
         }
 
-        if(stunnedRounds != 0){
+        if(stunnedRounds != 0 || !alive){
             GameController.getInstance().stepCharacter();
+
         }
 
     }
@@ -434,6 +435,7 @@ public class Student extends Character implements Serializable {
     //return void
     public void die(Instructor instructor){
         boolean studentSaved = false;
+        alive = false;
 
         if(this.tvsz != null && this.tvsz.onAttacked(this, instructor)){
             studentSaved = true;

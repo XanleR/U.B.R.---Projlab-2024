@@ -195,7 +195,7 @@ public class GameFrame extends JFrame {
         tranJumpButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currentPlayer.action("StudentMove transistorJump");
+                currentPlayer.action("StudentMove transistorJump asd");
             }
         });
 
@@ -214,7 +214,6 @@ public class GameFrame extends JFrame {
             moveButton.setEnabled(!currentPlayer.getRoom().getNeighbours().isEmpty());
 
             tranJumpButton.setEnabled(currentPlayer.getRoom().geTransistor() != null && currentPlayer.getRoom().geTransistor().getIsOn());
-            System.out.println(" " + currentPlayer.getRoom().geTransistor() != null + " " + currentPlayer.getRoom().geTransistor().getIsOn());
             pickUpItemButton.setEnabled(!currentPlayer.getRoom().getItems().isEmpty());
             dropItemButton.setEnabled(!currentPlayer.getInventory().isEmpty());
             useItemButton.setEnabled(!currentPlayer.getInventory().isEmpty());

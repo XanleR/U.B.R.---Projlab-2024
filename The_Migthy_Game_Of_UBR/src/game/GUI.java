@@ -223,10 +223,6 @@ public class GUI {
         r1i2.setUniqueName("TestDice");
         r1.addItem(r1i2);
         r1.addItem(r1i1);
-        /////////////TESTTETSETSETETESTTESTTESTTESTTEST
-        Item test1 = new Transistor();
-        test1.setXY(125, 56);
-        r1.addTransistor( (Transistor) test1);
 
 
         // Room2
@@ -312,10 +308,6 @@ public class GUI {
         r9.setXY(66, 391);
         r9.setMaxCharacter(3);
         r9.setUniqueName("Room9");
-        /////////////TESTTETSETSETETESTTESTTESTTESTTEST
-        Item test2 = new Transistor();
-        test2.setXY(68, 393);
-        r9.addTransistor( (Transistor) test2);
 
 
         // Room10
@@ -346,6 +338,7 @@ public class GUI {
         Item r12i1 = new Transistor();
         r12i1.setUniqueName("Transistor1");
         r12i1.setXY(560, 351);
+        ((Transistor) r12i1).setCurrentRoom(r12);
         r12.addTransistor( (Transistor) r12i1);
 
         // Room13
@@ -375,6 +368,7 @@ public class GUI {
         r15.setUniqueName("Room15");
         Item r15i1 = new Transistor();
         r15i1.setUniqueName("Transistor2");
+        ((Transistor) r15i1).setCurrentRoom(r15);
         r15i1.setXY(716, 394);
         r15.addTransistor( (Transistor) r15i1);
 
@@ -411,6 +405,11 @@ public class GUI {
         r14.addNeighbour(r12);
         r15.addNeighbour(r8);
         r15.addNeighbour(r12);
+
+        // TRASISTOR PAIRING
+        ((Transistor) r15i1).pairing((Transistor) r12i1);
+        ((Transistor) r12i1).pairing((Transistor) r15i1);
+
 
         /////// Final list
 

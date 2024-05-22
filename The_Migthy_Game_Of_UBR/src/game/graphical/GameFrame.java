@@ -104,9 +104,13 @@ public class GameFrame extends JFrame {
                 currentPlayer.action("idle");
             }
         });
+        turnOnTransButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) { currentPlayer.action("turnOnTransistor"); }
+        });
         tranJumpButton.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent e) { currentPlayer.transistorJump(); }
+            public void actionPerformed(ActionEvent e) { currentPlayer.action("StudentMove transistorJump"); }
         });
 
     }
@@ -122,9 +126,8 @@ public class GameFrame extends JFrame {
 
             //magic
             moveButton.setEnabled(!currentPlayer.getRoom().getNeighbours().isEmpty());
-
             tranJumpButton.setEnabled(currentPlayer.getRoom().geTransistor() != null && currentPlayer.getRoom().geTransistor().getIsOn());
-            dropItemButton.setEnabled(!currentPlayer.getInventory().isEmpty());
+            dropItemButton.setEnabled( !currentPlayer.getInventory().isEmpty() );
             useItemButton.setEnabled(!currentPlayer.getInventory().isEmpty());
             turnOnTransButton.setEnabled(currentPlayer.getRoom().geTransistor() != null && !currentPlayer.getRoom().geTransistor().getIsOn());
         }
@@ -145,11 +148,11 @@ public class GameFrame extends JFrame {
             currentRound.setFont(new Font("Segoe UI", Font.BOLD, 20));
             currentRound.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(255, 178, 102)));
 
-            moveButton.setEnabled(false);
-            tranJumpButton.setEnabled(false);
-            dropItemButton.setEnabled(false);
-            useItemButton.setEnabled(false);
-            turnOnTransButton.setEnabled(false);
+//            moveButton.setEnabled(false);
+//            tranJumpButton.setEnabled(false);
+//            dropItemButton.setEnabled(false);
+//            useItemButton.setEnabled(false);
+//            turnOnTransButton.setEnabled(false);
         }
 
         moveButton.setBackground(new Color(255, 153, 51));

@@ -216,6 +216,7 @@ public class Student extends Character implements Serializable {
             case "turnOnTransistor":
                 if(currentRoom.geTransistor() != null){
                     currentRoom.geTransistor().powerOn();
+                    idle();
                 }
                 break;
             case "idle":

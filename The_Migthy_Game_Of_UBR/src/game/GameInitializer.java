@@ -6,6 +6,7 @@ import game.characters.Instructor;
 import game.characters.Student;
 import game.graphical.*;
 import game.items.Item;
+import game.items.Transistor;
 import game.rooms.Room;
 
 import javax.swing.*;
@@ -91,7 +92,6 @@ public class GameInitializer {
         }
 
 
-
         //tanárok
         for (int i = 0; i < 3; i++) {
         //for (int i = 0; i < 1; i++) {
@@ -125,6 +125,10 @@ public class GameInitializer {
             tmp.setView();
             elementViews.add(tmp.getView());
         }
+
+        //TEST
+        GameController.getInstance().getRooms().get(0).addTransistor(new Transistor());
+        GameController.getInstance().getRooms().get(8).addTransistor(new Transistor());
 
         gameFrame.getMapView().addViews(elementViews);
 

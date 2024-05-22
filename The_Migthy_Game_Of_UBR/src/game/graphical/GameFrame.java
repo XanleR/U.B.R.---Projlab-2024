@@ -34,14 +34,14 @@ public class GameFrame extends JFrame {
     //Gomb, amivel a hallgató a tétlen maradását tudja végrehajtani
     private JButton idleButton;
     //A pálya eltárolására szolgáló változó
-    private MapView mapView;
+    private static MapView mapView;
     //Az aktuálisan körön lévő karakter, melyről szeretnénk információt kirajzolni
     private Student currentPlayer;
-    private JPanel controllerPanel;
+    private static JPanel controllerPanel;
 
-    private JPanel arrows;
+    private static JPanel arrows;
 
-    private JLayeredPane layeredPane = new JLayeredPane();
+    private static JLayeredPane layeredPane = new JLayeredPane();
 
     private static GameFrame instance;
 

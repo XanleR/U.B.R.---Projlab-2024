@@ -14,6 +14,10 @@ public class MapView extends JPanel {
         this.elementViewList = elementViewList;
     }
 
+    public MapView() {
+        this.elementViewList = new ArrayList<>();
+    }
+
     public void draw(){
         removeAll();
 

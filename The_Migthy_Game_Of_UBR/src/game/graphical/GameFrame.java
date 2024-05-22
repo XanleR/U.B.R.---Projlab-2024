@@ -37,7 +37,7 @@ public class GameFrame extends JFrame {
     private MapView mapView;
     //Az aktuálisan körön lévő karakter, melyről szeretnénk információt kirajzolni
     private Student currentPlayer;
-    private JPanel controllerPanel = new JPanel();
+    private JPanel controllerPanel;
 
     private JPanel arrows = new JPanel();
 
@@ -48,7 +48,10 @@ public class GameFrame extends JFrame {
     private final int frameWidth = 1000;
     private final int frameHeight = 600;
 
-    private GameFrame(){}
+    private GameFrame(){
+        controllerPanel = new JPanel();
+        mapView = new MapView();
+    }
 
     public static GameFrame getInstance(){
         if(instance == null){

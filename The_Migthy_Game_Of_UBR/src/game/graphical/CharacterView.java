@@ -29,6 +29,7 @@ public class CharacterView extends ElementView {
     public void drawImage() {
         this.xCoord = character.getxCoord();
         this.yCoord = character.getyCoord();
+
         image.setLocation(xCoord, yCoord);
 
         gameFrame.getMapView().add(this.image);

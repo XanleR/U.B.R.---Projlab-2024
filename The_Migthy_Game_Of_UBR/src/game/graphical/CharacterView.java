@@ -27,6 +27,10 @@ public class CharacterView extends ElementView {
     
     @Override
     public void drawImage() {
+        this.xCoord = character.getxCoord();
+        this.yCoord = character.getyCoord();
+        image.setLocation(xCoord, yCoord);
+
         gameFrame.getMapView().add(this.image);
         gameFrame.getMapView().add(stunnedLabel);
         GameFrame.getInstance().getMapView().revalidate();

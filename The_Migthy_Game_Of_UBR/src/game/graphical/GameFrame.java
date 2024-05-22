@@ -181,7 +181,7 @@ public class GameFrame extends JFrame {
     public void drawMap(){
         this.updateHud();
 
-        //mapView.draw();
+        mapView.draw();
     }
 
     public void drawMap(Student student){
@@ -236,7 +236,7 @@ public class GameFrame extends JFrame {
 
         //mapView.setBackground(new Color(255, 0, 255));
 
-        mapView.draw();
+        drawMap();
 
 
 
@@ -271,7 +271,7 @@ public class GameFrame extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
-        drawMap();
+        //drawMap();
     }
 
     public void addArrow(JLabel arrow){

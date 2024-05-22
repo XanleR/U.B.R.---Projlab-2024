@@ -77,7 +77,7 @@ public class GameInitializer {
 
         GameController.getInstance().setStudentCount(count);
         // tanulók
-        for (int i = 0; i < count ; i++) {
+        for (int i = 0; i < 1 ; i++) {
             Student tmp = new Student(); tmp.setInventorySize(5);
             tmp.setUniqueName("Student" + i);
             GameController.getInstance().addCharacter(tmp);

@@ -71,6 +71,12 @@ public class Student extends Character implements Serializable {
     public void move(Room from, Room to){
         if(stunnedRounds <= 0){
             to.addCharacter(this);
+            gameFrame.drawMap(this);
+            remainingactions--;
+
+            if(remainingactions == 0){
+                gameController.stepCharacter();
+            }
         }
         else{
             System.out.println("The Student could not move to the "+to.getUniqueName()+"...");
@@ -285,6 +291,7 @@ public class Student extends Character implements Serializable {
     //return: void
     @Override
     public void startRound(int in) {
+
         if(maskedRounds > 0){
             maskedRounds--;
         }

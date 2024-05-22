@@ -27,9 +27,19 @@ public class StudentView extends CharacterView{
 
     @Override
     public void drawImage() {
-        super.drawImage();
+
+
+        this.xCoord = student.getxCoord();
+        this.yCoord = student.getyCoord();
+        image.setLocation(xCoord, yCoord);
+
+        gameFrame.getMapView().add(this.image);
+
         gameFrame.getMapView().add(maskedLabel);
         gameFrame.getMapView().add(tvszLabel);
+
+        GameFrame.getInstance().getMapView().revalidate();
+        GameFrame.getInstance().getMapView().repaint();
     }
 
 }

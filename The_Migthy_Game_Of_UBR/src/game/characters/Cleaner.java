@@ -10,6 +10,8 @@ import javax.swing.*;
 import java.io.Serializable;
 import java.util.Random;
 
+import static game.GUI.gameController;
+
 public class Cleaner extends Character implements Serializable {
 
     //input: int stunned
@@ -108,12 +110,13 @@ public class Cleaner extends Character implements Serializable {
             return;
         }
         Random random = new Random();
-        remainingactions = random.nextInt(6) + 1;
+        remainingactions = in;
         while (remainingactions > 0 && stunnedRounds == 0) {
             action("");
             remainingactions--;
         }
         remainingactions = 0;
+        gameController.stepCharacter();
     }
 
     //input: -

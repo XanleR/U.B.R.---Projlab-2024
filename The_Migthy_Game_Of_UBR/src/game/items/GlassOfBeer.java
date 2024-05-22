@@ -16,7 +16,7 @@ public class GlassOfBeer extends Item  implements Serializable {
         return activeRounds;
     }
 
-    private int activeRounds;
+    private int activeRounds = 3;
 
     private boolean activatedOnce = false;
 

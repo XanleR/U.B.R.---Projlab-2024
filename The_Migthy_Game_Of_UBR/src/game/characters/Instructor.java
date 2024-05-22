@@ -100,6 +100,10 @@ public class Instructor extends Character implements Serializable {
         remainingactions = in;
         while(remainingactions > 0 && stunnedRounds == 0){
             action("");
+            if(currentRoom.getNeighbours().isEmpty()){
+                //System.out.println("The "+uniqueName+" cannot move anywhere...");
+                break;
+            }
             remainingactions--;
         }
         remainingactions = 0;

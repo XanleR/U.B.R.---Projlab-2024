@@ -223,6 +223,11 @@ public class GUI {
         r1i2.setUniqueName("TestDice");
         r1.addItem(r1i2);
         r1.addItem(r1i1);
+        /////////////TESTTETSETSETETESTTESTTESTTESTTEST
+        Item test1 = new Transistor();
+        test1.setXY(125, 56);
+        r1.addTransistor( (Transistor) test1);
+
 
         // Room2
         Room r2 = new GasRoom();
@@ -307,6 +312,10 @@ public class GUI {
         r9.setXY(66, 391);
         r9.setMaxCharacter(3);
         r9.setUniqueName("Room9");
+        /////////////TESTTETSETSETETESTTESTTESTTESTTEST
+        Item test2 = new Transistor();
+        test2.setXY(68, 393);
+        r9.addTransistor( (Transistor) test2);
 
 
         // Room10
@@ -337,7 +346,7 @@ public class GUI {
         Item r12i1 = new Transistor();
         r12i1.setUniqueName("Transistor1");
         r12i1.setXY(560, 351);
-        r12.addItem(r12i1);
+        r12.addTransistor( (Transistor) r12i1);
 
         // Room13
         Room r13 = new RegularRoom();
@@ -367,7 +376,7 @@ public class GUI {
         Item r15i1 = new Transistor();
         r15i1.setUniqueName("Transistor2");
         r15i1.setXY(716, 394);
-        r15.addItem(r15i1);
+        r15.addTransistor( (Transistor) r15i1);
 
 
         ////////// mapping

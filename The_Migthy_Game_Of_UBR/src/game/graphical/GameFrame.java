@@ -344,7 +344,7 @@ public class GameFrame extends JFrame {
 
         //mapView.setBackground(new Color(255, 0, 255));
 
-        drawMap();
+        //drawMap();
 
 
 
@@ -379,7 +379,7 @@ public class GameFrame extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
-        //drawMap();
+        drawMap();
     }
 
     public void addArrow(JLabel arrow){

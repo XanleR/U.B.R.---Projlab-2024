@@ -71,8 +71,8 @@ public class Student extends Character implements Serializable {
     public void move(Room from, Room to){
         if(stunnedRounds <= 0){
             to.addCharacter(this);
-            gameFrame.drawMap(this);
             remainingactions--;
+            gameFrame.drawMap(this);
 
             if(remainingactions == 0){
                 gameController.stepCharacter();
@@ -183,6 +183,7 @@ public class Student extends Character implements Serializable {
                             if(this.currentRoom.geTransistor() != null && this.currentRoom.geTransistor().getPairsRoom() != null
                                     && this.currentRoom.geTransistor().getPairsRoom().getUniqueName().equals(slicedCommand[2])){
                                 this.transistorJump();
+                                idle();
                             }
                             break;
                     }
@@ -223,6 +224,7 @@ public class Student extends Character implements Serializable {
             case "turnOnTransistor":
                 if(currentRoom.geTransistor() != null){
                     currentRoom.geTransistor().powerOn();
+                    idle();
                 }
                 break;
             case "idle":

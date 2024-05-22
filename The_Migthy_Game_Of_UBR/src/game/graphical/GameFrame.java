@@ -134,6 +134,19 @@ public class GameFrame extends JFrame {
                 currentPlayer.action("idle");
             }
         });
+        turnOnTransButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                currentPlayer.action("turnOnTransistor");
+            }
+        });
+        tranJumpButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                currentPlayer.action("StudentMove transistorJump");
+            }
+        });
+
     }
 
     //input: -
@@ -149,6 +162,7 @@ public class GameFrame extends JFrame {
             moveButton.setEnabled(!currentPlayer.getRoom().getNeighbours().isEmpty());
 
             tranJumpButton.setEnabled(currentPlayer.getRoom().geTransistor() != null && currentPlayer.getRoom().geTransistor().getIsOn());
+            
             pickUpItemButton.setEnabled(!currentPlayer.getRoom().getItems().isEmpty());
             dropItemButton.setEnabled(!currentPlayer.getInventory().isEmpty());
             useItemButton.setEnabled(!currentPlayer.getInventory().isEmpty());

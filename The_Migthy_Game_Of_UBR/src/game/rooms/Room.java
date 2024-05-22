@@ -13,6 +13,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import static game.GUI.gameFrame;
+
 /*
 *Class Done
 */
@@ -342,6 +344,7 @@ public abstract class Room  implements Serializable {
         if(ch.canPickUp()) {
             i.onPickedUp(ch);
             this.removeItem(i);
+            gameFrame.getMapView().removeElementView(i.getItemView());
             System.out.println("The student picked the "+i.getUniqueName()+" up!");
         }
     }

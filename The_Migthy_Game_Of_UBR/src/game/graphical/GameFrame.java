@@ -125,7 +125,59 @@ public class GameFrame extends JFrame {
             }
         });
         dropItemButton = new JButton("Drop Item");
+        dropItemButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame dialogWindow = new JFrame("Choose which item to drop...");
+                dialogWindow.setSize(300, 200);
+                dialogWindow.setLayout(new GridLayout(currentPlayer.getInventory().size(), 1));
+                dialogWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                for(Item item : currentPlayer.getInventory()){
+                    JButton button = new JButton(item.getUniqueName());
+                    button.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            dialogWindow.dispose();
+                            currentPlayer.action("dropItem " + item.getUniqueName());
+                        }
+                    });
+                    //dialogWindow.pack();
+                    dialogWindow.add(button);
+                    dialogWindow.setLocationRelativeTo(null);
+                    dialogWindow.setVisible(true);
+                }
+
+
+            }
+        });
         useItemButton = new JButton("Use Item");
+        useItemButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame dialogWindow = new JFrame("Choose which item to use...");
+                dialogWindow.setSize(300, 200);
+                dialogWindow.setLayout(new GridLayout(currentPlayer.getInventory().size(), 1));
+                dialogWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                for(Item item : currentPlayer.getInventory()){
+                    JButton button = new JButton(item.getUniqueName());
+                    button.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            dialogWindow.dispose();
+                            currentPlayer.action("useItem " + item.getUniqueName());
+                        }
+                    });
+                    //dialogWindow.pack();
+                    dialogWindow.add(button);
+                    dialogWindow.setLocationRelativeTo(null);
+                    dialogWindow.setVisible(true);
+                }
+
+
+            }
+        });
         turnOnTransButton = new JButton("Turn On Transistor");
         idleButton = new JButton("Idle");
         idleButton.addActionListener(new ActionListener() {

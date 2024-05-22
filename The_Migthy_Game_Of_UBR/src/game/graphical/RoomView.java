@@ -14,7 +14,7 @@ import java.io.Serializable;
 import static game.GUI.gameFrame;
 
 public class RoomView extends ElementView{
-
+    
     private Room room;
 
     private JLabel roomNumber;
@@ -62,6 +62,15 @@ public class RoomView extends ElementView{
 
         gameFrame.getMapView().add(image);
         gameFrame.getMapView().add(roomNumber);
+
+        if(room.geTransistor() != null){
+            room.geTransistor().setXY(room.getX()+27, room.getY()+15);
+            room.geTransistor().setView(room.getX()+27, room.getY()+15);
+
+            gameFrame.getMapView().addViews(room.geTransistor().getItemView());
+        }
+
+
 
 
 

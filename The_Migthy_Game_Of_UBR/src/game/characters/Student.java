@@ -351,6 +351,11 @@ public class Student extends Character implements Serializable {
     public void dropItem(Item dropped){
         if(this.currentRoom.addItem(dropped)){
             removeItem(dropped);
+            dropped.setXY(currentRoom.getX()+2, currentRoom.getY()+2);
+            dropped.setView(currentRoom.getX()+2, currentRoom.getY()+2);
+            gameFrame.getMapView().addViews(dropped.getItemView());
+            idle();
+            gameFrame.drawMap(this);
             System.out.println("The "+dropped.getUniqueName()+" drop was successful!");
         }
 
@@ -361,6 +366,8 @@ public class Student extends Character implements Serializable {
     //return: void
     public void useItem(Item used){
         used.use(this);
+        idle();
+        gameFrame.drawMap(this);
         System.out.println("The "+used.getUniqueName()+" was used!");
     }
 

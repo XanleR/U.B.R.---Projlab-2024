@@ -123,7 +123,7 @@ public abstract class Room  implements Serializable {
             return false;
         }
         //Ha van transistorjump akkor elerheto
-        if(this.transistor != null && this.transistor.getPairsRoom().getUniqueName().equals(r1.getUniqueName())){
+        if(this.transistor != null && this.transistor.getPairsRoom() != null && this.transistor.getPairsRoom().getUniqueName().equals(r1.getUniqueName())){
             return true;
         }
         //Ha szomszedok akkor is elerheto

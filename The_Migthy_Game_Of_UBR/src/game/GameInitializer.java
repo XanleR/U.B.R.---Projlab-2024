@@ -73,12 +73,9 @@ public class GameInitializer {
 
         List<ElementView> elementViews = new ArrayList<>();
 
-        //TODO kiszedni, hogy ne 1 legyen
-        //GameController.getInstance().setStudentCount(count);
-
-        GameController.getInstance().setStudentCount(1);
+        GameController.getInstance().setStudentCount(count);
         // tanulók
-        for (int i = 0; i < 1 ; i++) {
+        for (int i = 0; i < count ; i++) {
             Student tmp = new Student(); tmp.setInventorySize(5);
             tmp.setUniqueName("Student" + i);
             GameController.getInstance().addCharacter(tmp);

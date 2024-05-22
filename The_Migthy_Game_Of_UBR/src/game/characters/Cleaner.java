@@ -112,12 +112,14 @@ public class Cleaner extends Character implements Serializable {
         }
 
 
-
         Random random = new Random();
         remainingactions = in;
         while (remainingactions > 0 && stunnedRounds == 0) {
             action("");
-
+            if(currentRoom.getNeighbours().isEmpty()){
+                System.out.println("The "+uniqueName+" cannot move anywhere...");
+                break;
+            }
             remainingactions--;
             if(remainingactions == 0){
                 gameController.stepCharacter();

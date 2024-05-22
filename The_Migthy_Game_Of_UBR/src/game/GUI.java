@@ -335,11 +335,6 @@ public class GUI {
         r12.setXY(558, 349);
         r12.setMaxCharacter(3);
         r12.setUniqueName("Room12");
-        Item r12i1 = new Transistor();
-        r12i1.setUniqueName("Transistor1");
-        r12i1.setXY(560, 351);
-        ((Transistor) r12i1).setCurrentRoom(r12);
-        r12.addTransistor( (Transistor) r12i1);
 
         // Room13
         Room r13 = new RegularRoom();
@@ -350,6 +345,11 @@ public class GUI {
         r13i1.setUniqueName("Camambert2");
         r13i1.setXY(221, 477);
         r13.addItem(r13i1);
+        Item r13i2 = new Transistor();
+        r13i2.setUniqueName("Transistor1");
+        r13i2.setXY(560, 351);
+        ((Transistor) r13i2).setCurrentRoom(r13);
+        r13.addTransistor( (Transistor) r13i2);
 
         // Room14
         Room r14 = new RegularRoom();
@@ -407,8 +407,8 @@ public class GUI {
         r15.addNeighbour(r12);
 
         // TRASISTOR PAIRING
-        ((Transistor) r15i1).pairing((Transistor) r12i1);
-        ((Transistor) r12i1).pairing((Transistor) r15i1);
+        ((Transistor) r15i1).pairing((Transistor) r13i2);
+        ((Transistor) r13i2).pairing((Transistor) r15i1);
 
 
         /////// Final list

@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.Random;
 
 import static game.GUI.gameController;
+import static game.GUI.gameFrame;
 
 public class Cleaner extends Character implements Serializable {
 
@@ -107,6 +108,12 @@ public class Cleaner extends Character implements Serializable {
         if (stunnedRounds != 0) {
             System.out.println("The cleaner is stunned, no actions for this round...");
             stunnedRounds--;
+
+            remainingactions--;
+            if(remainingactions == 0){
+                gameController.stepCharacter();
+            }
+
             return;
         }
         Random random = new Random();

@@ -93,8 +93,8 @@ public class GameController {
     //method: Kezeli azt az esemenyt, amikor egy Student felveszi a SlideRule targyat
     //return: void
     public void slideRulePickedUp(){
+        gameFrame.dispose();
         System.out.println("The student won!");
-        this.endGame();
 
     }
 
@@ -242,10 +242,19 @@ public class GameController {
     }
 
     public void stepCharacter(){
+        if(studentCount == 0){
+            gameFrame.dispose();
+            return;
+        }
         characterindex++;
         if(characterindex >= listOfCharacters.size()){
             roundCounter++;
             characterindex = 0;
+            if(roundCounter >= roundLimit){
+                gameFrame.dispose();
+                return;
+            }
+
         }
         currentCharacter = listOfCharacters.get(characterindex);
         currentCharacter.startRound(rollDice());

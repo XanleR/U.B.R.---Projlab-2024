@@ -94,6 +94,7 @@ public class GameController {
     //return: void
     public void slideRulePickedUp(){
         gameFrame.dispose();
+        active = false;
         System.out.println("The student won!");
 
     }
@@ -208,8 +209,10 @@ public class GameController {
         }
 
         listOfCharacters.remove(removeable);
+        gameFrame.getMapView().removeElementView(removeable.getView());
         studentCount--;
         if(studentCount == 0){
+            gameFrame.dispose();
             System.out.println("All student died, the instructors won...");
             active = false;
         }
@@ -242,7 +245,7 @@ public class GameController {
     }
 
     public void stepCharacter(){
-        if(studentCount == 0){
+        if(studentCount == 0 || !active){
             gameFrame.dispose();
             return;
         }

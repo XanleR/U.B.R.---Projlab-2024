@@ -104,63 +104,14 @@ public class Student extends Character implements Serializable {
     }
 
     //input: -
-    //method: Kiírja az összes lehetséges szobának, meg itemnek a nevét, amivel a hallgató interaktálhat
-    //return: void
-    private void printVariables(){
-        System.out.println("The player is stunned for " + stunnedRounds + " rounds!");
-        System.out.println("The player is in the " + currentRoom.getUniqueName() + " room!");
-
-        // A szomszédos szobák, ahova mozoghat
-        System.out.println("\nNeighbouring Rooms:");
-        for(Room room : currentRoom.getNeighbours()){
-            System.out.println(room.getUniqueName());
-        }
-
-        // TransistorJump lehetősége
-        if(this.currentRoom.geTransistor() != null && this.currentRoom.geTransistor().getPairsRoom() != null){
-            System.out.println(this.currentRoom.geTransistor().getPairsRoom().getUniqueName());
-        }
-
-        // Az itemek, amiket felvehet a szobában
-        System.out.println("\nItems in this room:");
-        for(Item item : currentRoom.getItems()){
-            System.out.println(item.getUniqueName());
-        }
-
-        // A szobában letett tranzisztor
-        if(currentRoom.geTransistor() != null){
-            System.out.println("Transistor placed in the room: " + currentRoom.geTransistor().getUniqueName());
-        }
-
-        // Az itemek, amik a hallgatónál vannak
-        System.out.println("\nItems in your inventory:");
-        for(Item item : this.inventory){
-            System.out.println(item.getUniqueName());
-        }
-
-        // A hallgatónál lévő tvsz
-        if(tvsz != null){
-            System.out.println(tvsz.getUniqueName());
-        }
-
-    }
-
-    private void printOptions(){
-        System.out.println("\nOptions:");
-        System.out.println("StudentMove simpleMove {roomName}");
-        System.out.println("StudentMove transistorJump {roomName}");
-        System.out.println("dropItem {itemName}");
-        System.out.println("useItem {itemName}");
-        System.out.println("pickUpItem {itemName}");
-        System.out.println("turnOnTransistor");
-        System.out.println("idle");
-    }
-
-    //input: -
     //method: vegrehajtja a felhasznalo altal kivalasztott action-t
     //return: void
     @Override
     public void action(String command) {
+        if(stunnedRounds != 0){
+            GameController.getInstance().stepCharacter();
+        }
+
         //GameFrame.getInstance().drawMap(this);
 
         String[] slicedCommand = command.split(" ");

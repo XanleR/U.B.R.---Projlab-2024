@@ -14,8 +14,8 @@ public class MapView extends JPanel {
         this.elementViewList = elementViewList;
     }
 
-    public MapView() {
-        this.elementViewList = new ArrayList<>();
+    public MapView(){
+        elementViewList = new ArrayList<>();
     }
 
     public void draw(){

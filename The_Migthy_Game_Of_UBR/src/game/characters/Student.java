@@ -188,6 +188,10 @@ public class Student extends Character implements Serializable {
                 break;
         }
 
+        if(stunnedRounds != 0){
+            GameController.getInstance().stepCharacter();
+        }
+
     }
 
     //input: -

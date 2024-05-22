@@ -27,8 +27,15 @@ public class CharacterView extends ElementView {
     
     @Override
     public void drawImage() {
+
+
+
         this.xCoord = character.getxCoord();
         this.yCoord = character.getyCoord();
+
+        if(xCoord == 0 && yCoord == 0){
+            System.out.println("Null for some reason");
+        }
 
         image.setLocation(xCoord, yCoord);
 

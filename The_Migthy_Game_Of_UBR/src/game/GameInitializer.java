@@ -49,9 +49,7 @@ public class GameInitializer {
 
         }
 
-        MapView mapView = new MapView(roomViews);
-
-        GameFrame.getInstance().setMapView(mapView);
+        gameFrame.getMapView().addViews(roomViews);
 
         //System.out.println("3 beolvasás ok");
         map.close();

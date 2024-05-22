@@ -321,6 +321,7 @@ public abstract class Room  implements Serializable {
         r2.setWetRags(this.wetRags);
         r2.setListOfNeighbours(this.listOfNeighbours);
         r2.addTransistor(this.transistor);
+        r2.setXY(this.getX(), this.getY());
     }
 
     //input: Transistor added

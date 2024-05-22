@@ -15,11 +15,11 @@ import static game.GUI.gameController;
 
 public class GameFrame extends JFrame {
     //Az aktuálisan körön lévő játékosnak a neve
-    private JLabel actualPlayer = new JLabel();
+    private JLabel actualPlayer;
     //Az aktuális játékosnak a maradék akcióinak száma
-    private JLabel remainingAction = new JLabel();
+    private JLabel remainingAction;
     //A játék köreinek számlálója
-    private JLabel currentRound = new JLabel();
+    private JLabel currentRound;
     //Gomb, amivel a hallgató tud mozogni
     private JButton moveButton;
     //Gomb, amivel a hallgató tud tranzisztor ugrást végrehajtani
@@ -39,7 +39,7 @@ public class GameFrame extends JFrame {
     private Student currentPlayer;
     private JPanel controllerPanel;
 
-    private JPanel arrows = new JPanel();
+    private JPanel arrows;
 
     private JLayeredPane layeredPane = new JLayeredPane();
 
@@ -50,7 +50,11 @@ public class GameFrame extends JFrame {
 
     private GameFrame(){
         controllerPanel = new JPanel();
+        arrows = new JPanel();
         mapView = new MapView();
+        actualPlayer = new JLabel();
+        remainingAction = new JLabel();
+        currentRound = new JLabel();
     }
 
     public static GameFrame getInstance(){

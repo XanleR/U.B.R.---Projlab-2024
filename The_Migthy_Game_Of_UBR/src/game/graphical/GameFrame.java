@@ -3,6 +3,7 @@ package game.graphical;
 import game.GameController;
 import game.characters.Character;
 import game.characters.Student;
+import game.items.Item;
 import game.rooms.Room;
 
 import javax.swing.*;
@@ -23,6 +24,7 @@ public class GameFrame extends JFrame {
     private JButton moveButton;
     //Gomb, amivel a hallgató tud tranzisztor ugrást végrehajtani
     private JButton tranJumpButton;
+    private JButton pickUpItemButton;
     //Gomb, amivel a hallgató el tud dobni egy itemet
     private JButton dropItemButton;
     //Gomb, amivel egy hallgató tud használni egy itemet
@@ -73,6 +75,7 @@ public class GameFrame extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 JFrame dialogWindow = new JFrame("Choose where to move...");
                 dialogWindow.setSize(300, 200);
+                dialogWindow.setLayout(new GridLayout(currentPlayer.getRoom().getNeighbours().size(), 1));
                 dialogWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
                 for(Room room : currentPlayer.getRoom().getNeighbours()){
@@ -84,7 +87,7 @@ public class GameFrame extends JFrame {
                             currentPlayer.action("StudentMove simpleMove " + room.getUniqueName());
                         }
                     });
-                    dialogWindow.pack();
+                    //dialogWindow.pack();
                     dialogWindow.add(button);
                     dialogWindow.setLocationRelativeTo(null);
                     dialogWindow.setVisible(true);
@@ -94,6 +97,33 @@ public class GameFrame extends JFrame {
             }
         });
         tranJumpButton = new JButton("Transistor Jump");
+        pickUpItemButton = new JButton("Pick Up Item");
+        pickUpItemButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFrame dialogWindow = new JFrame("Choose which item to Pick Up");
+                dialogWindow.setSize(300, 200);
+                dialogWindow.setLayout(new GridLayout(currentPlayer.getRoom().getItems().size(), 1));
+                dialogWindow.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+                for(Item item : currentPlayer.getRoom().getItems()){
+                    JButton button = new JButton(item.getUniqueName());
+                    button.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            dialogWindow.dispose();
+                            currentPlayer.action("pickUpItem " + item.getUniqueName());
+                        }
+                    });
+                    //dialogWindow.pack();
+                    dialogWindow.add(button);
+                    dialogWindow.setLocationRelativeTo(null);
+                    dialogWindow.setVisible(true);
+                }
+
+
+            }
+        });
         dropItemButton = new JButton("Drop Item");
         useItemButton = new JButton("Use Item");
         turnOnTransButton = new JButton("Turn On Transistor");
@@ -127,7 +157,10 @@ public class GameFrame extends JFrame {
             //magic
             moveButton.setEnabled(!currentPlayer.getRoom().getNeighbours().isEmpty());
             tranJumpButton.setEnabled(currentPlayer.getRoom().geTransistor() != null && currentPlayer.getRoom().geTransistor().getIsOn());
-            dropItemButton.setEnabled( !currentPlayer.getInventory().isEmpty() );
+
+            pickUpItemButton.setEnabled(!currentPlayer.getRoom().getItems().isEmpty());
+            dropItemButton.setEnabled(!currentPlayer.getInventory().isEmpty());
+
             useItemButton.setEnabled(!currentPlayer.getInventory().isEmpty());
             turnOnTransButton.setEnabled(currentPlayer.getRoom().geTransistor() != null && !currentPlayer.getRoom().geTransistor().getIsOn());
         }
@@ -148,11 +181,13 @@ public class GameFrame extends JFrame {
             currentRound.setFont(new Font("Segoe UI", Font.BOLD, 20));
             currentRound.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, new Color(255, 178, 102)));
 
-//            moveButton.setEnabled(false);
-//            tranJumpButton.setEnabled(false);
-//            dropItemButton.setEnabled(false);
-//            useItemButton.setEnabled(false);
-//            turnOnTransButton.setEnabled(false);
+
+            moveButton.setEnabled(false);
+            tranJumpButton.setEnabled(false);
+            pickUpItemButton.setEnabled(false);
+            dropItemButton.setEnabled(false);
+            useItemButton.setEnabled(false);
+            turnOnTransButton.setEnabled(false);
         }
 
         moveButton.setBackground(new Color(255, 153, 51));
@@ -162,6 +197,10 @@ public class GameFrame extends JFrame {
         tranJumpButton.setBackground(new Color(255, 153, 51));
         tranJumpButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
         tranJumpButton.setForeground(new Color(153, 76, 0));
+
+        pickUpItemButton.setBackground(new Color(255, 153, 51));
+        pickUpItemButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        pickUpItemButton.setForeground(new Color(153, 76, 0));
 
         dropItemButton.setBackground(new Color(255, 153, 51));
         dropItemButton.setFont(new Font("Segoe UI", Font.BOLD, 15));
@@ -188,7 +227,7 @@ public class GameFrame extends JFrame {
     public void drawMap(){
         this.updateHud();
 
-        //mapView.draw();
+        mapView.draw();
     }
 
     public void drawMap(Student student){
@@ -219,6 +258,7 @@ public class GameFrame extends JFrame {
         controllerPanel.add(remainingAction);
         controllerPanel.add(moveButton);
         controllerPanel.add(tranJumpButton);
+        controllerPanel.add(pickUpItemButton);
         controllerPanel.add(dropItemButton);
         controllerPanel.add(useItemButton);
         controllerPanel.add(turnOnTransButton);
@@ -243,7 +283,7 @@ public class GameFrame extends JFrame {
 
         //mapView.setBackground(new Color(255, 0, 255));
 
-        mapView.draw();
+        drawMap();
 
 
 
@@ -278,7 +318,7 @@ public class GameFrame extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
-        drawMap();
+        //drawMap();
     }
 
     public void addArrow(JLabel arrow){

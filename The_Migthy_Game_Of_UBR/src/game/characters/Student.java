@@ -131,8 +131,11 @@ public class Student extends Character implements Serializable {
                             }
                             break;
                         case "transistorJump":
-                            if(this.currentRoom.geTransistor() != null && this.currentRoom.geTransistor().getPairsRoom() != null
-                                    && this.currentRoom.geTransistor().getPairsRoom().getUniqueName().equals(slicedCommand[2])){
+                            if(
+                                    this.currentRoom.geTransistor() != null
+                                    && this.currentRoom.geTransistor().getPairsRoom() != null
+                                    //&& this.currentRoom.geTransistor().getPairsRoom().getUniqueName().equals(slicedCommand[2])
+                            ){
                                 this.transistorJump();
                                 idle();
                             }

@@ -223,10 +223,6 @@ public class GUI {
         r1i2.setUniqueName("TestDice");
         r1.addItem(r1i2);
         r1.addItem(r1i1);
-        /////////////TESTTETSETSETETESTTESTTESTTESTTEST
-        Item test1 = new Transistor();
-        test1.setXY(125, 56);
-        r1.addTransistor( (Transistor) test1);
 
 
         // Room2
@@ -312,10 +308,6 @@ public class GUI {
         r9.setXY(66, 391);
         r9.setMaxCharacter(3);
         r9.setUniqueName("Room9");
-        /////////////TESTTETSETSETETESTTESTTESTTESTTEST
-        Item test2 = new Transistor();
-        test2.setXY(68, 393);
-        r9.addTransistor( (Transistor) test2);
 
 
         // Room10
@@ -343,10 +335,6 @@ public class GUI {
         r12.setXY(558, 349);
         r12.setMaxCharacter(3);
         r12.setUniqueName("Room12");
-        Item r12i1 = new Transistor();
-        r12i1.setUniqueName("Transistor1");
-        r12i1.setXY(560, 351);
-        r12.addTransistor( (Transistor) r12i1);
 
         // Room13
         Room r13 = new RegularRoom();
@@ -357,6 +345,11 @@ public class GUI {
         r13i1.setUniqueName("Camambert2");
         r13i1.setXY(221, 477);
         r13.addItem(r13i1);
+        Item r13i2 = new Transistor();
+        r13i2.setUniqueName("Transistor1");
+        r13i2.setXY(560, 351);
+        ((Transistor) r13i2).setCurrentRoom(r13);
+        r13.addTransistor( (Transistor) r13i2);
 
         // Room14
         Room r14 = new RegularRoom();
@@ -375,6 +368,7 @@ public class GUI {
         r15.setUniqueName("Room15");
         Item r15i1 = new Transistor();
         r15i1.setUniqueName("Transistor2");
+        ((Transistor) r15i1).setCurrentRoom(r15);
         r15i1.setXY(716, 394);
         r15.addTransistor( (Transistor) r15i1);
 
@@ -411,6 +405,11 @@ public class GUI {
         r14.addNeighbour(r12);
         r15.addNeighbour(r8);
         r15.addNeighbour(r12);
+
+        // TRASISTOR PAIRING
+        ((Transistor) r15i1).pairing((Transistor) r13i2);
+        ((Transistor) r13i2).pairing((Transistor) r15i1);
+
 
         /////// Final list
 

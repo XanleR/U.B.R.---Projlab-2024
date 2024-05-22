@@ -195,7 +195,7 @@ public class GameFrame extends JFrame {
         tranJumpButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                currentPlayer.action("StudentMove transistorJump");
+                currentPlayer.action("StudentMove transistorJump asd");
             }
         });
 

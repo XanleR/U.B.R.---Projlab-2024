@@ -55,7 +55,17 @@ public class Transistor extends Item  implements Serializable {
     //method: Visszaadja azt a Room-ot, ahol a parja van
     //return: Room
     public Room getPairsRoom(){
-        return this.pair == null ? null : this.pair.getRoom();
+        // gecis lambdák már... a faszomat verjem bele
+        //return this.pair == null ? null : this.pair.getRoom();
+        if (this.pair == null) {
+            return null;
+        } else {
+            return this.pair.getRoom();
+        }
+    }
+
+    public Transistor getPair() {
+        return pair;
     }
 
     public Room getRoom(){

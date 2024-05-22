@@ -18,11 +18,12 @@ public class Camambert extends Item implements Serializable {
     //return: void
     @Override
     public void use(Student user){
+        System.out.println("The room became a gas room!");
         Room newGasRoom = new GasRoom();
         user.getRoom().copyToRoom(newGasRoom);
         GameController.getInstance().removeRoom(user.getRoom());
         GameController.getInstance().addRoom(newGasRoom);
-        System.out.println("The room became a gas room!");
+
     }
 
     //input: -

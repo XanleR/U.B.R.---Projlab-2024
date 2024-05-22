@@ -29,6 +29,7 @@ public class Dice extends Item implements Serializable {
     public void use(Student user){
         this.throwDice();
         user.addRounds(this.getCurrentValue());
+        user.removeItem(this);
     }
 
     //input: -

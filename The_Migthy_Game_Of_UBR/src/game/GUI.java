@@ -218,6 +218,10 @@ public class GUI {
         r1i1.setXY(123, 54);
         r1i1.setUniqueName("tvsz1");
         r1i1.setDesc("TVSZ");
+        Item r1i2 = new Dice();
+        r1i2.setXY(123, 54);
+        r1i2.setUniqueName("TestDice");
+        r1.addItem(r1i2);
         r1.addItem(r1i1);
 
         // Room2

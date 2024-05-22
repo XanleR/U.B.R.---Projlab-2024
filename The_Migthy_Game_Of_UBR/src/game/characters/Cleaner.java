@@ -2,6 +2,7 @@ package game.characters;
 
 import game.GameController;
 import game.graphical.CharacterView;
+import game.graphical.GameFrame;
 import game.items.*;
 import game.rooms.RegularRoom;
 import game.rooms.Room;
@@ -108,19 +109,20 @@ public class Cleaner extends Character implements Serializable {
         if (stunnedRounds != 0) {
             System.out.println("The cleaner is stunned, no actions for this round...");
             stunnedRounds--;
+        }
+
+
+
+        Random random = new Random();
+        remainingactions = in;
+        while (remainingactions > 0 && stunnedRounds == 0) {
+            action("");
 
             remainingactions--;
             if(remainingactions == 0){
                 gameController.stepCharacter();
             }
 
-            return;
-        }
-        Random random = new Random();
-        remainingactions = in;
-        while (remainingactions > 0 && stunnedRounds == 0) {
-            action("");
-            remainingactions--;
         }
         remainingactions = 0;
         gameController.stepCharacter();

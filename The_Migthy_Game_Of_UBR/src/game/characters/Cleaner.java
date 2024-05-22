@@ -117,7 +117,7 @@ public class Cleaner extends Character implements Serializable {
         while (remainingactions > 0 && stunnedRounds == 0) {
             action("");
             if(currentRoom.getNeighbours().isEmpty()){
-                System.out.println("The "+uniqueName+" cannot move anywhere...");
+                //System.out.println("The "+uniqueName+" cannot move anywhere...");
                 break;
             }
             remainingactions--;
